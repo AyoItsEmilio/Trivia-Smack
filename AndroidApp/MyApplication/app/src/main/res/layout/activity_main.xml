@@ -10,8 +10,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="comp4350groupa.triviasmack.MainActivity">
 
+    <Button
+        android:text="PLAY!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="TriviaSmack!"
+        android:textSize="50sp"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/playButton"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
