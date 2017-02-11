@@ -19,7 +19,8 @@
         <activity android:name=".HomePage" />
         <activity android:name=".userPage" />
         <activity android:name=".Settings" />
-        <activity android:name=".Leaderboard"></activity>
+        <activity android:name=".Leaderboard" />
+        <activity android:name=".EndGamePage"></activity>
     </application>
 
 </manifest>
