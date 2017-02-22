@@ -8,13 +8,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/homepagebg"
     tools:context="comp4350groupa.triviasmack.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TriviaSmack!"
-        android:textSize="50sp"
+        android:textSize="60sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         android:layout_marginBottom="12dp"
         android:layout_above="@+id/playButton"
         android:layout_centerHorizontal="true" />

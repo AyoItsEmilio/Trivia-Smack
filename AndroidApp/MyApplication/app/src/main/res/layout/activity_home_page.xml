@@ -8,40 +8,50 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/quizbg"
     tools:context="comp4350groupa.triviasmack.HomePage">
-
-    <Button
-        android:text="INSTANT PLAY"
-        android:layout_width="match_parent"
-        android:id="@+id/quickPlayBtn"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/leaderboardsBtn" />
-
-    <Button
-        android:text="Leaderboards"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/leaderboardsBtn"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/usernameBtn"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/settingsBtn"
+        android:background="#7f2638"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="INSTANT PLAY"
+        android:layout_width="match_parent"
+        android:id="@+id/quickPlayBtn"
+        android:background="@drawable/instantplaybtn"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="100px"
+        android:layout_above="@+id/leaderboardsBtn"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="103dp" />
+
+    <Button
+        android:text="Leaderboards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/leaderboardsBtn"
+        android:background="#7f2638"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/usernameBtn"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp" />
 
     <Button
         android:text="USERNAME"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usernameBtn"
+        android:background="#7f2638"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"
         android:layout_above="@+id/settingsBtn"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
