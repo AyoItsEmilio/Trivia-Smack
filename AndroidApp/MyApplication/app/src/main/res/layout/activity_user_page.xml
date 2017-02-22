@@ -38,7 +38,7 @@
         android:layout_alignStart="@+id/scoreText" />
 
     <TextView
-        android:text="<0>"
+        android:text="A0A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/leaderboardText"
@@ -47,7 +47,7 @@
         android:id="@+id/dynamicScore" />
 
     <TextView
-        android:text="<0000>"
+        android:text="A0000A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/leaderboardText"

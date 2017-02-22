@@ -8,7 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background = "@drawable/quizbg2"
     tools:context="comp4350groupa.triviasmack.QuestionPageActivity">
+
+
 
     <Button
         android:text="option 3"
@@ -17,6 +20,7 @@
         android:id="@+id/optionBtn3"
         android:layout_marginBottom="52dp"
         android:layout_alignParentBottom="true"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -25,6 +29,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn2"
         android:layout_above="@+id/optionBtn3"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -33,6 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn1"
         android:layout_above="@+id/optionBtn2"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -41,6 +47,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn4"
         android:layout_alignParentBottom="true"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -48,8 +55,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/questionText"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:layout_marginBottom="115dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
         android:layout_above="@+id/optionBtn1"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#FFFFFF"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
 </RelativeLayout>
