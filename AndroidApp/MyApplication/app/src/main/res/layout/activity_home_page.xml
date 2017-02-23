@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/quizbg"
+    android:background="@drawable/homepagebg"
     tools:context="comp4350groupa.triviasmack.HomePage">
 
     <Button
@@ -31,7 +31,8 @@
         android:textSize="100px"
         android:layout_above="@+id/leaderboardsBtn"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="103dp" />
+        android:layout_marginBottom="103dp"
+        android:elevation="16dp" />
 
     <Button
         android:text="Leaderboards"
