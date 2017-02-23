@@ -25,14 +25,15 @@
         android:text="INSTANT PLAY"
         android:layout_width="match_parent"
         android:id="@+id/quickPlayBtn"
-        android:background="@drawable/instantplaybtn"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textSize="100px"
+        android:background="#7f2638"
         android:layout_above="@+id/leaderboardsBtn"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="103dp"
-        android:elevation="16dp" />
+        android:elevation="16dp"
+        android:layout_alignParentTop="true" />
 
     <Button
         android:text="Leaderboards"

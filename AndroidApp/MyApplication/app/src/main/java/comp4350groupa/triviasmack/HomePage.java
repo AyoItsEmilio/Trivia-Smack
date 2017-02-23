@@ -1,10 +1,12 @@
 package comp4350groupa.triviasmack;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 
 public class HomePage extends AppCompatActivity {
 
@@ -17,6 +19,11 @@ public class HomePage extends AppCompatActivity {
         Button leaderbdBtn = (Button) findViewById(R.id.leaderboardsBtn);
         Button userBtn = (Button) findViewById(R.id.usernameBtn);
         Button settingBtn = (Button) findViewById(R.id.settingsBtn);
+
+        quickPlayBtn.setTypeface(Typeface.createFromAsset(getAssets(), "LuckiestGuy.ttf"));
+        leaderbdBtn.setTypeface(Typeface.createFromAsset(getAssets(), "LuckiestGuy.ttf"));
+        userBtn.setTypeface(Typeface.createFromAsset(getAssets(), "LuckiestGuy.ttf"));
+        settingBtn.setTypeface(Typeface.createFromAsset(getAssets(), "LuckiestGuy.ttf"));
 
         quickPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,4 +53,8 @@ public class HomePage extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }
