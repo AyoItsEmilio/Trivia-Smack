@@ -4,7 +4,7 @@ DataAccessObject.py
 import random
 import pymongo
 from json import dumps, loads
-from bson import json_util
+from bson import json_util, ObjectId
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
 from flask.ext.pymongo import MongoClient
@@ -49,8 +49,10 @@ class DataAccessObject(DataAccessInterface):
 
         return Question(doc["question"], doc["options"], doc["answer"])
 
-    def get_question(id):
-        """Grabs a question from the DB by its id"""
+    def get_question(self, _id):
+        """Grabs a question from the DB by its id string"""
+        return self.mongo.questions.find_one(
+            {'_id': ObjectId(_id)})
 
     def get_all_questions(self):
         """Return a list of all the questions"""
@@ -58,8 +60,8 @@ class DataAccessObject(DataAccessInterface):
 
         for doc in self.mongo.questions.find():
             DataAccessObject.clean(doc)
-            result.append\
-            (Question(doc["question"], doc["options"], doc["answer"]))
+            result.append(Question(doc["question"],
+                          doc["options"], doc["answer"]))
 
         return result
 
@@ -67,3 +69,28 @@ class DataAccessObject(DataAccessInterface):
         """Return the number of questions"""
         return self.mongo.questions.count()
 
+    def insert_question(self, question, options, answer):
+        """Inserts it into the db"""
+        self.mongo.questions.insert_one({
+            "question": question,
+            "options": options,
+            "answer": answer
+        })
+
+    def update_question(self, _id, question=None, options=None, answer=None):
+        q = self.mongo.questions.find_one({'_id': ObjectId(_id)})
+
+        if q is not None:
+            if question is not None:
+                q['question'] = question
+            if options is not None:
+                q['options'] = options
+            if answer is not None:
+                q['answer'] = answer
+
+            self.mongo.questions.update(
+                {"_id": _id}, q
+            )
+
+    def delete_question(self, _id):
+        self.mongo.questions.remove({'_id': ObjectId(_id)})

@@ -36,3 +36,18 @@ class DataAccessInterface(object):
     def get_num_questions(self):
         """Return the number of questions"""
         pass
+
+    @abstractmethod
+    def insert_question(self, question, options, answer):
+        """Insert a question into the DB"""
+        pass
+
+    @abstractmethod
+    def update_question(self, _id, question=None, options=None, answer=None):
+        """Update question in DB"""
+        pass
+
+    @abstractmethod
+    def delete_question(self, _id):
+        """Delete question from DB"""
+        pass

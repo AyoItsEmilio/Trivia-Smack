@@ -34,8 +34,8 @@ class DataAccessTest(unittest.TestCase):
 
         target_question = Question(2, "Platypuses lay eggs", ["true", "false"], 0)
 
-        question_obj = self.data_access.get_question(id_=2)
-        self.assertEquals(target_question.id_, question_obj.id_)
+        question_obj = self.data_access.get_question(_id=2)
+        self.assertEquals(target_question._id, question_obj._id)
         self.assertEquals(target_question.question, question_obj.question)
         self.assertEquals(target_question.options, question_obj.options)
         self.assertEquals(target_question.answer, question_obj.answer)
@@ -81,7 +81,7 @@ class DataAccessTest(unittest.TestCase):
 
         self.data_access.update_question(question_id, options=new_options)
 
-        question_object = self.data_access.get_question(id_=8)
+        question_object = self.data_access.get_question(_id=8)
 
         self.assertEquals(question_object.question, question)
         self.assertEquals(question_object.options, new_options)
