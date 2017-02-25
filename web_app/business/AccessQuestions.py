@@ -17,7 +17,7 @@ class AccessQuestions(object):
         seen = set()
 
         while len(seen) < set_size:
-            question_obj = self.data_access.get_question()
+            question_obj = self.data_access.get_random_question()
 
             if question_obj is not None:
                 qid = question_obj.question

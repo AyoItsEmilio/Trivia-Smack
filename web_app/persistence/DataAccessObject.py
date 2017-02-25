@@ -36,7 +36,7 @@ class DataAccessObject(DataAccessInterface):
         doc["question"] = str(doc["question"])
         doc["options"] = [str(o) for o in doc["options"]]
 
-    def get_question(self):
+    def get_random_question(self):
         """Grab a random question from the DB"""
         doc = None
         num_qs = self.get_num_questions()

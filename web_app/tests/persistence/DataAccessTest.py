@@ -28,11 +28,11 @@ class DataAccessTest(unittest.TestCase):
     def tearDown(self):
         self.data_access = None
 
-    def test_get_question(self):
-        """Test the get_question method"""
-        print "Testing DataAccess: get_question"
+    def test_get_random_question(self):
+        """Test the get_random_question method"""
+        print "Testing DataAccess: get_random_question"
 
-        question_obj = self.data_access.get_question()
+        question_obj = self.data_access.get_random_question()
 
         self.assertIsInstance(question_obj, Question)
         self.assertIsNotNone(question_obj)

@@ -18,7 +18,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def get_question(self):
+    def get_random_question(self):
         """Grab a random question from the DB"""
         pass
 

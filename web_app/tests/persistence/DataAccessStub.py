@@ -46,7 +46,7 @@ class DataAccessStub(DataAccessInterface):
         print "Closed database"
         self.questions = None
 
-    def get_question(self):
+    def get_random_question(self):
         """Grab a random question from the DB"""
         num_qs = self.get_num_questions()
         rq_num = random.randint(0, num_qs-1) if num_qs > 0 else 0
