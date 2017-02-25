@@ -16,5 +16,5 @@ To run the server:
 - `eb create trivia_env`
 
 To run unit tests:
-- In the terminal, go to the root directory of the project (Trivia-Game) and run 
-python -m web_app.run_unit_tests
+- In the terminal, go to the root directory of the project (Trivia-Game) and run: 
+`python -m web_app.run_unit_tests`

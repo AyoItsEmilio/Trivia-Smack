@@ -24,28 +24,30 @@ class GameControllerTest(unittest.TestCase):
     def setUp(self):
         """Call before every test case"""
         self.max_questions = 3
-        self.game_controller = GameController(self.max_questions)
+        self.dummy_game_controller = GameController.get_instance(self.max_questions)
 
     def tearDown(self):
         """Call after every test case"""
-        self.game_controller = None
+        GameController.destroy()
 
-    def test_init(self):
-        """Test Question initialization"""
-        print "Testing GameController: Constructor"
+    def test_singleton(self):
+        """Make sure GameController is a Singleton"""
+        print "Testing GameController: Singleton"
+        first = GameController.get_instance(self.max_questions)
+        second = GameController.get_instance(self.max_questions)
+        self.assertEquals(first, second)
 
+    def test_start(self):
+        """Make sure the start function works"""
+        print "Testing GameController: Start"
+        self.assertFalse(self.dummy_game_controller.is_started)
+        self.dummy_game_controller.start()
+        self.assertTrue(self.dummy_game_controller.is_started)
 
-    def test_mutation(self):
-        """Test mutators"""
-        print "Testing GameController: Mutators"
-
-
-
-    def test_failure(self):
-        """Test for failure"""
-        print "Testing Question: Invalid Args"
-        try:
-            GameController()
-            self.fail("Expected typeError")
-        except TypeError:
-            pass
+    def test_increase_score(self):
+        """Make sure increase_score works"""
+        print "Testing GameController: increase_score"
+        self.dummy_game_controller.start()
+        self.assertEquals(0, self.dummy_game_controller.score)
+        self.dummy_game_controller.increase_score()
+        self.assertEquals(1, self.dummy_game_controller.score)
