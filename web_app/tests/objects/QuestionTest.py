@@ -9,10 +9,12 @@ class QuestionTest(unittest.TestCase):
 
     def setUp(self):
         """Call before every test case"""
+        self.id_ = 0
         self.question = "What's my favorite color?"
         self.options = ["blue", "green", "red"]
         self.answer = 0
-        self.question_obj = Question(self.question, self.options, self.answer)
+        self.question_obj = Question(self.id_, self.question, self.options,
+                                     self.answer)
 
     def tearDown(self):
         """Call after every test case"""
@@ -31,14 +33,17 @@ class QuestionTest(unittest.TestCase):
         """Test mutators"""
         print "Testing Question: Mutators"
 
+        id_ = 0
         question = "What kind of bear is best?"
         options = ["grizzly", "black", "polar"]
         answer = 1
 
+        self.question_obj.id_ = id_
         self.question_obj.question = question
         self.question_obj.options = options
         self.question_obj.answer = answer
 
+        self.assertEquals(id_, self.question_obj.id_)
         self.assertEquals(question, self.question_obj.question)
         self.assertEquals(options, self.question_obj.options)
         self.assertEquals(answer, self.question_obj.answer)

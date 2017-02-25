@@ -28,6 +28,17 @@ class DataAccessTest(unittest.TestCase):
     def tearDown(self):
         self.data_access = None
 
+    def test_get_question(self):
+        print "Testing DataAccess: get_question"
+
+        target_question = Question(2, "Platypuses lay eggs", ["true", "false"], 0)
+
+        question_obj = self.data_access.get_question(id_=2)
+        self.assertEquals(target_question.id_, question_obj.id_)
+        self.assertEquals(target_question.question, question_obj.question)
+        self.assertEquals(target_question.options, question_obj.options)
+        self.assertEquals(target_question.answer, question_obj.answer)
+
     def test_get_random_question(self):
         """Test the get_random_question method"""
         print "Testing DataAccess: get_random_question"
@@ -45,7 +56,7 @@ class DataAccessTest(unittest.TestCase):
 
         self.assertIsInstance(all_questions, list)
         self.assertEquals(len(all_questions), self.db_size)
-        self.assertEquals(all_questions[0].question,\
+        self.assertEquals(all_questions[0].question,
                           "How much does a male Polar Bear weigh?")
 
     def test_get_num_questions(self):
