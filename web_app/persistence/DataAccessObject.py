@@ -49,6 +49,9 @@ class DataAccessObject(DataAccessInterface):
 
         return Question(doc["question"], doc["options"], doc["answer"])
 
+    def get_question(id):
+        """Grabs a question from the DB by its id"""
+
     def get_all_questions(self):
         """Return a list of all the questions"""
         result = []

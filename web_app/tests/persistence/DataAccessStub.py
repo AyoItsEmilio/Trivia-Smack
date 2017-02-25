@@ -15,36 +15,42 @@ class DataAccessStub(DataAccessInterface):
     def open(self):
         """Open the database"""
         print "Opened database"
-        self.questions.append(Question("How much does a male Polar Bear weigh?",\
-                                      ["1200 lbs", "1000 lbs", "600 lbs",\
-                                      "Enough to break the ice"], 1))
-        self.questions.append(Question("Is the square root of 10:",\
-                                      ["zero", "greater than 3",\
-                                      "less than 3"], 1))
-        self.questions.append(Question("Platypuses lay eggs",\
-                                      ["true", "false"], 0))
-        self.questions.append(Question("Helsinki is the capitol of:",\
-                                      ["Sweden", "Russia", "Finland",\
-                                      "Iceland"], 2))
-        self.questions.append(Question("If x+y=3 and 2x+y=4, then x equals",\
-                                      ["0", "1", "4", "3"], 1))
-        self.questions.append(Question("If x+y<11 and x>6, then y is:",\
-                                      ["positive", "negative",\
-                                      "Not determinable"], 2))
-        self.questions.append(Question("The plural of bison is:",\
-                                      ["bisons", "buffalo", "bison",\
-                                      "buffalos"], 2))
-        self.questions.append(Question("21, 25, 33, 49, 81, ",\
-                                      ["162", "113", "144", "145"], 2))
-        self.questions.append(Question("The Balkans are in:",\
-                                      ["South America", "Europe", "Australia",\
-                                      "Asia"], 1))
+        self.questions.append(Question(0, "How much does a male Polar Bear weigh?",\
+                                       ["1200 lbs", "1000 lbs", "600 lbs",\
+                                        "Enough to break the ice"], 1))
+        self.questions.append(Question(1, "Is the square root of 10:",\
+                                       ["zero", "greater than 3",\
+                                        "less than 3"], 1))
+        self.questions.append(Question(2, "Platypuses lay eggs",\
+                                       ["true", "false"], 0))
+        self.questions.append(Question(3, "Helsinki is the capitol of:",\
+                                       ["Sweden", "Russia", "Finland",\
+                                        "Iceland"], 2))
+        self.questions.append(Question(4, "If x+y=3 and 2x+y=4, then x equals",\
+                                       ["0", "1", "4", "3"], 1))
+        self.questions.append(Question(5, "If x+y<11 and x>6, then y is:",\
+                                       ["positive", "negative",\
+                                        "Not determinable"], 2))
+        self.questions.append(Question(6, "The plural of bison is:",\
+                                       ["bisons", "buffalo", "bison",\
+                                        "buffalos"], 2))
+        self.questions.append(Question(7, "21, 25, 33, 49, 81, ",\
+                                       ["162", "113", "144", "145"], 2))
+        self.questions.append(Question(8, "The Balkans are in:",\
+                                       ["South America", "Europe", "Australia",\
+                                        "Asia"], 1))
 
 
     def close(self):
         """Close the database"""
         print "Closed database"
         self.questions = None
+
+    def get_question(self, id_):
+        """Grab a question by its id"""
+        for x in self.questions:
+            print x
+        return next((x for x in self.questions if x.id_ == id_), None)
 
     def get_random_question(self):
         """Grab a random question from the DB"""
