@@ -40,16 +40,17 @@ class DataAccessStub(DataAccessInterface):
                                        ["South America", "Europe", "Australia",\
                                         "Asia"], 1))
 
-
     def close(self):
         """Close the database"""
         print "Closed database"
         self.questions = None
 
     def get_question(self, id_):
-        """Grab a question by its id"""
-        for x in self.questions:
-            print x
+        """
+        Grab a question by its id
+        Note: this should only be returning one question. Should add
+        checks for that.
+        """
         return next((x for x in self.questions if x.id_ == id_), None)
 
     def get_random_question(self):
@@ -65,3 +66,25 @@ class DataAccessStub(DataAccessInterface):
     def get_num_questions(self):
         """Return the number of questions"""
         return len(self.questions)
+
+    def create_question(self, id_, question, options, answer):
+        return Question(id_, question, options, answer)
+
+    def update_question(self, id_, question=None,
+                        options=None, answer=None):
+        """
+        Updates a question. Can pass this a question itself or a question id
+        """
+        question_obj = self.get_question(id_)
+
+        if question is not None:
+            question_obj.question = question
+        if options is not None:
+            question_obj.options = options
+        if answer is not None:
+            question_obj.answer = answer
+
+    def delete_question(self, id_):
+        for question in self.questions:
+            if question.id_ == id_:
+                self.questions.remove(question)

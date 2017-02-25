@@ -6,15 +6,9 @@ from .DataAccessStub import DataAccessStub
 from web_app.application.Services import Services
 from web_app.objects.Question import Question
 
+
 class DataAccessTest(unittest.TestCase):
     """Unit tests for the DataAccess class"""
-
-    @classmethod
-    def setUpClass(cls):
-        """Call once"""
-        Services.close_data_access()
-        Services.create_data_access(\
-            altDataAccessService=DataAccessStub("application"))
 
     @classmethod
     def tearDownClass(cls):
@@ -22,6 +16,13 @@ class DataAccessTest(unittest.TestCase):
         Services.close_data_access()
 
     def setUp(self):
+        '''
+        Set everything up after each test because some
+        manipulte the database
+        '''
+        Services.close_data_access()
+        Services.create_data_access(\
+            altDataAccessService=DataAccessStub("application"))
         self.data_access = Services.get_data_access()
         self.db_size = 9
 
@@ -40,7 +41,6 @@ class DataAccessTest(unittest.TestCase):
         self.assertEquals(target_question.answer, question_obj.answer)
 
     def test_get_random_question(self):
-        """Test the get_random_question method"""
         print "Testing DataAccess: get_random_question"
 
         question_obj = self.data_access.get_random_question()
@@ -49,7 +49,6 @@ class DataAccessTest(unittest.TestCase):
         self.assertIsNotNone(question_obj)
 
     def test_get_all_questions(self):
-        """Test the get_all_questions method"""
         print "Testing DataAccess: get_all_questions"
 
         all_questions = self.data_access.get_all_questions()
@@ -60,10 +59,37 @@ class DataAccessTest(unittest.TestCase):
                           "How much does a male Polar Bear weigh?")
 
     def test_get_num_questions(self):
-        """Test the get_num_question method"""
         print "Testing DataAccess: get_num_questions"
 
         num_questions = self.data_access.get_num_questions()
 
         self.assertIsInstance(num_questions, int)
         self.assertEquals(self.db_size, num_questions)
+
+    def test_update_question_options(self):
+        '''
+        Test the update_question method, updating the options only.
+        '''
+        # TODO: Add more cases of attrs and combinations of them
+
+        print "Testing DataAccess: update_question"
+        question_id = 8
+        new_options = ["South America", "Europe", "Australia",
+                       "Africa"]
+        question = "The Balkans are in:"
+        answer = 1
+
+        self.data_access.update_question(question_id, options=new_options)
+
+        question_object = self.data_access.get_question(id_=8)
+
+        self.assertEquals(question_object.question, question)
+        self.assertEquals(question_object.options, new_options)
+        self.assertEquals(question_object.answer, answer)
+
+    def test_delete_question(self):
+        self.data_access.delete_question(5)
+
+        all_questions = self.data_access.get_all_questions()
+
+        self.assertEquals(len(all_questions), self.db_size-1)
