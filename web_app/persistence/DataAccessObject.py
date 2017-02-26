@@ -26,7 +26,7 @@ class DataAccessObject(DataAccessInterface):
             raise "Could not connect to MongoDB: {}".format(e)
 
     def close(self):
-        """Close the databse"""
+        """Close the database"""
         print "Closed the database"
         self.client.close()
 
@@ -47,7 +47,8 @@ class DataAccessObject(DataAccessInterface):
             doc = doc_cursor[0]
             DataAccessObject.clean(doc)
 
-        return Question(doc["question"], doc["options"], doc["answer"])
+        return Question(doc["_id"], doc["question"],
+                        doc["options"], doc["answer"])
 
     def get_question(self, _id):
         """Grabs a question from the DB by its id string"""
@@ -78,6 +79,9 @@ class DataAccessObject(DataAccessInterface):
         })
 
     def update_question(self, _id, question=None, options=None, answer=None):
+        """
+        Updates an existing question given its id
+        """
         q = self.mongo.questions.find_one({'_id': ObjectId(_id)})
 
         if q is not None:
@@ -93,4 +97,7 @@ class DataAccessObject(DataAccessInterface):
             )
 
     def delete_question(self, _id):
+        """
+        Deletes an existing question given its id
+        """
         self.mongo.questions.remove({'_id': ObjectId(_id)})
