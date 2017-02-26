@@ -21,7 +21,7 @@ class DataAccessTest(unittest.TestCase):
         manipulte the database
         '''
         Services.close_data_access()
-        Services.create_data_access(\
+        Services.create_data_access(
             altDataAccessService=DataAccessStub("application"))
         self.data_access = Services.get_data_access()
         self.db_size = 9
@@ -32,7 +32,8 @@ class DataAccessTest(unittest.TestCase):
     def test_get_question(self):
         print "Testing DataAccess: get_question"
 
-        target_question = Question(2, "Platypuses lay eggs", ["true", "false"], 0)
+        target_question = Question(2, "Platypuses lay eggs",
+                                   ["true", "false"], 0)
 
         question_obj = self.data_access.get_question(_id=2)
         self.assertEquals(target_question._id, question_obj._id)
@@ -66,17 +67,35 @@ class DataAccessTest(unittest.TestCase):
         self.assertIsInstance(num_questions, int)
         self.assertEquals(self.db_size, num_questions)
 
-    def test_update_question_options(self):
+    def test_update_question(self):
+        '''
+        Test the update_question method, updating the question only.
+        '''
+        print "Testing DataAccess: update_question (Question)"
+        question_id = 8
+        new_question = "The Balkans are located in:"
+        options = ["South America", "Europe", "Australia", "Asia"]
+        answer = 1
+
+        self.data_access.update_question(question_id,
+                                         question=new_question)
+
+        question_object = self.data_access.get_question(_id=8)
+
+        self.assertEquals(question_object.question, new_question)
+        self.assertEquals(question_object.options, options)
+        self.assertEquals(question_object.answer, answer)
+
+    def test_update_options(self):
         '''
         Test the update_question method, updating the options only.
         '''
-        # TODO: Add more cases of attrs and combinations of them
 
-        print "Testing DataAccess: update_question"
+        print "Testing DataAccess: update_question (Options)"
         question_id = 8
+        question = "The Balkans are in:"
         new_options = ["South America", "Europe", "Australia",
                        "Africa"]
-        question = "The Balkans are in:"
         answer = 1
 
         self.data_access.update_question(question_id, options=new_options)
@@ -86,6 +105,47 @@ class DataAccessTest(unittest.TestCase):
         self.assertEquals(question_object.question, question)
         self.assertEquals(question_object.options, new_options)
         self.assertEquals(question_object.answer, answer)
+
+    def test_update_answer(self):
+        '''
+        Test the update_question method, updating the answer only.
+        '''
+
+        print "Testing DataAccess: update_question (Answer)"
+        question_id = 8
+        question = "The Balkans are in:"
+        options = ["South America", "Europe", "Australia", "Asia"]
+        new_answer = 0
+
+        self.data_access.update_question(question_id, answer=new_answer)
+
+        question_object = self.data_access.get_question(_id=8)
+
+        self.assertEquals(question_object.question, question)
+        self.assertEquals(question_object.options, options)
+        self.assertEquals(question_object.answer, new_answer)
+
+    def test_update_all(self):
+        '''
+        Test the update_question method, updating everything
+        '''
+        print "Testing DataAccess: update_question (All)"
+
+        question_id = 8
+        new_question = "How many breeds of cats are there"
+        new_options = [35, 58, 73, 112]
+        new_answer = 2
+
+        self.data_access.update_question(question_id,
+                                         question=new_question,
+                                         options=new_options,
+                                         answer=new_answer)
+
+        question_object = self.data_access.get_question(_id=8)
+
+        self.assertEquals(question_object.question, new_question)
+        self.assertEquals(question_object.options, new_options)
+        self.assertEquals(question_object.answer, new_answer)
 
     def test_delete_question(self):
         self.data_access.delete_question(5)
