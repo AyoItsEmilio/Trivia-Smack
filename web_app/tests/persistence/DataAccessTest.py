@@ -12,7 +12,6 @@ class DataAccessTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """Call once"""
         Services.close_data_access()
 
     def setUp(self):

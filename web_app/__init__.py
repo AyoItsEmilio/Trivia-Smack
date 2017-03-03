@@ -11,7 +11,6 @@ from web_app.persistence.DataAccessObject import DataAccessObject
 DB_NAME = "application"
 
 def create_app(application):
-    """Create the application"""
 
     application.config.from_object("web_app.config")
 
@@ -19,7 +18,6 @@ def create_app(application):
 
     from .main import main as main_blueprint
     application.register_blueprint(main_blueprint)
-
 
 def set_up():
     populate_db(DB_NAME)

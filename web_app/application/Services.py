@@ -5,12 +5,12 @@ import sys
 from web_app.persistence.DataAccessObject import DataAccessObject
 
 class Services(object):
-    """Services"""
+
     dataAccessService = None
 
     @staticmethod
     def create_data_access(dbName=None, altDataAccessService=None):
-        """create_data_access"""
+
         if Services.dataAccessService is None:
             if altDataAccessService:
                 Services.dataAccessService = altDataAccessService
@@ -23,7 +23,7 @@ class Services(object):
 
     @staticmethod
     def get_data_access():
-        """get_data_access"""
+
         if Services.dataAccessService is None:
             print "Connection to data access has not been established"
             sys.exit(0)
@@ -32,7 +32,7 @@ class Services(object):
 
     @staticmethod
     def close_data_access():
-        """Close the database service"""
+
         if Services.dataAccessService != None:
             Services.dataAccessService.close()
 

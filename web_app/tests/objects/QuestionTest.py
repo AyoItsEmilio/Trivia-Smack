@@ -4,6 +4,7 @@ QuestionTest.py
 import unittest
 from web_app.objects.Question import Question
 
+
 class QuestionTest(unittest.TestCase):
     """Unit tests for the Question class"""
 
@@ -17,11 +18,9 @@ class QuestionTest(unittest.TestCase):
                                      self.answer)
 
     def tearDown(self):
-        """Call after every test case"""
         self.question_obj = None
 
     def test_init(self):
-        """Test Question initialization"""
         print "Testing Question: Constructor"
 
         self.assertIsNotNone(self.question_obj)
@@ -30,7 +29,6 @@ class QuestionTest(unittest.TestCase):
         self.assertEquals(self.answer, self.question_obj.answer)
 
     def test_mutation(self):
-        """Test mutators"""
         print "Testing Question: Mutators"
 
         _id = 0
@@ -49,7 +47,6 @@ class QuestionTest(unittest.TestCase):
         self.assertEquals(answer, self.question_obj.answer)
 
     def test_failure(self):
-        """Test for failure"""
         print "Testing Question: Invalid Args"
         try:
             Question()

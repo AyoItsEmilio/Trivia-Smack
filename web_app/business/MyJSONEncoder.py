@@ -1,3 +1,6 @@
+"""
+MyJSONEncoder.py
+"""
 from flask.json import JSONEncoder
 from ..objects.Question import Question
 

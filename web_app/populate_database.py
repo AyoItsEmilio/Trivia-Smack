@@ -4,7 +4,7 @@ populate_database.py
 from pymongo import MongoClient
 
 def populate_db(db_name):
-    """Fill the mongoDB with questions"""
+
     client = MongoClient()
     client.drop_database(db_name)
     db = client[db_name]
@@ -21,7 +21,7 @@ def populate_db(db_name):
          "options": ["true", "false"],
          "answer": 0},
         {"question": "Helsinki is the capitol of:",
-         "options": ["Sweden", "Russia", "Finland", "false"],
+         "options": ["Sweden", "Russia", "Finland", "Saskatchewan"],
          "answer": 2},
         {"question": "If x+y=3 and 2x+y=4, then x equals",
          "options": ["0", "1", "4", "3"],

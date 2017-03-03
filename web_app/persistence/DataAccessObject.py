@@ -12,13 +12,13 @@ from flask.ext.pymongo import MongoClient
 
 class DataAccessObject(DataAccessInterface):
     """For directly querying the MongoDB"""
+
     def __init__(self, name):
         self.db_name = name
         self.mongo = None
         self.client = None
 
     def open(self):
-        """Opened the database"""
         try:
             self.client = MongoClient()
             self.mongo = self.client[self.db_name]
@@ -26,18 +26,15 @@ class DataAccessObject(DataAccessInterface):
             raise "Could not connect to MongoDB: {}".format(e)
 
     def close(self):
-        """Close the database"""
         print "Closed the database"
         self.client.close()
 
     @staticmethod
     def clean(doc):
-        """Convert the unicode types to strings"""
         doc["question"] = str(doc["question"])
         doc["options"] = [str(o) for o in doc["options"]]
 
     def get_random_question(self):
-        """Grab a random question from the DB"""
         doc = None
         num_qs = self.get_num_questions()
         rq_num = random.randint(0, num_qs-1) if num_qs > 0 else 0
@@ -56,7 +53,6 @@ class DataAccessObject(DataAccessInterface):
             {'_id': ObjectId(_id)})
 
     def get_all_questions(self):
-        """Return a list of all the questions"""
         result = []
 
         for doc in self.mongo.questions.find():
@@ -67,7 +63,6 @@ class DataAccessObject(DataAccessInterface):
         return result
 
     def get_num_questions(self):
-        """Return the number of questions"""
         return self.mongo.questions.count()
 
     def insert_question(self, question, options, answer):

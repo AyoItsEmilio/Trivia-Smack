@@ -4,12 +4,11 @@ GameController.py
 from web_app.business.AccessQuestions import AccessQuestions
 
 class GameController(object):
-    """Controls the game"""
 
-    instance = None
+    INSTANCE = None
+    MAX_QUESTIONS = 3
 
-    def __init__(self, max_questions):
-        self.max_questions = max_questions
+    def __init__(self):
         self.access_questions = AccessQuestions()
         self.questions = None
         self.curr_question = None
@@ -18,30 +17,27 @@ class GameController(object):
         self.is_started = False
 
     @classmethod
-    def get_instance(cls, max_questions):
-        """Fetch the one and only instance"""
-        if GameController.instance is None:
-            GameController.instance = GameController(max_questions)
+    def get_instance(cls):
 
-        return GameController.instance
+        if GameController.INSTANCE is None:
+            GameController.INSTANCE = GameController()
+
+        return GameController.INSTANCE
 
     @classmethod
     def destroy(cls):
-        """Destroy the single instance"""
-        GameController.instance = None
+        GameController.INSTANCE = None
 
     def start(self):
-        """Start the game by grabing a set of questions"""
         self.question_count = 0
         self.score = 0
         self.questions =\
-        self.access_questions.get_random_questions(self.max_questions)
+        self.access_questions.get_random_questions(GameController.MAX_QUESTIONS)
         self.is_started = True
 
     def get_next_question(self):
-        """Return the next question"""
 
-        if self.question_count == self.max_questions:
+        if self.question_count == GameController.MAX_QUESTIONS:
             self.curr_question = None
         else:
             self.curr_question = self.questions[self.question_count]
@@ -53,10 +49,8 @@ class GameController(object):
         self.score += 1
 
     def evaluate_answer(self, answer_index):
-        """Check if the current question answer equals answer_index"""
         result = True if answer_index == self.curr_question.answer else False
         return result
 
     def is_finished(self):
-        """Check if the game is finished"""
-        return self.max_questions == self.question_count
+        return GameController.MAX_QUESTIONS == self.question_count

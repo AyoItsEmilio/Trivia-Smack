@@ -15,7 +15,7 @@ class DataAccessStub(DataAccessInterface):
         self.curr_id = 0
 
     def open(self):
-        """Open the database"""
+
         print "Opened database"
         self.insert_question("How much does a male Polar Bear weigh?",
                              ["1200 lbs", "1000 lbs", "600 lbs",
@@ -43,7 +43,6 @@ class DataAccessStub(DataAccessInterface):
                               "Asia"], 1)
 
     def close(self):
-        """Close the database"""
         print "Closed database"
         self.questions = None
 
@@ -62,11 +61,9 @@ class DataAccessStub(DataAccessInterface):
         return self.questions[rq_num]
 
     def get_all_questions(self):
-        """Return a list of all the questions"""
         return self.questions
 
     def get_num_questions(self):
-        """Return the number of questions"""
         return len(self.questions)
 
     def insert_question(self, question, options, answer):
