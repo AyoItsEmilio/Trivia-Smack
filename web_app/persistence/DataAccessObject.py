@@ -67,11 +67,11 @@ class DataAccessObject(DataAccessInterface):
 
     def insert_question(self, question, options, answer):
         """Inserts it into the db"""
-        self.mongo.questions.insert_one({
+        return self.mongo.questions.insert_one({
             "question": question,
             "options": options,
             "answer": answer
-        })
+        }).inserted_id
 
     def update_question(self, _id, question=None, options=None, answer=None):
         """
