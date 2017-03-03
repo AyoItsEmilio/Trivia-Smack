@@ -57,7 +57,7 @@ class DataAccessObject(DataAccessInterface):
 
         for doc in self.mongo.questions.find():
             DataAccessObject.clean(doc)
-            result.append(Question(doc["question"],
+            result.append(Question(doc["_id"], doc["question"],
                           doc["options"], doc["answer"]))
 
         return result
