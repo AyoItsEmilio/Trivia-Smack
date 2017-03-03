@@ -19,7 +19,6 @@ class QuestionTest(unittest.TestCase):
     def test_init(self):
         print "Testing Question: Constructor"
 
-        self.fail("failure")
         self.assertIsNotNone(self.question_obj)
         self.assertEquals(self.question, self.question_obj.question)
         self.assertEquals(self.options, self.question_obj.options)
