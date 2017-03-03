@@ -47,4 +47,4 @@ def question_data(num_questions):
 @main.route("/api/android/post_score", methods=["POST"])
 def post_score():
     print "DATA: {}".format(request.form["score"])
-    return "hi sam"
+    return "Connection succeeded"
