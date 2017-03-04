@@ -2,6 +2,7 @@
 __init__.py
 """
 from flask.json import JSONEncoder
+from flask_socketio import SocketIO
 from web_app.populate_database import populate_db
 from web_app.business.MyJSONEncoder import MyJSONEncoder
 from web_app.application.Services import Services
@@ -9,6 +10,7 @@ from web_app.tests.persistence.DataAccessStub import DataAccessStub
 from web_app.persistence.DataAccessObject import DataAccessObject
 
 DB_NAME = "application"
+socketio = SocketIO()
 
 def create_app(application):
 
@@ -18,6 +20,8 @@ def create_app(application):
 
     from .main import main as main_blueprint
     application.register_blueprint(main_blueprint)
+
+    socketio.init_app(application)
 
 def set_up():
     populate_db(DB_NAME)

@@ -1,7 +1,7 @@
 """
 routes.py
 """
-from flask import render_template, request, redirect, jsonify
+from flask import render_template, request, redirect, jsonify, session
 from web_app.business.AccessQuestions import AccessQuestions
 from web_app.business.GameController import GameController
 from . import main
@@ -14,6 +14,10 @@ def home_page():
     GAME_CONTROLLER.start()
 
     return render_template("homePage.html", score=score)
+
+@main.route("/wait_page")
+def wait_page():
+    return render_template("waitPage.html")
 
 @main.route("/question_page", methods=["GET", "POST"])
 def question_page():
