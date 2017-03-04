@@ -9,13 +9,10 @@ $(document).ready(function() {
         socket.emit("joined", {});
     });
 
-    socket.on("status", function(data) {
-        var element = document.getElementById("connected");
-        element.innerHTML = data.msg;
+    socket.on("ready", function(data) {
+        window.location.href = "{{ url_for('main.question_page') }}";
     });
-
 });
 </script>
 <p>Waiting for other player</p>
-<p id=connected></p>
 {% endblock %}
