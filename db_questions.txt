@@ -58,7 +58,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Who wrote "don't count your chickens before they are hatched"?",
+    "question":"Who wrote 'don't count your chickens before they are hatched'?",
     "options":["Aesop", "Shakespeare", "Ben  Franklin", "Chaucer"],
     "answer": NumberInt(0)
 })
@@ -73,7 +73,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"In which film do the words "I love you" save the planet earth?",
+    "question":"In which film do the words 'I love you' save the planet earth?",
     "options":["The Day After Tomorrow", "The 5th Element", "Mars Attacks", "Independence Day"],
     "answer": NumberInt(1)
 })
@@ -188,7 +188,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Julius Caesar said "The die is cast" after crossing which river?",
+    "question":"Julius Caesar said 'The die is cast' after crossing which river?",
     "options":["Danube", "Rubicon", "Thames", "Tiber"],
     "answer": NumberInt(1)
 })
@@ -308,12 +308,12 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"In medical terms, what is "Hypotension"?",
+    "question":"In medical terms, what is 'Hypotension'?",
     "options":["Weak Immune System", "Weak Heart Muscles", "High Blood Pressure", "Low Blood Pressure"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"In what series of films does "Eddie Murphy" play a character named "Axel Foley"?",
+    "question":"In what series of films does 'Eddie Murphy' play a character named 'Axel Foley'?",
     "options":["Harlem Nights", "Trading Places", "The Distinguished Gentleman", "Beverly Hills Cop"],
     "answer": NumberInt(3)
 })
@@ -343,7 +343,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Who famously said "You can have it in any color as long as it's black"?",
+    "question":"Who famously said 'You can have it in any color as long as it's black'?",
     "options":["Charles Wilson", "Abraham Lincoln", "Henry Ford", "Winston Churchill"],
     "answer": NumberInt(2)
 })
@@ -368,12 +368,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which actor starred alongside Melissa McCarthy in the 2013 comedy film "Identify Thief"?",
+    "question":"Which actor starred alongside Melissa McCarthy in the 2013 comedy film 'Identify Thief'?",
     "options":["Paul Rudd", "Jason Bateman", "Steve Carrell", "Vince Vaughn"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Iron Man" and "Paranoid" were both US Billboard hits for which band?",
+    "question":"Iron Man' and 'Paranoid' were both US Billboard hits for which band?",
     "options":["Metallica", "Black Sabbath", "Thin Lizzy", "Deep Purple"],
     "answer": NumberInt(1)
 })
@@ -383,12 +383,12 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Complete the title to this 2010 movie - "How to Train Your..."",
+    "question":"Complete the title to this 2010 movie - 'How to Train Your...'",
     "options":["Husband", "Dog", "Boyfriend", "Dragon"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Featured on MTV, "Battle of the Exe's" is a season 22 subtitle to which of these shows?",
+    "question":"Featured on MTV, 'Battle of the Exe's' is a season 22 subtitle to which of these shows?",
     "options":["The Challenge", "Road Rules", "Buckwild", "Punk'd"],
     "answer": NumberInt(0)
 })
@@ -398,7 +398,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Known as the Man in Black, who had their first number one hit on the Billboard charts with "I Walk the Line" in 1956?",
+    "question":"Known as the Man in Black, who had their first number one hit on the Billboard charts with 'I Walk the Line' in 1956?",
     "options":["Roy Orbison", "Eddie Cochran", "Willie Nelson", "Johnny Cash"],
     "answer": NumberInt(3)
 })
@@ -418,7 +418,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":""Meat on the Table" is the theme tune for which WWE Superstar?",
+    "question":"'Meat on the Table' is the theme tune for which WWE Superstar?",
     "options":["Kane", "Ryback", "Brodus Clay", "Big Show"],
     "answer": NumberInt(1)
 })
@@ -428,22 +428,22 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Released in 2015, actor Mark Hammil plays which character in "Star Wars -The Force Awakens"?",
+    "question":"Released in 2015, actor Mark Hammil plays which character in 'Star Wars -The Force Awakens'?",
     "options":["Poe Dameron", "Kylo Ren", "Kylo Ren", "Kylo Ren"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Who spent nine weeks at number-one with the hip hop song "In Da Club" in 2003?",
+    "question":"Who spent nine weeks at number-one with the hip hop song 'In Da Club' in 2003?",
     "options":["Eminem", "Snoop Dogg", "50 Cent", "Dr. Dre"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Which popular boxing movie does the followings quote come from - "I just wanna say hi to my girlfriend. Yo Adrian! It's me!"?",
+    "question":"Which popular boxing movie does the followings quote come from - 'I just wanna say hi to my girlfriend. Yo Adrian! It's me!'?",
     "options":["Raging Bull", "Rocky", "Ali", "Cinderella Man"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Released in 2008, the song "So What" was a hit for which female singer in 2008?",
+    "question":"Released in 2008, the song 'So What' was a hit for which female singer in 2008?",
     "options":["Pink", "Madonna", "Lady Gaga", "Rihanna"],
     "answer": NumberInt(0)
 })
@@ -453,22 +453,22 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Who won the first season of "The Apprentice" in 2004?",
+    "question":"Who won the first season of 'The Apprentice' in 2004?",
     "options":["Randal Pinkett", "Kelly Perdew", "Bill Rancic", "Kendra Todd"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Who lost their "Who Wants to Be a Millionaire" (UK) winnings due to cheating in 2003?",
+    "question":"Who lost their 'Who Wants to Be a Millionaire' (UK) winnings due to cheating in 2003?",
     "options":["Ingram Wilcox", "David Edwards", "Pat Gibson", "Charles Ingram"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Who won the Grammy for "Record of the Year" at the 59th annual Grammy Awards in February of 2017?",
+    "question":"Who won the Grammy for 'Record of the Year' at the 59th annual Grammy Awards in February of 2017?",
     "options":["Adele", "Beyonce", "Lukas Graham", "Rihanna"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Formed in Dublin in 1976, which rock band had a 2001 hit with the song "Beautiful Day"?",
+    "question":"Formed in Dublin in 1976, which rock band had a 2001 hit with the song 'Beautiful Day'?",
     "options":["U2", "The Cranberries", "The Boomtown Rats", "Thin Lizzy"],
     "answer": NumberInt(0)
 })
@@ -493,7 +493,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"How many Star Wars films were released before "The Phantom Menace"?",
+    "question":"How many Star Wars films were released before 'The Phantom Menace'?",
     "options":["3", "5", "2", "4"],
     "answer": NumberInt(0)
 })
@@ -523,7 +523,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"In the classic story "The Wizard of Oz", what was the lion seeking from the Wizard?",
+    "question":"In the classic story 'The Wizard of Oz', what was the lion seeking from the Wizard?",
     "options":["Peace", "Courage", "Brains", "Heart"],
     "answer": NumberInt(1)
 })
@@ -538,17 +538,17 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which cartoon villain often obtains nonsensical devices from a mail-order company named "Acme Corporation"?",
+    "question":"Which cartoon villain often obtains nonsensical devices from a mail-order company named 'Acme Corporation'?",
     "options":["Wile E. Coyote", "Yosemite Sam", "Sylvester the Cat", "Elmer Fudd"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Playing the role of Joy "Ma" Newsome, Brie Larsson starred in which 2015 drama film?",
+    "question":"Playing the role of Joy 'Ma' Newsome, Brie Larsson starred in which 2015 drama film?",
     "options":["Room", "Carol", "The Lobster", "45 Years"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Written in 1893, the "Karelia Suite, Op 11" is a work by which Finnish composer and violinist?",
+    "question":"Written in 1893, the 'Karelia Suite, Op 11' is a work by which Finnish composer and violinist?",
     "options":["Rimsky-Korsakov", "Mendelssohn", "Bruckner", "Sibelius"],
     "answer": NumberInt(3)
 })
@@ -568,17 +568,17 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"First published in 1983, who wrote the landmark stargazer's book "NightWatch - A Practical Guide to Viewing the Universe"?",
+    "question":"First published in 1983, who wrote the landmark stargazer's book 'NightWatch - A Practical Guide to Viewing the Universe'?",
     "options":["Dennis Overbye", "Stephen Hawking", "Terence Dickinson", "Kip S. Thomas"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":""I love you" spoken by Carrie Fisher is replied with "I know" by Harrison Ford. Name the film.",
+    "question":"'I love you' spoken by Carrie Fisher is replied with 'I know' by Harrison Ford. Name the film.",
     "options":["Indiana Jones and the Last Crusade", "Star Wars", "Star Wars", "Star Wars"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"What was the first name of the English poet and playwright "Shakespeare"?",
+    "question":"What was the first name of the English poet and playwright 'Shakespeare'?",
     "options":["James", "Henry", "Wilson", "William"],
     "answer": NumberInt(3)
 })
@@ -588,7 +588,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Who composed the 1956 ballet "Spartacus"?",
+    "question":"Who composed the 1956 ballet 'Spartacus'?",
     "options":["Marius Petipa", "Aram Khachaturian", "Pyotr Tchaikovsky", "Igor Stravinsky"],
     "answer": NumberInt(1)
 })
@@ -598,7 +598,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which fruit is also referred to as a "Chinese Gooseberry"?",
+    "question":"Which fruit is also referred to as a 'Chinese Gooseberry'?",
     "options":["Kiwifruit", "Plum", "Peach", "Ugli Fruit"],
     "answer": NumberInt(0)
 })
@@ -613,12 +613,12 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"The country album "Come on Over" was a huge success for which Canadian singer in 1997?",
+    "question":"The country album 'Come on Over' was a huge success for which Canadian singer in 1997?",
     "options":["Mackenzie Porter", "Terri Clark", "Shania Twain", "Susan Jacks],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Which of the following words is a synonym for "Quintessential"?",
+    "question":"Which of the following words is a synonym for 'Quintessential'?",
     "options":["Stereotypical", "Loving", "Uncharacteristic", "Antagonized"],
     "answer": NumberInt(0)
 })
@@ -638,7 +638,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Spanning the Golden Gate strait, in what US state would you find the "Golden Gate Bridge"?",
+    "question":"Spanning the Golden Gate strait, in what US state would you find the 'Golden Gate Bridge'?",
     "options":["California", "Florida", "New York", "Colorado"],
     "answer": NumberInt(0)
 })
@@ -663,22 +663,22 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"How old was Taylor Swift when she had her first Billboard Hot 100 number-one song with "We Are Never Ever Getting Back Together" in 2012?",
+    "question":"How old was Taylor Swift when she had her first Billboard Hot 100 number-one song with 'We Are Never Ever Getting Back Together' in 2012?",
     "options":["20", "24", "22", "18"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Beating out Aubry Bracco and Tai Trang, who won the "Kaoh Rong" season of Survivor (Season 32)?",
+    "question":"Beating out Aubry Bracco and Tai Trang, who won the 'Kaoh Rong' season of Survivor (Season 32)?",
     "options":["Debbie Wanner", "Michele Fitzgerald", "Scot Pollard", "Jennifer Lanzetti"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Who was Time magazine's "Person of the Year" for 2016?",
+    "question":"Who was Time magazine's 'Person of the Year' for 2016?",
     "options":["Angela Merkel", "Donald Trump", "Pope Francis", "Barack Obama"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"On the animated sitcom "The Simpsons", which character drives a school bus?",
+    "question":"On the animated sitcom 'The Simpsons', which character drives a school bus?",
     "options":["Otto Mann", "Curly Howard", "Nelson Muntz", "Jimbo Jones"],
     "answer": NumberInt(0)
 })
@@ -693,12 +693,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Voiced by John Goodman, the character of "Pacha" appears in which 2000 Disney animated film?",
+    "question":"Voiced by John Goodman, the character of 'Pacha' appears in which 2000 Disney animated film?",
     "options":["Pocahontas", "The Princess and the Frog", "Mulan", "The Emperor's New Groove"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Along with Million Dollar Man (Ted Dibiase), which other wrestler made up the villainous professional wrestling tag team "Money Inc."?",
+    "question":"Along with Million Dollar Man (Ted Dibiase), which other wrestler made up the villainous professional wrestling tag team 'Money Inc.'?",
     "options":["Virgil", "Big Boss Man", "IRS", "Repo Man"],
     "answer": NumberInt(2)
 })
@@ -708,7 +708,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"The 1942 film "Woman of the Year" began Katharine Hepburn's famous screen partnership with whom?",
+    "question":"The 1942 film 'Woman of the Year' began Katharine Hepburn's famous screen partnership with whom?",
     "options":["Spencer Tracy", "Humphrey Bogart", "James Stewart", "Cary Grant"],
     "answer": NumberInt(0)
 })
@@ -718,7 +718,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Starring Diana Ross, what 1972 film tells the life story of American jazz singer "Billie Holliday"?",
+    "question":"Starring Diana Ross, what 1972 film tells the life story of American jazz singer 'Billie Holliday'?",
     "options":["Lady Sings the Blues", "Crossroads", "Honeydripper", "You See Me Laughin'"],
     "answer": NumberInt(0)
 })
@@ -738,7 +738,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Originally titled "Murderer", which female popstar had a 2006 chart topper with the song "Unfaithful"?",
+    "question":"Originally titled 'Murderer', which female popstar had a 2006 chart topper with the song 'Unfaithful'?",
     "options":["Lady Gaga", "Madonna", "Beyonce", "Rihanna"],
     "answer": NumberInt(3)
 })
@@ -768,7 +768,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Who stars as the protagonist Hugh Glass in the 2015 Academy Award winning film "The Revenant"?",
+    "question":"Who stars as the protagonist Hugh Glass in the 2015 Academy Award winning film 'The Revenant'?",
     "options":["Leo DiCaprio", "Tom Hardy", "Brad Pitt", "Matt Damon"],
     "answer": NumberInt(0)
 })
@@ -778,12 +778,12 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":""Silver Car Crash" is the title of a painting that sold for over $105 million in 2013. Who painted it?",
+    "question":"'Silver Car Crash' is the title of a painting that sold for over $105 million in 2013. Who painted it?",
     "options":["Andy Warhol", "Fairfield Porter", "Yves Klein", "Jasper Johns"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"From which animal does the "Galapagos Islands" take their name?",
+    "question":"From which animal does the 'Galapagos Islands' take their name?",
     "options":["Horses", "Tortoises", "Horses", "Snakes"],
     "answer": NumberInt(1)
 })
@@ -793,12 +793,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which famous director directed the films "Psycho" and "The Birds"?",
+    "question":"Which famous director directed the films 'Psycho' and 'The Birds'?",
     "options":["Alfred Hitchcock", "Francois Truffaut", "Howard Hawks", "Anthony Perkins"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which female spent a week at number-one on the Billboard Hot 100 with the song "Part of Me" in 2012?",
+    "question":"Which female spent a week at number-one on the Billboard Hot 100 with the song 'Part of Me' in 2012?",
     "options":["Kelly Clarkson", "Katy Perry", "Beyonce", "Pink"],
     "answer": NumberInt(1)
 })
@@ -808,17 +808,17 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"On the Simpsons, who breaks their leg in the opening episode of Season 6, which is a parody of the film "Rear Window"?",
+    "question":"On the Simpsons, who breaks their leg in the opening episode of Season 6, which is a parody of the film 'Rear Window'?",
     "options":["Homer", "Maggie", "Bart", "Lisa"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The American rock band "Weezer" sang about which location in 2005?",
+    "question":"The American rock band 'Weezer' sang about which location in 2005?",
     "options":["Downtown", "Beverly Hills", "New York", "LA"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"CEO Ben Silbermann summarized his company as a "catalog of ideas". Name the website that his company operates.",
+    "question":"CEO Ben Silbermann summarized his company as a 'catalog of ideas'. Name the website that his company operates.",
     "options":["Reddit", "Pinterest", "Vine", "Flickr"],
     "answer": NumberInt(1)
 })
@@ -828,17 +828,17 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The hard rock/heavy metal band "Lordi" represented what nation at Eurovision in 2006?",
+    "question":"The hard rock/heavy metal band 'Lordi' represented what nation at Eurovision in 2006?",
     "options":["Finland", "Russia", "Denmark", "Sweden"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Now retired, this WWE Superstar's theme song was "All About the Power".",
+    "question":"Now retired, this WWE Superstar's theme song was 'All About the Power'.",
     "options":["Sheamus", "Jack Swagger", "Justin Gabriel", "David Otunga"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which American boy band won a Grammy Award in 2002 for their song "Gone"?",
+    "question":"Which American boy band won a Grammy Award in 2002 for their song 'Gone'?",
     "options":["Boyz II Men", "NSYNC", "Backstreet Boys", "New Kids on the Block"],
     "answer": NumberInt(1)
 })
@@ -858,7 +858,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Originally called "TheFacebook.com", in what year did Mark Zuckerberg launch Facebook? ",
+    "question":"Originally called 'TheFacebook.com', in what year did Mark Zuckerberg launch Facebook? ",
     "options":["2002", "2000", "2006", "2004"],
     "answer": NumberInt(3)
 })
@@ -893,7 +893,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Complete the title of the 2016 Kanye West album - "The Life of ..."?",
+    "question":"Complete the title of the 2016 Kanye West album - 'The Life of ...'?",
     "options":["Martha", "Pablo", "Jesus", "Eduardo"],
     "answer": NumberInt(1)
 })
@@ -908,7 +908,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Making its debut in November of 2016, the Netflix series "The Crown" is about which monarch?",
+    "question":"Making its debut in November of 2016, the Netflix series 'The Crown' is about which monarch?",
     "options":["Queen Victoria", "Elizabeth II", "Henry VIII", "Henry VII"],
     "answer": NumberInt(1)
 })
@@ -923,32 +923,32 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Boxing great "Muhammad Ali" died in 2016 at what age?",
+    "question":"Boxing great 'Muhammad Ali' died in 2016 at what age?",
     "options":["64", "84", "74", "54"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Which TV show won "Outstanding Drama Series" at the 2016 Emmys?",
+    "question":"Which TV show won 'Outstanding Drama Series' at the 2016 Emmys?",
     "options":["Downtown Abbey", "Mr. Robot", "Game of Thrones", "Homeland"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"NASA's "Juno" became the second craft to orbit which planet in 2016?",
+    "question":"NASA's 'Juno' became the second craft to orbit which planet in 2016?",
     "options":["Jupiter", "Mars", "Uranus", "Neptune"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Who is featured on the 2016 Charlie Puth hit "We Don't Talk Anymore"?",
+    "question":"Who is featured on the 2016 Charlie Puth hit 'We Don't Talk Anymore'?",
     "options":["Mariah Carey", "Miley Cyrus", "Beyonce", "Selena Gomez"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Complete the title of this 2016 Stephen King novel "End of ..."?",
+    "question":"Complete the title of this 2016 Stephen King novel 'End of ...'?",
     "options":["Man", "Watch", "Times", "Days"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Who stars in the 2016 science fiction-horror TV series "Stranger Things"?",
+    "question":"Who stars in the 2016 science fiction-horror TV series 'Stranger Things'?",
     "options":["Nicola Kidman", "Winona Ryder", "Reese Witherspoon", "Drew Barrymore"],
     "answer": NumberInt(1)
 })
@@ -998,12 +998,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"In which city would you find the famous medieval Catholic cathedral "Notre Dame"?",
+    "question":"In which city would you find the famous medieval Catholic cathedral 'Notre Dame'?",
     "options":["Madrid", "Paris", "Quebec", "Rome"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Written and directed by George Lucas, the 2005 film "Revenge of the Sith" is an installment of which film series?",
+    "question":"Written and directed by George Lucas, the 2005 film 'Revenge of the Sith' is an installment of which film series?",
     "options":["Mad Max", "Lord of the Rings", "Star Wars", "Harry Potter"],
     "answer": NumberInt(2)
 })
@@ -1023,7 +1023,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"In which classic novel does the heroine marry a rude and abrupt man named "Mr. Rochester"?",
+    "question":"In which classic novel does the heroine marry a rude and abrupt man named 'Mr. Rochester'?",
     "options":["Pride and Prejudice", "Mansfield Park", "Jane Eyre", "Wuthering Heights"],
     "answer": NumberInt(2)
 })
@@ -1033,7 +1033,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Who won the best actor award at the 2015 Oscars for their role in the film "The Theory of Everything"?",
+    "question":"Who won the best actor award at the 2015 Oscars for their role in the film 'The Theory of Everything'?",
     "options":["Steve Carell", "Eddie Redmayne", "Bradley Cooper", "Michael Fassbender"],
     "answer": NumberInt(1)
 })
@@ -1048,7 +1048,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"What was the nickname of baseball legend "Hank Aaron"?",
+    "question":"What was the nickname of baseball legend 'Hank Aaron'?",
     "options":["Splendid Splinter", "Sultan of Swat", "Three Fingers", "Hammer"],
     "answer": NumberInt(3)
 })
@@ -1068,12 +1068,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"In the 1988 comedy film "A Fish Called Wanda", what do the main characters attempt to steal?",
+    "question":"In the 1988 comedy film 'A Fish Called Wanda', what do the main characters attempt to steal?",
     "options":["Money", "Bonds", "Art", "Jewels"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Voiced by Harry Shearer, what is the middle name of Mr. Burns in the TV sitcom "The Simpsons"?",
+    "question":"Voiced by Harry Shearer, what is the middle name of Mr. Burns in the TV sitcom 'The Simpsons'?",
     "options":["Montgomery", "Dallas", "Charles", "Evans"],
     "answer": NumberInt(0)
 })
@@ -1083,7 +1083,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Written by Jesse Stone, the song "Money Honey" was which group's first hit?",
+    "question":"Written by Jesse Stone, the song 'Money Honey' was which group's first hit?",
     "options":["The Cadillacs", "The Platters", "The Dominoes", "The Drifters"],
     "answer": NumberInt(3)
 })
@@ -1093,17 +1093,17 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"The year 2016 marks which anniversary of the National Football League's "Super Bowl"?",
+    "question":"The year 2016 marks which anniversary of the National Football League's 'Super Bowl'?",
     "options":["50th", "80th", "60th", "70th"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Released in 2014, the first-person shooter "Advanced Warfare" is an installment of which video game series?",
+    "question":"Released in 2014, the first-person shooter 'Advanced Warfare' is an installment of which video game series?",
     "options":["Call of Duty", "Gears of War", "Hearts of Iron", "Battlefield"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Released in 1981, "Ghost in the Machine" was a hit album for which English rock band?",
+    "question":"Released in 1981, 'Ghost in the Machine' was a hit album for which English rock band?",
     "options":["Oasis", "The Clash", "Queen", "The Police"],
     "answer": NumberInt(3)
 })
@@ -1113,12 +1113,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Born Norma Jeane Mortenson, in what decade was actress "Marilyn Monroe" born?",
+    "question":"Born Norma Jeane Mortenson, in what decade was actress 'Marilyn Monroe' born?",
     "options":["1920s", "1930s", "1910s", "1940s"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"English actress "Maggie Smith" plays the role of which character in the Harry Potter films?",
+    "question":"English actress 'Maggie Smith' plays the role of which character in the Harry Potter films?",
     "options":["Minerva McGonagall", "Dolores Umbridge", "Ginevra Weasley", "Hermione Granger"],
     "answer": NumberInt(0)
 })
@@ -1143,12 +1143,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Released in November of 1971, "Jeepster" was a big hit for which glam rock act?",
+    "question":"Released in November of 1971, 'Jeepster' was a big hit for which glam rock act?",
     "options":["Mud", "Slade", "Sweet", "T. Rex"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"What season of "The Simpsons" began in 2016?",
+    "question":"What season of 'The Simpsons' began in 2016?",
     "options":["28th", "12th", "32nd", "18th"],
     "answer": NumberInt(0)
 })
@@ -1163,17 +1163,17 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which singer/songwriter is known by the nickname "The Boss"?",
+    "question":"Which singer/songwriter is known by the nickname 'The Boss'?",
     "options":["Bono", "Jimi Hendrix", "Bon Jovi", "Bruce Springsteen"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which American actor is known for playing Sheldon Cooper on the popular sitcom "The Big Bang Theory"?",
+    "question":"Which American actor is known for playing Sheldon Cooper on the popular sitcom 'The Big Bang Theory'?",
     "options":["Simon Helberg", "Kevin Sussman", "Jim Parsons", "Johnny Galecki"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Airing in 2016, which contestant won season 32 of "Survivor"?",
+    "question":"Airing in 2016, which contestant won season 32 of 'Survivor'?",
     "options":["Aubry Bracco", "Michele Fitzgerald", "Cydney Gillon", "Tai Trang"],
     "answer": NumberInt(1)
 })
@@ -1183,7 +1183,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"What American singer and actress played the role of Cat Valentine on the TV sitcom series "Victorious"?",
+    "question":"What American singer and actress played the role of Cat Valentine on the TV sitcom series 'Victorious'?",
     "options":["Selena Gomez", "Miley Cyrus", "Jennette McCurdy", "Ariana Grande"],
     "answer": NumberInt(3)
 })
@@ -1193,7 +1193,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"A firkin of beer consists of how many "imperial" gallons?",
+    "question":"A firkin of beer consists of how many 'imperial' gallons?",
     "options":["6", "12", "9", "3"],
     "answer": NumberInt(2)
 })
@@ -1203,37 +1203,37 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Which famous figure's autobiography is entitled "My Brief History"?",
+    "question":"Which famous figure's autobiography is entitled 'My Brief History'?",
     "options":["Carl Sagan", "Michio Kaku", "Albert Einstein", "Steven Hawking"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which film hero has a girlfriend named "Marion Ravenwood"?",
+    "question":"Which film hero has a girlfriend named 'Marion Ravenwood'?",
     "options":["Harry Potter", "Indiana Jones", "Luke Skywalker", "James Bond"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Which girl group had a 2005 hit with the song "Lose My Breath"?",
+    "question":"Which girl group had a 2005 hit with the song 'Lose My Breath'?",
     "options":["Cleopatra", "The Spice Girls", "Destiny's Child", "The Pussycat Dolls"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Who was not one of the "Big Three" Allied leaders of World War II?",
+    "question":"Who was not one of the 'Big Three' Allied leaders of World War II?",
     "options":["Eisenhower", "Churchill", "Roosevelt", "Stalin"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which English novelist and poet wrote under the pen name "Currer Bell"?",
+    "question":"Which English novelist and poet wrote under the pen name 'Currer Bell'?",
     "options":["Jane Austen", "Virginia Woolf", "Charlotte Bronte", "Emily Bronte"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":""Cetana" is a central concept of which religion?",
+    "question":"'Cetana' is a central concept of which religion?",
     "options":["Sikhism", "Judaism", "Hinduism", "Buddhism"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":""Cavendish" is a variety of what fruit?",
+    "question":"'Cavendish' is a variety of what fruit?",
     "options":["Pear", "Kiwi", "Apple", "Banana"],
     "answer": NumberInt(3)
 })
@@ -1243,7 +1243,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The fictional character "Captain Ahab" appears in which novel?",
+    "question":"The fictional character 'Captain Ahab' appears in which novel?",
     "options":["Treasure Island", "Robinson Crusoe", "Gulliver's Travels", "Moby Dick"],
     "answer": NumberInt(3)
 })
@@ -1253,7 +1253,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The remote volcanic island named "Easter Island" belongs to which South American country?",
+    "question":"The remote volcanic island named 'Easter Island' belongs to which South American country?",
     "options":["Argentina", "Brazil", "Peru", "Chile"],
     "answer": NumberInt(3)
 })
@@ -1288,12 +1288,12 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Your computer has a number of files that have the extension ".DLL". What does DLL stand for?",
+    "question":"Your computer has a number of files that have the extension '.DLL'. What does DLL stand for?",
     "options":["Dual Line Latency", "Dedicated Library Links", "Dynamic Link Library", "Dynamic Library Links"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Running for five seasons from September 2008 to December 2012, who voiced the "Great Dragon" in the British fantasy-adventure TV series "Merlin"?",
+    "question":"Running for five seasons from September 2008 to December 2012, who voiced the 'Great Dragon' in the British fantasy-adventure TV series 'Merlin'?",
     "options":["David Tenant", "Marvin Hulmes", "John Hurt", "Pat Baker"],
     "answer": NumberInt(2)
 })
@@ -1328,7 +1328,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"In the animated sitcom "The Simpsons," who replaced Chief Wiggum in Season 8?",
+    "question":"In the animated sitcom 'The Simpsons,' who replaced Chief Wiggum in Season 8?",
     "options":["Evan Tanner", "Mark Lanner", "Sid Manner", "Rex Banner"],
     "answer": NumberInt(3)
 })
@@ -1338,12 +1338,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which of these movies won the "Razzie for Worst Picture" first?",
+    "question":"Which of these movies won the 'Razzie for Worst Picture' first?",
     "options":["Hudson Hawk", "Star Trek V", "Howard the Duck"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"An essential ingredient in several notable cocktails, what flavor is the liqueur "Kahlua"?",
+    "question":"An essential ingredient in several notable cocktails, what flavor is the liqueur 'Kahlua'?",
     "options":["Amaretto", "Walnut", "Chocolate", "Coffee"],
     "answer": NumberInt(3)
 })
@@ -1388,7 +1388,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which comedian released and autobiographical book titled "The Girl with the Lower Back Tattoo" in September 2016?",
+    "question":"Which comedian released and autobiographical book titled 'The Girl with the Lower Back Tattoo' in September 2016?",
     "options":["Sarah Silverman", "Martha Reeves", "Ellen DeGeneres", "Amy Schumer"],
     "answer": NumberInt(3)
 })
@@ -1443,12 +1443,12 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which animal's stomach is used to make "Haggis"?",
+    "question":"Which animal's stomach is used to make 'Haggis'?",
     "options":["Sheep", "Chicken", "Cow", "Pig"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"This civil rights leader gave a public speech titled "I Have a Dream" on August 28th 1963 in Washington, D.C.",
+    "question":"This civil rights leader gave a public speech titled 'I Have a Dream' on August 28th 1963 in Washington, D.C.",
     "options":["Malcolm X", "Martin Luther King Jr.", "Rosa Parks", "Thurgood Marshall"],
     "answer": NumberInt(1)
 })
@@ -1463,7 +1463,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which 19th century author wrote the novels "A Christmas Carol" and "Great Expectations"?",
+    "question":"Which 19th century author wrote the novels 'A Christmas Carol' and 'Great Expectations'?",
     "options":["Charles Dickens", "Mark Twain", "Herman Melville", "Arthur Conan Doyle"],
     "answer": NumberInt(0)
 })
@@ -1483,7 +1483,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Approximately, how many miles make up a "nautical" league?",
+    "question":"Approximately, how many miles make up a 'nautical' league?",
     "options":["2.45", "4.45", "1.45", "3.45"],
     "answer": NumberInt(3)
 })
@@ -1498,12 +1498,12 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"The game of "Brockian Ultra Cricket" appears in which series of novels?",
+    "question":"The game of 'Brockian Ultra Cricket' appears in which series of novels?",
     "options":["Harry Potter", "The Maze Runner", "A Song of Ice and Fire", "Hitchhiker's Guide to the Galaxy"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"How is musician "Marvin Lee Aday" better known?",
+    "question":"How is musician 'Marvin Lee Aday' better known?",
     "options":["Meatloaf", "Alice Cooper", "Kid Rock", "Sting"],
     "answer": NumberInt(0)
 })
@@ -1513,22 +1513,22 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"How many Oscars did the film, "The Lord of the Rings - The Return of the King," win at the 76th Academy Awards?",
+    "question":"How many Oscars did the film, 'The Lord of the Rings - The Return of the King,' win at the 76th Academy Awards?",
     "options":["2", "9", "11", "5"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"How many soup cans are featured in Andy Warhol's famous 1962 painting, "Campbell's Soup Cans"?",
+    "question":"How many soup cans are featured in Andy Warhol's famous 1962 painting, 'Campbell's Soup Cans'?",
     "options":["16", "32", "4", "8"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"How many contestants are featured on the American TV quiz show "The Chase"?",
+    "question":"How many contestants are featured on the American TV quiz show 'The Chase'?",
     "options":["5", "4", "3", "2"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"In the game of Scrabble, what is the value of the letter "C"?",
+    "question":"In the game of Scrabble, what is the value of the letter 'C'?",
     "options":["2", "3", "1", "4"],
     "answer": NumberInt(1)
 })
@@ -1538,7 +1538,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"In which city is the romantic comedy TV series "Sex and the City" set?",
+    "question":"In which city is the romantic comedy TV series 'Sex and the City' set?",
     "options":["Denver", "Illinois", "New York City", "Seattle"],
     "answer": NumberInt(2)
 })
@@ -1548,7 +1548,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Rhett Butler and Scarlett O'Hara from "Gone with the Wind" had a child. What was the child's name?",
+    "question":"Rhett Butler and Scarlett O'Hara from 'Gone with the Wind' had a child. What was the child's name?",
     "options":["Bonnie Brown", "Bonnie Blue", "Bonnie Black", "Bonnie Red"],
     "answer": NumberInt(1)
 })
@@ -1568,12 +1568,12 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"What was the name of the main boat featured in the 1975 movie "Jaws"?",
+    "question":"What was the name of the main boat featured in the 1975 movie 'Jaws'?",
     "options":["Beats", "Cheater", "Orca", "Lorca"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Which female popstar had a number one single in 2000 with "What a Girl Wants"?",
+    "question":"Which female popstar had a number one single in 2000 with 'What a Girl Wants'?",
     "options":["Madonna", "Britney Spears", "Pink", "Christina Aguilera"],
     "answer": NumberInt(3)
 })
@@ -1598,12 +1598,12 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"The character "Colonel Mustard" appears in which board game?",
+    "question":"The character 'Colonel Mustard' appears in which board game?",
     "options":["The Settlers of Catan", "LIFE", "Monopoly", "Cluedo"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"How many dice are used in the game of "Backgammon"?",
+    "question":"How many dice are used in the game of 'Backgammon'?",
     "options":["1", "4", "3", "2"],
     "answer": NumberInt(3)
 })
@@ -1613,7 +1613,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"How many ghosts are featured in Charles Dicken's novella "A Christmas Carol"?",
+    "question":"How many ghosts are featured in Charles Dicken's novella 'A Christmas Carol'?",
     "options":["3", "2", "1", "4"],
     "answer": NumberInt(3)
 })
@@ -1623,7 +1623,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"How much is a blank tile worth in a game of "Scrabble"?",
+    "question":"How much is a blank tile worth in a game of 'Scrabble'?",
     "options":["3", "1", "2", "0"],
     "answer": NumberInt(3)
 })
@@ -1633,7 +1633,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"In the "Harry Potter" book, and movie series, who teaches "Quidditch"?",
+    "question":"In the 'Harry Potter' book, and movie series, who teaches 'Quidditch'?",
     "options":["Professor Snape", "Professor Sprout", "Professor Dumbledore", "Professor McGonagall"],
     "answer": NumberInt(3)
 })
@@ -1653,7 +1653,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":""Snake" is the main character in which video game series?",
+    "question":"'Snake' is the main character in which video game series?",
     "options":["BioShock", "Metal Gear Solid", "Counter-Strike", "Tomb Raider"],
     "answer": NumberInt(1)
 })
@@ -1663,7 +1663,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"What sport takes place in a "Velodrome"?",
+    "question":"What sport takes place in a 'Velodrome'?",
     "options":["Racquetball", "Cycling", "Basketball", "Ice Hockey"],
     "answer": NumberInt(1)
 })
@@ -1688,7 +1688,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"In what card game might you be asked, "Do you have any eights?"",
+    "question":"In what card game might you be asked, 'Do you have any eights?'",
     "options":["Crazy Eights", "War", "Snap", "Go Fish"],
     "answer": NumberInt(3)
 })
@@ -1698,22 +1698,22 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":""The Liberty Bell" was the theme tune to which classic British comedy show?",
+    "question":"'The Liberty Bell' was the theme tune to which classic British comedy show?",
     "options":["Monty Python", "The Office", "Porridge", "Only Fools and Horses"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"A dish served "A la Crecy" comes with what vegetable?",
+    "question":"A dish served 'A la Crecy' comes with what vegetable?",
     "options":["Spinach", "Broccoli", "Carrots", "Potatoes"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The line "To be or not to be, that is the question" comes from which Shakespearean play?",
+    "question":"The line 'To be or not to be, that is the question' comes from which Shakespearean play?",
     "options":["Macbeth", "Romeo and Juliet", "Hamlet", "Othello"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Talent manager "Colonel Tom Parker" managed which singer's career?",
+    "question":"Talent manager 'Colonel Tom Parker' managed which singer's career?",
     "options":["Roy Orbison", "Elvis Presley", "Chuck Berry", "Johnny Cash"],
     "answer": NumberInt(1)
 })
@@ -1723,7 +1723,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"In the 2014 comedy film "St. Vincent", who plays the role of Vincent?",
+    "question":"In the 2014 comedy film 'St. Vincent', who plays the role of Vincent?",
     "options":["Bill Murray", "Hugh Grant", "Matt Damon", "Ben Affleck"],
     "answer": NumberInt(0)
 })
@@ -1768,7 +1768,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Published in 1993, "The Client" was a hit novel for which author?",
+    "question":"Published in 1993, 'The Client' was a hit novel for which author?",
     "options":["Robert Galbraith", "John Grisham", "Robert Harris", "Stephen King"],
     "answer": NumberInt(1)
 })
@@ -1778,7 +1778,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Complete the title of the only painting sold by Van Gogh in his lifetime - "The Red..."?",
+    "question":"Complete the title of the only painting sold by Van Gogh in his lifetime - 'The Red...'?",
     "options":["Ship", "Vineyard", "Night Sky", "Sea"],
     "answer": NumberInt(1)
 })
@@ -1798,7 +1798,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"A hidden mosaic was uncovered during restoration work at the "Church of the Nativity" in which country?",
+    "question":"A hidden mosaic was uncovered during restoration work at the 'Church of the Nativity' in which country?",
     "options":["England", "Israel", "France", "Syria"],
     "answer": NumberInt(1)
 })
@@ -1808,7 +1808,7 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"Whose album "Views" topped the Billboard 200 chart at number one in July of 2016?",
+    "question":"Whose album 'Views' topped the Billboard 200 chart at number one in July of 2016?",
     "options":["Drake", "Rihanna", "Twenty One Pilots", "Blink 182"],
     "answer": NumberInt(0)
 })
@@ -1863,12 +1863,12 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Now a cult-classic, what 1982 Frank Zappa song features the line, "Gag me with a spoon"?",
+    "question":"Now a cult-classic, what 1982 Frank Zappa song features the line, 'Gag me with a spoon'?",
     "options":["Don't Eat the Yellow Snow", "Joe's Garage", "Bobby Brown", "Valley Girl"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Who played the role of the mother Shirley Partridge in the 1970s musical sitcom, "The Partridge Family"?",
+    "question":"Who played the role of the mother Shirley Partridge in the 1970s musical sitcom, 'The Partridge Family'?",
     "options":["Suzanne Crough", "Shirley Jones", "Evelyn Ward", "Susan Dey"],
     "answer": NumberInt(1)
 })
@@ -1878,7 +1878,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"What American new wave band released the singles "Rock Lobster" and "Planet Claire" on their debut album in 1979?",
+    "question":"What American new wave band released the singles 'Rock Lobster' and 'Planet Claire' on their debut album in 1979?",
     "options":["Talking Heads", "The B-52's", "The Bangles", "Devo"],
     "answer": NumberInt(1)
 })
@@ -1888,7 +1888,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Known for his big mouth and witty lines, which boxer was given the nickname "The Louisville Lip"?",
+    "question":"Known for his big mouth and witty lines, which boxer was given the nickname 'The Louisville Lip'?",
     "options":["Joe Louis", "Primo Carnera", "Jack Dempsey", "Muhammed Ali"],
     "answer": NumberInt(3)
 })
@@ -1898,22 +1898,22 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Airing for six seasons, in what year did the animated cartoon series "The Flintstones" make its debut?",
+    "question":"Airing for six seasons, in what year did the animated cartoon series 'The Flintstones' make its debut?",
     "options":["1960", "1964", "1964", "1962"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"Which English comedian published the non-fiction book "Revolution" in 2014?",
+    "question":"Which English comedian published the non-fiction book 'Revolution' in 2014?",
     "options":["Terry Wogan", "Graham Norton", "Jonathan Ross", "Russell Brand"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Which British singer and actress became a judge on the UK version of "The Voice" in 2015?",
+    "question":"Which British singer and actress became a judge on the UK version of 'The Voice' in 2015?",
     "options":["Rita Ora", "Beyonce", "Adele", "Victoria Beckham"],
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"This former world number one professional tennis player might be best known for a "You cannot be serious!" outburst at a 1981 tennis match.",
+    "question":"This former world number one professional tennis player might be best known for a 'You cannot be serious!' outburst at a 1981 tennis match.",
     "options":["Boris Becker", "Ivan Lendl", "John McEnroe", "Jimmy Connors"],
     "answer": NumberInt(2)
 })
@@ -1923,17 +1923,17 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"In which popular TV show does most of the action take place on the fictional continent of "Westeros"?",
+    "question":"In which popular TV show does most of the action take place on the fictional continent of 'Westeros'?",
     "options":["Of Kings and Prophets ", "Vikings", "The Shannara Chronicles ", "Game of Thrones"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Born George Herman Ruth Jr., Babe Ruth was known as the "Sultan of ____"?",
+    "question":"Born George Herman Ruth Jr., Babe Ruth was known as the 'Sultan of ____'?",
     "options":["Bats", "Swat", "The Field", "Balls"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"In Disney's 1989 film "The Little Mermaid", what type of creature is Sebastian?",
+    "question":"In Disney's 1989 film 'The Little Mermaid', what type of creature is Sebastian?",
     "options":["Seahorse", "Seagull", "Crab", "Shark"],
     "answer": NumberInt(2)
 })
@@ -1953,7 +1953,7 @@ db.questions.insert({
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Located in the New York metropolitan area, "The New York Giants" play which sport?",
+    "question":"Located in the New York metropolitan area, 'The New York Giants' play which sport?",
     "options":["Ice Hockey", "Football", "Basketball", "Baseball"],
     "answer": NumberInt(1)
 })
@@ -1973,27 +1973,27 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":""Krung Thep" is the proper, local name, of which popular city?",
+    "question":"'Krung Thep' is the proper, local name, of which popular city?",
     "options":["Hong Kong", "Bangkok", "Fukuoka", "Beijing"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Kylo Ren murders which character in the 2015 sci-fi film "Star Wars - The Force Awakens"?",
+    "question":"Kylo Ren murders which character in the 2015 sci-fi film 'Star Wars - The Force Awakens'?",
     "options":["Chewbacca", "Hans Solo", "Princess Leia", "Luke Skywalker"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"The Japanese poetry of "Haiku" consists of how many syllables?",
+    "question":"The Japanese poetry of 'Haiku' consists of how many syllables?",
     "options":["23", "19", "17", "21"],
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"An essential part of the ancient Silk Road, the "Khyber Pass" connects Pakistan with which other country?",
+    "question":"An essential part of the ancient Silk Road, the 'Khyber Pass' connects Pakistan with which other country?",
     "options":["Russia", "Afghanistan", "Iran", "India"],
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"The American professional baseball team the "Orioles" are based in which city?",
+    "question":"The American professional baseball team the 'Orioles' are based in which city?",
     "options":["Denver", "Chicago", "Boston", "Baltimore"],
     "answer": NumberInt(3)
 })
@@ -2013,7 +2013,7 @@ db.questions.insert({
     "answer": NumberInt(1)
 })
 db.questions.insert({
-    "question":"Complete the famous opening line from the classic novel Moby Dick - "Call me...".",
+    "question":"Complete the famous opening line from the classic novel Moby Dick - 'Call me...'.",
     "options":["Stupid", "Ishmael", "Moses", "Jacob"],
     "answer": NumberInt(1)
 })
@@ -2033,7 +2033,7 @@ db.questions.insert({
     "answer": NumberInt(0)
 })
 db.questions.insert({
-    "question":"What animal can be identified as "Siberian" or "Caspian"?",
+    "question":"What animal can be identified as 'Siberian' or 'Caspian'?",
     "options":["Cheetah", "Jaguar", "Tiger", "Lion"],
     "answer": NumberInt(2)
 })
@@ -2043,12 +2043,12 @@ db.questions.insert({
     "answer": NumberInt(2)
 })
 db.questions.insert({
-    "question":"The 1996 film "When We Were Kings" is a documentary featuring which sport?",
+    "question":"The 1996 film 'When We Were Kings' is a documentary featuring which sport?",
     "options":["Football", "Golf", "Soccer", "Boxing"],
     "answer": NumberInt(3)
 })
 db.questions.insert({
-    "question":"Where on your body would you find your "Ulna"?",
+    "question":"Where on your body would you find your 'Ulna'?",
     "options":["Arms", "Mouth", "Feet", "Heart"],
     "answer": NumberInt(0)
 })
