@@ -16,7 +16,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def get_question(self):
+    def get_question(self, **kwargs):
         pass
 
     @abstractmethod
@@ -38,11 +38,13 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def update_question(self, _id, question=None, options=None, answer=None):
+    def update_question(self, _id=None, question=None, options=None,
+                        answer=None, new_question=None, new_options=None,
+                        new_answer=None):
         """Update question in DB"""
         pass
 
     @abstractmethod
-    def delete_question(self, _id):
+    def delete_question(self, **kwargs):
         """Delete question from DB"""
         pass
