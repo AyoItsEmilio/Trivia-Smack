@@ -38,9 +38,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def update_question(self, _id=None, question=None, options=None,
-                        answer=None, new_question=None, new_options=None,
-                        new_answer=None):
+    def update_question(self, **kwargs):
         """Update question in DB"""
         pass
 
