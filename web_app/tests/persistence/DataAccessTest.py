@@ -16,16 +16,20 @@ class DataAccessTest(unittest.TestCase):
 
     def setUp(self):
         '''
-        Set everything up after each test because some
-        manipulte the database
+        Set everything up after each test because some tests
+        manipulate the database
         '''
-        Services.close_data_access()
         Services.create_data_access(
             altDataAccessService=DataAccessStub("application"))
         self.data_access = Services.get_data_access()
         self.db_size = 9
 
     def tearDown(self):
+        '''
+        Get rid of stub database instance after each test because some
+        tests manipulate the database.
+        '''
+        Services.close_data_access()
         self.data_access = None
 
     def test_get_question(self):
