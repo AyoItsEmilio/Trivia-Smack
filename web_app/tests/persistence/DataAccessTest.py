@@ -107,7 +107,7 @@ class DataAccessTest(unittest.TestCase):
 
     def test_update_answer(self):
         '''
-        Test the update_question method, updating the answer only.
+        Test the update_question method, updating the answer given the question ID.
         '''
 
         print "Testing DataAccess: update_question (Answer)"
@@ -117,6 +117,25 @@ class DataAccessTest(unittest.TestCase):
         new_answer = 0
 
         self.data_access.update_question(_id=question_id, new_answer=new_answer)
+
+        question_object = self.data_access.get_question(_id=8)
+
+        self.assertEquals(question_object.question, question)
+        self.assertEquals(question_object.options, options)
+        self.assertEquals(question_object.answer, new_answer)
+
+    def test_update_answer2(self):
+        '''
+        Test the update_question method, updating the answer given the actual question.
+        '''
+
+        print "Testing DataAccess: update_question (Answer)"
+        question_id = 8
+        question = "The Balkans are in:"
+        options = ["South America", "Europe", "Australia", "Asia"]
+        new_answer = 0
+
+        self.data_access.update_question(question=question, new_answer=new_answer)
 
         question_object = self.data_access.get_question(_id=8)
 
