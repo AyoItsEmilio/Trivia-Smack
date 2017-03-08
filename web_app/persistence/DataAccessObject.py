@@ -1,13 +1,14 @@
 """
 DataAccessObject.py
 """
-import random
+
+from bson import ObjectId
+from flask.ext.pymongo import MongoClient
 import pymongo
-from json import dumps, loads
-from bson import json_util, ObjectId
+import random
+
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
-from flask.ext.pymongo import MongoClient
 
 
 class DataAccessObject(DataAccessInterface):
@@ -47,10 +48,8 @@ class DataAccessObject(DataAccessInterface):
         return Question(doc["_id"], doc["question"],
                         doc["options"], doc["answer"])
 
-    def get_question(self, _id):
-        """Grabs a question from the DB by its id string"""
-        return self.mongo.questions.find_one(
-            {'_id': ObjectId(_id)})
+    def get_question(self, **kwargs):
+        return self.mongo.questions.find_one(kwargs)
 
     def get_all_questions(self):
         result = []
@@ -73,26 +72,37 @@ class DataAccessObject(DataAccessInterface):
             "answer": answer
         }).inserted_id
 
-    def update_question(self, _id, question=None, options=None, answer=None):
+    def update_question(self, _id=None, question=None, options=None,
+                        answer=None, new_question=None, new_options=None,
+                        new_answer=None):
         """
         Updates an existing question given its id
         """
-        q = self.mongo.questions.find_one({'_id': ObjectId(_id)})
+        orig_question = dict()
 
-        if q is not None:
-            if question is not None:
-                q['question'] = question
-            if options is not None:
-                q['options'] = options
-            if answer is not None:
-                q['answer'] = answer
+        if _id is not None:
+            orig_question['_id'] = question
+        if question is not None:
+            orig_question['question'] = question
+        if options is not None:
+            orig_question['options'] = options
+        if answer is not None:
+            orig_question['answer'] = answer
 
-            self.mongo.questions.update(
-                {"_id": _id}, q
-            )
+        updated_question = self.get_question(**orig_question)
 
-    def delete_question(self, _id):
+        if orig_question is not None:
+            if new_question is not None:
+                updated_question['question'] = new_question
+            if new_options is not None:
+                updated_question['options'] = new_options
+            if new_answer is not None:
+                updated_question['answer'] = new_answer
+
+        self.mongo.questions.update(orig_question, updated_question)
+
+    def delete_question(self, **kwargs):
         """
         Deletes an existing question given its id
         """
-        self.mongo.questions.remove({'_id': ObjectId(_id)})
+        self.mongo.questions.remove(kwargs)
