@@ -10,10 +10,6 @@ from web_app.objects.Question import Question
 class DataAccessTest(unittest.TestCase):
     """Unit tests for the DataAccess class"""
 
-    @classmethod
-    def tearDownClass(cls):
-        Services.close_data_access()
-
     def setUp(self):
         '''
         Set everything up after each test because some tests

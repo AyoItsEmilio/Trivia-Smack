@@ -76,12 +76,12 @@ class DataAccessObject(DataAccessInterface):
                         answer=None, new_question=None, new_options=None,
                         new_answer=None):
         """
-        Updates an existing question given its id
+        Updates an existing question.
         """
         orig_question = dict()
 
         if _id is not None:
-            orig_question['_id'] = question
+            orig_question['_id'] = _id
         if question is not None:
             orig_question['question'] = question
         if options is not None:
@@ -91,7 +91,7 @@ class DataAccessObject(DataAccessInterface):
 
         updated_question = self.get_question(**orig_question)
 
-        if orig_question is not None:
+        if updated_question is not None:
             if new_question is not None:
                 updated_question['question'] = new_question
             if new_options is not None:
@@ -103,6 +103,6 @@ class DataAccessObject(DataAccessInterface):
 
     def delete_question(self, **kwargs):
         """
-        Deletes an existing question given its id
+        Deletes an existing questions.
         """
         self.mongo.questions.remove(kwargs)
