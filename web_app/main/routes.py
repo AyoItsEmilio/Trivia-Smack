@@ -3,38 +3,48 @@ routes.py
 """
 from flask import render_template, request, redirect, jsonify, session
 from web_app.business.AccessQuestions import AccessQuestions
-from web_app.business.GameController import GameController
 from . import main
+from random import randint
 
-GAME_CONTROLLER = GameController.get_instance()
+max_questions = 3
 
 @main.route("/")
 def home_page():
-    score = GAME_CONTROLLER.score if GAME_CONTROLLER.is_started else None
-    GAME_CONTROLLER.start()
-
+    session["question_count"] = 0
+    score = session.get("score", None)
+    session["score"] = None
+    session["name"] = "sam"+str(randint(0,10))
+    print "SESSION NAME:", session["name"]
     return render_template("homePage.html", score=score)
 
 @main.route("/wait_page")
 def wait_page():
     return render_template("waitPage.html")
 
-@main.route("/question_page", methods=["GET", "POST"])
+@main.route("/question_page")
 def question_page():
 
     result = request.args.get("result", None)
 
-    if result and GAME_CONTROLLER.evaluate_answer(int(result)):
-        GAME_CONTROLLER.increase_score()
+    if result is not None:
 
-    if GAME_CONTROLLER.is_finished():
+        session["question_count"] += 1
+
+        if session["score"] is None:
+            session["score"] = 0
+
+        if int(result) == session["answer"]:
+            session["score"] = session["score"] + 1
+
+    if session["question_count"] == max_questions:
         return redirect("/")
 
-    question_obj = GAME_CONTROLLER.get_next_question()
+    question_obj = AccessQuestions().get_random_question()
 
     question = question_obj.question
     options = question_obj.options
     answer = question_obj.answer
+    session["answer"] = answer
 
     return render_template("questionPage.html",\
        question=question,\
