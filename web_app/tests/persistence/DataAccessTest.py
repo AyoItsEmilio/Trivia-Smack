@@ -76,8 +76,8 @@ class DataAccessTest(unittest.TestCase):
         options = ["South America", "Europe", "Australia", "Asia"]
         answer = 1
 
-        self.data_access.update_question(question_id,
-                                         question=new_question)
+        self.data_access.update_question(_id=question_id,
+                                         new_question=new_question)
 
         question_object = self.data_access.get_question(_id=8)
 
@@ -97,7 +97,7 @@ class DataAccessTest(unittest.TestCase):
                        "Africa"]
         answer = 1
 
-        self.data_access.update_question(question_id, options=new_options)
+        self.data_access.update_question(_id=question_id, new_options=new_options)
 
         question_object = self.data_access.get_question(_id=8)
 
@@ -116,7 +116,7 @@ class DataAccessTest(unittest.TestCase):
         options = ["South America", "Europe", "Australia", "Asia"]
         new_answer = 0
 
-        self.data_access.update_question(question_id, answer=new_answer)
+        self.data_access.update_question(_id=question_id, new_answer=new_answer)
 
         question_object = self.data_access.get_question(_id=8)
 
@@ -135,10 +135,10 @@ class DataAccessTest(unittest.TestCase):
         new_options = [35, 58, 73, 112]
         new_answer = 2
 
-        self.data_access.update_question(question_id,
-                                         question=new_question,
-                                         options=new_options,
-                                         answer=new_answer)
+        self.data_access.update_question(_id=question_id,
+                                         new_question=new_question,
+                                         new_options=new_options,
+                                         new_answer=new_answer)
 
         question_object = self.data_access.get_question(_id=8)
 
