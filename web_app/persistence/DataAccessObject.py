@@ -72,32 +72,30 @@ class DataAccessObject(DataAccessInterface):
             "answer": answer
         }).inserted_id
 
-    def update_question(self, _id=None, question=None, options=None,
-                        answer=None, new_question=None, new_options=None,
-                        new_answer=None):
+    def update_question(self, **kwargs):
         """
         Updates an existing question.
         """
         orig_question = dict()
 
-        if _id is not None:
-            orig_question['_id'] = _id
-        if question is not None:
-            orig_question['question'] = question
-        if options is not None:
-            orig_question['options'] = options
-        if answer is not None:
-            orig_question['answer'] = answer
+        if '_id' in kwargs:
+            orig_question['_id'] = kwargs['_id']
+        if 'question' in kwargs:
+            orig_question['question'] = kwargs['question']
+        if 'options' in kwargs:
+            orig_question['options'] = kwargs['options']
+        if 'answer' in kwargs:
+            orig_question['answer'] = kwargs['answer']
 
         updated_question = self.get_question(**orig_question)
 
         if updated_question is not None:
-            if new_question is not None:
-                updated_question['question'] = new_question
-            if new_options is not None:
-                updated_question['options'] = new_options
-            if new_answer is not None:
-                updated_question['answer'] = new_answer
+            if 'new_question' in kwargs:
+                updated_question['question'] = kwargs['new_question']
+            if 'new_options' in kwargs:
+                updated_question['options'] = kwargs['new_options']
+            if 'new_answer' in kwargs:
+                updated_question['answer'] = kwargs['new_answer']
 
         self.mongo.questions.update(orig_question, updated_question)
 

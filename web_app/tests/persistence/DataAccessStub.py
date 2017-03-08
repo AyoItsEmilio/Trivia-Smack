@@ -46,13 +46,28 @@ class DataAccessStub(DataAccessInterface):
         print "Closed database"
         self.questions = None
 
-    def get_question(self, _id):
+    def get_question(self, **kwargs):
         """
-        Grab a question by its id
-        Note: this should only be returning one question. Should add
-        checks for that.
+        Grabs a question from the database.
         """
-        return next((x for x in self.questions if x._id == _id), None)
+
+        for question in self.questions:
+            found_question = True
+            if '_id' in kwargs:
+              found_question = found_question and (kwargs['_id'] == question._id)
+            if 'question' in kwargs:
+              found_question = found_question and (kwargs['question'] == question.question)
+            if 'options' in kwargs:
+              print kwargs['options']
+              print question.options
+              found_question = found_question and (kwargs['options'] == question.options)
+            if 'answer' in kwargs:
+              found_question = found_question and (kwargs['answer'] == question.answer)
+
+            if found_question:
+              return question
+
+        # return next((x for x in self.questions if x._id == _id), None)
 
     def get_random_question(self):
         """Grab a random question from the DB"""
@@ -71,19 +86,30 @@ class DataAccessStub(DataAccessInterface):
                               options, answer))
         self.curr_id += 1
 
-    def update_question(self, _id, question=None,
-                        options=None, answer=None):
+    def update_question(self, **kwargs):
         """
-        Takes a question id and updates its corresponding question.
+        Updates an existing question.
         """
-        question_obj = self.get_question(_id)
+        orig_question = dict()
 
-        if question is not None:
-            question_obj.question = question
-        if options is not None:
-            question_obj.options = options
-        if answer is not None:
-            question_obj.answer = answer
+        if '_id' in kwargs:
+            orig_question['_id'] = kwargs['_id']
+        if 'question' in kwargs:
+            orig_question['question'] = kwargs['question']
+        if 'options' in kwargs:
+            orig_question['options'] = kwargs['options']
+        if 'answer' in kwargs:
+            orig_question['answer'] = kwargs['answer']
+
+        updated_question = self.get_question(**orig_question)
+
+        if updated_question is not None:
+            if 'new_question' in kwargs:
+                updated_question.question = kwargs['new_question']
+            if 'new_options' in kwargs:
+                updated_question.options = kwargs['new_options']
+            if 'new_answer' in kwargs:
+                updated_question.answer = kwargs['new_answer']
 
     def delete_question(self, _id):
         for question in self.questions:
