@@ -3,11 +3,9 @@ DataAccessObject.py
 """
 import random
 import pymongo
-from json import dumps, loads
-from bson import json_util
+from flask_pymongo import MongoClient
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
-from flask.ext.pymongo import MongoClient
 
 class DataAccessObject(DataAccessInterface):
     """For directly querying the MongoDB"""
@@ -21,8 +19,8 @@ class DataAccessObject(DataAccessInterface):
         try:
             self.client = MongoClient()
             self.mongo = self.client[self.db_name]
-        except pymongo.errors.ConnectionFailure, e:
-            raise "Could not connect to MongoDB: {}".format(e)
+        except pymongo.errors.ConnectionFailure, connect_exception:
+            raise "Could not connect to MongoDB: {}".format(connect_exception)
 
     def close(self):
         print "Closed the database"
