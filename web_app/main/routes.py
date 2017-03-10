@@ -20,7 +20,7 @@ def question_page():
 
     result = request.args.get("result", None)
 
-    if result and GAME_CONTROLLER.evaluate_answer(int(result)):
+    if result is not None and GAME_CONTROLLER.evaluate_answer(int(result)):
         GAME_CONTROLLER.increase_score()
 
     if GAME_CONTROLLER.is_finished():
