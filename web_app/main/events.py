@@ -6,6 +6,7 @@ from flask_socketio import emit, join_room, leave_room
 from .. import socketio
 
 JOINED = []
+PLAYING = []
 DONE = {}
 MATCHES = []
 ROOM = "only_one"
@@ -17,8 +18,17 @@ def join_wait():
     join_room(ROOM)
 
     if len(JOINED) % MAX_PLAYERS == 0:
-        MATCHES.append(set([JOINED[-1], JOINED[-2]]))
+        MATCHES.append(set([JOINED[-2], JOINED[-1]]))
+        PLAYING.extend([JOINED[-2], JOINED[-1]])
+        print "MATCHES :", MATCHES
         emit("ready", room=ROOM)
+
+@socketio.on("disconnect", namespace="/wait")
+def disconnect():
+    leave_room(session["name"])
+
+    if session["name"] in JOINED and session["name"] not in PLAYING:
+        JOINED.remove(session["name"])
 
 @socketio.on("join_game_over", namespace="/game_over")
 def join_game_over(message):
@@ -42,4 +52,5 @@ def get_other_score():
 def disconnect_game_over():
     leave_room(session["name"])
     DONE.pop(session["name"])
-    JOINED.pop(session["name"])
+    JOINED.remove(session["name"])
+    PLAYING.pop(session["name"])
