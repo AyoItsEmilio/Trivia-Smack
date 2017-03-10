@@ -44,8 +44,8 @@ function process_result(id) {
         element.innerHTML = "• "+result+"!";
     }
 }
-// 30 second timer
-var end = new Date().getTime() + 31000; 
+
+var end = new Date().getTime() + 11000; 
 var countdown = setInterval(function(){
     var now = new Date().getTime();
     var remaining = end - now;
@@ -60,9 +60,8 @@ var countdown = setInterval(function(){
 
     if (remaining < 0){
         timer.innerHTML = "TIME'S UP!";
-        //process_result(-1);   // does not advance to next question.
         clearInterval(countdown);
-        setTimeout(location.reload(false), 10000);  // refreshes page after slight delay, fetching the next question
+        window.location.href = "{{ url_for('main.question_page', result=None) }}"
     }
 }, 1000);
 </script>
