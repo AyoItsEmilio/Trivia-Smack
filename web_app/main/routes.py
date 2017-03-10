@@ -18,6 +18,9 @@ def home_page():
 @main.route("/question_page", methods=["GET", "POST"])
 def question_page():
 
+    if not GAME_CONTROLLER.is_started:
+        GAME_CONTROLLER.start()
+
     result = request.args.get("result", None)
 
     if result is not None and GAME_CONTROLLER.evaluate_answer(int(result)):
