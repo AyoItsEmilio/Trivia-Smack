@@ -5,14 +5,11 @@
 function process_socket() {
     var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port + "/wait");
     socket.on("connect", function() {
-        socket.emit("join_wait", {});
+        socket.emit("join_wait");
     });
 
     socket.on("ready", function(data) {
-        socket.emit("disconnect_wait", {}, function() {
-            socket.disconnect();
-            window.location.href = "{{ url_for('main.question_page') }}";
-        });
+        window.location.href = "{{ url_for('main.question_page') }}";
     });
 }
 process_socket()

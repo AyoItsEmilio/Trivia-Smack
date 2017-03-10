@@ -26,11 +26,11 @@ function process_socket() {
     socket.on("show_score", function(data) {
         var element = document.getElementById("score");
         if (data.msg == null){
-            socket.emit("get_other_score", {})
+            socket.emit("get_other_score")
         }
         else{
             element.innerHTML = data.msg;
-            socket.emit("disconnect_game_over", {})
+            socket.emit("disconnect_game_over")
         }
     });
 }

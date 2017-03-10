@@ -5,6 +5,7 @@ from flask import render_template, request, redirect, jsonify, session
 from web_app.business.AccessQuestions import AccessQuestions
 from . import main
 from random import randint
+from .events import JOINED
 
 max_questions = 3
 
@@ -13,12 +14,12 @@ def home_page():
     session["question_count"] = 0
     score = session.get("score", None)
     session["score"] = None
-    session["name"] = "sam"+str(randint(0,10))
-    print "SESSION NAME:", session["name"]
+
     return render_template("homePage.html", score=score)
 
 @main.route("/wait_page")
 def wait_page():
+    session["name"] = len(JOINED)
     return render_template("waitPage.html")
 
 @main.route("/question_page")
