@@ -3,14 +3,17 @@ package comp4350.triviasmack.tests.business;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 public class GameControllerTest {

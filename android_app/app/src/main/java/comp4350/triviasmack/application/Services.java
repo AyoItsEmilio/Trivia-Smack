@@ -3,7 +3,6 @@ package comp4350.triviasmack.application;
 import comp4350.triviasmack.business.AsyncFacade;
 import comp4350.triviasmack.business.AsyncFacadeObject;
 import comp4350.triviasmack.business.ServerAccess;
-
 import comp4350.triviasmack.business.ServerAccessObject;
 
 

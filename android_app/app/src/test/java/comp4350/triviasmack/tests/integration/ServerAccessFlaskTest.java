@@ -1,9 +1,6 @@
 package comp4350.triviasmack.tests.integration;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.Services;

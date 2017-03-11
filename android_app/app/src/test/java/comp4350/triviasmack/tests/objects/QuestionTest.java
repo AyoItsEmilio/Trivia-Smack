@@ -3,11 +3,13 @@ package comp4350.triviasmack.tests.objects;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import comp4350.triviasmack.objects.Question;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 public class QuestionTest {
 
