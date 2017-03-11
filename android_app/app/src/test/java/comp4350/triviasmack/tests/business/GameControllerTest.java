@@ -6,13 +6,17 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertNotEquals;
-
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class GameControllerTest {

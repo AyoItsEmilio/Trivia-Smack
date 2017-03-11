@@ -1,7 +1,5 @@
 package comp4350.triviasmack.tests.integration;
 
-import junit.framework.TestCase;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,18 +10,20 @@ import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.AccessQuestions;
 import comp4350.triviasmack.objects.Question;
 
-public class BusinessServerSeamTest extends TestCase {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class BusinessServerSeamTest {
 
     private int numQuestions;
     private AccessQuestions accessQuestions;
     private ArrayList<Question> questions;
 
-    public BusinessServerSeamTest(String arg0) {
-        super(arg0);
-    }
-
     @Before
-    protected void setUp() throws Exception {
+    public void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess();
         Services.createAsyncFacade(new AsyncFacadeStub());
@@ -32,7 +32,7 @@ public class BusinessServerSeamTest extends TestCase {
     }
 
     @After
-    protected void tearDown() throws Exception {
+    public void tearDown() throws Exception {
         Services.closeServerAccess();
         questions = null;
         accessQuestions = null;

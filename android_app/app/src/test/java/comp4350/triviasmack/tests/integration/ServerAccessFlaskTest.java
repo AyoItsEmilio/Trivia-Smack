@@ -1,18 +1,12 @@
 package comp4350.triviasmack.tests.integration;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.ServerAccess;
 import comp4350.triviasmack.tests.business.ServerAccessTest;
 
-public class ServerAccessFlaskTest extends TestCase {
-
-    public ServerAccessFlaskTest(String arg0) {
-        super(arg0);
-    }
+public class ServerAccessFlaskTest {
 
     @Test
     public void testDataAccess() {
