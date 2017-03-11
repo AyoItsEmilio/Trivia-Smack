@@ -16,6 +16,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
     def setUp(self):
         self.big_num = 100
+        self.db_num_questions = 9
         self.access_questions = AccessQuestions()
 
     def tearDown(self):
@@ -59,5 +60,24 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
         self.assertEquals(questions, [])
 
+    def test_get_all_questions(self):
+        print "Testing AccessQuestions: get_all_questions"
 
+        questions = self.access_questions.get_all_questions()
 
+        self.assertNotEquals(len(questions), 0)
+        self.assertIsNotNone(questions)
+        self.assertNotEquals(questions, [])
+        self.assertEquals(len(questions), self.db_num_questions)
+
+        for question in questions:
+            self.assertIsNotNone(question.question)
+            self.assertIsNotNone(question.options)
+            self.assertIsNotNone(question.answer)
+
+    def test_get_num_questions(self):
+        print "Testing AccessQuestions: get_num_questions"
+
+        num_questions = self.access_questions.get_num_questions()
+
+        self.assertEquals(num_questions, self.db_num_questions)
