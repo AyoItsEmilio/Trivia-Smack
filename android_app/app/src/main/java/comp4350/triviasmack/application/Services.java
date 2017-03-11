@@ -37,14 +37,14 @@ public class Services {
         serverAccessService = null;
     }
 
-    public static AsyncFacade createAsyncFacade(){
+    public static AsyncFacade createAsyncFacade() {
         if (asyncService == null) {
             asyncService = new AsyncFacadeObject();
         }
         return asyncService;
     }
 
-    public static AsyncFacade createAsyncFacade(AsyncFacade alternateAsyncService){
+    public static AsyncFacade createAsyncFacade(AsyncFacade alternateAsyncService) {
         if (asyncService == null) {
             asyncService = alternateAsyncService;
         }

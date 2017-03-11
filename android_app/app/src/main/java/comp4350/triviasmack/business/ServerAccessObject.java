@@ -13,19 +13,21 @@ public class ServerAccessObject implements ServerAccess {
     private String baseUrl;
     private URL url;
 
-    public ServerAccessObject(){
+    public ServerAccessObject() {
         baseUrl = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
     }
 
-    public void open(){}
+    public void open() {
+    }
 
-    public void close(){}
+    public void close() {
+    }
 
-    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions){
+    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
             url = new URL(baseUrl + numQuestions + "");
+        } catch (java.net.MalformedURLException e) {
         }
-        catch (java.net.MalformedURLException e){}
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 

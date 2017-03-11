@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNull;
 public class ParseJSONTest {
 
     @Test
-    public void testParseJSON(){
+    public void testParseJSON() {
 
         System.out.println("Testing ParseJSON: Parse Basic JSON Object");
         ArrayList<Question> q;
@@ -42,14 +42,13 @@ public class ParseJSONTest {
 
             assertEquals(1, q.get(0).getAnswer());
 
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testBadFormat(){
+    public void testBadFormat() {
 
         System.out.println("Testing ParseJSON: Bad Formated JSON");
         ArrayList<Question> q;
@@ -60,14 +59,13 @@ public class ParseJSONTest {
             json.put(" Still Bad", "NULL");
             q = ParseJSON.parseJSONquestions(json);
             assertNull(q);
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void testLargeJSONArray(){
+    public void testLargeJSONArray() {
         System.out.println("Testing ParseJSONObject: Parse Large JSON Object");
         ArrayList<Question> q;
         final int MAX_ARRAY_SIZE = 100;
@@ -76,7 +74,7 @@ public class ParseJSONTest {
             JSONObject json = new JSONObject();
             JSONArray result = new JSONArray();
 
-            for(int i = 0; i < MAX_ARRAY_SIZE; i++)
+            for (int i = 0; i < MAX_ARRAY_SIZE; i++)
                 result.put(buildJSONObject());
             json.put("result", result);
 
@@ -85,7 +83,7 @@ public class ParseJSONTest {
             assertNotNull(q);
             assertEquals(MAX_ARRAY_SIZE, q.size());
 
-            for(int i = 0; i < MAX_ARRAY_SIZE; i++) {
+            for (int i = 0; i < MAX_ARRAY_SIZE; i++) {
                 assertEquals("The Balkans are in:", q.get(i).getQuestion());
 
                 assertEquals("South America", q.get(i).getOptions()[0]);
@@ -95,13 +93,12 @@ public class ParseJSONTest {
 
                 assertEquals(1, q.get(i).getAnswer());
             }
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private JSONObject buildJSONObject(){
+    private JSONObject buildJSONObject() {
 
         JSONObject json;
 
@@ -117,8 +114,7 @@ public class ParseJSONTest {
             json.put("answer", new Integer(1));
             json.put("options", options);
             json.put("question", "The Balkans are in:");
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
             json = null;
         }
