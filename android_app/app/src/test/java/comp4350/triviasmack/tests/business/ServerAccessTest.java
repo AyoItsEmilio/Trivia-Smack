@@ -16,8 +16,14 @@ import static org.junit.Assert.assertTrue;
 
 public class ServerAccessTest {
 
-    public static void serverAccessTest()
+    @After
+    public void tearDown()
     {
+        Services.closeServerAccess();
+    }
+
+    public static void serverAccessTest() {
+
         ServerAccess serverAccess;
         ArrayList<Question> questions;
         int numQuestions;
@@ -67,25 +73,13 @@ public class ServerAccessTest {
     }
 
     @Test
-    public void testServerAccess()
-    {
+    public void testServerAccess() {
+
+        Services.closeServerAccess();
+
         System.out.println("Testing ServerAccess (stub)");
+
+        Services.createServerAccess(new ServerAccessStub());
         serverAccessTest();
-    }
-
-    @Before
-    public void setUp()
-    {
-        ServerAccess serverAccess;
-
-        Services.closeServerAccess();
-
-        serverAccess = Services.createServerAccess(new ServerAccessStub());
-    }
-
-    @After
-    public void tearDown()
-    {
-        Services.closeServerAccess();
     }
 }

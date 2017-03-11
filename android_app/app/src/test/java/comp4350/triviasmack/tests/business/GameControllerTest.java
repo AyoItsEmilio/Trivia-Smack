@@ -21,25 +21,17 @@ import static org.junit.Assert.assertNotEquals;
 
 public class GameControllerTest {
 
-    private GameController dummyGameController;
-    private int bigNum;
-
-    @Before
-    public void setUp() throws Exception {
-        Services.closeServerAccess();
-        Services.createServerAccess(new ServerAccessStub());
-        dummyGameController = GameController.getInstance();
-        bigNum = 100;
-    }
-
     @After
     public void tearDown() throws Exception {
         Services.closeServerAccess();
         GameController.destroy();
     }
 
-    @Test
-    public void testSingleton(){
+    public static void gameControllerTest() {
+
+        GameController dummyGameController = GameController.getInstance();
+        int bigNum = 100;
+
         System.out.println("Testing GameController: Singleton");
 
         GameController first = GameController.getInstance();
@@ -56,19 +48,16 @@ public class GameControllerTest {
 
         second.increaseScore();
         assertEquals(first.getScore(), second.getScore());
-    }
 
-    @Test
-    public void testStart(){
         System.out.println("Testing GameController: Start");
+
+        dummyGameController.destroy();
+        dummyGameController = GameController.getInstance();
 
         assertFalse(dummyGameController.isStarted());
         dummyGameController.start();
         assertTrue(dummyGameController.isStarted());
-    }
 
-    @Test
-    public void testIncreaseScore(){
         System.out.println("Testing GameController: IncreaseScore");
 
         dummyGameController.start();
@@ -83,10 +72,7 @@ public class GameControllerTest {
         }
 
         assertEquals(Main.numQuestions, dummyGameController.getScore());
-    }
 
-    @Test
-    public void testGetNextQuestions(){
         System.out.println("Testing GameController: getNextQuestion");
 
         Question questionObj;
@@ -110,13 +96,11 @@ public class GameControllerTest {
         }
 
         assertEquals(questions.size(), Main.numQuestions);
-    }
 
-    @Test
-    public void testIsFinished() {
         System.out.println("Testing GameController: isFinished");
 
-        Question questionObj;
+        dummyGameController.destroy();
+        dummyGameController = GameController.getInstance();
 
         assertFalse(dummyGameController.finished());
         dummyGameController.start();
@@ -128,5 +112,13 @@ public class GameControllerTest {
         }
 
         assertTrue(dummyGameController.finished());
+    }
+
+    @Test
+    public void testServerAccess() {
+        Services.closeServerAccess();
+        Services.createServerAccess(new ServerAccessStub());
+        System.out.println("Testing ServerAccess (stub)");
+        gameControllerTest();
     }
 }
