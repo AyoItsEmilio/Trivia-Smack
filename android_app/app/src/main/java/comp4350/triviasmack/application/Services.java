@@ -50,4 +50,8 @@ public class Services {
         }
         return asyncService;
     }
+
+    public static AsyncFacade getAsyncFacade() {
+        return asyncService;
+    }
 }
