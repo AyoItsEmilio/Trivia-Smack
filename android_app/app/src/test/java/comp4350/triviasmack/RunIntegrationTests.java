@@ -1,16 +1,12 @@
 package comp4350.triviasmack;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 import comp4350.triviasmack.tests.integration.IntegrationTests;
 
-public class RunIntegrationTests {
-    public static TestSuite suite;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({IntegrationTests.class})
 
-    public static Test suite() {
-        suite = new TestSuite("Integration tests");
-        suite.addTest(IntegrationTests.suite());
-        return suite;
-    }
+public class RunIntegrationTests {
 }

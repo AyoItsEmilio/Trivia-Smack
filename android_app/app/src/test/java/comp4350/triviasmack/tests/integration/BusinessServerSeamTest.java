@@ -1,6 +1,9 @@
 package comp4350.triviasmack.tests.integration;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -8,18 +11,14 @@ import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.AccessQuestions;
 import comp4350.triviasmack.objects.Question;
 
-public class BusinessServerSeamTest extends TestCase {
+public class BusinessServerSeamTest {
 
     private int numQuestions;
     private AccessQuestions accessQuestions;
     private ArrayList<Question> questions;
 
-    public BusinessServerSeamTest(String arg0) {
-        super(arg0);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess();
         Services.createAsyncFacade(new AsyncFacadeStub());
@@ -27,13 +26,14 @@ public class BusinessServerSeamTest extends TestCase {
         accessQuestions = new AccessQuestions();
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         Services.closeServerAccess();
         questions = null;
         accessQuestions = null;
     }
 
+    @Test
     public void testAccessQuestions() {
 
         System.out.println("Starting Integration test, AccessQuestions (using default server)");
