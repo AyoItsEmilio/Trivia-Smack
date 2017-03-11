@@ -1,16 +1,13 @@
 package comp4350.triviasmack.tests.business;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-public class BusinessTests {
-    public static TestSuite suite;
+// import junit.framework.Test;
+// import junit.framework.TestSuite;
 
-    public static Test suite() {
-        suite = new TestSuite("Business tests");
-        suite.addTestSuite(GameControllerTest.class);
-        suite.addTestSuite(ParseJSONTest.class);
-        suite.addTestSuite(ServerAccessTest.class);
-        return suite;
-    }
+@RunWith(Suite.class)
+@Suite.SuiteClasses({GameControllerTest.class, ParseJSONTest.class, ServerAccessTest.class})
+
+public class BusinessTests{
 }

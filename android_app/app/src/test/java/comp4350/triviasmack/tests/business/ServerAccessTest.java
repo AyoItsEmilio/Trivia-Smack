@@ -1,6 +1,10 @@
 package comp4350.triviasmack.tests.business;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -11,11 +15,7 @@ import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.ServerAccess;
 import comp4350.triviasmack.objects.Question;
 
-public class ServerAccessTest extends TestCase {
-
-    public ServerAccessTest(String arg0) {
-        super(arg0);
-    }
+public class ServerAccessTest {
 
     public static void serverAccessTest()
     {
@@ -66,19 +66,28 @@ public class ServerAccessTest extends TestCase {
 
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
-
-        Services.closeServerAccess();
     }
 
+    @Test
     public void testServerAccess()
+    {
+        System.out.println("Testing ServerAccess (stub)");
+        serverAccessTest();
+    }
+
+    @Before
+    public void setUp()
     {
         ServerAccess serverAccess;
 
         Services.closeServerAccess();
 
         serverAccess = Services.createServerAccess(new ServerAccessStub());
+    }
 
-        System.out.println("Testing ServerAccess (stub)");
-        serverAccessTest();
+    @After
+    public void tearDown()
+    {
+        Services.closeServerAccess();
     }
 }
