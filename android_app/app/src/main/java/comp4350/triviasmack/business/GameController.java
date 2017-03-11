@@ -65,10 +65,6 @@ public class GameController {
         return result;
     }
 
-    public void getQuestions(ArrayList<Question> result){
-        result.addAll(questions);
-    }
-
     public void increaseScore(){ score++; }
 
     public boolean isStarted(){ return started; }
