@@ -20,7 +20,6 @@ public class ServerAccessTest extends TestCase {
     public static void serverAccessTest()
     {
         ServerAccess serverAccess;
-
         ArrayList<Question> questions;
         int numQuestions;
 

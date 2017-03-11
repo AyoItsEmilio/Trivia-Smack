@@ -34,7 +34,13 @@ public class GameControllerTest extends TestCase {
         System.out.println("Testing GameController: Singleton");
         GameController first = GameController.getInstance();
         GameController second = GameController.getInstance();
+
         assertEquals(first, second);
+        assertSame(first, second);
+        assertEquals(first.getScore(), second.getScore());
+        first.start();
+        assertEquals(first.isStarted(), second.isStarted());
+
     }
 
     public void testStart(){
@@ -64,7 +70,7 @@ public class GameControllerTest extends TestCase {
         assertNotNull(questions);
 
         for (int i = 0; i < questions.size(); i++){
-            assertTrue(questions.get(i) instanceof Question);
+            assertNotNull(questions.get(i));
         }
     }
 
@@ -76,5 +82,8 @@ public class GameControllerTest extends TestCase {
         Question questionObj = dummyGameController.getNextQuestion();
 
         assertNotNull(questionObj);
+
+        assertEquals(dummyGameController.getNextQuestion().getQuestion(),
+                dummyGameController.getNextQuestion().getQuestion());
     }
 }
