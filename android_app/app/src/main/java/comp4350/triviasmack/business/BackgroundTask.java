@@ -16,6 +16,10 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject>{
 
     @Override
     protected JSONObject doInBackground(URL... urls) {
+        return fetchFromUrl(urls[0]);
+    }
+
+    public JSONObject fetchFromUrl(URL url){
 
         JSONObject result = null;
         HttpURLConnection urlConnection = null;
@@ -24,7 +28,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject>{
 
         try {
 
-            urlConnection = (HttpURLConnection) urls[0].openConnection();
+            urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
