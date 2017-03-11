@@ -64,7 +64,10 @@ public class GameController {
         return result;
     }
 
-    public void increaseScore(){ score++; }
+    public void increaseScore(){
+        if (score < maxQuestions)
+            score++;
+    }
 
     public boolean isStarted(){ return started; }
 
