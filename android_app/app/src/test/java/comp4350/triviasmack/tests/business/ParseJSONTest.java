@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import comp4350.triviasmack.business.ParseJSON;
 import comp4350.triviasmack.objects.Question;
 
-import static org.junit.Assert.assertArrayEquals;
-
 public class ParseJSONTest {
 
     @Test

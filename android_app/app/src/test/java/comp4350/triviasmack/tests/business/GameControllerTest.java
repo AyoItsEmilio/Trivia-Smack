@@ -3,9 +3,11 @@ package comp4350.triviasmack.tests.business;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
 
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.Services;
@@ -33,6 +35,7 @@ public class GameControllerTest {
     @Test
     public void testSingleton(){
         System.out.println("Testing GameController: Singleton");
+
         GameController first = GameController.getInstance();
         GameController second = GameController.getInstance();
 
@@ -42,11 +45,17 @@ public class GameControllerTest {
         first.start();
         assertEquals(first.isStarted(), second.isStarted());
 
+        assertNotEquals(first.getNextQuestion().getQuestion(),
+                second.getNextQuestion().getQuestion());
+
+        second.increaseScore();
+        assertEquals(first.getScore(), second.getScore());
     }
 
     @Test
     public void testStart(){
         System.out.println("Testing GameController: Start");
+
         assertFalse(dummyGameController.isStarted());
         dummyGameController.start();
         assertTrue(dummyGameController.isStarted());
@@ -55,40 +64,57 @@ public class GameControllerTest {
     @Test
     public void testIncreaseScore(){
         System.out.println("Testing GameController: IncreaseScore");
+
         dummyGameController.start();
         assertEquals(0, dummyGameController.getScore());
         dummyGameController.increaseScore();
         assertEquals(1, dummyGameController.getScore());
-    }
-
-    @Test
-    public void testAccessors(){
-        System.out.println("Testing GameController: Accessors");
-
-        dummyGameController.start();
-
-        ArrayList<Question> questions = new ArrayList<>();
-
-        dummyGameController.getQuestions(questions);
-
-        assertNotNull(questions);
-
-        for (int i = 0; i < questions.size(); i++){
-            assertNotNull(questions.get(i));
-        }
+        dummyGameController.increaseScore();
+        assertEquals(2, dummyGameController.getScore());
     }
 
     @Test
     public void testGetNextQuestions(){
         System.out.println("Testing GameController: getNextQuestion");
 
+        Question questionObj;
+        ArrayList<Question> questions = new ArrayList<>();
+
         dummyGameController.start();
 
-        Question questionObj = dummyGameController.getNextQuestion();
+        questionObj = dummyGameController.getNextQuestion();
 
         assertNotNull(questionObj);
 
-        assertEquals(dummyGameController.getNextQuestion().getQuestion(),
+        assertNotEquals(dummyGameController.getNextQuestion().getQuestion(),
                 dummyGameController.getNextQuestion().getQuestion());
+
+        dummyGameController.start();
+
+        questionObj = dummyGameController.getNextQuestion();
+        while (null != questionObj){
+            questions.add(questionObj);
+            questionObj = dummyGameController.getNextQuestion();
+        }
+
+        assertEquals(questions.size(), Main.numQuestions);
+    }
+
+    @Test
+    public void testIsFinished() {
+        System.out.println("Testing GameController: isFinished");
+
+        Question questionObj;
+
+        assertFalse(dummyGameController.finished());
+        dummyGameController.start();
+        assertFalse(dummyGameController.finished());
+
+        questionObj = dummyGameController.getNextQuestion();
+        while (null != questionObj){
+            questionObj = dummyGameController.getNextQuestion();
+        }
+
+        assertTrue(dummyGameController.finished());
     }
 }
