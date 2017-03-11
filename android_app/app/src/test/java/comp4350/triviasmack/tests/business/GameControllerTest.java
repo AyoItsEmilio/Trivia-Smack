@@ -20,7 +20,7 @@ public class GameControllerTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         Services.closeServerAccess();
-        Services.createServerAccess(new ServerAccessStub(Main.numQuestions));
+        Services.createServerAccess(new ServerAccessStub());
         dummyGameController = GameController.getInstance();
     }
 

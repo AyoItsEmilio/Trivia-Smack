@@ -10,6 +10,7 @@ public class BusinessTests {
         suite = new TestSuite("Business tests");
         suite.addTestSuite(GameControllerTest.class);
         suite.addTestSuite(ParseJSONTest.class);
+        suite.addTestSuite(ServerAccessTest.class);
         return suite;
     }
 }

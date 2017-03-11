@@ -39,7 +39,7 @@ public class GameController {
         questionCount = 0;
         score = 0;
         questions = new ArrayList<Question>();
-        accessQuestions.getRandomQuestions(questions);
+        accessQuestions.getRandomQuestions(questions, maxQuestions);
         started = true;
     }
 
