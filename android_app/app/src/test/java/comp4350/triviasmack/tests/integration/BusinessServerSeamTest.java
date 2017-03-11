@@ -2,6 +2,10 @@ package comp4350.triviasmack.tests.integration;
 
 import junit.framework.TestCase;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.ArrayList;
 
 import comp4350.triviasmack.application.Services;
@@ -18,7 +22,7 @@ public class BusinessServerSeamTest extends TestCase {
         super(arg0);
     }
 
-    @Override
+    @Before
     protected void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess();
@@ -27,13 +31,14 @@ public class BusinessServerSeamTest extends TestCase {
         accessQuestions = new AccessQuestions();
     }
 
-    @Override
+    @After
     protected void tearDown() throws Exception {
         Services.closeServerAccess();
         questions = null;
         accessQuestions = null;
     }
 
+    @Test
     public void testAccessQuestions() {
 
         System.out.println("Starting Integration test, AccessQuestions (using default server)");

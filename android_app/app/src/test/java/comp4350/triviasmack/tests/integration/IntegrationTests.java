@@ -1,15 +1,13 @@
 package comp4350.triviasmack.tests.integration;
 
-import junit.framework.TestSuite;
-import junit.framework.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+import comp4350.triviasmack.tests.business.ServerAccessTest;
+
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({ServerAccessTest.class, BusinessServerSeamTest.class})
 
 public class IntegrationTests {
-    public static TestSuite suite;
-
-    public static Test suite() {
-        suite = new TestSuite("Integration tests");
-        suite.addTestSuite(ServerAccessFlaskTest.class);
-        suite.addTestSuite(BusinessServerSeamTest.class);
-        return suite;
-    }
 }
