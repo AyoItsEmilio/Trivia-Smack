@@ -1,6 +1,9 @@
 package comp4350.triviasmack.tests.business;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -9,27 +12,25 @@ import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
 
-public class GameControllerTest extends TestCase {
+
+public class GameControllerTest {
 
     private GameController dummyGameController;
 
-    public GameControllerTest(String arg0) {
-        super(arg0);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess(new ServerAccessStub());
         dummyGameController = GameController.getInstance();
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         Services.closeServerAccess();
         GameController.destroy();
     }
 
+    @Test
     public void testSingleton(){
         System.out.println("Testing GameController: Singleton");
         GameController first = GameController.getInstance();
@@ -43,6 +44,7 @@ public class GameControllerTest extends TestCase {
 
     }
 
+    @Test
     public void testStart(){
         System.out.println("Testing GameController: Start");
         assertFalse(dummyGameController.isStarted());
@@ -50,6 +52,7 @@ public class GameControllerTest extends TestCase {
         assertTrue(dummyGameController.isStarted());
     }
 
+    @Test
     public void testIncreaseScore(){
         System.out.println("Testing GameController: IncreaseScore");
         dummyGameController.start();
@@ -58,6 +61,7 @@ public class GameControllerTest extends TestCase {
         assertEquals(1, dummyGameController.getScore());
     }
 
+    @Test
     public void testAccessors(){
         System.out.println("Testing GameController: Accessors");
 
@@ -74,6 +78,7 @@ public class GameControllerTest extends TestCase {
         }
     }
 
+    @Test
     public void testGetNextQuestions(){
         System.out.println("Testing GameController: getNextQuestion");
 

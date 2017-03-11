@@ -1,7 +1,9 @@
 package comp4350.triviasmack.tests.business;
 
-import junit.framework.TestCase;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,12 +16,9 @@ import comp4350.triviasmack.objects.Question;
 
 import static org.junit.Assert.assertArrayEquals;
 
-public class ParseJSONTest extends TestCase {
+public class ParseJSONTest {
 
-    public ParseJSONTest(String arg0) {
-        super(arg0);
-    }
-
+    @Test
     public void testParseJSON(){
 
         System.out.println("Testing ParseJSON: Parse Basic JSON Object");
@@ -51,6 +50,7 @@ public class ParseJSONTest extends TestCase {
         }
     }
 
+    @Test
     public void testBadFormat(){
 
         System.out.println("Testing ParseJSON: Bad Formated JSON");
@@ -68,6 +68,7 @@ public class ParseJSONTest extends TestCase {
         }
     }
 
+    @Test
     public void testLargeJSONArray(){
         System.out.println("Testing ParseJSONObject: Parse Large JSON Object");
         ArrayList<Question> q;
