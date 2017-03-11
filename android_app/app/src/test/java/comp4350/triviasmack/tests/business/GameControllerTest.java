@@ -22,12 +22,14 @@ import static org.junit.Assert.assertNotEquals;
 public class GameControllerTest {
 
     private GameController dummyGameController;
+    private int bigNum;
 
     @Before
     public void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess(new ServerAccessStub());
         dummyGameController = GameController.getInstance();
+        bigNum = 100;
     }
 
     @After
@@ -75,6 +77,12 @@ public class GameControllerTest {
         assertEquals(1, dummyGameController.getScore());
         dummyGameController.increaseScore();
         assertEquals(2, dummyGameController.getScore());
+
+        for (int i = 0; i < Main.numQuestions*bigNum; i++){
+            dummyGameController.increaseScore();
+        }
+
+        assertEquals(Main.numQuestions, dummyGameController.getScore());
     }
 
     @Test
