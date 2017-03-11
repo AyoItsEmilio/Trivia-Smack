@@ -20,7 +20,7 @@
         android:visibility="invisible"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:onClick="processOptionButton" />
 
     <Button
         android:text="Option 2"
@@ -42,7 +42,7 @@
         android:visibility="invisible"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:onClick="processOptionButton" />
 
     <Button
         android:text="option 4"
@@ -53,7 +53,7 @@
         android:visibility="invisible"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:onClick="processOptionButton" />
 
     <TextView
         android:text="Trivia Question goes here"

@@ -65,9 +65,10 @@ public class QuestionTest {
     public void testFailure() {
         System.out.println("Testing Question: Invalid Args");
 
-        try{
+        try {
             new Question(null, null, -1);
             fail("Expected a NullPointerException");
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException ignored) {
+        }
     }
 }

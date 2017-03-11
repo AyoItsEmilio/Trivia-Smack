@@ -29,11 +29,14 @@ public class ServerAccessObject implements ServerAccess {
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
             url = new URL(baseUrl + numQuestions + "");
-
-        }catch (MalformedURLException e){
+        } catch (java.net.MalformedURLException e) {
+        }
+<<<<<<< HEAD
+        catch (MalformedURLException e){
             Log.e("ServerAccessObject","MalformedURLException thrown", e);
         }
-
+=======
+>>>>>>> 5133d1772ad0436658103385e431f07a3b24ebc2
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 

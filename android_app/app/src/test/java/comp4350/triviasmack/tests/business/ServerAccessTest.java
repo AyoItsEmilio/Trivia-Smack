@@ -17,8 +17,7 @@ import static org.junit.Assert.assertTrue;
 public class ServerAccessTest {
 
     @After
-    public void tearDown()
-    {
+    public void tearDown() {
         Services.closeServerAccess();
     }
 
@@ -39,7 +38,7 @@ public class ServerAccessTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertTrue(questions.get(i) instanceof Question);
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
@@ -54,7 +53,7 @@ public class ServerAccessTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertTrue(questions.get(i) instanceof Question);
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());

@@ -52,7 +52,7 @@ public class BusinessServerSeamTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertNotNull(questions.get(i));
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
@@ -67,7 +67,7 @@ public class BusinessServerSeamTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertNotNull(questions.get(i));
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
@@ -89,8 +89,8 @@ public class BusinessServerSeamTest {
 
         accessQuestions.getRandomQuestions(questions, numQuestions);
 
-        for (int i = 0; i < questions.size(); i++){
-            for(int j = 0; j < questions.size(); j++){
+        for (int i = 0; i < questions.size(); i++) {
+            for (int j = 0; j < questions.size(); j++) {
                 if (i != j) {
                     assertNotSame(questions.get(i), questions.get(j));
                 }
@@ -101,9 +101,10 @@ public class BusinessServerSeamTest {
         questions = new ArrayList<>();
         System.out.println("Testing AccessQuestions: getRandomQuestions(), failure");
 
-        try{
+        try {
             accessQuestions.getRandomQuestions(questions, numQuestions);
             fail("Expected an IllegalArgumentException");
-        } catch (IllegalArgumentException ignored) {}
+        } catch (IllegalArgumentException ignored) {
+        }
     }
 }

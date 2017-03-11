@@ -9,12 +9,12 @@ public class AccessQuestions {
 
     private ServerAccess serverAccess;
 
-    public AccessQuestions(){
+    public AccessQuestions() {
         serverAccess = Services.getServerAccess();
     }
 
-    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions){
-        if (numQuestions < 0){
+    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
+        if (numQuestions < 0) {
             throw new IllegalArgumentException("Num questions cannot be less than 0");
         }
         serverAccess.getRandomQuestions(questions, numQuestions);

@@ -67,7 +67,7 @@ public class GameControllerTest {
         dummyGameController.increaseScore();
         assertEquals(2, dummyGameController.getScore());
 
-        for (int i = 0; i < Main.numQuestions*bigNum; i++){
+        for (int i = 0; i < Main.numQuestions * bigNum; i++) {
             dummyGameController.increaseScore();
         }
 
@@ -90,7 +90,7 @@ public class GameControllerTest {
         dummyGameController.start();
 
         questionObj = dummyGameController.getNextQuestion();
-        while (null != questionObj){
+        while (null != questionObj) {
             questions.add(questionObj);
             questionObj = dummyGameController.getNextQuestion();
         }
@@ -107,7 +107,7 @@ public class GameControllerTest {
         assertFalse(dummyGameController.finished());
 
         questionObj = dummyGameController.getNextQuestion();
-        while (null != questionObj){
+        while (null != questionObj) {
             questionObj = dummyGameController.getNextQuestion();
         }
 

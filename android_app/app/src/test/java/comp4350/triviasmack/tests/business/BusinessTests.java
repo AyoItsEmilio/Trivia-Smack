@@ -6,5 +6,5 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({GameControllerTest.class, ParseJSONTest.class, ServerAccessTest.class})
 
-public class BusinessTests{
+public class BusinessTests {
 }
