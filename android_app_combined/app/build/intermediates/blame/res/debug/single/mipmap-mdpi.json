@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Emilioo\\Documents\\COMP4350\\android_app_combined\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Emilioo\\Documents\\COMP4350\\android_app_combined\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Emilioo\\Documents\\COMP4350\\android_app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Emilioo\\Documents\\COMP4350\\android_app\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

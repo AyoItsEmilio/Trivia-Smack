@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homepagebg"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    tools:context="comp4350.triviasmack.presentation.UserPage">
+
+    <TextView
+        android:text="Leaderboard Rank: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leaderboardText"
+        android:textColor= "#FFFFFF"
+        android:layout_below="@+id/scoreText"
+        android:layout_alignLeft= "@+id/scoreText"
+        android:layout_alignStart="@+id/scoreText" />
+
+    <TextView
+        android:text="A0000A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/leaderboardText"
+        android:textColor= "#FFFFFF"
+        android:layout_alignEnd="@+id/username"
+        android:id="@+id/dynamicRank" />
+
+    <TextView
+        android:text="A0A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dynamicScore"
+        android:layout_alignBaseline="@+id/scoreText"
+        android:textColor= "#FFFFFF"
+        android:layout_alignBottom="@+id/scoreText"
+        android:layout_alignEnd="@+id/dynamicRank" />
+
+    <Button
+        android:text="Reset Scores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/resetbtn" />
+
+    <TextView
+        android:text="username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:id="@+id/username"
+        android:textColor= "#FFFFFF"
+        android:textSize="60sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Score:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor= "#FFFFFF"
+        android:id="@+id/scoreText"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/username" />
+</RelativeLayout>

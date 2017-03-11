@@ -1,7 +1,10 @@
 package comp4350.triviasmack.business;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -25,7 +28,9 @@ public class ServerAccessObject implements ServerAccess {
         try {
             url = new URL(baseUrl + numQuestions + "");
         }
-        catch (java.net.MalformedURLException e){}
+        catch (MalformedURLException e){
+            Log.e("ServerAccessObject","MalformedURLException thrown", e);
+        }
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 
