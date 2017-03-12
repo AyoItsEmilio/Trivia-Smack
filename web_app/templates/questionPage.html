@@ -49,11 +49,12 @@ function start_countdown() {
     var one_second = 1000;
     var five_seconds = 5000;
     var ten_seconds = 10000;
+    var one_minute = one_second*60
     var end = new Date().getTime() + ten_seconds; 
     var countdown = setInterval(function(){
         var now = new Date().getTime();
         var remaining = end - now;
-        var seconds = Math.floor((remaining % (one_second * 60)) / one_second);
+        var seconds = Math.floor((remaining % (one_minute)) / one_second);
         var timer = document.getElementById("timer")
         timer.innerHTML = "Time remaining: " + seconds + " seconds";
 
