@@ -3,8 +3,7 @@ populate_database.py
 """
 from pymongo import MongoClient
 
-
-def populate_db(db_name):
+def populate_database(db_name):
 
     client = MongoClient()
     client.drop_database(db_name)
@@ -44,4 +43,7 @@ def populate_db(db_name):
     questions = db.questions
     result = questions.insert_many(question_list)
     client.close()
-    print result
+    return result
+
+if __name__ == "__main__":
+    populate_database("application")
