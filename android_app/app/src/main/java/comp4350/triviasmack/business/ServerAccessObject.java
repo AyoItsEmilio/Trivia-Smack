@@ -1,7 +1,10 @@
 package comp4350.triviasmack.business;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -14,7 +17,7 @@ public class ServerAccessObject implements ServerAccess {
     private URL url;
 
     public ServerAccessObject() {
-        baseUrl = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
+        final String BASE_URL = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
     }
 
     public void open() {
@@ -26,11 +29,14 @@ public class ServerAccessObject implements ServerAccess {
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
             url = new URL(baseUrl + numQuestions + "");
-        } catch (java.net.MalformedURLException e) {
+
+        }catch (MalformedURLException e){
+            Log.e("ServerAccessObject","MalformedURLException", e);
         }
+
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 
-        questions.addAll(ParseJSON.parseJSONquestions(result));
+        questions.addAll(ParseJSON.parseJSONQuestions(result));
     }
 }

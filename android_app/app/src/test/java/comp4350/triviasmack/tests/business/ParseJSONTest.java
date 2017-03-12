@@ -29,7 +29,7 @@ public class ParseJSONTest {
             result.put(buildJSONObject());
             json.put("result", result);
 
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
 
             assertNotNull(q);
             assertEquals(1, q.size());
@@ -57,7 +57,7 @@ public class ParseJSONTest {
         try {
             json.put("Bad", "NULL");
             json.put(" Still Bad", "NULL");
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
             assertNull(q);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class ParseJSONTest {
                 result.put(buildJSONObject());
             json.put("result", result);
 
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
 
             assertNotNull(q);
             assertEquals(MAX_ARRAY_SIZE, q.size());

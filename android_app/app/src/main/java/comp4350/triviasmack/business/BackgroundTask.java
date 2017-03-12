@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static android.R.attr.y;
+
 public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
 
     @Override
@@ -52,6 +54,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
             result = new JSONObject(buffer.toString());
 
         } catch (Exception e) {
+            Log.e("BackgroundTask","Error",e);
         } finally {
 
             if (urlConnection != null) {
@@ -63,7 +66,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e("MainActivity", "Error closing Stream", e);
+                    Log.e("BackgroundTask", "Error closing Stream", e);
                 }
             }
         }
