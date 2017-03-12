@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.api.mockito.PowerMockito;
+import android.util.Log;
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
 public class ParseJSONTest {
 
     @Test
@@ -49,6 +57,7 @@ public class ParseJSONTest {
 
     @Test
     public void testBadFormat() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Bad Formated JSON");
         ArrayList<Question> q;
