@@ -4,7 +4,6 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -40,6 +39,6 @@ public class ServerAccessObject implements ServerAccess {
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 
-        questions.addAll(ParseJSON.parseJSONquestions(result));
+        questions.addAll(ParseJSON.parseJSONQuestions(result));
     }
 }

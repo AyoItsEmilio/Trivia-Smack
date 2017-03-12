@@ -29,6 +29,6 @@ public class ServerAccessObject implements ServerAccess {
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 
-        questions.addAll(ParseJSON.parseJSONquestions(result));
+        questions.addAll(ParseJSON.parseJSONQuestions(result));
     }
 }

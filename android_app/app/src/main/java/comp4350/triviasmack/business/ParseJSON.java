@@ -1,6 +1,9 @@
 package comp4350.triviasmack.business;
 
+import android.util.Log;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -9,7 +12,7 @@ import comp4350.triviasmack.objects.Question;
 
 public class ParseJSON {
 
-    public static ArrayList<Question> parseJSONquestions(JSONObject jsonResult) {
+    public static ArrayList<Question> parseJSONQuestions(JSONObject jsonResult) {
         Question questionObj;
         JSONObject jsonQuestionObject;
         JSONArray jsonQuestions, jsonOptions;
@@ -17,7 +20,6 @@ public class ParseJSON {
         String[] options;
         int answer;
         ArrayList<Question> questions;
-
         questions = new ArrayList<>();
 
         try {
@@ -42,7 +44,8 @@ public class ParseJSON {
                 questionObj = new Question(question, options, answer);
                 questions.add(questionObj);
             }
-        } catch (Exception e) {
+        } catch (JSONException e) {
+            Log.e("ParseJSON.java","Error with JSON:",e);
             questions = null;
         }
 
