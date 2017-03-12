@@ -49,7 +49,7 @@ public class BusinessServerSeamTest {
         accessQuestions = null;
     }
 
-    @Test(expected=NullPointerException.class)
+    @Test
     public void testAccessQuestions() {
         PowerMockito.mockStatic(Log.class);
 

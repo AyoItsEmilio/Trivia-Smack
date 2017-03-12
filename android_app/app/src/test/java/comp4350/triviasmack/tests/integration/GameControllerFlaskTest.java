@@ -18,7 +18,7 @@ import android.util.Log;
 @PrepareForTest({Log.class})
 public class GameControllerFlaskTest {
 
-    @Test(expected=NullPointerException.class)
+    @Test
     public void testGameController() {
         PowerMockito.mockStatic(Log.class);
 

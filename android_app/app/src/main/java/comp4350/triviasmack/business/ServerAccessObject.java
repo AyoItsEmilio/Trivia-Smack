@@ -17,7 +17,7 @@ public class ServerAccessObject implements ServerAccess {
     private URL url;
 
     public ServerAccessObject() {
-        final String BASE_URL = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
+       baseUrl = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
     }
 
     public void open() {
