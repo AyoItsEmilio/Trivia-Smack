@@ -18,10 +18,7 @@ import android.util.Log;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Log.class})
 public class ServerAccessFlaskTest {
-<<<<<<< HEAD
 
-=======
->>>>>>> 52594489274e9225966466d3b885fa62b5672c03
     @Test
     public void testDataAccess() {
         PowerMockito.mockStatic(Log.class);
