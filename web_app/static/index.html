@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<link rel=stylesheet type=text/css href="style.css">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -8,8 +7,9 @@
 <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 </head>
+<link rel=stylesheet type=text/css href="style.css">
 <body>
-    <div id="main" class="container">
+    <div id="main" class="container" data-bind="if: gameStarted">
         <!-- ko foreach: questions -->
             <p data-bind="text: question"></p>
             <!-- ko foreach: options -->
@@ -24,6 +24,7 @@
         var self = this;
         self.questionsURI = "http://127.0.0.1:5000/api/question_data/3";
         self.questions = ko.observableArray();
+        self.gameStarted = ko.observable(false);
 
         self.ajax = function(uri, method, data) {
             var request = {
