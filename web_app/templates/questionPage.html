@@ -17,23 +17,59 @@
         <br><br>
     {% endfor %}
 {% endif %}
+{%if question %}
+    <p id="timer"></p>
+{% endif %}
 
 <script>
 function process_result(id) {
     var result = "Wrong";
     var color = "#c13636";
     var answer = '{{answer|safe}}';
-    var element = document.getElementById(id);
+    var element = null;
+
+    if (id >= 0){
+        element = document.getElementById(id);
+    }
 
     if (id == answer){
         result = "Right";
         color = "#4dc136";
     }
 
-    element.style.color = "white";
-    element.style.fontWeight = "bold";
-    element.style.background = color;
-    element.innerHTML = "• "+result+"!";
+    if (element){
+        element.style.color = "white";
+        element.style.fontWeight = "bold";
+        element.style.background = color;
+        element.innerHTML = "• "+result+"!";
+    }
 }
+
+function start_countdown() {
+    var one_second = 1000;
+    var five_seconds = 5000;
+    var ten_seconds = 10000;
+    var one_minute = one_second*60
+    var end = new Date().getTime() + ten_seconds; 
+    var countdown = setInterval(function(){
+        var now = new Date().getTime();
+        var remaining = end - now;
+        var seconds = Math.floor((remaining % (one_minute)) / one_second);
+        var timer = document.getElementById("timer")
+        timer.innerHTML = "Time remaining: " + seconds + " seconds";
+
+        if (remaining <= five_seconds){
+            timer.style.color = "red";
+            timer.style.fontWeight = "bold";
+        }
+
+        if (remaining < 0){
+            timer.innerHTML = "TIME'S UP!";
+            clearInterval(countdown);
+            window.location.href = "{{ url_for('main.question_page', result=None) }}"
+        }
+    }, one_second);
+}
+start_countdown()
 </script>
 {% endblock %}

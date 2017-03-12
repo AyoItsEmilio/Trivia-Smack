@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void startUp() {
-        Services.createServerAccess(numQuestions);
+        Services.createServerAccess();
     }
 
     public static void shutDown() {

@@ -4,6 +4,7 @@ QuestionTest.py
 import unittest
 from web_app.objects.Question import Question
 
+
 class QuestionTest(unittest.TestCase):
     """Unit tests for the Question class"""
 

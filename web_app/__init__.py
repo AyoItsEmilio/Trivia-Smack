@@ -3,7 +3,7 @@ __init__.py
 """
 from flask.json import JSONEncoder
 from flask_socketio import SocketIO
-from web_app.populate_database import populate_db
+from web_app.populate_database import populate_database
 from web_app.business.MyJSONEncoder import MyJSONEncoder
 from web_app.application.Services import Services
 from web_app.tests.persistence.DataAccessStub import DataAccessStub
@@ -24,7 +24,7 @@ def create_app(application):
     socketio.init_app(application)
 
 def set_up():
-    populate_db(DB_NAME)
+    populate_database(DB_NAME)
     Services.create_data_access(dbName=DB_NAME)
 
 def tear_down():
