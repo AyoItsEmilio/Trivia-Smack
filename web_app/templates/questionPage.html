@@ -45,24 +45,30 @@ function process_result(id) {
     }
 }
 
-var end = new Date().getTime() + 11000; 
-var countdown = setInterval(function(){
-    var now = new Date().getTime();
-    var remaining = end - now;
-    var seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-    var timer = document.getElementById("timer")
-    timer.innerHTML = "Time remaining: " + seconds + " seconds";
+function start_countdown() {
+    var one_second = 1000;
+    var five_seconds = 5000;
+    var ten_seconds = 10000;
+    var end = new Date().getTime() + ten_seconds; 
+    var countdown = setInterval(function(){
+        var now = new Date().getTime();
+        var remaining = end - now;
+        var seconds = Math.floor((remaining % (one_second * 60)) / one_second);
+        var timer = document.getElementById("timer")
+        timer.innerHTML = "Time remaining: " + seconds + " seconds";
 
-    if (remaining <= 5000){
-        timer.style.color = "red";
-        timer.style.fontWeight = "bold";
-    }
+        if (remaining <= five_seconds){
+            timer.style.color = "red";
+            timer.style.fontWeight = "bold";
+        }
 
-    if (remaining < 0){
-        timer.innerHTML = "TIME'S UP!";
-        clearInterval(countdown);
-        window.location.href = "{{ url_for('main.question_page', result=None) }}"
-    }
-}, 1000);
+        if (remaining < 0){
+            timer.innerHTML = "TIME'S UP!";
+            clearInterval(countdown);
+            window.location.href = "{{ url_for('main.question_page', result=None) }}"
+        }
+    }, one_second);
+}
+start_countdown()
 </script>
 {% endblock %}
