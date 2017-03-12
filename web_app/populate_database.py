@@ -3,6 +3,7 @@ populate_database.py
 """
 from pymongo import MongoClient
 
+
 def populate_db(db_name):
 
     client = MongoClient()
