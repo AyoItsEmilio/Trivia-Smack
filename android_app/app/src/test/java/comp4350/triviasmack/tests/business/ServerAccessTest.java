@@ -99,7 +99,8 @@ public class ServerAccessTest {
 
         try
         {
-            serverAccess.getRandomQuestions(questions, numQuestions);
+           serverAccess.getRandomQuestions(questions, numQuestions);
+
             fail("Failed to catch exception.");
         }
         catch(Exception e)

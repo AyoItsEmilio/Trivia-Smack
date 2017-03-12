@@ -26,6 +26,9 @@ public class ServerAccessObject implements ServerAccess {
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
+            if(numQuestions < 0){
+                throw new IllegalArgumentException("Questions has to be above 0");
+            }
             url = new URL(baseUrl + numQuestions + "");
 
         }catch (MalformedURLException e){
