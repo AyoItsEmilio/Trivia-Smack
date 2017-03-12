@@ -10,7 +10,8 @@ set_up()
 
 application = Flask(__name__,\
     template_folder="web_app/templates",\
-    static_folder="web_app/static")
+    static_folder="web_app/static",\
+    static_url_path="")
 
 create_app(application)
 
