@@ -19,8 +19,7 @@ public class ParseJSON {
         String question;
         String[] options;
         int answer;
-        ArrayList<Question> questions;
-        questions = new ArrayList<>();
+        ArrayList<Question> questions = new ArrayList<>();
 
         try {
             jsonQuestions = jsonResult.getJSONArray("result");
@@ -39,12 +38,10 @@ public class ParseJSON {
                 }
 
                 answer = jsonQuestionObject.getInt("answer");
-
                 questionObj = new Question(question, options, answer);
                 questions.add(questionObj);
             }
         } catch (Exception e) {
-            System.out.println("Here"+ e);
             Log.e("ParseJSON.java","Error with JSON:",e);
             questions = null;
         }

@@ -20,11 +20,9 @@ public class ServerAccessObject implements ServerAccess {
        baseUrl = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
     }
 
-    public void open() {
-    }
+    public void open() {}
 
-    public void close() {
-    }
+    public void close() {}
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
@@ -33,7 +31,6 @@ public class ServerAccessObject implements ServerAccess {
         }catch (MalformedURLException e){
             Log.e("ServerAccessObject","MalformedURLException", e);
         }
-
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 

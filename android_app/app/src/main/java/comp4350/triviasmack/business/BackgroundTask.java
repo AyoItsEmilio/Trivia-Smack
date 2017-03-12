@@ -66,7 +66,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e("BackgroundTask", "Error closing Stream", e);
+                    Log.e("BackgroundTask", "Error closing stream", e);
                 }
             }
         }

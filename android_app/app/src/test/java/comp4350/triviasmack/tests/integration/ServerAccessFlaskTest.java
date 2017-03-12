@@ -19,7 +19,7 @@ import android.util.Log;
 @PrepareForTest({Log.class})
 public class ServerAccessFlaskTest {
 
-    @Test(expected=NullPointerException.class)
+    @Test
     public void testDataAccess() {
         PowerMockito.mockStatic(Log.class);
 

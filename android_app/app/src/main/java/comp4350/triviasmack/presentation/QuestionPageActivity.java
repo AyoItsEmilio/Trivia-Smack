@@ -34,7 +34,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         for (int i = 0; i < options.length; i++) {
             String buttonID = "optionBtn" + (i + 1);
             int id = getResources().getIdentifier(buttonID, "id", "comp4350.triviasmack");
-            Button optionButton = (Button) findViewById(id);
+            Button optionButton = (Button)findViewById(id);
             optionButton.setVisibility(View.VISIBLE);
             optionButton.setText("• " + options[i]);
         }
