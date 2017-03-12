@@ -17,7 +17,7 @@ public class ServerAccessObject implements ServerAccess {
     private URL url;
 
     public ServerAccessObject() {
-        baseUrl = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
+        final String BASE_URL = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/";
     }
 
     public void open() {
@@ -31,7 +31,7 @@ public class ServerAccessObject implements ServerAccess {
             url = new URL(baseUrl + numQuestions + "");
 
         }catch (MalformedURLException e){
-            Log.e("ServerAccessObject","MalformedURLException thrown", e);
+            Log.e("ServerAccessObject","MalformedURLException", e);
         }
 
 
