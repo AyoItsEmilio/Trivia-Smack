@@ -3,7 +3,6 @@ package comp4350.triviasmack.business;
 import java.util.ArrayList;
 
 import comp4350.triviasmack.application.Main;
-import comp4350.triviasmack.objects.Profile;
 import comp4350.triviasmack.objects.Question;
 
 public class GameController {
@@ -14,7 +13,6 @@ public class GameController {
     private ArrayList<Question> questions;
     private int questionCount;
     private Question currQuestion;
-    private Profile profile;
     private int score;
     private boolean started;
     private AccessQuestions accessQuestions;
@@ -23,7 +21,6 @@ public class GameController {
         questions = null;
         questionCount = -1;
         currQuestion = null;
-        profile = new Profile();
         score = -1;
         accessQuestions = new AccessQuestions();
     }
@@ -36,13 +33,13 @@ public class GameController {
     }
 
     public int getScore() {
-        return profile.getScore();
+        return score;
     }
 
     public void start() {
         questionCount = 0;
         score = 0;
-        questions = new ArrayList<Question>();
+        questions = new ArrayList<>();
         accessQuestions.getRandomQuestions(questions, maxQuestions);
         started = true;
     }
@@ -70,17 +67,8 @@ public class GameController {
 
     public void increaseScore() {
         if(score < maxQuestions) {
-            profile.addScore(1);
             score++;
         }
-    }
-
-    public void setNewUsername(String username) {
-        profile.setUsername(username);
-    }
-
-    public String getUsername() {
-        return profile.getUsername();
     }
 
     public boolean isStarted() {
@@ -91,9 +79,5 @@ public class GameController {
 
     public static void destroy() {
         instance = null;
-    }
-
-    public  void returnTotalScore(){
-        accessQuestions.sendTotalScore(score);
     }
 }

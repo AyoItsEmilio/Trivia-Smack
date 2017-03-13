@@ -7,5 +7,4 @@ import java.net.URL;
 
 public interface AsyncFacade {
     JSONObject executeTask(URL baseUrl);
-    void executeTask(String url, int score);
 }

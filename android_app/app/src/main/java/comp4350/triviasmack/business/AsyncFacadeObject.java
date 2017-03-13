@@ -26,18 +26,4 @@ public class AsyncFacadeObject implements AsyncFacade {
 
         return result;
     }
-
-    public void executeTask(String url, int score) {
-        SendBackgroundTask serverTask;
-
-        serverTask = new SendBackgroundTask();
-
-        try {
-            serverTask.execute(url, score+"").get();
-        } catch (java.lang.InterruptedException e) {
-            Log.e("AsyncFacadeObject.java","InterruptedException",e);
-        } catch (java.util.concurrent.ExecutionException e) {
-            Log.e("AsyncFacadeObject.java","ExecutionException",e);
-        }
-    }
 }

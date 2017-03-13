@@ -23,8 +23,4 @@ public class AccessQuestions {
         }
         serverAccess.getRandomQuestions(questions, numQuestions);
     }
-
-    public void sendTotalScore(int score) {
-        serverAccess.sendTotalScore(score);
-    }
 }

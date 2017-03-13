@@ -16,12 +16,10 @@ public class ServerAccessObject implements ServerAccess {
     private static final String baseUrl =
             "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/";
     private String questionUrl;
-    private String correctUrl;
     private URL url;
 
     public ServerAccessObject(){
         questionUrl = baseUrl + "api/question_data/";
-        correctUrl = baseUrl + "api/post_score";
     }
 
     public void open() {}
@@ -42,13 +40,5 @@ public class ServerAccessObject implements ServerAccess {
         JSONObject result = Services.createAsyncFacade().executeTask(url);
 
         questions.addAll(ParseJSON.parseJSONQuestions(result));
-    }
-
-    public void sendTotalScore(int score) {
-        SendBackgroundTask serverTask;
-
-        serverTask = new SendBackgroundTask();
-
-        serverTask.execute(correctUrl, new String(score+""));
     }
 }

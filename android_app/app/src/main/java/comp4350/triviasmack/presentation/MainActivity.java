@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         Main.startUp();
         gameController = GameController.getInstance();
         setContentView(R.layout.activity_main);
-        gameController.start();
         displayScore();
+        gameController.start();
     }
 
     private void displayScore() {
@@ -34,13 +34,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void renderPlayerPage(View v) {
-        Intent QuestionPageIntent = new Intent(MainActivity.this, PlayerSelectActivity.class);
+    public void renderQuestionPage(View v) {
+        Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
         MainActivity.this.startActivity(QuestionPageIntent);
-    }
-
-    public void renderUsernamePage(View v) {
-        Intent UsernamePageIntent = new Intent(MainActivity.this, UsernameSelectActivity.class);
-        MainActivity.this.startActivity(UsernamePageIntent);
     }
 }

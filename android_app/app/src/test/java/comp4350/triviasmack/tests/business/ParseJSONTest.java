@@ -26,6 +26,7 @@ public class ParseJSONTest {
 
     @Test
     public void testParseJSON() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Parse Basic JSON Object");
         ArrayList<Question> q;
@@ -35,7 +36,7 @@ public class ParseJSONTest {
             JSONArray result = new JSONArray();
 
             result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
             q = ParseJSON.parseJSONQuestions(json);
 
@@ -75,6 +76,8 @@ public class ParseJSONTest {
 
     @Test
     public void testLargeJSONArray() {
+        PowerMockito.mockStatic(Log.class);
+
         System.out.println("Testing ParseJSONObject: Parse Large JSON Object");
         ArrayList<Question> q;
         final int MAX_ARRAY_SIZE = 100;
@@ -85,7 +88,7 @@ public class ParseJSONTest {
 
             for (int i = 0; i < MAX_ARRAY_SIZE; i++)
                 result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
             q = ParseJSON.parseJSONQuestions(json);
 

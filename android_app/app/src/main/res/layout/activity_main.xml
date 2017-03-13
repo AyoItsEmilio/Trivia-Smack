@@ -24,7 +24,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:onClick="renderPlayerPage" />
+        android:onClick="renderQuestionPage" />
 
     <TextView
         android:text="Score: "
@@ -45,57 +45,5 @@
         app:layout_constraintLeft_toLeftOf="@+id/quickPlayBtn"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="9dp" />
-
-    <Button
-        android:text="LEADERBOARDS"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:textSize="25sp"
-        android:alpha="0.5"
-        android:textColor="#FFFFFF"
-        android:background="#2b2b2b"
-        android:id="@+id/button"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintRight_toRightOf="@+id/button2"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="31dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button2" />
-
-    <Button
-        android:text="USERNAME"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:textSize="25sp"
-        android:alpha="0.9"
-        android:textColor="#FFFFFF"
-        android:id="@+id/button2"
-        android:theme="@style/AppTheme.Button"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintRight_toRightOf="@+id/button3"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="33dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button3"
-        android:onClick="renderUsernamePage"/>
-
-    <Button
-        android:text="SETTINGS"
-        android:layout_width="253dp"
-        android:layout_height="54dp"
-        android:textSize="25sp"
-        android:alpha="0.5"
-        android:textColor="#FFFFFF"
-        android:background="#2b2b2b"
-        android:id="@+id/button3"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
