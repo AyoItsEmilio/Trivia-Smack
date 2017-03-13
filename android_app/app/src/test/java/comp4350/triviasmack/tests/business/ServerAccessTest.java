@@ -59,8 +59,6 @@ public class ServerAccessTest {
             assertNotNull(questions.get(i).getOptions());
         }
 
-        System.out.println("Testing ServerAccess: getRandomQuestions(9)");
-
         numQuestions = 0;
         questions = new ArrayList<>();
         System.out.println("Testing ServerAccess: getRandomQuestions(0)");
