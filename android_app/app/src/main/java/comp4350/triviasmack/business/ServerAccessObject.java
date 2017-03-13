@@ -20,8 +20,8 @@ public class ServerAccessObject implements ServerAccess {
     private URL url;
 
     public ServerAccessObject(){
-        questionUrl = baseUrl + "api/android/question_data/";
-        correctUrl = baseUrl + "api/android/post_score";
+        questionUrl = baseUrl + "api/question_data/";
+        correctUrl = baseUrl + "api/post_score";
     }
 
     public void open() {}

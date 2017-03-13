@@ -22,7 +22,7 @@ public class ParseJSON {
         ArrayList<Question> questions = new ArrayList<>();
 
         try {
-            jsonQuestions = jsonResult.getJSONArray("result");
+            jsonQuestions = jsonResult.getJSONArray("questions");
             for (int i = 0; i < jsonQuestions.length(); i++) {
                 jsonQuestionObject = (JSONObject) jsonQuestions.get(i);
                 question = jsonQuestionObject.getString("question");
