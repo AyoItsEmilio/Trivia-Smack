@@ -14,7 +14,7 @@ import java.net.URL;
 
 import static android.R.attr.y;
 
-public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
+public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(URL... urls) {
@@ -50,7 +50,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
             result = new JSONObject(buffer.toString());
 
         } catch (Exception e) {
-            Log.e("BackgroundTask.java","Error",e);
+            Log.e("ReceiveBackgroundTask.java","Error",e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -59,7 +59,7 @@ public class BackgroundTask extends AsyncTask<URL, Void, JSONObject> {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e("BackgroundTask.java", "Error closing stream", e);
+                    Log.e("ReceiveBackgroundTask.java", "Error closing stream", e);
                 }
             }
         }

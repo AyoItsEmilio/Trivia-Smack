@@ -12,9 +12,9 @@ public class AsyncFacadeObject implements AsyncFacade {
     public JSONObject executeTask(URL baseUrl) {
         JSONObject result = null;
 
-        BackgroundTask serverTask;
+        ReceiveBackgroundTask serverTask;
 
-        serverTask = new BackgroundTask();
+        serverTask = new ReceiveBackgroundTask();
 
         try {
             result = serverTask.execute(baseUrl).get();
