@@ -42,6 +42,7 @@ function TasksViewModel() {
             dataType: 'json',
             data: JSON.stringify(data),
             error: function(jqXHR) {
+                alert(jqXHR.status);
                 console.log("ajax error " + jqXHR.status);
             }
         };
