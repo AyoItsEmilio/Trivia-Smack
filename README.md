@@ -2,8 +2,10 @@
 A fast-paced 2 player trivia game.
 
 As of right now:
-A Flask-MongoDB stack running on a custom AWS EB instance.
-Click start to have 3 random questions displayed. If the button flashes green, you answered correctly. If red, you answered wrong!
+A Flask-MongoDB stack running on a custom AWS EB instance. A single page application made with Knockout.
+Click start to have 3 random questions thrown at you. Answer fast to get the highest score! One-player only right now.
+
+Go here http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/index.html to play
 
 Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com).
 
