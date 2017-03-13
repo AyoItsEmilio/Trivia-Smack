@@ -9,7 +9,7 @@ function TasksViewModel() {
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
-    self.questionsURI = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/question_data/"+max;
+    self.questionsURI = "https://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/question_data/"+max;
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
