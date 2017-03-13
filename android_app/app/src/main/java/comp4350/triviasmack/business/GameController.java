@@ -69,8 +69,10 @@ public class GameController {
     }
 
     public void increaseScore() {
-        if (score < maxQuestions)
+        if(score < maxQuestions) {
+            profile.addScore(1);
             score++;
+        }
     }
 
     public void setNewUsername(String username) {
@@ -85,16 +87,7 @@ public class GameController {
         return started;
     }
 
-    public boolean finished() {
-        boolean finished = false;
-
-        if(maxQuestions == questionCount){
-            finished = true;
-            profile.addScore(score);
-        }
-
-        return finished;
-    }
+    public boolean finished() { return maxQuestions == questionCount; }
 
     public static void destroy() {
         instance = null;

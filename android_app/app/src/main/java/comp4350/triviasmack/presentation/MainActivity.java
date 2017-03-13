@@ -9,7 +9,6 @@ import android.widget.TextView;
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.business.GameController;
-import comp4350.triviasmack.objects.Profile;
 
 public class MainActivity extends AppCompatActivity {
 
