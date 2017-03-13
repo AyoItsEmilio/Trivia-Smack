@@ -50,7 +50,7 @@ public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
             result = new JSONObject(buffer.toString());
 
         } catch (Exception e) {
-            Log.e("ReceiveBackgroundTask.java","Error",e);
+            Log.e("ReceiveBackgroundTask.java", "Error", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

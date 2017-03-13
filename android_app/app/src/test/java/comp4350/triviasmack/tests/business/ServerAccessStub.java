@@ -1,7 +1,6 @@
 package comp4350.triviasmack.tests.business;
 
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -63,7 +62,7 @@ public class ServerAccessStub implements ServerAccess {
         Collections.shuffle(questions);
     }
 
-    public void sendTotalScore(int numCorrect){
+    public void sendTotalScore(int numCorrect) {
         System.out.println("Cannot send score to stub server");
     }
 }

@@ -17,8 +17,7 @@ import static org.junit.Assert.fail;
 
 public class ServerAccessTest {
 
-    public static void testGetRandomQuestion3()
-    {
+    public static void testGetRandomQuestion3() {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions;
         int numQuestions;
@@ -33,15 +32,14 @@ public class ServerAccessTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertTrue(questions.get(i) instanceof Question);
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
         }
     }
 
-    public static void testGetRandomQuestion9()
-    {
+    public static void testGetRandomQuestion9() {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions;
         int numQuestions;
@@ -56,15 +54,14 @@ public class ServerAccessTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertTrue(questions.get(i) instanceof Question);
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
         }
     }
 
-    public static void testGetRandomQuestion0()
-    {
+    public static void testGetRandomQuestion0() {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions;
         int numQuestions;
@@ -79,15 +76,14 @@ public class ServerAccessTest {
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
 
-        for (int i = 0; i < questions.size(); i++){
+        for (int i = 0; i < questions.size(); i++) {
             assertTrue(questions.get(i) instanceof Question);
             assertNotNull(questions.get(i).getAnswer());
             assertNotNull(questions.get(i).getOptions());
         }
     }
 
-    public static void testGetRandomQuestionNegative()
-    {
+    public static void testGetRandomQuestionNegative() {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions;
         int numQuestions;
@@ -97,22 +93,18 @@ public class ServerAccessTest {
 
         System.out.println("Testing ServerAccess: getRandomQuestions(-1)");
 
-        try
-        {
-           serverAccess.getRandomQuestions(questions, numQuestions);
+        try {
+            serverAccess.getRandomQuestions(questions, numQuestions);
 
             fail("Failed to catch exception.");
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             assertEquals("Didn't throw the right exception", IllegalArgumentException.class, e.getClass());
 
         }
     }
 
 
-    public static void testGetRandomQuestionNull()
-    {
+    public static void testGetRandomQuestionNull() {
         ServerAccess serverAccess = Services.getServerAccess();
         int numQuestions;
 
@@ -120,20 +112,16 @@ public class ServerAccessTest {
 
         System.out.println("Testing ServerAccess: getRandomQuestions(questions=null)");
 
-        try
-        {
+        try {
             serverAccess.getRandomQuestions(null, numQuestions);
             fail("Failed to catch exception.");
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             assertEquals("Didn't throw the right exception", NullPointerException.class, e.getClass());
 
         }
     }
 
-    public static void testGetRandomQuestionNullNegative()
-    {
+    public static void testGetRandomQuestionNullNegative() {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions;
         int numQuestions;
@@ -143,13 +131,10 @@ public class ServerAccessTest {
 
         System.out.println("Testing ServerAccess: getRandomQuestions(questions=null, -1)");
 
-        try
-        {
+        try {
             serverAccess.getRandomQuestions(null, numQuestions);
             fail("Failed to catch exception.");
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             assertEquals("Didn't throw the right exception", IllegalArgumentException.class, e.getClass());
 
         }
@@ -180,8 +165,7 @@ public class ServerAccessTest {
     }
     */
 
-    public static void serverAccessTest()
-    {
+    public static void serverAccessTest() {
         testGetRandomQuestion0();
         testGetRandomQuestion3();
         testGetRandomQuestion9();
@@ -191,15 +175,13 @@ public class ServerAccessTest {
     }
 
     @Test
-    public void testServerAccess()
-    {
+    public void testServerAccess() {
         System.out.println("Testing ServerAccess (stub)");
         serverAccessTest();
     }
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         ServerAccess serverAccess;
 
         Services.closeServerAccess();
@@ -208,8 +190,7 @@ public class ServerAccessTest {
     }
 
     @After
-    public void tearDown()
-    {
+    public void tearDown() {
         Services.closeServerAccess();
     }
 }

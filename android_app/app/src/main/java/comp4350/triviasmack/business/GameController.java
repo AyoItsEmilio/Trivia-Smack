@@ -66,7 +66,7 @@ public class GameController {
     }
 
     public void increaseScore() {
-        if(score < maxQuestions) {
+        if (score < maxQuestions) {
             score++;
         }
     }
@@ -75,7 +75,9 @@ public class GameController {
         return started;
     }
 
-    public boolean finished() { return maxQuestions == questionCount; }
+    public boolean finished() {
+        return maxQuestions == questionCount;
+    }
 
     public static void destroy() {
         instance = null;

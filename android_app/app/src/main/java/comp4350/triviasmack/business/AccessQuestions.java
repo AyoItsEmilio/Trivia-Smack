@@ -18,7 +18,7 @@ public class AccessQuestions {
             throw new IllegalArgumentException("Number of questions cannot be less than 0");
         }
 
-        if(questions == null){
+        if (questions == null) {
             throw new NullPointerException("questions is null");
         }
         serverAccess.getRandomQuestions(questions, numQuestions);

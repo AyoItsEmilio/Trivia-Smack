@@ -18,23 +18,25 @@ public class ServerAccessObject implements ServerAccess {
     private String questionUrl;
     private URL url;
 
-    public ServerAccessObject(){
+    public ServerAccessObject() {
         questionUrl = baseUrl + "api/question_data/";
     }
 
-    public void open() {}
+    public void open() {
+    }
 
-    public void close() {}
+    public void close() {
+    }
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
-            if(numQuestions < 0){
+            if (numQuestions < 0) {
                 throw new IllegalArgumentException("Number of questions cannot be less than 0");
             }
             url = new URL(questionUrl + numQuestions + "");
 
-        }catch (MalformedURLException e){
-            Log.e("ServerAccessObject.java","MalformedURLException", e);
+        } catch (MalformedURLException e) {
+            Log.e("ServerAccessObject.java", "MalformedURLException", e);
         }
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);

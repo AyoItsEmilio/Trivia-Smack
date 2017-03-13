@@ -12,6 +12,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.api.mockito.PowerMockito;
+
 import android.util.Log;
 
 @RunWith(PowerMockRunner.class)

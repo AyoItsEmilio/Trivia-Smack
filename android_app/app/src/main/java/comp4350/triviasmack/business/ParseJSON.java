@@ -38,7 +38,7 @@ public class ParseJSON {
                 questions.add(questionObj);
             }
         } catch (JSONException e) {
-            Log.e("ParseJSON.java","Error with JSON:",e);
+            Log.e("ParseJSON.java", "Error with JSON:", e);
             questions = null;
         }
 

@@ -18,6 +18,7 @@ import static org.junit.Assert.assertNull;
 
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.api.mockito.PowerMockito;
+
 import android.util.Log;
 
 @RunWith(PowerMockRunner.class)
