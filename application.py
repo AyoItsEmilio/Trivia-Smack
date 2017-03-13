@@ -9,7 +9,6 @@ from web_app import create_app, set_up, tear_down
 set_up()
 
 application = Flask(__name__,\
-    template_folder="web_app/templates",\
     static_folder="web_app/static",\
     static_url_path="")
 
