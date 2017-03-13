@@ -1,15 +1,14 @@
 package comp4350.triviasmack.tests.business;
 
-import org.mockito.internal.matchers.Null;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
+
 
 import comp4350.triviasmack.business.ServerAccess;
 import comp4350.triviasmack.objects.Question;
 
-import static comp4350.triviasmack.application.Main.numQuestions;
 
 public class ServerAccessStub implements ServerAccess {
 
