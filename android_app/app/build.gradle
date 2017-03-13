@@ -30,4 +30,5 @@ dependencies {
     testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.6.1'
     testCompile 'org.powermock:powermock-module-junit4-rule:1.6.1'
     testCompile 'org.powermock:powermock-module-junit4:1.6.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
 }
