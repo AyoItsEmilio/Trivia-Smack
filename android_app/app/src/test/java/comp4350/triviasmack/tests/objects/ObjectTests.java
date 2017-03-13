@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({QuestionTest.class})
+@Suite.SuiteClasses({QuestionTest.class, ProfileTest.class})
 public class ObjectTests {
 }
 

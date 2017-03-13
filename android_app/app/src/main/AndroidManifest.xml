@@ -24,6 +24,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp4350.triviasmack.presentation.QuestionPageActivity" />
         </activity>
+        <activity android:name=".presentation.PlayerSelectActivity" android:hardwareAccelerated="false"></activity>
+        <activity android:name=".presentation.UsernameSelectActivity"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.business.GameController;
+import comp4350.triviasmack.objects.Profile;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void renderQuestionPage(View v) {
-        Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
+    public void renderPlayerPage(View v) {
+        Intent QuestionPageIntent = new Intent(MainActivity.this, PlayerSelectActivity.class);
         MainActivity.this.startActivity(QuestionPageIntent);
+    }
+
+    public void renderUsernamePage(View v) {
+        Intent UsernamePageIntent = new Intent(MainActivity.this, UsernameSelectActivity.class);
+        MainActivity.this.startActivity(UsernamePageIntent);
     }
 }
