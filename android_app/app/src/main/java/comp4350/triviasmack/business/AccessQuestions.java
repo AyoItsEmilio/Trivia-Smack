@@ -15,7 +15,7 @@ public class AccessQuestions {
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         if (numQuestions < 0) {
-            throw new IllegalArgumentException("Num questions cannot be less than 0");
+            throw new IllegalArgumentException("Number of questions cannot be less than 0");
         }
 
         if(questions == null){

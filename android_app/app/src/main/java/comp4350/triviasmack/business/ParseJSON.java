@@ -23,11 +23,8 @@ public class ParseJSON {
 
         try {
             jsonQuestions = jsonResult.getJSONArray("result");
-
             for (int i = 0; i < jsonQuestions.length(); i++) {
-
                 jsonQuestionObject = (JSONObject) jsonQuestions.get(i);
-
                 question = jsonQuestionObject.getString("question");
                 jsonOptions = jsonQuestionObject.getJSONArray("options");
 
@@ -36,12 +33,11 @@ public class ParseJSON {
                 for (int j = 0; j < jsonOptions.length(); j++) {
                     options[j] = jsonOptions.get(j).toString();
                 }
-
                 answer = jsonQuestionObject.getInt("answer");
                 questionObj = new Question(question, options, answer);
                 questions.add(questionObj);
             }
-        } catch (Exception e) {
+        } catch (JSONException e) {
             Log.e("ParseJSON.java","Error with JSON:",e);
             questions = null;
         }

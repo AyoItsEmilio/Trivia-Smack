@@ -19,9 +19,9 @@ public class AsyncFacadeObject implements AsyncFacade {
         try {
             result = serverTask.execute(baseUrl).get();
         } catch (java.lang.InterruptedException e) {
-            Log.e("AsyncFacadeObject","InterruptedException",e);
+            Log.e("AsyncFacadeObject.java","InterruptedException",e);
         } catch (java.util.concurrent.ExecutionException e) {
-            Log.e("AsyncFacadeObject","ExecutionException",e);
+            Log.e("AsyncFacadeObject.java","ExecutionException",e);
         }
 
         return result;
