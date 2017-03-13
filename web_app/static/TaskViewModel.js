@@ -7,12 +7,13 @@ function TasksViewModel() {
     var green = "#4dc136";
     var white = "white";
     var countDownTime = 10;
+    var oneSecond = 1000;
     var theCountDown;
     self.questionsURI = "http://127.0.0.1:5000/api/question_data/"+max;
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
-    self.started = ko.observable(false);
+    self.showScore = ko.observable(false);
     self.counter = ko.observable(countDownTime);
 
     self.counter.subscribe(function(newValue) {
@@ -69,7 +70,7 @@ function TasksViewModel() {
     }
 
     self.startGame = function() {
-        self.started(true);
+        self.showScore(true);
         self.score(0);
         self.questions = ko.observableArray();
         fetchQuestions();
@@ -82,7 +83,7 @@ function TasksViewModel() {
         clearInterval(theCountDown);
         self.counter(countDownTime);
         theCountDown = 
-        setInterval(function(){ self.counter(self.counter()-1) }, 1000);
+        setInterval(function(){ self.counter(self.counter()-1) }, oneSecond);
     }
 
     function fetchQuestions(){
