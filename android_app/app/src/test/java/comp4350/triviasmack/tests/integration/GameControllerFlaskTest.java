@@ -6,10 +6,22 @@ import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.business.ServerAccess;
 import comp4350.triviasmack.tests.business.GameControllerTest;
 
+
+import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.api.mockito.PowerMockito;
+
+import android.util.Log;
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
 public class GameControllerFlaskTest {
 
     @Test
     public void testGameController() {
+        PowerMockito.mockStatic(Log.class);
 
         Services.closeServerAccess();
 

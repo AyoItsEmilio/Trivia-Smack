@@ -12,16 +12,16 @@ public class AsyncFacadeObject implements AsyncFacade {
     public JSONObject executeTask(URL baseUrl) {
         JSONObject result = null;
 
-        BackgroundTask serverTask;
+        ReceiveBackgroundTask serverTask;
 
-        serverTask = new BackgroundTask();
+        serverTask = new ReceiveBackgroundTask();
 
         try {
             result = serverTask.execute(baseUrl).get();
         } catch (java.lang.InterruptedException e) {
-            Log.e("AsyncFacadeObject","InterruptedException",e);
+            Log.e("AsyncFacadeObject.java", "InterruptedException", e);
         } catch (java.util.concurrent.ExecutionException e) {
-            Log.e("AsyncFacadeObject","ExecutionException",e);
+            Log.e("AsyncFacadeObject.java", "ExecutionException", e);
         }
 
         return result;

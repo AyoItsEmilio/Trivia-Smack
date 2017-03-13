@@ -9,65 +9,30 @@
 </head>
 <link rel=stylesheet type=text/css href="style.css">
 <body>
-    <div id="main" class="container" data-bind="if: gameStarted">
-        <!-- ko foreach: questions -->
-            <p data-bind="text: question"></p>
-            <!-- ko foreach: options -->
-                <p data-bind="text: option, click: $parents[1].beginEdit" class="button option"></p><br><br>
-            <!-- /ko -->
-        <!-- /ko -->
+    <div id="main">
+
+        <div id="start" data-bind="if: !gameStarted()">
+            <h3>This is Trivia Smack!</h3>
+            <span class="button start" data-bind="click: startGame">Play!</span>
+            <br><br>
+            <p data-bind="if: showScore">Score: <span data-bind="text: score"></span></p>
+        </div>
+
+        <div id="questions" data-bind="if: gameStarted()">
+            <div data-bind="with: questions()[questionCount()]">
+                <p data-bind="text: question"></p>
+                <!-- ko foreach: options -->
+                    <p data-bind="text: '• ' + option(),
+                    style:{ background: bgColor, color: textColor },
+                    click: $parents[1].processAnswer" class="button option"></p>
+                    <br><br>
+                <!-- /ko -->
+                Time Remaining: <span data-bind="text: $parent.counter"></span>
+            </div>
+        </div>
     </div>
 
-    <script type="text/javascript">
-
-    function TasksViewModel() {
-        var self = this;
-        self.questionsURI = "http://127.0.0.1:5000/api/question_data/3";
-        self.questions = ko.observableArray();
-        self.gameStarted = ko.observable(false);
-
-        self.ajax = function(uri, method, data) {
-            var request = {
-                url: uri,
-                type: method,
-                contentType: "application/json",
-                accepts: "application/json",
-                cache: false,
-                dataType: 'json',
-                data: JSON.stringify(data),
-                error: function(jqXHR) {
-                    console.log("ajax error " + jqXHR.status);
-                }
-            };
-            return $.ajax(request);
-        }
-
-        self.beginEdit = function(option) {
-            alert(option.id);
-        }
-
-        self.ajax(self.questionsURI, 'GET').done(function(data) {
-            for (var i = 0; i < data.questions.length; i++) {
-
-                var obs_options = ko.observableArray();
-
-                for (var j = 0; j < data.questions[i].options.length; j++){
-                    obs_options.push({
-                        option: ko.observable(data.questions[i].options[j]),
-                        id: j
-                    });
-                }
-
-                self.questions.push({
-                    question: ko.observable(data.questions[i].question),
-                    options: obs_options,
-                    answer: data.questions[i].answer
-                });
-            }
-        });
-    }
-    ko.applyBindings(new TasksViewModel(), $('#main')[0]);
-
+    <script type="text/javascript" src="TaskViewModel.js">
     </script>
 </body>
 </html>

@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import java.util.ArrayList;
 
@@ -14,10 +16,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.api.mockito.PowerMockito;
+
+import android.util.Log;
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
 public class ParseJSONTest {
 
     @Test
     public void testParseJSON() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Parse Basic JSON Object");
         ArrayList<Question> q;
@@ -27,7 +37,7 @@ public class ParseJSONTest {
             JSONArray result = new JSONArray();
 
             result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
             q = ParseJSON.parseJSONQuestions(json);
 
@@ -49,6 +59,7 @@ public class ParseJSONTest {
 
     @Test
     public void testBadFormat() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Bad Formated JSON");
         ArrayList<Question> q;
@@ -66,6 +77,8 @@ public class ParseJSONTest {
 
     @Test
     public void testLargeJSONArray() {
+        PowerMockito.mockStatic(Log.class);
+
         System.out.println("Testing ParseJSONObject: Parse Large JSON Object");
         ArrayList<Question> q;
         final int MAX_ARRAY_SIZE = 100;
@@ -76,7 +89,7 @@ public class ParseJSONTest {
 
             for (int i = 0; i < MAX_ARRAY_SIZE; i++)
                 result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
             q = ParseJSON.parseJSONQuestions(json);
 

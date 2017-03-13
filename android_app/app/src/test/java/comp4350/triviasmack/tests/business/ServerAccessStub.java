@@ -1,9 +1,13 @@
 package comp4350.triviasmack.tests.business;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 import comp4350.triviasmack.business.ServerAccess;
 import comp4350.triviasmack.objects.Question;
+
 
 public class ServerAccessStub implements ServerAccess {
 
@@ -53,6 +57,12 @@ public class ServerAccessStub implements ServerAccess {
     }
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
+
         questions.addAll(this.questions.subList(0, numQuestions));
+        Collections.shuffle(questions);
+    }
+
+    public void sendTotalScore(int numCorrect) {
+        System.out.println("Cannot send score to stub server");
     }
 }

@@ -1,8 +1,16 @@
 package comp4350.triviasmack.tests.integration;
 
+import android.util.Log;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.util.ArrayList;
 
@@ -16,6 +24,9 @@ import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
 public class BusinessServerSeamTest {
 
     private int numQuestions;
@@ -40,6 +51,7 @@ public class BusinessServerSeamTest {
 
     @Test
     public void testAccessQuestions() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Starting Integration test, AccessQuestions (using default server)");
 

@@ -39,7 +39,7 @@ public class GameController {
     public void start() {
         questionCount = 0;
         score = 0;
-        questions = new ArrayList<Question>();
+        questions = new ArrayList<>();
         accessQuestions.getRandomQuestions(questions, maxQuestions);
         started = true;
     }
@@ -66,8 +66,9 @@ public class GameController {
     }
 
     public void increaseScore() {
-        if (score < maxQuestions)
+        if (score < maxQuestions) {
             score++;
+        }
     }
 
     public boolean isStarted() {
