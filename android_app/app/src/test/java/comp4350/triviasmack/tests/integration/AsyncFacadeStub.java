@@ -12,4 +12,8 @@ class AsyncFacadeStub implements AsyncFacade {
     public JSONObject executeTask(URL baseUrl) {
         return new BackgroundTask().fetchFromUrl(baseUrl);
     }
+
+    public void executeTask(String url, int score) {
+
+    }
 }

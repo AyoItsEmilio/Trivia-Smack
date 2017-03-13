@@ -61,7 +61,9 @@ public class ServerAccessStub implements ServerAccess {
 
         questions.addAll(this.questions.subList(0, numQuestions));
         Collections.shuffle(questions);
+    }
 
-
+    public void sendTotalScore(int numCorrect){
+        System.out.println("Cannot send score to stub server");
     }
 }
