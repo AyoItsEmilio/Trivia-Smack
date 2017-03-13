@@ -10,4 +10,6 @@ public interface ServerAccess {
     void close();
 
     void getRandomQuestions(ArrayList<Question> questions, int numQuestions);
+
+    void sendTotalScore(int score);
 }

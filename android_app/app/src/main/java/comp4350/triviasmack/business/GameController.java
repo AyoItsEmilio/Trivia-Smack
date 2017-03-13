@@ -92,4 +92,8 @@ public class GameController {
     public static void destroy() {
         instance = null;
     }
+
+    public  void returnTotalScore(){
+        accessQuestions.sendTotalScore(score);
+    }
 }

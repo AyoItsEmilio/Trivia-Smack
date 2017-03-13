@@ -69,6 +69,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
         if (gameController.finished()){
+            gameController.returnTotalScore();
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
             QuestionPageActivity.this.startActivity(MainPageIntent);
         }
