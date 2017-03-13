@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         Main.startUp();
         gameController = GameController.getInstance();
         setContentView(R.layout.activity_main);
-        displayScore();
         gameController.start();
+        displayScore();
     }
 
     private void displayScore() {

@@ -24,9 +24,14 @@ public class UsernameSelectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         gameController = GameController.getInstance();
         setContentView(R.layout.activity_username_page);
+        setUsernameListener();
+        setUsernameText();
+    }
 
+    private void setUsernameListener() {
         EditText editText = (EditText) findViewById(R.id.editUsernameText);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
 
@@ -46,7 +51,6 @@ public class UsernameSelectActivity extends AppCompatActivity {
                 return handled;
             }
         });
-        setUsernameText();
     }
 
     private void setUsernameText() {
