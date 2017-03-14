@@ -24,7 +24,7 @@ To run the android app:
 - `cd Trivia-Smack`
 - Open Android Studio and open the project `android_app`
 
-Note the Android app sends requests to our production server mentioned above. Change the base url in `android_app > ... > business > ServerAccessObject.java` to point the app to your server, I you want.
+Note the Android app sends requests to our production server mentioned above. Change the base url in `android_app > ... > business > ServerAccessObject.java` to point the app to your server, if you want.
 
 To run server unit tests:
 - In the terminal, go to the root directory of the project (Trivia-Game) and run: 
