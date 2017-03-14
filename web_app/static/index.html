@@ -17,22 +17,22 @@
             <h3>This is Trivia Smack!</h3>
             <span class="button start" data-bind="click: startWaiting">
             Play!</span><br><br>
-            <p data-bind="if: showScore()">
+            <span data-bind="if: startedOnce()">
                 Score: <span data-bind="text: score"></span>
                 <p data-bind="if: showOtherScore()">
                     Their score: <span data-bind="text: otherScore"></span>
                 </p>
-                <p data-bind="if: !showOtherScore() && showScore()">
+                <p data-bind="if: !showOtherScore()">
                     Waiting for other player to finish
                 </p>
-            </p>
+            </span>
         </div>
 
         <div id="waiting" data-bind="if: isWaiting()">
         Waiting for other player...
         </div>
 
-        <div id="questions" data-bind="if: gameStarted() && !isWaiting()">
+        <div id="questions" data-bind="if: gameStarted()">
             <div data-bind="with: questions()[questionCount()]">
                 <p data-bind="text: question"></p>
                 <!-- ko foreach: options -->

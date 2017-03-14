@@ -14,7 +14,7 @@ function TasksViewModel() {
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
-    self.showScore = ko.observable(false);
+    self.startedOnce = ko.observable(false);
     self.counter = ko.observable(countDownTime);
     self.isWaiting = ko.observable(false);
     self.otherScore = ko.observable(0);
@@ -44,7 +44,6 @@ function TasksViewModel() {
     }
 
     socket.on("game_is_ready", function() {
-        self.isWaiting(false);
         self.startGame();
     });
 
@@ -54,12 +53,13 @@ function TasksViewModel() {
     });
 
     self.startGame = function() {
-        self.showScore(true);
+        self.showOtherScore(false);
+        self.startedOnce(true);
         self.score(0);
         self.questions = ko.observableArray();
         fetchQuestions();
         self.gameStarted(true);
-
+        self.isWaiting(false);
         startCounter();
     }
 
