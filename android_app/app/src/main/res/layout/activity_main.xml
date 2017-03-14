@@ -8,17 +8,18 @@
     android:background="@drawable/quizbg2">
 
     <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Score: "
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:theme="@style/AppTheme.Button"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:textColor="#FFFFFF"
-        android:id="@+id/scoreText"
-        tools:layout_editor_absoluteY="661dp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.498" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -54,6 +55,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/guideline2"
         app:layout_constraintGuide_begin="20dp"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp" />
 
 </android.support.constraint.ConstraintLayout>
