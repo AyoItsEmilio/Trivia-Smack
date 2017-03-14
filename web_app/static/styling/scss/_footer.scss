@@ -1,0 +1,26 @@
+$footer-height: 100px; 
+
+html, body {
+	height: 100%;
+}
+
+.main{
+	min-height: 100%; 
+	margin-bottom: -$footer-height;
+	&:after{
+		content: ""; 
+		display: block; 
+		height: $footer-height; 
+	}
+}
+footer{
+	height: $footer-height;
+	background-color: $secondary;  
+	color: white; 
+	text-transform: uppercase;
+
+	.name{
+		padding-top: 40px;
+		text-align: center; 
+	}
+}
