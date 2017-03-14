@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,17 +17,11 @@ public class QuestionPageActivity extends AppCompatActivity {
 
     private GameController gameController = GameController.getInstance();
 
-    private MediaPlayer rSound = null;
-    private MediaPlayer wSound = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
-
-        rSound = MediaPlayer.create(this, R.raw.right_sound);
-        wSound = MediaPlayer.create(this, R.raw.wrong_sound);
 
         Question questionObj = gameController.getNextQuestion();
         TextView questionTitle = (TextView) findViewById(R.id.questionText);
@@ -58,12 +51,9 @@ public class QuestionPageActivity extends AppCompatActivity {
 
         if (result) {
             ((Button) v).setText("• RIGHT!");
-            playSound(rSound, R.raw.right_sound);
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_green));
             gameController.increaseScore();
         } else {
-            ((Button) v).setText("• WRONG!");
-            playSound(wSound, R.raw.wrong_sound);
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
 
@@ -73,19 +63,6 @@ public class QuestionPageActivity extends AppCompatActivity {
         } else {
             startActivity(getIntent());
             finish();
-        }
-    }
-
-    private void playSound(MediaPlayer mp, int id) {
-        try {
-            if (mp.isPlaying()) {
-                mp.stop();
-                mp.release();
-                mp = MediaPlayer.create(this, id);
-            }
-            mp.start();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
