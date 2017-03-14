@@ -17,59 +17,11 @@ import static org.junit.Assert.fail;
 
 public class ServerAccessTest {
 
-    public static void testGetRandomQuestion3() {
+    public static void testGetRandomQuestionValidNum(int numQuestions) {
         ServerAccess serverAccess = Services.getServerAccess();
-        ArrayList<Question> questions;
-        int numQuestions;
+        ArrayList<Question> questions = new ArrayList<>();
 
-        questions = new ArrayList<>();
-        numQuestions = 3;
-
-        System.out.println("Testing ServerAccess: getRandomQuestions(3)");
-
-        serverAccess.getRandomQuestions(questions, numQuestions);
-
-        assertEquals(questions.size(), numQuestions);
-        assertNotNull(questions);
-
-        for (int i = 0; i < questions.size(); i++) {
-            assertTrue(questions.get(i) instanceof Question);
-            assertNotNull(questions.get(i).getAnswer());
-            assertNotNull(questions.get(i).getOptions());
-        }
-    }
-
-    public static void testGetRandomQuestion9() {
-        ServerAccess serverAccess = Services.getServerAccess();
-        ArrayList<Question> questions;
-        int numQuestions;
-
-        questions = new ArrayList<>();
-        numQuestions = 9;
-
-        System.out.println("Testing ServerAccess: getRandomQuestions(9)");
-
-        serverAccess.getRandomQuestions(questions, numQuestions);
-
-        assertEquals(questions.size(), numQuestions);
-        assertNotNull(questions);
-
-        for (int i = 0; i < questions.size(); i++) {
-            assertTrue(questions.get(i) instanceof Question);
-            assertNotNull(questions.get(i).getAnswer());
-            assertNotNull(questions.get(i).getOptions());
-        }
-    }
-
-    public static void testGetRandomQuestion0() {
-        ServerAccess serverAccess = Services.getServerAccess();
-        ArrayList<Question> questions;
-        int numQuestions;
-
-        questions = new ArrayList<>();
-        numQuestions = 0;
-
-        System.out.println("Testing ServerAccess: getRandomQuestions(0)");
+        System.out.println("Testing ServerAccess: getRandomQuestions (" + numQuestions + ")");
 
         serverAccess.getRandomQuestions(questions, numQuestions);
 
@@ -139,7 +91,6 @@ public class ServerAccessTest {
 
         }
     }
-
     /*
     @Test
     Trying to test for number of questions greater than the actual amount of questions, but this
@@ -166,9 +117,9 @@ public class ServerAccessTest {
     */
 
     public static void serverAccessTest() {
-        testGetRandomQuestion0();
-        testGetRandomQuestion3();
-        testGetRandomQuestion9();
+        testGetRandomQuestionValidNum(0); // minimum number
+        testGetRandomQuestionValidNum(3); // middle case
+        testGetRandomQuestionValidNum(9); // edge case
         testGetRandomQuestionNull();
         testGetRandomQuestionNegative();
         testGetRandomQuestionNullNegative();
