@@ -1,9 +1,13 @@
 appdirs==1.4.0
 Flask==0.10.1
 Flask-PyMongo==0.4.1
+Flask-Session==0.3.1
+Flask-Triangle==0.5.4
 Flask-WTF==0.14.2
+functools32==3.2.3.post2
 itsdangerous==0.24
 Jinja2==2.9.4
+jsonschema==2.6.0
 MarkupSafe==0.23
 packaging==16.8
 pymongo==3.4.0
