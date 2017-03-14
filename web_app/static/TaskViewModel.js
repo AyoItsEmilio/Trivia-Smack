@@ -1,4 +1,5 @@
 function TasksViewModel() {
+    var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port);
     var self = this;
     var max = 3;
     var waitTime = 300;
@@ -9,12 +10,16 @@ function TasksViewModel() {
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
-    self.questionsURI = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/question_data/"+max;
+    self.questionsURI = "http://127.0.0.1:5000/api/question_data/"+max;
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
     self.showScore = ko.observable(false);
     self.counter = ko.observable(countDownTime);
+    self.isWaiting = ko.observable(false);
+    self.otherScore = ko.observable(0);
+    self.showOtherScore = ko.observable(false);
+    self.mySocketID;
 
     self.counter.subscribe(function(newValue) {
         if (newValue == 0){
@@ -25,6 +30,7 @@ function TasksViewModel() {
 
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
+            socket.emit("game_over", {"score":self.score()});
             setTimeout(function(){
                 self.questionCount(0);
                 self.gameStarted(false);
@@ -32,21 +38,29 @@ function TasksViewModel() {
         }
     });
 
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            contentType: "application/json",
-            accepts: "application/json",
-            cache: false,
-            dataType: 'json',
-            data: JSON.stringify(data),
-            error: function(jqXHR) {
-                alert(jqXHR.status);
-                console.log("ajax error " + jqXHR.status);
-            }
-        };
-        return $.ajax(request);
+    self.startWaiting = function() {
+        self.isWaiting(true);
+        socket.emit("join_game");
+    }
+
+    socket.on("game_is_ready", function() {
+        self.isWaiting(false);
+        self.startGame();
+    });
+
+    socket.on("other_player_done", function(data){
+        self.showOtherScore(true);
+        self.otherScore(data.msg);
+    });
+
+    self.startGame = function() {
+        self.showScore(true);
+        self.score(0);
+        self.questions = ko.observableArray();
+        fetchQuestions();
+        self.gameStarted(true);
+
+        startCounter();
     }
 
     self.processAnswer = function(optionObj) {
@@ -70,21 +84,28 @@ function TasksViewModel() {
         startCounter();
     }
 
-    self.startGame = function() {
-        self.showScore(true);
-        self.score(0);
-        self.questions = ko.observableArray();
-        fetchQuestions();
-        self.gameStarted(true);
-
-        startCounter();
-    }
-
     function startCounter(){
         clearInterval(theCountDown);
         self.counter(countDownTime);
         theCountDown = 
         setInterval(function(){ self.counter(self.counter()-1) }, oneSecond);
+    }
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            contentType: "application/json",
+            accepts: "application/json",
+            cache: false,
+            dataType: 'json',
+            data: JSON.stringify(data),
+            error: function(jqXHR) {
+                alert(jqXHR.status);
+                console.log("ajax error " + jqXHR.status);
+            }
+        };
+        return $.ajax(request);
     }
 
     function fetchQuestions(){

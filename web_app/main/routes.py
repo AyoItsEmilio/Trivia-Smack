@@ -4,6 +4,8 @@ routes.py
 from flask import render_template, request, redirect, jsonify, session
 from web_app.business.AccessQuestions import AccessQuestions
 from . import main
+
+"""
 from .events import JOINED
 
 max_questions = 3
@@ -64,6 +66,7 @@ def question_page():
 def over_page():
     session["joined"] = False
     return render_template("overPage.html", score=session.get("score", None))
+"""
 
 @main.route("/api/question_data/<num_questions>", methods=["GET"])
 def question_data(num_questions):
