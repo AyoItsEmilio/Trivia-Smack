@@ -5,8 +5,6 @@ import unittest
 import sys
 from web_app.tests.integration.BusinessPersistenceSeamTest\
     import BusinessPersistenceSeamTest
-from web_app.tests.integration.GameControllerMongoTest\
-    import GameControllerMongoTest
 from web_app.tests.integration.DataAccessMongoTest import DataAccessMongoTest
 
 def main():
@@ -17,12 +15,8 @@ def main():
     data_access_suite =\
         unittest.TestLoader().loadTestsFromTestCase(DataAccessMongoTest)
 
-    game_controller_suite =\
-        unittest.TestLoader().loadTestsFromTestCase(GameControllerMongoTest)
-
     all_suites = unittest.TestSuite([business_seam_suite,\
-                                     data_access_suite,\
-                                     game_controller_suite])
+                                     data_access_suite])
 
     runner = unittest.TextTestRunner()
     result = runner.run(all_suites)
