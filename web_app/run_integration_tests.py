@@ -15,8 +15,7 @@ def main():
     data_access_suite =\
         unittest.TestLoader().loadTestsFromTestCase(DataAccessMongoTest)
 
-    all_suites = unittest.TestSuite([business_seam_suite,\
-                                     data_access_suite])
+    all_suites = unittest.TestSuite([business_seam_suite, data_access_suite])
 
     runner = unittest.TextTestRunner()
     result = runner.run(all_suites)

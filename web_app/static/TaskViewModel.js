@@ -9,7 +9,9 @@ function TasksViewModel() {
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
-    self.questionsURI = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/question_data/"+max;
+    self.baseURI = "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/"
+    self.questionsURI = "api/question_data/"+max;
+    self.questionRequest = self.baseURI + self.questionsURI;
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
@@ -88,7 +90,7 @@ function TasksViewModel() {
     }
 
     function fetchQuestions(){
-        self.ajax(self.questionsURI, "GET").done(function(data) {
+        self.ajax(self.questionRequest, "GET").done(function(data) {
             for (var i = 0; i < data.questions.length; i++) {
 
                 var obs_options = ko.observableArray();
