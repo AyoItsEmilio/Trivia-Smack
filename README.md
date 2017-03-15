@@ -7,7 +7,7 @@ Click start to have 3 random questions thrown at you. Answer fast to get the hig
 
 Go here http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/index.html to play
 
-Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com).
+Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com. It's purely RESTful so don't expect to see anything when you go to the url).
 
 Requirements: eb CLI (`pip install awsebcli`)
 
