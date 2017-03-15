@@ -16,7 +16,6 @@ To run the server:
 - `cd Trivia-Smack`
 - `eb init -p python2.7 trivia_app`
 - `eb create trivia-env`
-- You'll have to change the self.baseURI in `web_app > static > TaskViewModel.js` to point to your server
 - Go to whatever your server's url is `/index.html`.
 
 You MUST be in the US West (Oregon) region or Canada (Central) for the custom AMI to work.
