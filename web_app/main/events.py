@@ -3,42 +3,35 @@ events.py
 """
 from flask import request
 from flask_socketio import emit, join_room
+from web_app.business.ConnectionController import ConnectionController
 from .. import socketio
 
-JOINED = []
-PLAYING = []
-DONE = []
-MAX_PLAYERS = 2
-ROOMS = []
-MATCHES = {}
+cc = ConnectionController()
 
 @socketio.on("join_game")
 def join_game():
-    join_room(len(ROOMS))
+    join_room(request.sid)
 
-    JOINED.append(request.sid)
+    cc.join_waiting(request.sid)
 
-    if len(JOINED) == MAX_PLAYERS:
-        PLAYING.extend(JOINED)
-
-        MATCHES[JOINED[-2]] = JOINED[-1]
-        MATCHES[JOINED[-1]] = JOINED[-2]
-
-        del JOINED[:]
-        room = len(ROOMS)
-        ROOMS.append(room)
-        emit("game_is_ready", room=room)
+    if cc.game_ready():
+        cc.join_playing()
+        emit("other_player_ready", room=request.sid)
+        emit("other_player_ready", room=cc.get_partner(request.sid))
 
 @socketio.on("game_over")
 def game_over(message):
-    join_room(request.sid)
-    PLAYING.remove(request.sid)
-    emit("other_player_done", {"msg":message["score"]}, room=MATCHES[request.sid])
-
+    if cc.get_partner(request.sid) is not None:
+        emit("other_player_done", {"msg":message["score"]},\
+            room=cc.get_partner(request.sid))
+        cc.leave_playing(request.sid)
 
 @socketio.on("disconnect")
 def disconnect():
-    if request.sid in JOINED:
-        JOINED.remove(request.sid)
-    if request.sid in PLAYING:
-        PLAYING.remove(request.sid)
+    other_id = cc.get_partner(request.sid)
+
+    if other_id is not None:
+        emit("other_player_done", {"msg":None}, room=other_id)
+
+    cc.leave_playing(request.sid)
+    cc.leave_waiting(request.sid)

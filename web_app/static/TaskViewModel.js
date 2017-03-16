@@ -19,7 +19,7 @@ function TasksViewModel() {
     self.isWaiting = ko.observable(false);
     self.otherScore = ko.observable(0);
     self.showOtherScore = ko.observable(false);
-    self.mySocketID;
+    self.onePlayerMode = ko.observable(true);
 
     self.counter.subscribe(function(newValue) {
         if (newValue == 0){
@@ -30,7 +30,9 @@ function TasksViewModel() {
 
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
-            socket.emit("game_over", {"score":self.score()});
+
+            if (!self.onePlayerMode())
+                socket.emit("game_over", {"score":self.score()});
 
             self.questionCount(0);
             self.gameStarted(false);
@@ -42,23 +44,36 @@ function TasksViewModel() {
         socket.emit("join_game");
     }
 
-    socket.on("game_is_ready", function() {
-        self.startGame();
-    });
-
     socket.on("other_player_done", function(data){
+        var result;
         self.showOtherScore(true);
-        self.otherScore(data.msg);
+
+        if (data.msg == null)
+            result = "Other player disconnected! You win!"
+        else
+            result = data.msg
+
+        self.otherScore(result);
     });
 
-    self.startGame = function() {
+    socket.on("other_player_ready", function() {
+        self.onePlayerMode(false);
         self.showOtherScore(false);
+        self.isWaiting(false);
+        startGame();
+    });
+
+    self.startOnePlayer = function() {
+        self.onePlayerMode(true);
+        startGame();
+    }
+
+    function startGame() {
         self.startedOnce(true);
         self.score(0);
         self.questions = ko.observableArray();
         fetchQuestions();
         self.gameStarted(true);
-        self.isWaiting(false);
         startCounter();
     }
 

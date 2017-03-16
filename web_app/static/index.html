@@ -15,17 +15,24 @@
 
         <div id="start" data-bind="if: !gameStarted() && !isWaiting()">
             <h3>This is Trivia Smack!</h3>
-            <span class="button start" data-bind="click: startWaiting">
-            Play!</span><br><br>
+
+            <div class="button start" data-bind="click: startOnePlayer">
+            One Player!</div><br><br>
+            <div class="button start" data-bind="click: startWaiting">
+            Two Player!</div><br><br>
+
             <span data-bind="if: startedOnce()">
                 Score: <span data-bind="text: score"></span>
-                <p data-bind="if: showOtherScore()">
+
+                <p data-bind="if: showOtherScore() && !onePlayerMode()">
                     Their score: <span data-bind="text: otherScore"></span>
                 </p>
-                <p data-bind="if: !showOtherScore()">
+                <p data-bind="if: !showOtherScore() && !onePlayerMode()">
                     Waiting for other player to finish
                 </p>
+
             </span>
+
         </div>
 
         <div id="waiting" data-bind="if: isWaiting()">
