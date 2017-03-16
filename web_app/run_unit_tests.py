@@ -6,6 +6,8 @@ import sys
 from web_app.tests.objects.QuestionTest import QuestionTest
 from web_app.tests.persistence.DataAccessTest import DataAccessTest
 from web_app.tests.business.AccessQuestionsTest import AccessQuestionsTest
+from web_app.tests.business.ConnectionControllerTest import\
+ConnectionControllerTest
 
 def main():
 
@@ -17,9 +19,13 @@ def main():
     data_access_suite =\
     unittest.TestLoader().loadTestsFromTestCase(DataAccessTest)
 
+    cc_suite =\
+    unittest.TestLoader().loadTestsFromTestCase(ConnectionControllerTest)
+
     all_suites = unittest.TestSuite([question_suite,\
         data_access_suite,\
-        question_access_suite])
+        question_access_suite,\
+        cc_suite])
 
     runner = unittest.TextTestRunner()
     result = runner.run(all_suites)
