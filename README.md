@@ -7,7 +7,7 @@ Click start to have 3 random questions thrown at you. Answer fast to get the hig
 
 Go here http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/index.html to play
 
-Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com).
+Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com. It's purely RESTful so don't expect to see anything when you go to the url).
 
 Requirements: eb CLI (`pip install awsebcli`)
 
@@ -16,6 +16,7 @@ To run the server:
 - `cd Trivia-Smack`
 - `eb init -p python2.7 trivia_app`
 - `eb create trivia-env`
+- Go to whatever your server's url is `/index.html`.
 
 You MUST be in the US West (Oregon) region or Canada (Central) for the custom AMI to work.
 
@@ -26,8 +27,10 @@ To run the android app:
 
 Note the Android app sends requests to our production server mentioned above. Change the base url in `android_app > ... > business > ServerAccessObject.java` to point the app to your server, if you want.
 
-To run server unit tests:
-- In the terminal, go to the root directory of the project (Trivia-Game) and run: 
-`python -m web_app.run_unit_tests`
+To run server tests:
+- Unit tests: `python -m web_app.run_unit_tests`
+- Integration tests: `python -m web_app.run_integration_tests`
+
+You can find the Android tests in the usual Android test folder.
 
 Take a look at the wiki to see where to find what.
