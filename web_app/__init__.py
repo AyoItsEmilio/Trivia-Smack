@@ -10,6 +10,7 @@ from web_app.tests.persistence.DataAccessStub import DataAccessStub
 from web_app.persistence.DataAccessObject import DataAccessObject
 
 DB_NAME = "application"
+MAX_PLAYERS = 2
 socketio = SocketIO()
 
 def create_app(application):
