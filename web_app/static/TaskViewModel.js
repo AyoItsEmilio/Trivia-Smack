@@ -10,7 +10,7 @@ function TasksViewModel() {
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
-    self.questionsURI = "http://127.0.0.1:5000/api/question_data/"+max;
+    self.questionsURI = "/api/question_data/"+max;
     self.score = ko.observable(0);
     self.gameStarted = ko.observable(false);
     self.questionCount = ko.observable(0);
@@ -31,10 +31,9 @@ function TasksViewModel() {
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
             socket.emit("game_over", {"score":self.score()});
-            setTimeout(function(){
-                self.questionCount(0);
-                self.gameStarted(false);
-            }, waitTime)
+
+            self.questionCount(0);
+            self.gameStarted(false);
         }
     });
 
