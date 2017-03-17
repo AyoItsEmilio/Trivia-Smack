@@ -20,15 +20,15 @@
             One Player!</div><br><br>
             <div class="button start" data-bind="click: startTwoPlayer">
             Two Player!</div><br><br>
+
+            <span data-bind="if: score() || score()==0">
+                Score: <span data-bind="text: score"></span>
+
+                <p data-bind="if: (otherScore() || otherScore()==0)">
+                    Their score: <span data-bind="text: otherScore"></span>
+                </p>
+            </span>
         </div>
-
-        <span data-bind="if: score() || score()==0">
-            Score: <span data-bind="text: score"></span>
-
-            <p data-bind="if: (otherScore() || otherScore()==0)">
-                Their score: <span data-bind="text: otherScore"></span>
-            </p>
-        </span>
 
         <div id="waiting" data-bind="if: isWaiting">
             Waiting for other player...
@@ -36,7 +36,6 @@
     <!-- /ko -->
 
     <!-- ko if: isPlaying -->
-
         <div data-bind="with: questions()[questionCount()]">
             <p data-bind="text: question"></p>
             <!-- ko foreach: options -->
@@ -47,7 +46,6 @@
             <!-- /ko -->
             Time Remaining: <span data-bind="text: $parent.counter"></span>
         </div>
-
     <!-- /ko -->
 </div>
 

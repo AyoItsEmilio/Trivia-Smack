@@ -27,40 +27,18 @@ function TasksViewModel() {
     });
 
     self.questionCount.subscribe(function(newValue) {
-        alert(self.questionCount())
         if (newValue == max){
             endGame();
         }
     });
 
-    socket.on("other_player_done", function(data){
-        var result;
-
-        if (data.msg == null)
-            result = "Other player disconnected! You win!"
-        else
-            result = data.msg
-
-        self.otherScore(result);
-    });
-
-    socket.on("other_player_ready", function() {
-        self.isWaiting(false);
-        self.otherScore("Waiting for other player");
-        startGame();
-    });
-
     self.startTwoPlayer = function() {
-        self.otherScore(null);
-        self.score(null);
         self.onePlayerMode(false);
         self.isWaiting(true);
         socket.emit("join_game");
     }
 
     self.startOnePlayer = function() {
-        self.score(null);
-        self.otherScore(null);
         self.onePlayerMode(true);
         self.isWaiting(false);
         startGame();
@@ -110,6 +88,23 @@ function TasksViewModel() {
         theCountDown = 
         setInterval(function(){ self.counter(self.counter()-1) }, oneSecond);
     }
+
+    socket.on("other_player_done", function(data){
+        var result;
+
+        if (data.msg == null)
+            result = "Other player disconnected! You win!"
+        else
+            result = data.msg
+
+        self.otherScore(result);
+    });
+
+    socket.on("other_player_ready", function() {
+        self.isWaiting(false);
+        self.otherScore("Waiting for other player");
+        startGame();
+    });
 
     self.ajax = function(uri, method, data) {
         var request = {
