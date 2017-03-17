@@ -11,15 +11,13 @@ function TasksViewModel() {
     var oneSecond = 1000;
     var theCountDown;
     self.questionsURI = "/api/question_data/"+max;
-    self.score = ko.observable(0);
-    self.gameStarted = ko.observable(false);
+    self.score = ko.observable(null);
+    self.otherScore = ko.observable(null);
     self.questionCount = ko.observable(0);
-    self.startedOnce = ko.observable(false);
     self.counter = ko.observable(countDownTime);
     self.isWaiting = ko.observable(false);
-    self.otherScore = ko.observable(0);
-    self.showOtherScore = ko.observable(false);
     self.onePlayerMode = ko.observable(true);
+    self.isPlaying = ko.observable(false);
 
     self.counter.subscribe(function(newValue) {
         if (newValue == 0){
@@ -29,24 +27,14 @@ function TasksViewModel() {
     });
 
     self.questionCount.subscribe(function(newValue) {
+        alert(self.questionCount())
         if (newValue == max){
-
-            if (!self.onePlayerMode())
-                socket.emit("game_over", {"score":self.score()});
-
-            self.questionCount(0);
-            self.gameStarted(false);
+            endGame();
         }
     });
 
-    self.startWaiting = function() {
-        self.isWaiting(true);
-        socket.emit("join_game");
-    }
-
     socket.on("other_player_done", function(data){
         var result;
-        self.showOtherScore(true);
 
         if (data.msg == null)
             result = "Other player disconnected! You win!"
@@ -57,24 +45,42 @@ function TasksViewModel() {
     });
 
     socket.on("other_player_ready", function() {
-        self.onePlayerMode(false);
-        self.showOtherScore(false);
         self.isWaiting(false);
+        self.otherScore("Waiting for other player");
         startGame();
     });
 
+    self.startTwoPlayer = function() {
+        self.otherScore(null);
+        self.score(null);
+        self.onePlayerMode(false);
+        self.isWaiting(true);
+        socket.emit("join_game");
+    }
+
     self.startOnePlayer = function() {
+        self.score(null);
+        self.otherScore(null);
         self.onePlayerMode(true);
+        self.isWaiting(false);
         startGame();
     }
 
     function startGame() {
-        self.startedOnce(true);
-        self.score(0);
         self.questions = ko.observableArray();
         fetchQuestions();
-        self.gameStarted(true);
+        self.isPlaying(true);
+        self.score(0);
+        self.questionCount(0);
         startCounter();
+    }
+
+    function endGame() {
+        self.isPlaying(false);
+
+        if (!self.onePlayerMode()){
+            socket.emit("game_over", {"score":self.score()});
+        }
     }
 
     self.processAnswer = function(optionObj) {
@@ -145,4 +151,5 @@ function TasksViewModel() {
         });
     }
 }
+
 ko.applyBindings(new TasksViewModel(), $("#main")[0]);
