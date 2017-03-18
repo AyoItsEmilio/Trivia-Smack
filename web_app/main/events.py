@@ -10,9 +10,11 @@ cc = ConnectionController()
 
 @socketio.on("join_game")
 def join_game():
+    print "request.sid=%s" % request.sid
     join_room(request.sid)
-
     cc.join_waiting(request.sid)
+    
+    emit("join_waiting")
 
     if cc.game_ready():
         cc.join_playing()
@@ -21,8 +23,6 @@ def join_game():
 
 @socketio.on("game_over")
 def game_over(message):
-    if cc.get_partner(request.sid) is not None:
-
         emit("other_player_done", {"msg":message["score"]},\
             room=cc.get_partner(request.sid))
 
