@@ -14,11 +14,12 @@
         android:visibility="invisible"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
 
     <Button
         android:id="@+id/button2"
@@ -32,7 +33,24 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/scoreText"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:onClick="renderMultiPlayerPage"
+        android:text="Two player"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/roundstartbutton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@id/scoreText"
+        android:textSize="24sp"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.52" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -48,9 +66,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/trivialogo_1"
-        tools:layout_editor_absoluteY="109dp"
+        tools:layout_editor_absoluteY="11dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

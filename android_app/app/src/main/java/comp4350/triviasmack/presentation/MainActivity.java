@@ -10,6 +10,8 @@ import comp4350.triviasmack.R;
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.business.GameController;
 
+import static android.os.Build.VERSION_CODES.M;
+
 public class MainActivity extends AppCompatActivity {
 
     private GameController gameController;
@@ -37,5 +39,10 @@ public class MainActivity extends AppCompatActivity {
     public void renderQuestionPage(View v) {
         Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
         MainActivity.this.startActivity(QuestionPageIntent);
+    }
+
+    public void renderMultiPlayerPage(View v){
+        Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
+        MainActivity.this.startActivity(MultiPlayerPageIntent);
     }
 }
