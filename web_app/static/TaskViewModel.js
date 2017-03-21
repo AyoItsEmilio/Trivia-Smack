@@ -25,29 +25,10 @@ function TasksViewModel() {
 
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
-            setTimeout(function(){
-                self.questionCount(0);
-                self.gameStarted(false);
-            }, waitTime)
+            self.questionCount(0);
+            self.gameStarted(false);
         }
     });
-
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            contentType: "application/json",
-            accepts: "application/json",
-            cache: false,
-            dataType: 'json',
-            data: JSON.stringify(data),
-            error: function(jqXHR) {
-                alert(jqXHR.status);
-                console.log("ajax error " + jqXHR.status);
-            }
-        };
-        return $.ajax(request);
-    }
 
     self.processAnswer = function(optionObj) {
 
@@ -85,6 +66,23 @@ function TasksViewModel() {
         self.counter(countDownTime);
         theCountDown = 
         setInterval(function(){ self.counter(self.counter()-1) }, oneSecond);
+    }
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            contentType: "application/json",
+            accepts: "application/json",
+            cache: false,
+            dataType: 'json',
+            data: JSON.stringify(data),
+            error: function(jqXHR) {
+                alert(jqXHR.status);
+                console.log("ajax error " + jqXHR.status);
+            }
+        };
+        return $.ajax(request);
     }
 
     function fetchQuestions(){

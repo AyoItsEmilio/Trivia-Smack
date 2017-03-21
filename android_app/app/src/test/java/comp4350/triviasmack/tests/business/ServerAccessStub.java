@@ -48,7 +48,7 @@ public class ServerAccessStub implements ServerAccess {
         questions.add(new Question("The Balkans are in:", optionsI, 1));
     }
 
-    public void open(ArrayList<Question> q) {
+    public void open(ArrayList<Question> questions) {
         System.out.println("Opened stub server access");
     }
 
@@ -58,11 +58,11 @@ public class ServerAccessStub implements ServerAccess {
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
 
+        if (numQuestions > this.questions.size()){
+            numQuestions = this.questions.size();
+        }
+
         questions.addAll(this.questions.subList(0, numQuestions));
         Collections.shuffle(questions);
-    }
-
-    public void sendTotalScore(int numCorrect) {
-        System.out.println("Cannot send score to stub server");
     }
 }
