@@ -22,6 +22,7 @@ def create_app(application):
 def set_up():
     populate_database(DB_NAME)
     Services.create_data_access(dbName=DB_NAME)
+    #Services.create_data_access(altDataAccessService=DataAccessStub("stub"))
 
 def tear_down():
     Services.close_data_access()
