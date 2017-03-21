@@ -23,6 +23,9 @@ def join_game():
 
 @socketio.on("game_over")
 def game_over(message):
+    print "game over!"
+    if cc.get_partner(request.sid) is not None:
+
         emit("other_player_done", {"msg":message["score"]},\
             room=cc.get_partner(request.sid))
 

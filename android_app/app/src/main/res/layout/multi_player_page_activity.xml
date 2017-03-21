@@ -6,8 +6,11 @@
     tools:context=".presentation.MultiPlayerPageActivity"
     tools:ignore="MergeRootFrame">
 
-    <fragment
-        class="comp4350.triviasmack.presentation.MultiPlayerPageFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/otherScore"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"/>
 </FrameLayout>
