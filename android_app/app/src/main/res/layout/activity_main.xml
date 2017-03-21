@@ -7,25 +7,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/quizbg2">
 
-    <ImageButton
-        android:layout_width="0dp"
-        android:layout_height="370dp"
-        android:scaleType="fitXY"
-        android:theme="@style/AppTheme.Button"
-        app:srcCompat="@drawable/trivialogo_1"
-        android:id="@+id/quickPlayBtn"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="22dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:onClick="renderQuestionPage" />
-
     <TextView
         android:text="Score: "
         android:textSize="30sp"
@@ -34,16 +15,45 @@
         android:layout_height="55dp"
         android:textColor="#FFFFFF"
         android:id="@+id/scoreText"
-        app:layout_constraintRight_toLeftOf="@+id/textView3"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginTop="51dp"
-        app:layout_constraintTop_toBottomOf="@+id/quickPlayBtn"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/quickPlayBtn"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="9dp" />
+        tools:layout_editor_absoluteY="661dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.498" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="585dp"
+        android:layout_height="60dp"
+        android:onClick="renderQuestionPage"
+        android:text="PLAY NOW!!!"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scoreText"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/trivialogo_1"
+        tools:layout_editor_absoluteY="109dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="vertical" />
 
 </android.support.constraint.ConstraintLayout>
