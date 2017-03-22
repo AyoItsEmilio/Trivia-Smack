@@ -42,6 +42,7 @@ function TasksViewModel() {
     self.startOnePlayer = function() {
         self.onePlayerMode(true);
         self.isWaiting(false);
+        self.otherScore(null);
         startGame();
     }
 
