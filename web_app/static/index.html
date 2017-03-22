@@ -11,8 +11,10 @@
 <link rel=stylesheet type=text/css href="style.css">
 
 <body>
+<p>Hi sam!</p>
 <div id="main">
     <!-- ko ifnot: isPlaying -->
+    <!--
         <h3>This is Trivia Smack!</h3>
 
         <div data-bind="ifnot: isWaiting">
@@ -33,22 +35,29 @@
         <div id="waiting" data-bind="if: isWaiting">
             Waiting for other player...
         </div>
+        -->
     <!-- /ko -->
 
     <!-- ko if: isPlaying -->
+    <!--
         <div data-bind="with: questions()[questionCount()]">
-            <p data-bind="text: question"></p>
-            <!-- ko foreach: options -->
+            <p data-bind="text: question"></p>-->
+            <!-- ko foreach: options --><!--
                 <p data-bind="text: '• ' + option(),
                 style:{ background: bgColor, color: textColor },
                 click: $parents[1].processAnswer" class="button option"></p>
-                <br><br>
-            <!-- /ko -->
+                <br><br>-->
+            <!-- /ko --><!--
             Time Remaining: <span data-bind="text: $parent.counter"></span>
-        </div>
+        </div>-->
     <!-- /ko -->
 </div>
-
-<script type="text/javascript" src="TaskViewModel.js"></script>
+<!--
+<script type="text/javascript" src="TaskViewModel.js"></script>-->
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    var socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+});
+</script>
 </body>
 </html>
