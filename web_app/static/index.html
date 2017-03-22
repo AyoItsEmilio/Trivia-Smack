@@ -24,6 +24,18 @@
         <!--question page-->
         <div id="questions" data-bind="if: gameStarted()">
             <div data-bind="with: questions()[questionCount()]">
+                <div class="topcorner">
+                    <style type="text/css">
+                     .topcorner{
+                       position:fixed;
+                       top:0px;
+                       right:20px;
+                      }
+                    </style>
+                    </br> Score: </br>
+                    <span data-bind="text: $parent.score"></span>
+                </div>
+
                 <h3 data-bind="text: question"></h3></br>
                 <!-- ko foreach: options -->
                 	<p id="double-spaced" style="line-height: 500%;">
