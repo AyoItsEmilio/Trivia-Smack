@@ -17,8 +17,8 @@
    inkscape:version="0.91 r"
    sodipodi:docname="trivialogo.svg"
    inkscape:export-filename="/home/samboy/Desktop/logo"
-   inkscape:export-xdpi="176.99001"
-   inkscape:export-ydpi="176.99001">
+   inkscape:export-xdpi="176.89"
+   inkscape:export-ydpi="176.89">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -29,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="158.68063"
+     inkscape:cx="78.626041"
      inkscape:cy="64.041344"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -91,7 +91,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <circle
-       style="fill:#101010;fill-opacity:1;stroke:#db4437;stroke-width:14.5;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       style="fill:#000000;fill-opacity:1;stroke:#db4437;stroke-width:14.5;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
        id="path4280-4-6"
        cx="680.59015"
        cy="709.66608"
