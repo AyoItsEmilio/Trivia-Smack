@@ -94,8 +94,8 @@ function TasksViewModel() {
                 for (var j = 0; j < data.questions[i].options.length; j++){
                     obs_options.push({
                         option: ko.observable(data.questions[i].options[j]),
-                        bgColor: ko.observable(white),
-                        textColor: ko.observable(grey),
+                        bgColor: ko.observable(grey),
+                        textColor: ko.observable(white),
                         isCorrect: data.questions[i].answer == j
                     });
                 }

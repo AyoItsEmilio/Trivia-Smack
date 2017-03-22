@@ -3,7 +3,6 @@
 <head>
 <title>Trivia Smack! </title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style2.css">
 <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 </head>
@@ -14,11 +13,11 @@
     		<div class ="page">
         <div id="start" data-bind="if: !gameStarted()">
 
-          <!--home page-->
-          <img class="center fit" src="trivialogo.png" style=width:304px;height:228px;>
-      			<p></p></br></br>
-            <a class="button" data-bind="click: startGame">Play!</a>
-            <br><br><br><br>
+            <!--home page-->
+            <img src="trivialogo.svg">
+            <br><br>
+            <div class="button" data-bind="click: startGame">Play!</div>
+            <br>
             <p data-bind="if: showScore">Score: <span data-bind="text: score"></span></p>
         </div>
 
@@ -28,9 +27,11 @@
                 <h3 data-bind="text: question"></h3></br>
                 <!-- ko foreach: options -->
                 	<p id="double-spaced" style="line-height: 500%;">
-                    <a data-bind="text: option(),
-                    style:{color: textColor, background: bgColor},
-                    click: $parents[1].processAnswer" class="button"></a></br></p>
+                        <div data-bind="text: option(),
+                        style:{color: textColor, background: bgColor},
+                        click: $parents[1].processAnswer" class="button option">
+                        </div></br>
+                    </p>
                 <!-- /ko -->
               </br>  Time Remaining: <span data-bind="text: $parent.counter"></span>
             </div>
