@@ -14,6 +14,8 @@ def join_game():
 
     cc.join_waiting(request.sid)
 
+    emit("join_waiting")
+
     if cc.game_ready():
         cc.join_playing()
         emit("other_player_ready", room=request.sid)
