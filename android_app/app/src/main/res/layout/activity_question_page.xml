@@ -10,58 +10,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="comp4350.triviasmack.presentation.QuestionPageActivity">
 
+
     <Button
         android:text="option 3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn3"
         android:layout_marginBottom="52dp"
-        android:layout_alignParentBottom="true"
         android:visibility="invisible"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="processOptionButton"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Option 2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn2"
+        android:visibility="invisible"
+        android:onClick="processOptionButton"
         android:layout_above="@+id/optionBtn3"
-        android:visibility="invisible"
-        android:layout_alignParentStart="true"
+        android:theme="@style/AppTheme.Button"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton" />
-
-    <Button
-        android:text="Option 1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/optionBtn1"
-        android:layout_above="@+id/optionBtn2"
-        android:visibility="invisible"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="option 4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:id="@+id/optionBtn4"
         android:layout_alignParentBottom="true"
-        android:visibility="invisible"
-        android:layout_alignParentStart="true"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="processOptionButton"
         android:layout_alignParentLeft="true"
-        android:onClick="processOptionButton"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Trivia Question goes here"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/questionText"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:layout_marginBottom="115dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
         android:layout_above="@+id/optionBtn1"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#1f1f1f"
+        android:textAlignment="center" />
+
+    <Button
+        android:text="Option 1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/optionBtn1"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="processOptionButton"
+        android:layout_above="@+id/optionBtn2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

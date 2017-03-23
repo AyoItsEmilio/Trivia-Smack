@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
         gameController.start();
     }
 
-    private void displayScore(){
+    private void displayScore() {
         int score = gameController.getScore();
 
-        if (GameController.getInstance().isStarted()){
-            TextView scoreText = (TextView)findViewById(R.id.scoreText);
+        if (GameController.getInstance().isStarted()) {
+            TextView scoreText = (TextView) findViewById(R.id.scoreText);
             scoreText.setVisibility(View.VISIBLE);
-            scoreText.setText(scoreText.getText()+""+score);
+            scoreText.setText(scoreText.getText() + "" + score);
         }
     }
 

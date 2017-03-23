@@ -1,42 +1,46 @@
 package comp4350.triviasmack.business;
 
-import org.json.JSONArray;
+import android.util.Log;
+
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
 
 public class ServerAccessObject implements ServerAccess {
 
-    private URL baseUrl;
+    private static final String baseUrl =
+            "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/";
+    private String questionUrl;
+    private URL url;
 
-    public ServerAccessObject(int numQuestions){
-        try {
-            baseUrl
-            = new URL("http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/api/android/question_data/" +
-                      "" + numQuestions);
-        }
-        catch (java.net.MalformedURLException e){}
+    public ServerAccessObject() {
+        questionUrl = baseUrl + "api/question_data/";
     }
 
-    public void open(){}
+    public void open() {
+    }
 
-    public void close(){}
+    public void close() {
+    }
 
-    public void getRandomQuestions(ArrayList<Question> questions){
-        JSONObject result = null;
-        BackgroundTask serverTask;
-
-        serverTask = new BackgroundTask();
-
+    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
-            result = serverTask.execute(baseUrl).get();
-        }
-        catch (java.lang.InterruptedException e){}
-        catch (java.util.concurrent.ExecutionException e){}
+            if (numQuestions < 0) {
+                throw new IllegalArgumentException("Number of questions cannot be less than 0");
+            }
+            url = new URL(questionUrl + numQuestions + "");
 
-        questions.addAll(ParseJSON.parseJSONquestions(result));
+        } catch (MalformedURLException e) {
+            Log.e("ServerAccessObject.java", "MalformedURLException", e);
+        }
+
+        JSONObject result = Services.createAsyncFacade().executeTask(url);
+
+        questions.addAll(ParseJSON.parseJSONQuestions(result));
     }
 }

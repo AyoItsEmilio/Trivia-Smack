@@ -1,27 +1,107 @@
-body { font-family: Arial, sans-serif; 
-       background: #eee; 
-       color: #5A5A5A; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; 
+}
 
-.button { border-radius: 5px;
-          position: absolute; 
-          font-size: 1em;
-          height: 1em; 
-          width: 12em; 
-          padding: 5px; 
-          border: 0; margin: 0;
-          cursor: pointer;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; 
+}
 
-.start { background: #FF69B4; color: white; }
+img.relImage {
+    width: 55%;
+    height: auto;
+}
 
-.option { background: white; }
+body {
+  font-size: 18px;
+  margin-top: 2cm;
+  text-align: center;
+  line-height: 1;
+  background-color: #eee;
+  color: #343434;
+}
 
-.button:hover { font-size: 1.05em;
-                box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 0 10px 0 rgba(0,0,0,0.19); }
+html {
+  font-family: 'Abel', sans-serif; 
+}
 
-.button:active { font-size: 1em;
-                 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+h3 { font-size: 45px; }
 
+@media screen and (max-width: 1020px) {
+    #container, #header, #content, #footer {
+      float: none;
+      width: auto;
+    }
 
-a { text-decoration: none; color:#5A5A5A;}
-input { display: none;}
+    #subtitle, #share, #slider, #sidebar {
+      display:none;
+    }
+
+    body { font-size: 15px; }
+    h3 { font-size: 37.5px; }
+}
+
+@media screen and (max-width: 500px) {
+    #container, #header, #content, #footer {
+      float: none;
+      width: auto;
+    }
+
+    #subtitle, #share, #slider, #sidebar {
+      display:none;
+    }
+
+    body { font-size: 12px; }
+    h3 { font-size: 30px; }
+}
+
+.topcorner{
+   position: fixed;
+   top: 0px;
+   right: 20px;
+}
+
+.button {
+  color: white;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+
+  padding: 8px;
+  font-family: "Nunito", sans-serif;
+
+  margin: 0em auto;
+
+  top:0; right:0; bottom:0; left:0;
+
+  position: relative;
+  width: 10%;
+  height: auto;
+
+  background: #FF4081;
+  overflow: hidden;
+
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background: #4dc136;
+}
+
+.button:active {
+  background: #FF4081;
+}
+
+.option {
+  padding: 8px;
+  width: 30%;
+  height: auto;
+  transition: all 0.1s;
+}

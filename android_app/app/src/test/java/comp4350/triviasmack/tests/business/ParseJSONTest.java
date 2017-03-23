@@ -1,26 +1,33 @@
 package comp4350.triviasmack.tests.business;
 
-import junit.framework.TestCase;
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import java.util.ArrayList;
 
 import comp4350.triviasmack.business.ParseJSON;
 import comp4350.triviasmack.objects.Question;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
-public class ParseJSONTest extends TestCase {
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.api.mockito.PowerMockito;
 
-    public ParseJSONTest(String arg0) {
-        super(arg0);
-    }
+import android.util.Log;
 
-    public void testParseJSON(){
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
+public class ParseJSONTest {
+
+    @Test
+    public void testParseJSON() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Parse Basic JSON Object");
         ArrayList<Question> q;
@@ -30,9 +37,9 @@ public class ParseJSONTest extends TestCase {
             JSONArray result = new JSONArray();
 
             result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
 
             assertNotNull(q);
             assertEquals(1, q.size());
@@ -45,13 +52,14 @@ public class ParseJSONTest extends TestCase {
 
             assertEquals(1, q.get(0).getAnswer());
 
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void testBadFormat(){
+    @Test
+    public void testBadFormat() {
+        PowerMockito.mockStatic(Log.class);
 
         System.out.println("Testing ParseJSON: Bad Formated JSON");
         ArrayList<Question> q;
@@ -60,15 +68,17 @@ public class ParseJSONTest extends TestCase {
         try {
             json.put("Bad", "NULL");
             json.put(" Still Bad", "NULL");
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
             assertNull(q);
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void testLargeJSONArray(){
+    @Test
+    public void testLargeJSONArray() {
+        PowerMockito.mockStatic(Log.class);
+
         System.out.println("Testing ParseJSONObject: Parse Large JSON Object");
         ArrayList<Question> q;
         final int MAX_ARRAY_SIZE = 100;
@@ -77,16 +87,16 @@ public class ParseJSONTest extends TestCase {
             JSONObject json = new JSONObject();
             JSONArray result = new JSONArray();
 
-            for(int i = 0; i < MAX_ARRAY_SIZE; i++)
+            for (int i = 0; i < MAX_ARRAY_SIZE; i++)
                 result.put(buildJSONObject());
-            json.put("result", result);
+            json.put("questions", result);
 
-            q = ParseJSON.parseJSONquestions(json);
+            q = ParseJSON.parseJSONQuestions(json);
 
             assertNotNull(q);
             assertEquals(MAX_ARRAY_SIZE, q.size());
 
-            for(int i = 0; i < MAX_ARRAY_SIZE; i++) {
+            for (int i = 0; i < MAX_ARRAY_SIZE; i++) {
                 assertEquals("The Balkans are in:", q.get(i).getQuestion());
 
                 assertEquals("South America", q.get(i).getOptions()[0]);
@@ -96,13 +106,12 @@ public class ParseJSONTest extends TestCase {
 
                 assertEquals(1, q.get(i).getAnswer());
             }
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private JSONObject buildJSONObject(){
+    private JSONObject buildJSONObject() {
 
         JSONObject json;
 
@@ -118,8 +127,7 @@ public class ParseJSONTest extends TestCase {
             json.put("answer", new Integer(1));
             json.put("options", options);
             json.put("question", "The Balkans are in:");
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
             json = null;
         }

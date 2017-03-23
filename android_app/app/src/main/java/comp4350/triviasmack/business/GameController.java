@@ -3,7 +3,6 @@ package comp4350.triviasmack.business;
 import java.util.ArrayList;
 
 import comp4350.triviasmack.application.Main;
-import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
 
 public class GameController {
@@ -18,7 +17,7 @@ public class GameController {
     private boolean started;
     private AccessQuestions accessQuestions;
 
-    protected GameController(){
+    protected GameController() {
         questions = null;
         questionCount = -1;
         currQuestion = null;
@@ -27,27 +26,28 @@ public class GameController {
     }
 
     public static GameController getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new GameController();
         }
         return instance;
     }
 
-    public int getScore(){ return score; }
+    public int getScore() {
+        return score;
+    }
 
-    public void start(){
+    public void start() {
         questionCount = 0;
         score = 0;
-        questions = new ArrayList<Question>();
-        accessQuestions.getRandomQuestions(questions);
+        questions = new ArrayList<>();
+        accessQuestions.getRandomQuestions(questions, maxQuestions);
         started = true;
     }
 
-    public Question getNextQuestion(){
+    public Question getNextQuestion() {
         if (questionCount == maxQuestions) {
             currQuestion = null;
-        }
-        else {
+        } else {
             currQuestion = questions.get(questionCount);
             questionCount++;
         }
@@ -55,27 +55,31 @@ public class GameController {
         return currQuestion;
     }
 
-    public boolean evaluateAnswer(String playersAnswer){
+    public boolean evaluateAnswer(String playersAnswer) {
         boolean result = false;
         String answer = currQuestion.getOptions()[currQuestion.getAnswer()];
 
-        if (playersAnswer.equalsIgnoreCase(answer)){
+        if (playersAnswer.equalsIgnoreCase(answer)) {
             result = true;
         }
         return result;
     }
 
-    public void getQuestions(ArrayList<Question> result){
-        result.addAll(questions);
+    public void increaseScore() {
+        if (score < maxQuestions) {
+            score++;
+        }
     }
 
-    public void increaseScore(){ score++; }
+    public boolean isStarted() {
+        return started;
+    }
 
-    public boolean isStarted(){ return started; }
-
-    public boolean finished(){
+    public boolean finished() {
         return maxQuestions == questionCount;
     }
 
-    public static void destroy(){ instance = null; }
+    public static void destroy() {
+        instance = null;
+    }
 }
