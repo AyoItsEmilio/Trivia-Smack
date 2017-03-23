@@ -25,7 +25,6 @@ function TasksViewModel() {
 
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
-            self.questionCount(0);
             self.gameStarted(false);
         }
     });
@@ -57,7 +56,8 @@ function TasksViewModel() {
         self.questions = ko.observableArray();
         fetchQuestions();
         self.gameStarted(true);
-
+        self.questionCount(0);
+        self.counter(countDownTime);
         startCounter();
     }
 
