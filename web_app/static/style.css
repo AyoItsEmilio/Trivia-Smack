@@ -14,7 +14,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 img.relImage {
-    width: 55%;
+    width: 35%;
     height: auto;
 }
 
@@ -59,6 +59,21 @@ h3 { font-size: 45px; }
 
     body { font-size: 12px; }
     h3 { font-size: 30px; }
+}
+
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+  img.relImage {
+    width: 60%;
+    height: auto;
+
+    body { font-size: 15px; }
+    h3 { font-size: 37.5px; }
+}
+
 }
 
 .topcorner{
