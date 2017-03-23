@@ -31,9 +31,7 @@ html {
   font-family: 'Abel', sans-serif; 
 }
 
-h3 {
-  font-size: 45px;
-}
+h3 { font-size: 45px; }
 
 @media screen and (max-width: 1020px) {
     #container, #header, #content, #footer {
@@ -46,6 +44,7 @@ h3 {
     }
 
     body { font-size: 15px; }
+    h3 { font-size: 37.5px; }
 }
 
 @media screen and (max-width: 500px) {
@@ -59,6 +58,13 @@ h3 {
     }
 
     body { font-size: 12px; }
+    h3 { font-size: 30px; }
+}
+
+.topcorner{
+   position: fixed;
+   top: 0px;
+   right: 20px;
 }
 
 .button {
