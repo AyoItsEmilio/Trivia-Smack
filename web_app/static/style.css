@@ -27,6 +27,12 @@ body {
   color: #343434;
 }
 
+.main {
+  padding-left: 2%; 
+  padding-right: 2%; 
+  
+}
+
 html {
   font-family: 'Abel', sans-serif;
 }
