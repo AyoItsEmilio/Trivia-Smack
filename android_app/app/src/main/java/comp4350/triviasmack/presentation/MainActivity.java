@@ -23,22 +23,23 @@ import static comp4350.triviasmack.R.id.otherScore;
 import static comp4350.triviasmack.R.id.scoreText;
 
 public class MainActivity extends AppCompatActivity {
+    private static int otherScore;
 
     private GameController gameController;
     private MultiPlayer multiPlayer;
     private Socket socket;
-    private final String TAG="MainActivity";
+    private final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Main.startUp();
         gameController = GameController.getInstance();
-        multiPlayer = MultiPlayer.getInstance();
+
         setContentView(R.layout.activity_main);
         displayScore();
-        socket = multiPlayer.getSocket();
-        socket.on("other_player_done",onOtherPlayerDone);
+        displayOtherScore();
+
         gameController.start();
     }
 
@@ -52,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void displayOtherScore(int score){
+    public void displayOtherScore(){
         if(GameController.getInstance().isStarted()) {
             TextView otherScoreText = (TextView) findViewById(R.id.otherScoreText);
             otherScoreText.setVisibility(View.VISIBLE);
-            otherScoreText.setText(otherScoreText.getText() + "" + score);
+            otherScoreText.setText(otherScoreText.getText() + "" + MainActivity.otherScore);
         }
     }
 
@@ -64,23 +65,18 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void call(final Object... args){
-            MainActivity.this.runOnUiThread(new Runnable(){
-                @Override
-                public void run(){
-                    JSONObject data = (JSONObject) args[0];
-                    int score =0;
-                    try {
-                        Log.d(TAG, "onOtherPayerDone");
-                        score = data.getInt("msg");
-                        displayOtherScore(score);
-                    }catch(JSONException e){
-                        Log.e(TAG, e.getMessage());
-                    }
-                    socket.disconnect();
-                    Toast.makeText(getApplicationContext(),
-                            score, Toast.LENGTH_LONG).show();
-                }
-            });
+        MainActivity.this.runOnUiThread(new Runnable(){
+            @Override
+            public void run(){
+            JSONObject data = (JSONObject) args[0];
+            try {
+                Log.d(TAG, "onOtherPayerDone");
+                MainActivity.otherScore = data.getInt("msg");
+            }catch(JSONException e){
+                Log.e(TAG, e.getMessage());
+            }
+            }
+        });
         }
     };
 
@@ -90,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void renderMultiPlayerPage(View v){
+        multiPlayer = MultiPlayer.getInstance();
+        multiPlayer.connect();
+        socket = multiPlayer.getSocket();
+        socket.on("other_player_done", onOtherPlayerDone);
+
         Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
         MainActivity.this.startActivity(MultiPlayerPageIntent);
     }

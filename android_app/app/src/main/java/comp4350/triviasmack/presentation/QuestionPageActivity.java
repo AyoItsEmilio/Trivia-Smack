@@ -86,6 +86,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         JSONObject score = new JSONObject();
         try {
             score.put("score", gameController.getScore());
+
             socket.emit("game_over", score);
         }catch(JSONException e){
             Log.e(TAG, "JSONExcpetion",e);

@@ -26,7 +26,6 @@ public class MultiPlayerPageActivity extends AppCompatActivity{
     private boolean isConnected = true;
     private Socket socket;
     private final String TAG = "MultiPlayerPageActivity";
-    private GameController gameController = GameController.getInstance();
     TextView tv;
 
     public void onCreate(Bundle savedInstanceState){
@@ -42,9 +41,8 @@ public class MultiPlayerPageActivity extends AppCompatActivity{
         socket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
         socket.on("other_player_ready",onOtherPlayerReady);
         socket.on("join_waiting", onJoinWaiting);
-        //socket.on("user left",onUserLeft);
-
     }
+
     public void onDestroy(){
         super.onDestroy();
         socket.off(Socket.EVENT_CONNECT, onConnect);
