@@ -1,13 +1,11 @@
 package comp4350.triviasmack.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import io.socket.client.Socket;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,10 +15,6 @@ import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import io.socket.emitter.Emitter;
-
-import static android.os.Build.VERSION_CODES.M;
-import static comp4350.triviasmack.R.id.otherScore;
-import static comp4350.triviasmack.R.id.scoreText;
 
 public class MainActivity extends AppCompatActivity {
     private static int otherScore;
@@ -38,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         displayScore();
-        displayOtherScore();
+        //displayOtherScore();
 
         gameController.start();
     }
@@ -65,18 +59,19 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void call(final Object... args){
-        MainActivity.this.runOnUiThread(new Runnable(){
-            @Override
-            public void run(){
-            JSONObject data = (JSONObject) args[0];
-            try {
-                Log.d(TAG, "onOtherPayerDone");
-                MainActivity.otherScore = data.getInt("msg");
-            }catch(JSONException e){
-                Log.e(TAG, e.getMessage());
-            }
-            }
-        });
+            MainActivity.this.runOnUiThread(new Runnable(){
+                @Override
+                public void run(){
+                    JSONObject data = (JSONObject) args[0];
+                    try {
+                        Log.d(TAG, "onOtherPayerDone");
+                        MainActivity.otherScore = data.getInt("msg");
+                        displayOtherScore();
+                    }catch(JSONException e){
+                        Log.e(TAG, e.getMessage());
+                    }
+                }
+            });
         }
     };
 
