@@ -33,7 +33,7 @@ function TasksViewModel() {
     self.processAnswer = function(optionObj) {
 
         if (optionObj.isCorrect){
-            self.score(self.score()+1)
+            self.score(self.score()+ self.counter())
             optionObj.option("Right!");    
             optionObj.bgColor(green);
             optionObj.textColor(white);

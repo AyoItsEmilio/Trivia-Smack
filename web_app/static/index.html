@@ -15,24 +15,35 @@
             <!--home page-->
             <img class="relImage" src="trivialogo.svg">
             <br><br>
-            <div class="button" data-bind="click: startGame">Play!</div><br>
-            <p data-bind="if: showScore">Score: <span data-bind="text: score">
-            </span></p>
+            <div class="button" data-bind="click: startGame">
+                Play!
+            </div><br>
+            <p data-bind="if: showScore">
+                Score: <span data-bind="text: score"></span>
+            </p>
         </div>
 
         <!--question page-->
         <div id="questions" data-bind="if: gameStarted()">
             <div data-bind="with: questions()[questionCount()]">
-                    <h3 data-bind="text: question"></h3></br>
-                    <!-- ko foreach: options -->
-                        <p>
-                            <div data-bind="text: option(),
-                            style:{color: textColor, background: bgColor},
-                            click: $parents[1].processAnswer" class="button option">
-                            </div></br>
-                        </p>
-                    <!-- /ko -->
+
+                <h3 data-bind="text: question"></h3></br>
+                <!-- ko foreach: options -->
+                    <p>
+                        <div data-bind="text: option(),
+                        style:{color: textColor, background: bgColor},
+                        click: $parents[1].processAnswer" class="button option">
+                        </div></br>
+                    </p>
+                <!-- /ko -->
+
+            </div><!-- End of question -->
+
+            <div class="topcorner">
+                <br> Score: <br>
+                <span data-bind="text: score"></span>
             </div>
+
             </br>Time Remaining: <span data-bind="text: counter"></span>
         </div>
 
