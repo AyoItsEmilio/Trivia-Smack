@@ -14,7 +14,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 img.relImage {
-    width: 45%;
+    width: 55%;
     height: auto;
 }
 
@@ -101,7 +101,7 @@ h3 { font-size: 45px; }
 
 .option {
   padding: 8px;
-  width: 23%;
+  width: 30%;
   height: auto;
   transition: all 0.1s;
 }
