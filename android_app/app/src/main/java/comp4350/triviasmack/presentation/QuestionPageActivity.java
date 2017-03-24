@@ -18,8 +18,9 @@ import comp4350.triviasmack.objects.Question;
 public class QuestionPageActivity extends AppCompatActivity {
 
     private GameController gameController = GameController.getInstance();
-    private final int ten_seconds = 10000;
     private final int one_second = 1000;
+    private final int five_seconds = one_second * 5;
+    private final int ten_seconds = one_second * 10;
     private CountDownTimer countDownTimer = null;
 
     @Override
@@ -39,7 +40,7 @@ public class QuestionPageActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
                 timerTextView[0].setText("Time remaining: " + millisUntilFinished / one_second);
-                if (millisUntilFinished < 5000) {
+                if (millisUntilFinished < five_seconds) {
                     timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
                 }
             }
