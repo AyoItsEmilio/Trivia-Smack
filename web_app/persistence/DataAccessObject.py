@@ -17,7 +17,7 @@ class DataAccessObject(DataAccessInterface):
 
     def open(self):
         try:
-            self.client = MongoClient("172.17.0.2", 27017)
+            self.client = MongoClient()
             self.mongo = self.client[self.db_name]
 
         except pymongo.errors.ConnectionFailure, conn_exception:
