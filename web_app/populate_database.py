@@ -5,7 +5,7 @@ from pymongo import MongoClient
 
 def populate_database(db_name):
 
-    client = MongoClient("172.31.42.63", 27017)
+    client = MongoClient("172.17.0.1", 27017)
     print "HHHHHHHHERRRERE", client
     client.drop_database(db_name)
     db = client[db_name]
