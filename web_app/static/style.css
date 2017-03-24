@@ -43,9 +43,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
     height: auto;
   }
 
-  body { font-size: 15px; }
-  h3 { font-size: 25px; }
-  .button { width: 30%; }
+  body { font-size: 25px; }
+  h3 { font-size: 30px; }
+  .button { width: 90%; }
 }
 
 @media screen and (max-width: 800px) {
