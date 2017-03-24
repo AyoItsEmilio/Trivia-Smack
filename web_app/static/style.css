@@ -4,17 +4,17 @@
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
+  vertical-align: baseline; 
 }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
+  display: block; 
 }
 
 img.relImage {
-    width: 50%;
+    width: 35%;
     height: auto;
 }
 
@@ -27,24 +27,11 @@ body {
   color: #343434;
 }
 
-.main {
-  padding-left: 1%; 
-  padding-right: 1%; 
-  
-}
-
 html {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', sans-serif; 
 }
 
 h3 { font-size: 45px; }
-
-@media screen
-  and (device-width: 768px)
-  and (device-height: 1024px)
-  and (-webkit-device-pixel-ratio: 3) {
-
-}
 
 @media screen and (max-width: 1020px) {
     #container, #header, #content, #footer {
@@ -55,11 +42,12 @@ h3 { font-size: 45px; }
     #subtitle, #share, #slider, #sidebar {
       display:none;
     }
+
     body { font-size: 15px; }
     h3 { font-size: 37.5px; }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     #container, #header, #content, #footer {
       float: none;
       width: auto;
@@ -68,21 +56,28 @@ h3 { font-size: 45px; }
     #subtitle, #share, #slider, #sidebar {
       display:none;
     }
+
     body { font-size: 12px; }
-    h3 { font-size: 30px; }
+    h3 { font-size: 20px; }
+    img.relImage {
+      width: 70%;
+      height: auto;
+    }
+    .button { width: 30%; }
 }
 
-@media screen
-  and (device-width: 360px)
-  and (device-height: 640px)
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
   and (-webkit-device-pixel-ratio: 3) {
 
   img.relImage {
-    width: 75%;
+    width: 60%;
     height: auto;
   }
-    body { font-size: 15px; }
-    h3 { font-size: 25px; }
+
+  body { font-size: 15px; }
+  h3 { font-size: 25px; }
 }
 
 @media screen
@@ -91,16 +86,15 @@ h3 { font-size: 45px; }
   and (-webkit-device-pixel-ratio: 3) {
 
   img.relImage {
-    width: 100%;
+    width: 90%;
     height: auto;
   }
-    body { font-size: 15px; }
-    h3 { font-size: 25px; }
-    .button{
-      width: 40%;
-    }
+  body { font-size: 15px; }
+  h3 { font-size: 25px; }
+  .button{
+    width: 40%;
+  }
 }
-
 
 .topcorner{
    position: fixed;
@@ -117,14 +111,13 @@ h3 { font-size: 45px; }
 
   padding: 8px;
   font-family: "Nunito", sans-serif;
-  font-size: 25px;
-  width: 35%;
 
   margin: 0em auto;
 
   top:0; right:0; bottom:0; left:0;
 
   position: relative;
+  width: 10%;
   height: auto;
 
   background: #FF4081;
@@ -143,8 +136,7 @@ h3 { font-size: 45px; }
 
 .option {
   padding: 8px;
-  width: 90%;
+  width: 30%;
   height: auto;
   transition: all 0.1s;
-  font-size: 20px;
 }
