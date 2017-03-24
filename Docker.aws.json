@@ -1,8 +1,46 @@
 {
-  "AWSEBDockerrunVersion" : "1",
-  "Ports"                  : [
+  "AWSEBDockerrunVersion" : "2",
+  "volumes": [
+    {
+      "name": "flask-server",
+      "host": {
+        "sourcePath": "/var/app/current/web_app"
+      }
+    },
+    {
+      "name": "mongo-db",
+      "host": {}
+    }  
+  ],
+  "containerDefinitions": [
+    {
+      "name": "flask-server",
+      "image": "ubuntu",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
         {
-            "ContainerPort"    : "5000"
+          "hostPort": 5000,
+          "containerPort": 5000
+        }
+      ],
+      "command": ["python", "application.py"],
+      "links": [
+        "mongo-db"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "flask-server",
+          "containerPath": "/var/www/html",
+          "readOnly": true
         }
       ]
-} 
+    },
+    {
+      "name": "mongo-db",
+      "image": "mongo",
+      "essential": true,
+      "memory": 128,
+    }
+  ]
+}
