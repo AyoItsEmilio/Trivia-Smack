@@ -31,20 +31,21 @@ html {
   font-family: 'Abel', sans-serif; 
 }
 
-h3 { font-size: 45px; }
+h3 { font-size: 35px; }
 
-@media screen and (max-width: 1020px) {
-    #container, #header, #content, #footer {
-      float: none;
-      width: auto;
-    }
+/* ipad mini */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  img.relImage {
+    width: 75%;
+    height: auto;
+  }
 
-    #subtitle, #share, #slider, #sidebar {
-      display:none;
-    }
-
-    body { font-size: 15px; }
-    h3 { font-size: 37.5px; }
+  body { font-size: 15px; }
+  h3 { font-size: 25px; }
+  .button { width: 30%; }
 }
 
 @media screen and (max-width: 800px) {
