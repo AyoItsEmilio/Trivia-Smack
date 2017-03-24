@@ -1,12 +1,13 @@
 {
   "AWSEBDockerrunVersion" : "1",
+  "networkMode": "host",
   "containerDefinitions": [
     {
-      "Ports": [
+      "Ports" : [
         {
-            "ContainerPort"    : "5000"
+            "ContainerPort" : "5000"
         }
-      ]
+      ],
     }
   ] 
 } 
