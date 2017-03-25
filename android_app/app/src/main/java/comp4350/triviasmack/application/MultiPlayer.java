@@ -77,7 +77,6 @@ public class MultiPlayer{
         JSONObject scoreJSON = new JSONObject();
         try {
             scoreJSON.put("score", score);
-            System.out.println("sent score");
             socket.emit("game_over", scoreJSON);
         }catch(JSONException e){
             Log.e(TAG, "JSONExcpetion",e);

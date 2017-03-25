@@ -85,25 +85,23 @@ public class MainActivity extends AppCompatActivity {
     private Emitter.Listener onOtherPlayerDone = new Emitter.Listener(){
         @Override
         public void call(final Object... args){
-        MainActivity.this.runOnUiThread(new Runnable(){
-            @Override
-            public void run(){
-                JSONObject data = (JSONObject) args[0];
-                try {
-                    if(data.get("msg").equals("null")) {
-                        System.out.println(data.get("msg"));
-                        MainActivity.otherScore = data.getInt("msg");
+            MainActivity.this.runOnUiThread(new Runnable(){
+                @Override
+                public void run(){
+                    JSONObject data = (JSONObject) args[0];
+                    try {
+                        if(!data.getString("msg").equals("null")) {
+                            MainActivity.otherScore = data.getInt("msg");
+                        }else{
+                            otherScore = -1;
+                        }
+                        Log.d(TAG, "onOtherPayerDone" + otherScore);
+                        displayScores();
+                    }catch(JSONException e){
+                        Log.e(TAG, e.getMessage());
                     }
-                    else{
-                        otherScore = -1;
-                    }
-                    Log.d(TAG, "onOtherPayerDone" + otherScore);
-                    displayScores();
-                }catch(JSONException e){
-                    Log.e(TAG, e.getMessage());
                 }
-            }
-        });
+            });
         }
     };
 
