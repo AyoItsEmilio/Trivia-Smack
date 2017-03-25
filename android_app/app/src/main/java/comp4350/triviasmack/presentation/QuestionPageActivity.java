@@ -71,9 +71,11 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
         if (gameController.finished()) {
-            sendScore();
+            if(multiPlayer.isConnected()) {
+                multiPlayer.sendScore(gameController.getScore());
+            }
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
-           // MainPageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            MainPageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             QuestionPageActivity.this.startActivity(MainPageIntent);
         } else {
             startActivity(getIntent());
@@ -81,18 +83,6 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
     }
-
-    private void sendScore(){
-        JSONObject score = new JSONObject();
-        try {
-            score.put("score", gameController.getScore());
-
-            socket.emit("game_over", score);
-        }catch(JSONException e){
-            Log.e(TAG, "JSONExcpetion",e);
-        }
-    }
-
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -105,6 +95,7 @@ public class QuestionPageActivity extends AppCompatActivity {
                 Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
                 ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 QuestionPageActivity.this.startActivity(ExitGameIntent);
+                multiPlayer.disconnect();
             }
         });
 
