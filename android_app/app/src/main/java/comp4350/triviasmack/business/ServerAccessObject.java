@@ -15,6 +15,7 @@ import comp4350.triviasmack.objects.Question;
 public class ServerAccessObject implements ServerAccess {
 
     private static final String baseUrl = Constants.SERVER_URL;
+
     private String questionUrl;
     private URL url;
 
