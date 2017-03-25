@@ -21,7 +21,7 @@ function TasksViewModel() {
     self.isPlaying = ko.observable(false);
 
     self.counter.subscribe(function(newValue) {
-        if (newValue == 0){
+        if (newValue === 0){
             startCounter();
             self.questionCount(self.questionCount()+1);
         }
@@ -37,14 +37,14 @@ function TasksViewModel() {
         self.onePlayerMode(false);
         self.isWaiting(true);
         socket.emit("join_game");
-    }
+    };
 
     self.startOnePlayer = function() {
         self.onePlayerMode(true);
         self.isWaiting(false);
         self.otherScore(null);
         startGame();
-    }
+    };
 
     function startGame() {
         self.questions = ko.observableArray();
@@ -66,7 +66,7 @@ function TasksViewModel() {
     self.processAnswer = function(optionObj) {
 
         if (optionObj.isCorrect){
-            self.score(self.score()+1)
+            self.score(self.score()+ self.counter());
             optionObj.option("Right!");    
             optionObj.bgColor(green);
             optionObj.textColor(white);
@@ -82,22 +82,22 @@ function TasksViewModel() {
         }, waitTime);
 
         startCounter();
-    }
+    };
 
     function startCounter(){
         clearInterval(theCountDown);
         self.counter(countDownTime);
         theCountDown = 
-        setInterval(function(){ self.counter(self.counter()-1) }, oneSecond);
+        setInterval(function(){ self.counter(self.counter()-1); }, oneSecond);
     }
 
     socket.on("other_player_done", function(data){
         var result;
 
-        if (data.msg == null)
-            result = "Other player disconnected! You win!"
+        if (data.msg === null)
+            result = "Other player disconnected! You win!";
         else
-            result = data.msg
+            result = data.msg;
 
         self.otherScore(result);
     });
@@ -122,7 +122,7 @@ function TasksViewModel() {
             }
         };
         return $.ajax(request);
-    }
+    };
 
     function fetchQuestions(){
         self.ajax(self.questionsURI, "GET").done(function(data) {
@@ -133,8 +133,8 @@ function TasksViewModel() {
                 for (var j = 0; j < data.questions[i].options.length; j++){
                     obs_options.push({
                         option: ko.observable(data.questions[i].options[j]),
-                        bgColor: ko.observable(white),
-                        textColor: ko.observable(grey),
+                        bgColor: ko.observable(grey),
+                        textColor: ko.observable(white),
                         isCorrect: data.questions[i].answer == j
                     });
                 }

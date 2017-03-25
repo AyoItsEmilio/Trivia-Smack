@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<title>Trivia Smack!</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<link rel=stylesheet type=text/css href="style.css">
 <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 </head>
-<link rel=stylesheet type=text/css href="style.css">
 
-<body>
+<body width="device-width">
 <div id="main">
     <!-- ko ifnot: isPlaying -->
-        <h3>This is Trivia Smack!</h3>
 
         <div data-bind="ifnot: isWaiting">
-            <div class="button start" data-bind="click: startOnePlayer">
-            One Player!</div><br><br>
-            <div class="button start" data-bind="click: startTwoPlayer">
-            Two Player!</div><br><br>
+            <img class="relImage" src="trivialogo.svg">
+            <br><br>
+            <div class="button" data-bind="click: startOnePlayer">
+            One Player!</div><br>
+            <div class="button" data-bind="click: startTwoPlayer">
+            Two Player!</div><br>
 
             <span data-bind="if: score() || score()==0">
                 Score: <span data-bind="text: score"></span>
@@ -36,18 +37,31 @@
     <!-- /ko -->
 
     <!-- ko if: isPlaying -->
+
         <div data-bind="with: questions()[questionCount()]">
-            <p data-bind="text: question"></p>
+
+            <h3 data-bind="text: question"></h3></br>
             <!-- ko foreach: options -->
-                <p data-bind="text: '• ' + option(),
-                style:{ background: bgColor, color: textColor },
-                click: $parents[1].processAnswer" class="button option"></p>
-                <br><br>
+                <p>
+                    <div data-bind="text: option(),
+                    style:{color: textColor, background: bgColor},
+                    click: $parents[1].processAnswer" class="button option">
+                    </div></br>
+                </p>
             <!-- /ko -->
-            Time Remaining: <span data-bind="text: $parent.counter"></span>
+
+        </div><!-- End of question -->
+
+        <div class="topcorner">
+            <br> Score:
+            <span data-bind="text: score"></span>
         </div>
+
+        </br>Time Remaining: <span data-bind="text: counter"></span>
+
     <!-- /ko -->
-</div>
+
+</div><!-- End of main -->
 
 <script type="text/javascript" src="TaskViewModel.js"></script>
 </body>

@@ -1,6 +1,11 @@
 """
 __init__.py
 """
+DB_NAME = "application"
+MAX_PLAYERS = 2
+MONGO_ADDR = "172.17.0.1"
+MONGO_PORT = 27017
+
 from flask.json import JSONEncoder
 from flask_socketio import SocketIO
 from web_app.populate_database import populate_database
@@ -9,8 +14,6 @@ from web_app.application.Services import Services
 from web_app.tests.persistence.DataAccessStub import DataAccessStub
 from web_app.persistence.DataAccessObject import DataAccessObject
 
-DB_NAME = "application"
-MAX_PLAYERS = 2
 socketio = SocketIO()
 
 def create_app(application):
