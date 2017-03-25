@@ -8,13 +8,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import comp4350.triviasmack.Constants;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
 
 public class ServerAccessObject implements ServerAccess {
 
-    private static final String baseUrl =
-            "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/";
+    private static final String baseUrl = Constants.SERVER_URL;
     private String questionUrl;
     private URL url;
 
