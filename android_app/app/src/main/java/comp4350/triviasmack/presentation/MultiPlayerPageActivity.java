@@ -21,35 +21,35 @@ import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
 
-public class MultiPlayerPageActivity extends AppCompatActivity{
+public class MultiPlayerPageActivity extends AppCompatActivity {
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
     private boolean isConnected = true;
     private Socket socket;
     private final String TAG = "MultiPlayerPageActivity";
     TextView tv;
 
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multi_player_page_activity);
-        tv = (TextView)findViewById(R.id.otherScore);
+        tv = (TextView) findViewById(R.id.otherScore);
         socket = multiPlayer.getSocket();
         socket.on("join_waiting", onJoinWaiting);
         socket.on("other_player_ready", onOtherPlayerReady);
     }
 
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
-        socket.off("join_waiting",onJoinWaiting);
-        socket.off("other_player_ready",onOtherPlayerReady);
+        socket.off("join_waiting", onJoinWaiting);
+        socket.off("other_player_ready", onOtherPlayerReady);
 
     }
 
-    private Emitter.Listener onOtherPlayerReady = new Emitter.Listener(){
+    private Emitter.Listener onOtherPlayerReady = new Emitter.Listener() {
         @Override
-        public void call(Object ...args){
-            MultiPlayerPageActivity.this.runOnUiThread(new Runnable(){
-                public void run(){
+        public void call(Object... args) {
+            MultiPlayerPageActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
                     Intent QuestionIntent = new Intent(MultiPlayerPageActivity.this, QuestionPageActivity.class);
                     MultiPlayerPageActivity.this.startActivity(QuestionIntent);
                 }
@@ -57,12 +57,12 @@ public class MultiPlayerPageActivity extends AppCompatActivity{
         }
     };
 
-    private Emitter.Listener onJoinWaiting = new Emitter.Listener(){
+    private Emitter.Listener onJoinWaiting = new Emitter.Listener() {
         @Override
-        public void call(Object ...args){
-            MultiPlayerPageActivity.this.runOnUiThread(new Runnable(){
-                public void run(){
-                    TextView tv = (TextView)findViewById(R.id.otherScore);
+        public void call(Object... args) {
+            MultiPlayerPageActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    TextView tv = (TextView) findViewById(R.id.otherScore);
                     tv.setText("Waiting for other players to connect...");
                 }
             });

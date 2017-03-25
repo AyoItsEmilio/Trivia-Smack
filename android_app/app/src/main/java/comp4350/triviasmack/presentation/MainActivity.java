@@ -1,30 +1,22 @@
 package comp4350.triviasmack.presentation;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
+
 import io.socket.client.Socket;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import io.socket.emitter.Emitter;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static android.os.Build.VERSION_CODES.M;
-import static comp4350.triviasmack.R.id.otherScore;
-import static comp4350.triviasmack.R.id.otherScoreText;
-import static comp4350.triviasmack.R.id.scoreText;
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,22 +38,22 @@ public class MainActivity extends AppCompatActivity {
         gameController.start();
     }
 
-    private void displayScores(){
-        if(GameController.getInstance().isStarted()){
+    private void displayScores() {
+        if (GameController.getInstance().isStarted()) {
             displayScore();
-            if(multiPlayer.isConnected()) {
+            if (multiPlayer.isConnected()) {
                 displayOtherScore();
             }
         }
     }
 
-    private void makeInvisible(){
+    private void makeInvisible() {
         otherScoreText.setVisibility(View.INVISIBLE);
     }
 
     private void displayScore() {
         int score = gameController.getScore();
-        TextView scoreText = (TextView)findViewById(R.id.scoreText);
+        TextView scoreText = (TextView) findViewById(R.id.scoreText);
         scoreText.setVisibility(View.VISIBLE);
         scoreText.setText(scoreText.getText() + "" + score);
     }
@@ -80,22 +72,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private Emitter.Listener onOtherPlayerDone = new Emitter.Listener(){
+    private Emitter.Listener onOtherPlayerDone = new Emitter.Listener() {
         @Override
-        public void call(final Object... args){
-            MainActivity.this.runOnUiThread(new Runnable(){
+        public void call(final Object... args) {
+            MainActivity.this.runOnUiThread(new Runnable() {
                 @Override
-                public void run(){
+                public void run() {
                     JSONObject data = (JSONObject) args[0];
                     try {
-                        if(!data.getString("msg").equals("null")) {
+                        if (!data.getString("msg").equals("null")) {
                             MainActivity.otherScore = data.getInt("msg");
-                        }else{
+                        } else {
                             otherScore = -1;
                         }
                         Log.d(TAG, "onOtherPayerDone" + otherScore);
                         displayScores();
-                    }catch(JSONException e){
+                    } catch (JSONException e) {
                         Log.e(TAG, e.getMessage());
                     }
                 }
@@ -112,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(QuestionPageIntent);
     }
 
-    public void renderMultiPlayerPage(View v){
+    public void renderMultiPlayerPage(View v) {
         multiPlayer.connect();
         socket = multiPlayer.getSocket();
         socket.on("other_player_done", onOtherPlayerDone);

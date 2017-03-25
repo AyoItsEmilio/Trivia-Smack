@@ -58,7 +58,7 @@ public class ServerAccessStub implements ServerAccess {
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
 
-        if (numQuestions > this.questions.size()){
+        if (numQuestions > this.questions.size()) {
             numQuestions = this.questions.size();
         }
 

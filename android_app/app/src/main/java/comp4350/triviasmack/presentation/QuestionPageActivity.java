@@ -27,7 +27,7 @@ public class QuestionPageActivity extends AppCompatActivity {
     private GameController gameController = GameController.getInstance();
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
     private Socket socket;
-    private final String TAG= "QuestionPageActivity";
+    private final String TAG = "QuestionPageActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
         if (gameController.finished()) {
-            if(multiPlayer.isConnected()) {
+            if (multiPlayer.isConnected()) {
                 multiPlayer.sendScore(gameController.getScore());
             }
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
@@ -83,6 +83,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
     }
+
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
