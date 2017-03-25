@@ -52,14 +52,12 @@ public class MainActivity extends AppCompatActivity {
         if(GameController.getInstance().isStarted()){
             displayScore();
             if(multiPlayer.isConnected()) {
-                System.out.println("some reason still connected");
                 displayOtherScore();
             }
         }
     }
 
     private void makeInvisible(){
-        otherScoreText = (TextView)findViewById(R.id.otherScoreText);
         otherScoreText.setVisibility(View.INVISIBLE);
     }
 
@@ -75,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 otherScoreText.setVisibility(View.VISIBLE);
-                otherScoreText.setText("Their score:" + otherScore);
+                if (otherScore != -1) {
+                    otherScoreText.setText("Their score:" + otherScore);
+                } else {
+                    otherScoreText.setText("The other player disconnected.");
+                }
             }
         });
     }
@@ -88,8 +90,14 @@ public class MainActivity extends AppCompatActivity {
             public void run(){
                 JSONObject data = (JSONObject) args[0];
                 try {
-                    Log.d(TAG, "onOtherPayerDone");
-                    MainActivity.otherScore = data.getInt("msg");
+                    if(data.get("msg").equals("null")) {
+                        System.out.println(data.get("msg"));
+                        MainActivity.otherScore = data.getInt("msg");
+                    }
+                    else{
+                        otherScore = -1;
+                    }
+                    Log.d(TAG, "onOtherPayerDone" + otherScore);
                     displayScores();
                 }catch(JSONException e){
                     Log.e(TAG, e.getMessage());
