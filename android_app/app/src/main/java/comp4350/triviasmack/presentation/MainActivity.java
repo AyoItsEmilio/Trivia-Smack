@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
     private Socket socket;
     private final String TAG = "MainActivity";
+    private static boolean stillPlaying;
     private static TextView otherScoreText;
 
     @Override
@@ -64,8 +65,12 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 otherScoreText.setVisibility(View.VISIBLE);
                 if (otherScore != -1) {
-                    otherScoreText.setText("Their score:" + otherScore);
-                } else {
+                    if(stillPlaying){
+                        otherScoreText.setText("Other player is still playing");
+                    }else {
+                        otherScoreText.setText("Their score:" + otherScore);
+                    }
+                }else{
                     otherScoreText.setText("The other player disconnected.");
                 }
             }
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             otherScore = -1;
                         }
+                        stillPlaying = false;
                         Log.d(TAG, "onOtherPayerDone" + otherScore);
                         displayScores();
                     } catch (JSONException e) {
@@ -107,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     public void renderMultiPlayerPage(View v) {
         multiPlayer.connect();
         socket = multiPlayer.getSocket();
+        stillPlaying = true;
         socket.on("other_player_done", onOtherPlayerDone);
         Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
         MainActivity.this.startActivity(MultiPlayerPageIntent);
