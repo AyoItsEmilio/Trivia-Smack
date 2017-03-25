@@ -79,7 +79,7 @@ h3 { font-size: 35px; }
   and (-webkit-device-pixel-ratio: 3) {
 
   img.relImage {
-    width: 60%;
+    width: 80%;
     height: auto;
   }
 
