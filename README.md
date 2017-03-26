@@ -33,10 +33,6 @@ To run server tests:
 - Unit tests: `python -m web_app.run_unit_tests`
 - Integration tests: `python -m web_app.run_integration_tests`
 
-To run UI tests:
-- Have the application running locally.
-- `python -m web_app.run_user_interface_tests`
-
 You can find the Android tests in the usual Android test folder.
 
 Take a look at the wiki to see where to find what.
