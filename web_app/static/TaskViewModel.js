@@ -1,7 +1,7 @@
 $(document).ready(function(){
 function TasksViewModel() {
-    var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port);
     var self = this;
+    var loc = location.protocol + "//" + document.domain + ":" + location.port;
     var max = 3;
     var waitTime = 300;
     var grey = "#5A5A5A";
@@ -34,9 +34,32 @@ function TasksViewModel() {
     });
 
     self.startTwoPlayer = function() {
+        socket = io.connect(loc, {"force new connection": true});
         self.onePlayerMode(false);
         self.isWaiting(true);
+
         socket.emit("join_game");
+
+        socket.on("other_player_done", function(data){
+            var result;
+
+            if (data.msg === null)
+                result = "Other player disconnected! You win!";
+            else
+                result = data.msg;
+
+            self.otherScore(result);
+        });
+
+        socket.on("other_player_ready", function() {
+            self.isWaiting(false);
+            self.otherScore("Waiting for other player");
+            startGame();
+        });
+
+        socket.on("clean_up", function() {
+            socket.disconnect();
+        });
     };
 
     self.startOnePlayer = function() {
@@ -90,23 +113,6 @@ function TasksViewModel() {
         theCountDown = 
         setInterval(function(){ self.counter(self.counter()-1); }, oneSecond);
     }
-
-    socket.on("other_player_done", function(data){
-        var result;
-
-        if (data.msg === null)
-            result = "Other player disconnected! You win!";
-        else
-            result = data.msg;
-
-        self.otherScore(result);
-    });
-
-    socket.on("other_player_ready", function() {
-        self.isWaiting(false);
-        self.otherScore("Waiting for other player");
-        startGame();
-    });
 
     self.ajax = function(uri, method, data) {
         var request = {

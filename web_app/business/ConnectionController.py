@@ -41,10 +41,13 @@ class ConnectionController(object):
 
     def leave_playing(self, pid):
         result = False
+        print "PLAYING ", self.playing
 
         if pid in self.playing:
             result = True
             self.playing.pop(pid)
+
+        print "PLAYING ", self.playing
 
         return result
 
