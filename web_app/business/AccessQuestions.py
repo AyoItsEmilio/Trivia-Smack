@@ -28,6 +28,9 @@ class AccessQuestions(object):
 
         return questions
 
+    def get_random_question(self):
+        return self.data_access.get_question()
+
     def get_all_questions(self):
         return self.data_access.get_all_questions()
 

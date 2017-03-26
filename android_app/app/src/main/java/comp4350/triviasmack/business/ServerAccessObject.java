@@ -14,7 +14,7 @@ import comp4350.triviasmack.objects.Question;
 public class ServerAccessObject implements ServerAccess {
 
     private static final String baseUrl =
-            "http://trivia-env.vwcgzcxeet.us-west-2.elasticbeanstalk.com/";
+            "http://triviaDockerEnvGOOD.irs2mc4qmz.us-west-2.elasticbeanstalk.com/";
     private String questionUrl;
     private URL url;
 

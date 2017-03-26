@@ -4,9 +4,9 @@ DataAccessObject.py
 import random
 from flask_pymongo import MongoClient
 import pymongo
-
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
+from web_app import MONGO_ADDR, MONGO_PORT
 
 class DataAccessObject(DataAccessInterface):
     """For directly querying the MongoDB"""
@@ -18,8 +18,9 @@ class DataAccessObject(DataAccessInterface):
 
     def open(self):
         try:
-            self.client = MongoClient()
+            self.client = MongoClient(MONGO_ADDR, MONGO_PORT)
             self.mongo = self.client[self.db_name]
+
         except pymongo.errors.ConnectionFailure, conn_exception:
             raise "Could not connect to MongoDB: {}".format(conn_exception)
 

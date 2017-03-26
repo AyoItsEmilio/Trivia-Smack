@@ -58,7 +58,7 @@
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif"
         android:layout_above="@+id/timerTextView"
-        android:textColor="#FFFFFF"
+        android:textColor="#1f1f1f"
         android:textAlignment="center" />
 
     <Button

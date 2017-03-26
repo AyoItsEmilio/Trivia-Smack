@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:text="Score: "
         android:visibility="invisible"
-        android:textColor="#FFFFFF"
+        android:textColor="#1f1f1f"
         android:textSize="25sp"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/button2"
@@ -32,7 +32,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/scoreText"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -45,10 +46,10 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/trivialogo_1"
-        tools:layout_editor_absoluteY="109dp"
+        android:layout_width="495dp"
+        android:layout_height="469dp"
+        app:srcCompat="@drawable/trivialogo"
+        tools:layout_editor_absoluteY="46dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
