@@ -95,15 +95,9 @@ function TasksViewModel() {
 
     socket.on("other_player_done", function(data){
         var result;
-<<<<<<< HEAD
-        console.log("other player was done");
-        if (data.msg == null)
-            result = "Other player disconnected! You win!"
-=======
 
         if (data.msg === null)
             result = "Other player disconnected! You win!";
->>>>>>> master
         else
             result = data.msg;
 

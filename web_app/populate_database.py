@@ -6,13 +6,8 @@ from web_app import MONGO_ADDR, MONGO_PORT
 
 def populate_database(db_name):
 
-<<<<<<< HEAD
-    client = MongoClient()
-   #client.drop_database(db_name)
-=======
     client = MongoClient(MONGO_ADDR, MONGO_PORT)
     client.drop_database(db_name)
->>>>>>> master
     db = client[db_name]
     question_list = [
         {"question": "How much does a male Polar Bear weigh?",
