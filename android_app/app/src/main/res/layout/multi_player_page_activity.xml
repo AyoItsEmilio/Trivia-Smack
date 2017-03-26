@@ -11,6 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/otherScore"
-        android:textColor="#FFFFFF"
+        android:textColor="#1f1f1f"
         android:textSize="30dp" />
 </FrameLayout>

@@ -1,7 +1,6 @@
 """
 ConnectionController.py
 """
-
 from web_app import MAX_PLAYERS
 
 class ConnectionController(object):

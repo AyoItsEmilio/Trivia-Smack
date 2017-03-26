@@ -3,5 +3,6 @@
 *.pyc
 .elasticbeanstalk/*
 .directory
+.DS_Store
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
