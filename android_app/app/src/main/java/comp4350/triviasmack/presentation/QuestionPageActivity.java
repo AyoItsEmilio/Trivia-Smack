@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.business.GameController;
@@ -17,6 +18,10 @@ import comp4350.triviasmack.objects.Question;
 public class QuestionPageActivity extends AppCompatActivity {
 
     private GameController gameController = GameController.getInstance();
+    private final int one_second = 1000;
+    private final int five_seconds = one_second * 5;
+    private final int ten_seconds = one_second * 10;
+    private CountDownTimer countDownTimer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,24 @@ public class QuestionPageActivity extends AppCompatActivity {
 
         questionTitle.setText(questionObj.getQuestion());
         showOptions(questionObj.getOptions());
+
+        final TextView[] timerTextView = {null};
+        countDownTimer = new CountDownTimer(ten_seconds, one_second) {
+            public void onTick(long millisUntilFinished) {
+                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
+                timerTextView[0].setText("Time remaining: " + millisUntilFinished / one_second);
+                if (millisUntilFinished < five_seconds) {
+                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
+                }
+            }
+
+            public void onFinish() {
+                timerTextView[0].setText("Time is up!");
+                cancel();   // prevent thread sticking around
+                advancePage();
+            }
+        }.start();
+
     }
 
     public void showOptions(String options[]) {
@@ -46,6 +69,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         boolean result;
         String optionText;
 
+        countDownTimer.cancel();
         optionText = ((Button) v).getText() + "";
         optionText = optionText.substring(2);
         result = gameController.evaluateAnswer(optionText);
@@ -58,6 +82,11 @@ public class QuestionPageActivity extends AppCompatActivity {
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
 
+        advancePage();
+
+    }
+
+    public void advancePage() {
         if (gameController.finished()) {
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
             MainPageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -66,7 +95,6 @@ public class QuestionPageActivity extends AppCompatActivity {
             startActivity(getIntent());
             finish();
         }
-
     }
 
     @Override

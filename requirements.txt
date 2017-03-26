@@ -18,3 +18,4 @@ greenlet==0.4.2
 click==6.6
 eventlet==0.17.4
 itsdangerous==0.24
+selenium==3.3.1
