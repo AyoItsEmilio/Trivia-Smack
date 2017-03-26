@@ -1,6 +1,6 @@
 $(document).ready(function(){
 function TasksViewModel() {
-    var socket = io.connect(location.protocol + "//" + document.domain + ":" + location.port);
+    var socket = io.connect(location.protocol + "//" + "172.17.0.1" + ":" + location.port);
     var self = this;
     var max = 3;
     var waitTime = 300;
