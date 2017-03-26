@@ -72,7 +72,7 @@ h3 { font-size: 35px; }
     .option { width: 50%; }
 }
 
-/* Mobile */
+/* Mobile - Galaxy */
 @media screen 
   and (device-width: 360px) 
   and (device-height: 640px) 
@@ -87,13 +87,13 @@ h3 { font-size: 35px; }
 
   .button { width: 50%; }
 
-  .option { width: 80;}
+  .option { width: 80%; }
 }
 
-/* ipad mini */
+/* iPad */
 @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px)
+and (device-width : 768px) 
+and (device-height : 1024px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
   img.relImage {
@@ -101,11 +101,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
     height: auto;
   }
 
-  h3 { font-size: 30px; }
+  h3 { font-size: 35px; }
 
-  body {font-size: 10px;}
+  body {font-size: 22px;}
   
-  .button { width: 90%; }
+  .button { width: 40%; }
+
+  .option { width: 50%; }
 }
 
 .topcorner{
