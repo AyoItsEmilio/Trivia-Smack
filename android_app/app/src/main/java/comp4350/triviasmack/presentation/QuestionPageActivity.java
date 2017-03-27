@@ -23,6 +23,7 @@ public class QuestionPageActivity extends AppCompatActivity {
     private final int ten_seconds = one_second * 10 + 100;
     private CountDownTimer countDownTimer = null;
     private int secondsUntilFinished = 0;
+    private TextView scoreView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,9 @@ public class QuestionPageActivity extends AppCompatActivity {
 
         Question questionObj = gameController.getNextQuestion();
         TextView questionTitle = (TextView) findViewById(R.id.questionText);
+        scoreView = (TextView) findViewById(R.id.scoreView);
 
+        scoreView.setText("Score: " + gameController.getScore());
         questionTitle.setText(questionObj.getQuestion());
         showOptions(questionObj.getOptions());
 
@@ -81,6 +84,7 @@ public class QuestionPageActivity extends AppCompatActivity {
             ((Button) v).setText("• RIGHT!");
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_green));
             gameController.increaseScore(secondsUntilFinished);
+            scoreView.setText("Score: " + gameController.getScore());
         } else {
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
