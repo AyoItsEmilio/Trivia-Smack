@@ -1,6 +1,8 @@
 package comp4350.triviasmack.presentation;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +25,7 @@ import io.socket.emitter.Emitter;
 
 public class MultiPlayerPageActivity extends AppCompatActivity {
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
-    private boolean isConnected = true;
+    private GameController gameController = GameController.getInstance();
     private Socket socket;
     private final String TAG = "MultiPlayerPageActivity";
     TextView tv;
@@ -68,6 +70,32 @@ public class MultiPlayerPageActivity extends AppCompatActivity {
             });
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Exit game?");
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                gameController.start();
+                Intent ExitGameIntent = new Intent(MultiPlayerPageActivity.this, MainActivity.class);
+                ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                MultiPlayerPageActivity.this.startActivity(ExitGameIntent);
+                multiPlayer.disconnect();
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
 
 
