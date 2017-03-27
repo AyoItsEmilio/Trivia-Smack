@@ -56,7 +56,6 @@ public class QuestionPageActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
                 secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
-                System.out.println(secondsUntilFinished);
                 timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
                 if (millisUntilFinished < five_seconds) {
                     timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
