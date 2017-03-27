@@ -127,6 +127,7 @@ public class QuestionPageActivity extends AppCompatActivity {
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+                countDownTimer.cancel();
                 gameController.start();
                 Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
                 ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
