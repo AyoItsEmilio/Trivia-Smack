@@ -1,19 +1,27 @@
 package comp4350.triviasmack.presentation;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import comp4350.triviasmack.R;
+import comp4350.triviasmack.application.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
+import io.socket.client.Socket;
+
 
 public class QuestionPageActivity extends AppCompatActivity {
 
@@ -24,13 +32,17 @@ public class QuestionPageActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer = null;
     private int secondsUntilFinished = 0;
     private TextView scoreView;
+    private MultiPlayer multiPlayer = MultiPlayer.getInstance();
+    private Socket socket;
+    private final String TAG = "QuestionPageActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_page);
+        socket = multiPlayer.getSocket();
 
+        setContentView(R.layout.activity_question_page);
         Question questionObj = gameController.getNextQuestion();
         TextView questionTitle = (TextView) findViewById(R.id.questionText);
         scoreView = (TextView) findViewById(R.id.scoreView);
@@ -95,6 +107,9 @@ public class QuestionPageActivity extends AppCompatActivity {
 
     public void advancePage() {
         if (gameController.finished()) {
+            if (multiPlayer.isConnected()) {
+                multiPlayer.sendScore(gameController.getScore());
+            }
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
             MainPageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             QuestionPageActivity.this.startActivity(MainPageIntent);
@@ -116,6 +131,7 @@ public class QuestionPageActivity extends AppCompatActivity {
                 Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
                 ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 QuestionPageActivity.this.startActivity(ExitGameIntent);
+                multiPlayer.disconnect();
             }
         });
 

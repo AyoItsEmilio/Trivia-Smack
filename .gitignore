@@ -1,11 +1,8 @@
+
 # Elastic Beanstalk Files
 *.pyc
 .elasticbeanstalk/*
-flask_session/*
 .directory
 .DS_Store
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-
-.idea/*
-android_app/.idea/gradle.xml

@@ -29,6 +29,7 @@ function TasksViewModel() {
 
     self.questionCount.subscribe(function(newValue) {
         if (newValue == max){
+            console.log("the game ended :)");
             endGame();
         }
     });
@@ -83,6 +84,7 @@ function TasksViewModel() {
 
         if (!self.onePlayerMode()){
             socket.emit("game_over", {"score":self.score()});
+            console.log(socket);
         }
     }
 

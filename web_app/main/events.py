@@ -8,11 +8,14 @@ from .. import socketio
 
 cc = ConnectionController()
 
+
 @socketio.on("join_game")
 def join_game():
+    print "request.sid=%s" % request.sid
     join_room(request.sid)
-
     cc.join_waiting(request.sid)
+
+    emit("join_waiting")
 
     emit("join_waiting")
 
@@ -20,6 +23,7 @@ def join_game():
         cc.join_playing()
         emit("other_player_ready", room=request.sid)
         emit("other_player_ready", room=cc.get_partner(request.sid))
+
 
 @socketio.on("game_over")
 def game_over(message):
@@ -35,6 +39,7 @@ def game_over(message):
         if cc.playing == {}:
             emit("clean_up", room=partner)
             emit("clean_up", room=request.sid)
+
 
 @socketio.on("disconnect")
 def disconnect():
