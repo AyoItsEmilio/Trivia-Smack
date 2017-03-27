@@ -20,8 +20,9 @@ public class QuestionPageActivity extends AppCompatActivity {
     private GameController gameController = GameController.getInstance();
     private final int one_second = 1000;
     private final int five_seconds = one_second * 5;
-    private final int ten_seconds = one_second * 10;
+    private final int ten_seconds = one_second * 10 + 100;
     private CountDownTimer countDownTimer = null;
+    private int secondsUntilFinished = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,9 @@ public class QuestionPageActivity extends AppCompatActivity {
         countDownTimer = new CountDownTimer(ten_seconds, one_second) {
             public void onTick(long millisUntilFinished) {
                 timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
-                timerTextView[0].setText("Time remaining: " + millisUntilFinished / one_second);
+                secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
+                System.out.println(secondsUntilFinished);
+                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
                 if (millisUntilFinished < five_seconds) {
                     timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
                 }
@@ -77,7 +80,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         if (result) {
             ((Button) v).setText("• RIGHT!");
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_green));
-            gameController.increaseScore();
+            gameController.increaseScore(secondsUntilFinished);
         } else {
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
