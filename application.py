@@ -5,7 +5,6 @@ Note that EB looks for application.py in the root dir
 """
 from flask import Flask, make_response, jsonify
 from web_app import create_app, set_up, tear_down, socketio
-import eventlet.wsgi
 
 set_up()
 
@@ -26,4 +25,3 @@ def bad_request(error):
 if __name__ == "__main__":
     socketio.run(application, host="0.0.0.0")
     tear_down()
-eventlet.wsgi.server(eventlet.listen(('', 5000)),application)
