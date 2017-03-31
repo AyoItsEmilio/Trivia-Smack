@@ -9,11 +9,11 @@ class AccessQuestions(object):
     def __init__(self):
         self.data_access = Services.get_data_access()
 
-    def get_random_questions(self, set_size=None):
+    def get_random_questions(self, set_size):
 
         num_qs = self.get_num_questions()
 
-        if set_size is None or set_size > num_qs:
+        if set_size > num_qs:
             set_size = num_qs
 
         questions = []
@@ -30,8 +30,8 @@ class AccessQuestions(object):
 
         return questions
 
-    def get_random_question(self):
-        return self.data_access.get_question()
+    def get_question(self, **kwargs):
+        return self.data_access.get_question(**kwargs)
 
     def get_all_questions(self):
         return self.data_access.get_all_questions()
@@ -40,5 +40,4 @@ class AccessQuestions(object):
         return self.data_access.get_num_questions()
 
     def add_question(self, question, options, answer):
-        return [question, options, answer]
-        #return self.data_access.insert_question(question, options, answer)
+        self.data_access.insert_question(question, options, answer)

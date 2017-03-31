@@ -2,6 +2,7 @@
 DataAccessTest.py
 """
 import unittest
+import re
 from .DataAccessStub import DataAccessStub
 from web_app.application.Services import Services
 from web_app.objects.Question import Question
@@ -34,6 +35,14 @@ class DataAccessTest(unittest.TestCase):
 
         question = "Platypuses lay eggs"
         target_question = Question(question, ["true", "false"], 0)
+
+        question_obj = DataAccessTest.data_access.get_question(question=question)
+
+        self.assertEquals(target_question.question, question_obj.question)
+        self.assertEquals(target_question.options, question_obj.options)
+        self.assertEquals(target_question.answer, question_obj.answer)
+
+        question = re.compile("^Platypus")
 
         question_obj = DataAccessTest.data_access.get_question(question=question)
 

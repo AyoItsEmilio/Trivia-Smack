@@ -49,6 +49,7 @@ class DataAccessObject(DataAccessInterface):
 
     def get_question(self, **kwargs):
         result = None
+
         doc = self.mongo.questions.find_one(kwargs)
 
         if doc:

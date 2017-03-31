@@ -2,6 +2,7 @@
 DataAccessStub.py
 """
 import random
+import re
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
 
@@ -49,7 +50,7 @@ class DataAccessStub(DataAccessInterface):
         result = None
 
         for question_obj in self.questions:
-            if question_obj.question == kwargs["question"]:
+            if re.match(re.compile(kwargs["question"]), question_obj.question):
                 result = question_obj
 
         return result
