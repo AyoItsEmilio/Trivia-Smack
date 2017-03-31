@@ -71,6 +71,8 @@ function AdminViewModel() {
 
     self.startViewing = function() {
 
+        self.filter("");
+
         self.questions.removeAll();
 
         self.ajax(self.getQuestionsURI, "GET").done(function(data) {
