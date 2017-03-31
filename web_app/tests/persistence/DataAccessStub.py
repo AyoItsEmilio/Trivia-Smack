@@ -67,6 +67,7 @@ class DataAccessStub(DataAccessInterface):
 
     def insert_question(self, question, options, answer):
         self.questions.append(Question(question, options, answer))
+        return True
 
     def update_question(self, **kwargs):
         result = None
