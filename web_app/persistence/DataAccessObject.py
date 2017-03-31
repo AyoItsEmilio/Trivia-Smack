@@ -30,8 +30,8 @@ class DataAccessObject(DataAccessInterface):
 
     @staticmethod
     def clean(doc):
-        doc["question"] = str(doc["question"])
-        doc["options"] = [str(o) for o in doc["options"]]
+        doc["question"] = str(doc["question"]).strip()
+        doc["options"] = [str(o).strip() for o in doc["options"]]
 
     def get_random_question(self):
         result = None
@@ -62,7 +62,8 @@ class DataAccessObject(DataAccessInterface):
 
         for doc in self.mongo.questions.find():
             DataAccessObject.clean(doc)
-            result.append(Question(doc["question"], doc["options"],\
+            result.append(Question(doc["question"],\
+                                   doc["options"],\
                                    doc["answer"]))
 
         return result
