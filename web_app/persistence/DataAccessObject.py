@@ -48,13 +48,13 @@ class DataAccessObject(DataAccessInterface):
         return result
 
     def get_question(self, **kwargs):
-        result = None
+        result = []
 
-        doc = self.mongo.questions.find_one(kwargs)
-
-        if doc:
+        for doc in self.mongo.questions.find(kwargs):
             DataAccessObject.clean(doc)
-            result = Question(doc["question"], doc["options"], doc["answer"])
+            result.append(Question(doc["question"],\
+                                   doc["options"],\
+                                   doc["answer"]))
 
         return result
 

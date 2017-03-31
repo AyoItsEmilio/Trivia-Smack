@@ -36,7 +36,7 @@ class DataAccessTest(unittest.TestCase):
         question = "Platypuses lay eggs"
         target_question = Question(question, ["true", "false"], 0)
 
-        question_obj = DataAccessTest.data_access.get_question(question=question)
+        question_obj = DataAccessTest.data_access.get_question(question=question)[0]
 
         self.assertEquals(target_question.question, question_obj.question)
         self.assertEquals(target_question.options, question_obj.options)
@@ -44,7 +44,15 @@ class DataAccessTest(unittest.TestCase):
 
         question = re.compile("^Platypus")
 
-        question_obj = DataAccessTest.data_access.get_question(question=question)
+        question_obj = DataAccessTest.data_access.get_question(question=question)[0]
+
+        self.assertEquals(target_question.question, question_obj.question)
+        self.assertEquals(target_question.options, question_obj.options)
+        self.assertEquals(target_question.answer, question_obj.answer)
+
+        question = re.compile(".*Platypus.*")
+
+        question_obj = DataAccessTest.data_access.get_question(question=question)[0]
 
         self.assertEquals(target_question.question, question_obj.question)
         self.assertEquals(target_question.options, question_obj.options)
@@ -95,7 +103,7 @@ class DataAccessTest(unittest.TestCase):
         self.assertIsNotNone(result)
 
         question_object =\
-            DataAccessTest.data_access.get_question(question=new_question)
+            DataAccessTest.data_access.get_question(question=new_question)[0]
 
         self.assertEquals(question_object.question, new_question)
         self.assertEquals(question_object.options, options)
@@ -120,7 +128,7 @@ class DataAccessTest(unittest.TestCase):
         self.assertIsNotNone(result)
 
         question_object =\
-        DataAccessTest.data_access.get_question(question=question)
+        DataAccessTest.data_access.get_question(question=question)[0]
 
         self.assertEquals(question_object.question, question)
         self.assertEquals(question_object.options, new_options)
@@ -142,7 +150,7 @@ class DataAccessTest(unittest.TestCase):
                                                    new_answer=new_answer)
 
         question_object =\
-        DataAccessTest.data_access.get_question(question=question)
+        DataAccessTest.data_access.get_question(question=question)[0]
 
         self.assertEquals(question_object.question, question)
         self.assertEquals(question_object.options, options)
@@ -169,7 +177,7 @@ class DataAccessTest(unittest.TestCase):
                                                    new_answer=new_answer)
 
         question_object =\
-        DataAccessTest.data_access.get_question(question=new_question)
+        DataAccessTest.data_access.get_question(question=new_question)[0]
 
         self.assertEquals(question_object.question, new_question)
         self.assertEquals(question_object.options, new_options)
@@ -186,7 +194,7 @@ class DataAccessTest(unittest.TestCase):
 
         question = "The Balkans are in:"
         question_obj =\
-        DataAccessTest.data_access.get_question(question=question)
+        DataAccessTest.data_access.get_question(question=question)[0]
 
         DataAccessTest.data_access.delete_question(question=question)
 
@@ -197,7 +205,7 @@ class DataAccessTest(unittest.TestCase):
         question_none =\
         DataAccessTest.data_access.get_question(question=question)
 
-        self.assertIsNone(question_none)
+        self.assertEquals(question_none, [])
 
         DataAccessTest.data_access.insert_question(question_obj.question,
                                                    question_obj.options,

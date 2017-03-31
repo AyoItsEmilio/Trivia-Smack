@@ -29,7 +29,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
         question = "Platypuses lay eggs"
         target_question = Question(question, ["true", "false"], 0)
 
-        question_obj = self.access_questions.get_question(question=question)
+        question_obj = self.access_questions.get_question(question=question)[0]
 
         self.assertEquals(target_question.question, question_obj.question)
         self.assertEquals(target_question.options, question_obj.options)
@@ -37,7 +37,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
         question = re.compile("^Platypus")
 
-        question_obj = self.access_questions.get_question(question=question)
+        question_obj = self.access_questions.get_question(question=question)[0]
 
         self.assertEquals(target_question.question, question_obj.question)
         self.assertEquals(target_question.options, question_obj.options)

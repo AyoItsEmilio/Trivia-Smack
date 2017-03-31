@@ -47,11 +47,11 @@ class DataAccessStub(DataAccessInterface):
         self.questions = None
 
     def get_question(self, **kwargs):
-        result = None
+        result = []
 
         for question_obj in self.questions:
             if re.match(re.compile(kwargs["question"]), question_obj.question):
-                result = question_obj
+                result.append(question_obj)
 
         return result
 
