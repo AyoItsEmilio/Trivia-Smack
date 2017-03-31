@@ -1,6 +1,5 @@
 package comp4350.triviasmack.robotium.SinglePlayerTest;
 
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
@@ -59,6 +58,7 @@ public class SinglePlayerTest{
         solo.sleep(2000);
         solo.clickOnView(solo.getView(R.id.optionBtn1));
         //go to the main page
+        solo.waitForActivity(MainActivity.class);
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
         //check score
         int scoreVis = solo.getView(R.id.scoreText).getVisibility();
