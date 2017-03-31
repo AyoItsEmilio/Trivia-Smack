@@ -11,7 +11,7 @@ cc = ConnectionController()
 
 @socketio.on("join_game")
 def join_game():
-    print "request.sid=%s" % request.sid
+
     join_room(request.sid)
     cc.join_waiting(request.sid)
 
