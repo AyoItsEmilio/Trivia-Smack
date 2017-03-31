@@ -9,7 +9,6 @@ def populate_database(db_name):
     client = MongoClient(MONGO_ADDR, MONGO_PORT)
     client.drop_database(db_name)
     db = client[db_name]
-
     question_list = [
         {"question": "How much does a male Polar Bear weigh?",
          "options": ["1200 lbs", "1000 lbs", "700 lbs",
@@ -42,6 +41,7 @@ def populate_database(db_name):
     ]
 
     questions = db.questions
+    print "questions:%s " % questions
     result = questions.insert_many(question_list)
     client.close()
     return result
