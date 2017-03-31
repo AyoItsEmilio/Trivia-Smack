@@ -47,7 +47,7 @@ def add_question():
 @auth.login_required
 def get_questions():
     access_questions = AccessQuestions()
-    questions = access_questions.get_random_questions()
+    questions = access_questions.get_all_questions()
     return make_response(jsonify(questions=questions), 200)
 
 @main.route("/api/question_data/<int:num_questions>", methods=["GET"])
