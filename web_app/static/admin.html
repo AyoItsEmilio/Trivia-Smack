@@ -12,23 +12,72 @@
 
 <body width="device-width">
 <div id="admin">
+
     <img class="relImage" src="trivialogo.svg">
     <br><br>
-    <div>
-        <form>
-            <div>
-                <input data-bind="value: username" type="text" class="login" placeholder="Username">
-            </div>
+
+    <!-- ko ifnot: loggedIn -->
+        <div>
+            <form>
+                <div>
+                    <input data-bind="value: username" type="text" class="textbox" placeholder="Username">
+                </div>
+                <br>
+                <div>
+                    <input data-bind="value: password" type="password" class="textbox" placeholder="Password">
+                </div>
+            </form>
+        </div>
+        <br>
+        <div>
+            <button class="button" data-bind="click: login">Sign In</button>
+        </div>
+    <!-- /ko -->
+
+    <!-- ko if: loggedIn -->
+        <div data-bind="ifnot: addingQuestion() || viewingQuestions()">
+            <button class="button long" data-bind="click: startAdding">
+                Add a question
+            </button>
+            <br><br>
+            <button class="button long" data-bind="click: startViewing">
+                View all questions
+            </button>
+        </div>
+
+        <div data-bind="if: viewingQuestions">
+            <!-- ko foreach: questions -->
+
+                <h3 data-bind="text: question"></h3></br>
+                <!-- ko foreach: options -->
+                    <p>
+                        <div data-bind="text: $data" class="option button"></div>
+                        <br>
+                    </p>
+                <!-- /ko -->
+                <span>Answer: </span><span data-bind="text: options()[answer()]"></span>
+                <br><br><br>
+            <!-- /ko -->
+        </div>
+
+        <div data-bind="if: addingQuestion">
+            <form>
+                <div>
+                    <input data-bind="value: question" type="text" class="textbox" placeholder="Question">
+                </div><br>
+                <div>
+                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options">
+                </div><br>
+                <div>
+                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer">
+                </div>
+            </form>
             <br>
-            <div class="controls">
-                <input data-bind="value: password" type="password" class="login" placeholder="Password">
+            <div>
+                <button class="button" data-bind="click: addQuestion">Add</button>
             </div>
-        </form>
-    </div>
-    <br>
-    <div>
-        <button class="button" data-bind="click: login">Sign In</button>
-    </div>
+        </div>
+    <!-- /ko -->
 
 </div><!-- End of admin -->
 
