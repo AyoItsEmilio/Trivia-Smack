@@ -126,10 +126,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
   .textbox { width: 50%; }
 }
 
-.topcorner{
+.topRightCorner {
    position: fixed;
    top: 0px;
    right: 20px;
+}
+
+.topLeftCorner {
+   position: fixed;
+   top: 0px;
+   margin: 10px;
 }
 
 .button {
@@ -188,3 +194,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .upperCase { text-transform: uppercase; }
 
+.lightGrey { color: #b3b3b3; }
+
+a { text-decoration: none; }

@@ -12,7 +12,12 @@
 
 <body width="device-width">
 <div id="main">
+
     <!-- ko ifnot: isPlaying -->
+
+        <div class="topLeftCorner"><a href="admin.html" class="lightGrey">
+            ADMIN
+        </a></div>
 
         <div data-bind="ifnot: isWaiting">
             <img class="relImage" src="trivialogo.svg">
@@ -53,7 +58,7 @@
 
         </div><!-- End of question -->
 
-        <div class="topcorner">
+        <div class="topRightCorner">
             <br> Score:
             <span data-bind="text: score"></span>
         </div>
