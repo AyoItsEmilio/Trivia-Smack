@@ -11,6 +11,7 @@ function AdminViewModel() {
     self.answer = ko.observable("");
     self.questions = ko.observableArray();
     self.filter = ko.observable("");
+    self.loginError = ko.observable("");
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
@@ -38,9 +39,12 @@ function AdminViewModel() {
 
     self.login = function() {
         self.ajax(self.loginURI, "GET").done(function(data) {
-            console.log("success");
+            self.loginError("");
             self.loggedIn(true);
         }).fail(function(jqXHR) {
+            self.loginError("WRONG!");
+            self.username("");
+            self.password("");
             console.log("failure");
         });
     };
