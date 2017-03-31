@@ -13,7 +13,7 @@
 <body width="device-width">
 <div id="admin">
 
-    <img class="relImage" src="trivialogo.svg" data-bind="click: showOptions">
+    <img class="relImage" title="Go back" src="trivialogo.svg" data-bind="click: showOptions">
     <br><br>
 
     <!-- ko ifnot: loggedIn -->
@@ -41,11 +41,19 @@
             </button>
             <br><br>
             <button class="button long" data-bind="click: startViewing">
-                View all questions
+                View questions
             </button>
         </div>
 
         <div data-bind="if: viewingQuestions">
+            
+            <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
+            <br><br>
+            <button class="button" data-bind="click: getQuestionContains">
+                FILTER
+            </button>
+            <br><br><br>
+
             <!-- ko foreach: questions -->
 
                 <h3 data-bind="text: question"></h3></br>

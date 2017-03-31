@@ -10,9 +10,11 @@ function AdminViewModel() {
     self.options = ko.observable("");
     self.answer = ko.observable("");
     self.questions = ko.observableArray();
+    self.filter = ko.observable("");
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
+    self.getQuestionContainsURI = "/api/get_question_contains/";
 
     self.ajax = function(uri, method, data) {
         var request = {
@@ -69,24 +71,45 @@ function AdminViewModel() {
 
     self.startViewing = function() {
 
-        self.questions = ko.observableArray();
+        self.questions.removeAll();
 
         self.ajax(self.getQuestionsURI, "GET").done(function(data) {
-            for (var i = 0; i < data.questions.length; i++) {
-
-                self.questions.push({
-                    question: ko.observable(data.questions[i].question),
-                    options: ko.observableArray(data.questions[i].options),
-                    answer: ko.observable(data.questions[i].answer)
-                });
-            }
-
+            fillQuestions(data);
         }).fail(function(jqXHR) {
             console.log("failure");
         });
 
         self.viewingQuestions(true);
     };
+
+    self.getQuestionContains = function() {
+
+        self.questions.removeAll();
+
+        if (self.filter() !== "") {
+            self.ajax(self.getQuestionContainsURI+self.filter(), "GET").done(function(data) {
+                fillQuestions(data);
+            }).fail(function(jqXHR) {
+                console.log("failure");
+            });
+        }
+        else {
+            self.startViewing();
+        }
+    };
+
+    function fillQuestions(data) {
+
+        for (var i = 0; i < data.questions.length; i++) {
+
+            self.questions.push({
+                question: ko.observable(data.questions[i].question),
+                options: ko.observableArray(data.questions[i].options),
+                answer: ko.observable(data.questions[i].answer)
+            });
+        }
+    }
 }
+
 ko.applyBindings(new AdminViewModel(), $("#admin")[0]);
 });

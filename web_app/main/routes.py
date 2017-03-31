@@ -4,6 +4,7 @@ routes.py
 Error handlers are defined at the application level in application.py
 (this is the blueprint level)
 """
+import re
 from flask import jsonify, make_response, request, abort
 from flask_httpauth import HTTPBasicAuth
 from web_app.business.AccessQuestions import AccessQuestions
@@ -50,6 +51,14 @@ def get_questions():
     questions = access_questions.get_all_questions()
     return make_response(jsonify(questions=questions), 200)
 
+@main.route("/api/get_question_contains/<q_filter>", methods=["GET"])
+@auth.login_required
+def get_question_by(q_filter):
+    access_questions = AccessQuestions()
+    q_filter = re.compile(".*"+q_filter+".*", re.IGNORECASE)
+    questions = access_questions.get_question(question=q_filter)
+    return make_response(jsonify(questions=questions), 200)
+
 @main.route("/api/question_data/<int:num_questions>", methods=["GET"])
 def question_data(num_questions):
     access_questions = AccessQuestions()
@@ -74,7 +83,12 @@ def validate_json(json):
 
 def clean_json(json):
     result = {}
-    result["question"] = str(json["question"]).strip()
-    result["options"] = [str(o).strip() for o in json["options"] if o]
-    result["answer"] = int(json["answer"])
+
+    if "question" in json:
+        result["question"] = str(json["question"]).strip()
+    if "options" in json:
+        result["options"] = [str(o).strip() for o in json["options"] if o]
+    if "answer" in json:
+        result["answer"] = int(json["answer"])
+
     return result
