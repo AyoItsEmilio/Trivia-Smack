@@ -46,7 +46,7 @@ public class GameControllerTest {
         assertNotEquals(first.getNextQuestion().getQuestion(),
                 second.getNextQuestion().getQuestion());
 
-        second.increaseScore();
+        second.increaseScore(1);
         assertEquals(first.getScore(), second.getScore());
 
         System.out.println("Testing GameController: Start");
@@ -62,16 +62,17 @@ public class GameControllerTest {
 
         dummyGameController.start();
         assertEquals(0, dummyGameController.getScore());
-        dummyGameController.increaseScore();
+        dummyGameController.increaseScore(1);
         assertEquals(1, dummyGameController.getScore());
-        dummyGameController.increaseScore();
+        dummyGameController.increaseScore(1);
         assertEquals(2, dummyGameController.getScore());
 
         for (int i = 0; i < Main.numQuestions * bigNum; i++) {
-            dummyGameController.increaseScore();
+            dummyGameController.increaseScore(1);
         }
 
-        assertEquals(Main.numQuestions, dummyGameController.getScore());
+        int maxScore = Main.numQuestions * 10;
+        assertEquals(maxScore, dummyGameController.getScore());
 
         System.out.println("Testing GameController: getNextQuestion");
 
