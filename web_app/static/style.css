@@ -51,7 +51,9 @@ h3 { font-size: 35px; }
 
     .option { width: 30%; }
 
-    .login { width: 25%; }
+    .long {width: 20%; }
+
+    .textbox { width: 25%; }
 }
 
 /* Laptop - half screen */
@@ -73,7 +75,9 @@ h3 { font-size: 35px; }
 
     .option { width: 50%; }
 
-    .login { width: 40%; }
+    .long {width: 45%; }
+
+    .textbox { width: 40%; }
 }
 
 /* Mobile - Galaxy */
@@ -93,7 +97,9 @@ h3 { font-size: 35px; }
 
   .option { width: 80%; }
 
-  .login { width: 60%; }
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
 }
 
 /* iPad */
@@ -115,7 +121,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
   .option { width: 50%; }
 
-  .login { width: 50%; }
+  .long {width: 65%; }
+
+  .textbox { width: 50%; }
 }
 
 .topcorner{
@@ -150,20 +158,27 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .button:hover {
-  background: #4dc136;
+  background: #377ba8;
 }
 
 .button:active {
   background: #FF4081;
 }
 
+.long {}
+
 .option {
+  background: #5A5A5A;
   padding: 8px;
   height: auto;
   transition: all 0.1s;
 }
 
-.login {
+.option:hover {
+  background: #377ba8;
+}
+
+.textbox {
   border-radius: 5px;
   height: 30px;
   font-size: 10pt;
