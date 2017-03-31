@@ -50,6 +50,8 @@ h3 { font-size: 35px; }
     .button { width: 13%; }
 
     .option { width: 30%; }
+
+    .login { width: 25%; }
 }
 
 /* Laptop - half screen */
@@ -70,6 +72,8 @@ h3 { font-size: 35px; }
     .button { width: 30%; }
 
     .option { width: 50%; }
+
+    .login { width: 40%; }
 }
 
 /* Mobile - Galaxy */
@@ -88,6 +92,8 @@ h3 { font-size: 35px; }
   .button { width: 50%; }
 
   .option { width: 80%; }
+
+  .login { width: 60%; }
 }
 
 /* iPad */
@@ -108,6 +114,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
   .button { width: 40%; }
 
   .option { width: 50%; }
+
+  .login { width: 50%; }
 }
 
 .topcorner{
@@ -137,6 +145,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
   overflow: hidden;
 
   transition: all 0.4s;
+
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.2), 0 0 5px 0 rgba(0,0,0,0.19);
 }
 
 .button:hover {
@@ -152,3 +162,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
   height: auto;
   transition: all 0.1s;
 }
+
+.login {
+  border-radius: 5px;
+  height: 30px;
+  font-size: 10pt;
+  text-align: center;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.2), 0 0 6px 0 rgba(0,0,0,0.10);
+}
+
