@@ -38,13 +38,6 @@ public class TwoPlayersTest{
         solo.finishOpenedActivities();
     }
 
-    @Test
-    public void pressTwoPlayerBtn() throws Exception {
-        solo.assertCurrentActivity("wrong activity", MainActivity.class);
 
-        solo.clickOnView(solo.getView(R.id.button3));
-
-        solo.assertCurrentActivity("wrong activity", MultiPlayerPageActivity.class);
-    }
 
 }
