@@ -186,3 +186,5 @@ and (-webkit-min-device-pixel-ratio: 2) {
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.2), 0 0 6px 0 rgba(0,0,0,0.10);
 }
 
+.upperCase { text-transform: uppercase; }
+

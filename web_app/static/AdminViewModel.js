@@ -43,6 +43,11 @@ function AdminViewModel() {
         });
     };
 
+    self.showOptions = function() {
+        self.addingQuestion(false);
+        self.viewingQuestions(false);
+    };
+
     self.startAdding = function() {
         self.addingQuestion(true);
     };
@@ -64,7 +69,7 @@ function AdminViewModel() {
 
     self.startViewing = function() {
 
-        self.viewingQuestions(true);
+        self.questions = ko.observableArray();
 
         self.ajax(self.getQuestionsURI, "GET").done(function(data) {
             for (var i = 0; i < data.questions.length; i++) {
@@ -79,6 +84,8 @@ function AdminViewModel() {
         }).fail(function(jqXHR) {
             console.log("failure");
         });
+
+        self.viewingQuestions(true);
     };
 }
 ko.applyBindings(new AdminViewModel(), $("#admin")[0]);

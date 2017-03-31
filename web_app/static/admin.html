@@ -13,7 +13,7 @@
 <body width="device-width">
 <div id="admin">
 
-    <img class="relImage" src="trivialogo.svg">
+    <img class="relImage" src="trivialogo.svg" data-bind="click: showOptions">
     <br><br>
 
     <!-- ko ifnot: loggedIn -->
@@ -55,7 +55,8 @@
                         <br>
                     </p>
                 <!-- /ko -->
-                <span>Answer: </span><span data-bind="text: options()[answer()]"></span>
+                <span>Answer: </span>
+                <span class="upperCase" data-bind="text: options()[answer()]"></span>
                 <br><br><br>
             <!-- /ko -->
         </div>
