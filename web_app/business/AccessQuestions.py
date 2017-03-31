@@ -33,6 +33,9 @@ class AccessQuestions(object):
     def get_question(self, **kwargs):
         return self.data_access.get_question(**kwargs)
 
+    def delete_question(self, **kwargs):
+        return self.data_access.delete_question(**kwargs)
+
     def get_all_questions(self):
         return self.data_access.get_all_questions()
 

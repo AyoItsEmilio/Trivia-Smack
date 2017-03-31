@@ -43,6 +43,28 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
         self.assertEquals(target_question.options, question_obj.options)
         self.assertEquals(target_question.answer, question_obj.answer)
 
+    def test_delete_question(self):
+        print "Testing AccessQuestion: delete_question"
+
+        question = "The Balkans are in:"
+        question_obj = self.access_questions.get_question(question=question)[0]
+
+        orig_size = self.access_questions.get_num_questions()
+
+        self.access_questions.delete_question(question=question)
+
+        all_questions = self.access_questions.get_all_questions()
+
+        self.assertEquals(len(all_questions), orig_size-1)
+
+        question_none = self.access_questions.get_question(question=question)
+
+        self.assertEquals(question_none, [])
+
+        self.access_questions.add_question(question_obj.question,
+                                           question_obj.options,
+                                           question_obj.answer)
+
     def test_get_random_questions(self):
         print "Testing AccessQuestions: get_random_questions"
 
