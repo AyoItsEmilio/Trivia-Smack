@@ -4,10 +4,8 @@ function TasksViewModel() {
     var loc = location.protocol + "//" + document.domain + ":" + location.port;
     var max = 3;
     var waitTime = 300;
-    var grey = "#5A5A5A";
     var red = "#c13636";
     var green = "#4dc136";
-    var white = "white";
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
@@ -92,12 +90,10 @@ function TasksViewModel() {
             self.score(self.score()+ self.counter());
             optionObj.option("Right!");    
             optionObj.bgColor(green);
-            optionObj.textColor(white);
         }
         else{
             optionObj.option("Wrong!");
             optionObj.bgColor(red);
-            optionObj.textColor(white);
         }
 
         setTimeout(function(){ 
@@ -139,8 +135,7 @@ function TasksViewModel() {
                 for (var j = 0; j < data.questions[i].options.length; j++){
                     obs_options.push({
                         option: ko.observable(data.questions[i].options[j]),
-                        bgColor: ko.observable(grey),
-                        textColor: ko.observable(white),
+                        bgColor: ko.observable(),
                         isCorrect: data.questions[i].answer == j
                     });
                 }
