@@ -163,10 +163,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.2), 0 0 5px 0 rgba(0,0,0,0.19);
 }
 
-.button:hover {
-  background: #377ba8;
-}
-
 .button:active {
   background: #FF4081;
 }
@@ -180,9 +176,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
   transition: all 0.1s;
 }
 
-.option:hover {
-  background: #377ba8;
-}
+.blueHover:not(.nohover):hover { background: #377ba8; }
+
+.redHover:hover { background: #961A1A; }
 
 .textbox {
   border-radius: 5px;
@@ -195,5 +191,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .upperCase { text-transform: uppercase; }
 
 .lightGrey { color: #b3b3b3; }
+
+.green { background: #4dc136; }
+
+.red { background: #c13636; }
+
+br.small { line-height: 5px; }
 
 a { text-decoration: none; }

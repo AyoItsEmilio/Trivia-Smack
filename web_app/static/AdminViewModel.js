@@ -16,6 +16,7 @@ function AdminViewModel() {
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
     self.getQuestionContainsURI = "/api/get_question_contains/";
+    self.delQuestionURI = "/api/delete_question/";
 
     self.ajax = function(uri, method, data) {
         var request = {
@@ -77,44 +78,81 @@ function AdminViewModel() {
 
         self.filter("");
 
-        self.questions.removeAll();
-
-        self.ajax(self.getQuestionsURI, "GET").done(function(data) {
-            fillQuestions(data);
-        }).fail(function(jqXHR) {
-            console.log("failure");
-        });
+        fetchQuestions(self.getQuestionsURI);
 
         self.viewingQuestions(true);
     };
 
     self.getQuestionContains = function() {
 
-        self.questions.removeAll();
-
         if (self.filter() !== "") {
-            self.ajax(self.getQuestionContainsURI+self.filter(), "GET").done(function(data) {
-                fillQuestions(data);
-            }).fail(function(jqXHR) {
-                console.log("failure");
-            });
+            fetchQuestions(self.getQuestionContainsURI+self.filter());
         }
         else {
-            self.startViewing();
+            fetchQuestions(self.getQuestionsURI);
         }
     };
 
-    function fillQuestions(data) {
+    function fetchQuestions(uri) {
 
-        for (var i = 0; i < data.questions.length; i++) {
+        self.ajax(uri, "GET").done(function(data) {
 
-            self.questions.push({
-                question: ko.observable(data.questions[i].question),
-                options: ko.observableArray(data.questions[i].options),
-                answer: ko.observable(data.questions[i].answer)
-            });
-        }
+            for (var i = 0; i < data.questions.length; i++) {
+
+                if (!containsQuestion(self.questions(), data.questions[i].question, true)) {
+                    self.questions.push({
+                        question: ko.observable(data.questions[i].question),
+                        options: ko.observableArray(data.questions[i].options),
+                        answer: ko.observable(data.questions[i].answer)
+                    });
+                }
+            }
+
+            intersect(data.questions);
+
+        }).fail(function(jqXHR) {
+            console.log("failure");
+        });
     }
+
+    function intersect(fetched) {
+        toRemove = [];
+
+        for (var j = 0; j < self.questions().length; j++) {
+        observable = self.questions()[j].question();
+
+        if (!containsQuestion(fetched, observable, false))
+            toRemove.push(self.questions()[j]);
+        }
+
+        for (var k = 0; k < toRemove.length; k++)
+            self.questions.remove(toRemove[k]);
+    }
+
+    function containsQuestion(qArray, question, arrIsObs) {
+        result = false;
+
+        for (var j = 0; j < qArray.length; j++) {
+            if (arrIsObs) val = qArray[j].question();
+            else val = qArray[j].question;
+
+            if (question === val) result = true;
+        }
+        return result;
+    }
+
+    self.deleteQuestion = function(q) {
+
+        self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
+            result = data[0].result;
+
+            if (result) { self.questions.remove(q); }
+
+            console.log(result);
+        }).fail(function(jqXHR) {
+            console.log("failure");
+        });
+    };
 }
 
 ko.applyBindings(new AdminViewModel(), $("#admin")[0]);

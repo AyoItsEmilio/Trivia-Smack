@@ -32,7 +32,7 @@
         </div>
         <br>
         <div>
-            <button class="button" data-bind="click: login">Sign In</button>
+            <button class="button blueHover" data-bind="click: login">Sign In</button>
         </div>
         <br>
         <div data-bind="text: loginError"></div>
@@ -40,11 +40,11 @@
 
     <!-- ko if: loggedIn -->
         <div data-bind="ifnot: addingQuestion() || viewingQuestions()">
-            <button class="button long" data-bind="click: startAdding">
+            <button class="button blueHover long" data-bind="click: startAdding">
                 Add a question
             </button>
             <br><br>
-            <button class="button long" data-bind="click: startViewing">
+            <button class="button blueHover long" data-bind="click: startViewing">
                 View questions
             </button>
         </div>
@@ -53,7 +53,7 @@
             
             <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
             <br><br>
-            <button class="button" data-bind="click: getQuestionContains">
+            <button class="button blueHover" data-bind="click: getQuestionContains">
                 FILTER
             </button>
             <br><br><br>
@@ -63,12 +63,22 @@
                 <h3 data-bind="text: question"></h3></br>
                 <!-- ko foreach: options -->
                     <p>
-                        <div data-bind="text: $data" class="option button"></div>
+                        <div data-bind="if: $parent.options()[$parent.answer()] == $data">
+                            <div data-bind="text: $data" class="green option button nohover"></div>
+                        </div>
+                        <div data-bind="ifnot: $parent.options()[$parent.answer()] == $data">
+                            <div data-bind="text: $data" class="option button nohover"></div>
+                        </div>
                         <br>
                     </p>
                 <!-- /ko -->
-                <span>Answer: </span>
-                <span class="upperCase" data-bind="text: options()[answer()]"></span>
+
+                <br class="small">
+
+                <div class="red button redHover" data-bind="click: $parent.deleteQuestion">
+                    Delete
+                </div>
+
                 <br><br><br>
             <!-- /ko -->
         </div>
