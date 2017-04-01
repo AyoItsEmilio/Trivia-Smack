@@ -61,6 +61,8 @@ def get_questions():
 @auth.login_required
 def get_question_by(q_filter):
     access_questions = AccessQuestions()
+
+    q_filter = q_filter.replace("+", "\+")
     q_filter = re.compile(".*"+q_filter+".*", re.IGNORECASE)
     questions = access_questions.get_question(question=q_filter)
 
@@ -70,14 +72,13 @@ def get_question_by(q_filter):
 @main.route("/api/delete_question/<question>", methods=["DELETE"])
 @auth.login_required
 def delete_question(question):
-    print "*{}*".format(question)
-    print type(question)
     access_questions = AccessQuestions()
 
     if access_questions.get_num_questions == 0:
         abort(404)
 
-    result = access_questions.delete_question(question=str(question))
+    question = question.replace("+", "\+")
+    result = access_questions.delete_question(question=re.compile(question+".*"))
 
     return make_response(jsonify({"result":result["n"]}, 200))
 
