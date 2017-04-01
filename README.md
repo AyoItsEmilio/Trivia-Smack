@@ -9,6 +9,7 @@ Play two player mode on different computers or on different tabs locally. A play
 There's also an admin page to manage questions. It's up to you to figure out the login credentials.
 
 Go here http://triviadockerenvgood.irs2mc4qmz.us-west-2.elasticbeanstalk.com/index.html to play.
+
 Go here http://triviadockerenvgood.irs2mc4qmz.us-west-2.elasticbeanstalk.com/admin.html to access the admin page.
 
 Uses AWS Codepipeline for Continuous Integration. Code changes trigger deployment to our production server in AWS (http://triviadockerenvgood.irs2mc4qmz.us-west-2.elasticbeanstalk.com. It's purely RESTful so don't expect to see anything when you go to the url).
