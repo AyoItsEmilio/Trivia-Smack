@@ -18,14 +18,17 @@ def get_password(username):
         return "comp4350"
     return None
 
+
 @auth.error_handler
 def unauthorized():
     return make_response(jsonify({"error": "Unauthorized access"}), 403)
+
 
 @main.route("/api/login", methods=["GET"])
 @auth.login_required
 def login():
     return make_response(jsonify(result={"success":True}), 200)
+
 
 @main.route("/api/add_question", methods=["POST"])
 @auth.login_required
@@ -44,12 +47,15 @@ def add_question():
 
     return make_response(jsonify(result={"success": add_result}), 200)
 
+
 @main.route("/api/get_questions", methods=["GET"])
 @auth.login_required
 def get_questions():
     access_questions = AccessQuestions()
     questions = access_questions.get_all_questions()
+
     return make_response(jsonify(questions=questions), 200)
+
 
 @main.route("/api/get_question_contains/<q_filter>", methods=["GET"])
 @auth.login_required
@@ -57,7 +63,24 @@ def get_question_by(q_filter):
     access_questions = AccessQuestions()
     q_filter = re.compile(".*"+q_filter+".*", re.IGNORECASE)
     questions = access_questions.get_question(question=q_filter)
+
     return make_response(jsonify(questions=questions), 200)
+
+
+@main.route("/api/delete_question/<question>", methods=["DELETE"])
+@auth.login_required
+def delete_question(question):
+    print "*{}*".format(question)
+    print type(question)
+    access_questions = AccessQuestions()
+
+    if access_questions.get_num_questions == 0:
+        abort(404)
+
+    result = access_questions.delete_question(question=str(question))
+
+    return make_response(jsonify({"result":result["n"]}, 200))
+
 
 @main.route("/api/question_data/<int:num_questions>", methods=["GET"])
 def question_data(num_questions):
@@ -66,8 +89,8 @@ def question_data(num_questions):
 
     return make_response(jsonify(questions=questions), 200)
 
-def validate_json(json):
 
+def validate_json(json):
     result = True
 
     try:
@@ -80,6 +103,7 @@ def validate_json(json):
              and isinstance(json["options"], list) and result
 
     return result
+
 
 def clean_json(json):
     result = {}

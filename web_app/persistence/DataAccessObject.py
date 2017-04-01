@@ -99,4 +99,4 @@ class DataAccessObject(DataAccessInterface):
         return result
 
     def delete_question(self, **kwargs):
-        self.mongo.questions.remove(kwargs)
+        return self.mongo.questions.remove(kwargs)
