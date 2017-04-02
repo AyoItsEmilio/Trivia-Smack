@@ -58,6 +58,15 @@ h3 { font-size: 35px; }
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.2), 0 0 5px 0 rgba(0,0,0,0.19);
 }
 
+.option {
+  width: 30%;
+  background: #5A5A5A;
+  padding: 8px;
+  height: auto;
+  transition: all 0.1s;
+}
+
+
 /* Laptop - full screen */
 @media screen 
   and (min-width: 700px) 
@@ -169,13 +178,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .long {}
-
-.option {
-  background: #5A5A5A;
-  padding: 8px;
-  height: auto;
-  transition: all 0.1s;
-}
 
 .blueHover:not(.nohover):hover { background: #377ba8; }
 
