@@ -11,8 +11,12 @@ class QuestionTest(unittest.TestCase):
     def setUp(self):
         self.question = "What's my favorite color?"
         self.options = ["blue", "green", "red"]
+        self.difficulty = "easy"
+        self.category = "other"
         self.answer = 0
-        self.question_obj = Question(self.question, self.options, self.answer)
+        self.question_obj = Question(self.question, self.options,
+                                     self.difficulty, self.category,
+                                     self.answer)
 
     def tearDown(self):
         self.question_obj = None

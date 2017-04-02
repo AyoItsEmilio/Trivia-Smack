@@ -34,7 +34,8 @@ class DataAccessTest(unittest.TestCase):
         print "Testing DataAccess: get_question"
 
         question = "Platypuses lay eggs"
-        target_question = Question(question, ["true", "false"], 0)
+        target_question = Question(question, ["true", "false"], "easy",
+                                   "other", 0)
 
         question_obj = DataAccessTest.data_access.get_question(question=question)[0]
 
@@ -209,6 +210,8 @@ class DataAccessTest(unittest.TestCase):
 
         DataAccessTest.data_access.insert_question(question_obj.question,
                                                    question_obj.options,
+                                                   question_obj.difficulty,
+                                                   question_obj.category,
                                                    question_obj.answer)
 
     def test_data_access(self):
