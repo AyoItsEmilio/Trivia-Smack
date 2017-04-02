@@ -72,11 +72,13 @@ class DataAccessObject(DataAccessInterface):
     def get_num_questions(self):
         return self.mongo.questions.count()
 
-    def insert_question(self, question, options, answer):
+    def insert_question(self, question, options, difficulty, category, answer):
 
         return self.mongo.questions.insert_one({
             "question": question,
             "options": options,
+            "difficulty": difficulty,
+            "category": category,
             "answer": answer
         }).inserted_id
 
