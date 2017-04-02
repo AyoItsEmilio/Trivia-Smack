@@ -139,6 +139,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .button {
+  width: 50%;
   color: white;
   border-radius: 2px;
   text-transform: uppercase;
