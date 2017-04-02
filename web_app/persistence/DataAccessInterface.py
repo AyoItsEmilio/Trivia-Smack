@@ -32,7 +32,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def insert_question(self, question, options, answer):
+    def insert_question(self, question, options, difficulty, category, answer):
         pass
 
     @abstractmethod
