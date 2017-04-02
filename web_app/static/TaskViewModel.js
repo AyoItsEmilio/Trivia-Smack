@@ -148,6 +148,8 @@ function TasksViewModel() {
                     answer: data.questions[i].answer
                 });
             }
+        }).fail(function(jqXHR) {
+            console.log("failure");
         });
     }
 }
