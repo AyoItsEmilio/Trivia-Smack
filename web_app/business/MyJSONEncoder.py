@@ -10,7 +10,8 @@ class MyJSONEncoder(JSONEncoder):
             return {
                 "question": obj.question,
                 "options": obj.options,
-                "answer": obj.answer
+                "answer": obj.answer,
+                "category": obj.category
             }
 
         return super(MyJSONEncoder, self).default(obj)
