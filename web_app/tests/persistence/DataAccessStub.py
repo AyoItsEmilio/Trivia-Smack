@@ -24,7 +24,7 @@ class DataAccessStub(DataAccessInterface):
             "options": ["1200 lbs", "1000 lbs", "600 lbs",
                         "Enough to break the ice"],
             "difficulty":"easy",
-            "category":"animal",
+            "category":"animals",
             "answer": 1
           },
           {
@@ -38,7 +38,7 @@ class DataAccessStub(DataAccessInterface):
               "question": "Platypuses lay eggs",
               "options": ["true", "false"],
               "difficulty":"easy",
-              "category":"animal",
+              "category":"animals",
               "answer": 0
           },
           {
@@ -66,7 +66,7 @@ class DataAccessStub(DataAccessInterface):
               "question": "The plural of bison is:",
               "options": ["bisons", "buffalo", "bison", "buffalos"],
               "difficulty":"easy",
-              "category":"animal",
+              "category":"animals",
               "answer": 2
           },
           {
