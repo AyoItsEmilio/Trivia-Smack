@@ -2,21 +2,28 @@ $(document).ready(function(){
 function TasksViewModel() {
     var self = this;
     var loc = location.protocol + "//" + document.domain + ":" + location.port;
-    var max = 3;
+    var max = 2;
     var waitTime = 300;
     var red = "#c13636";
     var green = "#4dc136";
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
+    self.category = null;
     self.questionsURI = "/api/question_data/"+max;
     self.score = ko.observable(null);
     self.otherScore = ko.observable(null);
     self.questionCount = ko.observable(0);
     self.counter = ko.observable(countDownTime);
     self.isWaiting = ko.observable(false);
+    self.showingCategories = ko.observable(false);
     self.onePlayerMode = ko.observable(true);
     self.isPlaying = ko.observable(false);
+    
+    self.categories = ['all', 'animals', 'books', 'geography',
+    'history', 'math', 'movies and TV', 'music', 'other',
+    'science', 'sports'];
+
 
     self.counter.subscribe(function(newValue) {
         if (newValue === 0){
@@ -63,10 +70,21 @@ function TasksViewModel() {
 
     self.startOnePlayer = function() {
         self.onePlayerMode(true);
+        if(self.showingCategories(false)){
+            self.showingCategories(true);
+        }
         self.isWaiting(false);
         self.otherScore(null);
-        startGame();
+        // startGame();
     };
+
+    self.chooseCategory = function(category) {
+        self.category = category;
+        console.log("Category clicked is " + self.category)
+        self.questionsURI = self.questionsURI+"/"+self.category
+        self.showingCategories(false);
+        startGame();
+    }
 
     function startGame() {
         self.questions = ko.observableArray();
@@ -79,11 +97,12 @@ function TasksViewModel() {
 
     function endGame() {
         self.isPlaying(false);
-
         if (!self.onePlayerMode()){
             socket.emit("game_over", {"score":self.score()});
             console.log(socket);
         }
+        self.questionsURI = "/api/question_data/"+max;
+
     }
 
     self.processAnswer = function(optionObj) {

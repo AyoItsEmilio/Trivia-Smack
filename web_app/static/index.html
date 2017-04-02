@@ -24,6 +24,17 @@
             <br><br>
 
             <div class="button blueHover" data-bind="click: startOnePlayer">One Player!</div><br>
+
+            <div id="category" data-bind="if: showingCategories">
+                Choose A Category!
+                <ul data-bind="foreach: categories">
+                <li>
+                <div data-bind="click: $parent.chooseCategory.bind($data)" class="button blueHover"><span data-bind="text: $data"></span> </div>
+                </li>
+                <ul>
+            </div>
+            <br>
+
             <div class="button blueHover" data-bind="click: startTwoPlayer">Two Player!</div><br>
 
             <span data-bind="if: score() || score()==0">
@@ -38,6 +49,7 @@
         <div id="waiting" data-bind="if: isWaiting">
             Waiting for other player...
         </div>
+
     <!-- /ko -->
 
     <!-- ko if: isPlaying -->
