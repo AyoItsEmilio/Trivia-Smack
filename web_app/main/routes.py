@@ -33,19 +33,20 @@ def login():
 @main.route("/api/add_question", methods=["POST"])
 @auth.login_required
 def add_question():
-    if not request.json or not validate_json(request.json):
-        abort(400)
+    error = validate_json(request.json)
+    if not request.json or error:
+        return make_response(jsonify(result={"errorMsg":error}), 400)
 
     access_questions = AccessQuestions()
 
     question_obj = clean_json(request.json)
 
-    add_result = access_questions.add_question(\
-        question_obj["question"],\
-        question_obj["options"],\
-        question_obj["answer"])
+    #add_result = access_questions.add_question(\
+    #    question_obj["question"],\
+    #    question_obj["options"],\
+    #    question_obj["answer"])
 
-    return make_response(jsonify(result={"success": add_result}), 200)
+    return make_response(jsonify(result={"success": "hi"}), 200)
 
 
 @main.route("/api/get_questions", methods=["GET"])
@@ -92,18 +93,47 @@ def question_data(num_questions):
 
 
 def validate_json(json):
-    result = True
+    error = ""
 
-    try:
-        int(str(json["answer"]))
-    except ValueError:
-        result = False
+    if "question" not in json or "options" not in json or "answer" not in json:
+        error = "Invalid request"
 
-    result = "question" in json and "options" in json and "answer" in json\
-             and isinstance(json["question"], unicode) and result\
-             and isinstance(json["options"], list) and result
+    if not error:
+        if json["question"] == "" or json["options"] == [] or json["answer"] == "":
+            error = "Fields can't be empty"
 
-    return result
+    if not error:
+        try:
+            int(str(json["answer"]))
+        except ValueError:
+            error = "Answer must be a number"
+
+    if not error:
+        answer = int(str(json["answer"]))
+
+        if answer < 0 or answer > len(json["options"])-1:
+            error = "Answer is out of range"
+
+    if not error:
+        if not isinstance(json["options"], list):
+            error = "Options must be a comma separated list"
+
+    if not error:
+        if any(o.strip() == "" for o in json["options"]):
+            error = "An option can't be empty"
+
+    if not error:
+        try:
+            int(str(json["question"]))
+            error = "Question must be string"
+        except ValueError:
+            pass
+
+    if not error:
+        if len(json["options"]) <= 1:
+            error = "There must be more than 1 option"
+
+    return error
 
 
 def clean_json(json):

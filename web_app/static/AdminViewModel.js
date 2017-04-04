@@ -12,6 +12,7 @@ function AdminViewModel() {
     self.questions = ko.observableArray();
     self.filter = ko.observable("");
     self.loginError = ko.observable("");
+    self.warningMessage = ko.observable("");
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
@@ -40,16 +41,25 @@ function AdminViewModel() {
     };
 
     self.addQuestion = function() {
+        self.warningMessage("");
 
         questionJson = {
             "question": self.question(),
             "options": self.options().split(","),
-            "answer": self.answer()};
+            "answer": self.answer()
+        };
 
         self.ajax(self.addQuestionURI, "POST", questionJson).done(function(data) {
             console.log("success");
             self.addingQuestion(false);
         }).fail(function(jqXHR) {
+            console.log(jqXHR);
+            jsonResult = jQuery.parseJSON(jqXHR.responseText); 
+            console.log(jsonResult.result.errorMsg);
+            self.warningMessage("");
+            setTimeout(function(){
+                self.warningMessage(jsonResult.result.errorMsg);
+            }, 90);
             console.log("failure");
         });
     };

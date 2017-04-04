@@ -89,16 +89,18 @@
                     <input data-bind="value: question" type="text" class="textbox" placeholder="Question">
                 </div><br>
                 <div>
-                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options">
+                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options (comma separated)">
                 </div><br>
                 <div>
-                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer">
+                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
                 </div>
             </form>
             <br>
             <div>
                 <button class="button" data-bind="click: addQuestion">Add</button>
             </div>
+            <br class="small">
+            <div class="upperCase" data-bind="text: warningMessage"></div>
         </div>
     <!-- /ko -->
 
