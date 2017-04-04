@@ -41,6 +41,8 @@ class DataAccessStub(DataAccessInterface):
         self.insert_question("The Balkans are in:",
                              ["South America", "Europe", "Australia",
                               "Asia"], 1)
+        self.insert_question("How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+                             ["1", "18", "None"], 1)
 
     def close(self):
         print "Closed database"

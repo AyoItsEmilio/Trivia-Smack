@@ -38,6 +38,9 @@ def populate_database(db_name):
          "answer": 2},
         {"question": "The Balkans are in:",
          "options": ["South America", "Europe", "Australia", "Asia"],
+         "answer": 1},
+        {"question": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+         "options": ["1", "18", "None"],
          "answer": 1}
     ]
 

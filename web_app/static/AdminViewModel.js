@@ -18,26 +18,6 @@ function AdminViewModel() {
     self.getQuestionContainsURI = "/api/get_question_contains/";
     self.delQuestionURI = "/api/delete_question/";
 
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            contentType: "application/json",
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", 
-                    "Basic " + btoa(self.username() + ":" + self.password()));
-            },
-            error: function(jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-        };
-        return $.ajax(request);
-    };
-
     self.login = function() {
         self.ajax(self.loginURI, "GET").done(function(data) {
             self.loginError("");
@@ -93,6 +73,39 @@ function AdminViewModel() {
         }
     };
 
+    self.deleteQuestion = function(q) {
+
+        self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
+            result = data[0].result;
+
+            if (result) { self.questions.remove(q); }
+
+            console.log(result);
+        }).fail(function(jqXHR) {
+            console.log("failure");
+        });
+    };
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            contentType: "application/json",
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", 
+                    "Basic " + btoa(self.username() + ":" + self.password()));
+            },
+            error: function(jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+        };
+        return $.ajax(request);
+    };
+
     function fetchQuestions(uri) {
 
         self.ajax(uri, "GET").done(function(data) {
@@ -140,19 +153,6 @@ function AdminViewModel() {
         }
         return result;
     }
-
-    self.deleteQuestion = function(q) {
-
-        self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
-            result = data[0].result;
-
-            if (result) { self.questions.remove(q); }
-
-            console.log(result);
-        }).fail(function(jqXHR) {
-            console.log("failure");
-        });
-    };
 }
 
 ko.applyBindings(new AdminViewModel(), $("#admin")[0]);
