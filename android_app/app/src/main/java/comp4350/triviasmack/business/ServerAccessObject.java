@@ -24,12 +24,6 @@ public class ServerAccessObject implements ServerAccess {
         questionUrl = baseUrl + "api/question_data/";
     }
 
-    public void open() {
-    }
-
-    public void close() {
-    }
-
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
         try {
             if (numQuestions < 0) {

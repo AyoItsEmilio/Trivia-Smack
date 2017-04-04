@@ -51,14 +51,6 @@ public class ServerAccessStub implements ServerAccess {
         questions.add(new Question("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", optionsJ, 1));
     }
 
-    public void open(ArrayList<Question> questions) {
-        System.out.println("Opened stub server access");
-    }
-
-    public void close() {
-        System.out.println("Closed stub server access");
-    }
-
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
 
         if (numQuestions > this.questions.size()) {
