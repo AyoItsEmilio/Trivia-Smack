@@ -53,7 +53,7 @@ function TasksViewModel(){
         socket.on("other_player_ready", function() {
             self.isWaiting(false);
             self.otherScore("Waiting for other player");
-            startGame();
+            self.startGame();
         });
 
         socket.on("clean_up", function() {
