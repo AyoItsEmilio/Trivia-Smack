@@ -163,7 +163,7 @@ public class QuestionPageActivity extends AppCompatActivity {
             advancePage();
         }
 
-        protected int getTimeRemaining() {
+        public int getTimeRemaining() {
             return secondsUntilFinished;
         }
 
