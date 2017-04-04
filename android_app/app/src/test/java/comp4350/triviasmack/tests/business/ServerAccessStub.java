@@ -46,6 +46,9 @@ public class ServerAccessStub implements ServerAccess {
 
         String optionsI[] = {"South America", "Europe", "Australia", "Asia"};
         questions.add(new Question("The Balkans are in:", optionsI, 1));
+
+        String optionsJ[] = {"1", "18", "None"};
+        questions.add(new Question("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", optionsJ, 1));
     }
 
     public void open(ArrayList<Question> questions) {
