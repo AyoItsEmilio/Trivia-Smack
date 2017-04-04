@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     if(stillPlaying){
                         otherScoreText.setText("Other player is still playing");
                     }else {
-                        otherScoreText.setText("Their score:" + otherScore);
+                        otherScoreText.setText("Their score: " + otherScore);
                     }
                 }else{
                     otherScoreText.setText("The other player disconnected.");

@@ -15,9 +15,6 @@ public class ServerAccessStub implements ServerAccess {
 
     public ServerAccessStub() {
         questions = new ArrayList<>();
-    }
-
-    public void open() {
         System.out.println("Opened stub server access");
 
         String optionsA[] = {"1200 lbs", "1000 lbs", "600 lbs", "Enough to break the ice"};
