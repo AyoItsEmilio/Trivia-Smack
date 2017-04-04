@@ -65,10 +65,10 @@ function TasksViewModel(){
         self.onePlayerMode(true);
         self.isWaiting(false);
         self.otherScore(null);
-        startGame();
+        self.startGame();
     };
 
-    function startGame() {
+      self.startGame = function() {
         fetchQuestions();
         self.isPlaying(true);
         self.score(0);
