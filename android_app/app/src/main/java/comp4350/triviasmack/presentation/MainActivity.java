@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.application.Main;
-import comp4350.triviasmack.application.MultiPlayer;
+import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import io.socket.emitter.Emitter;
 
