@@ -8,7 +8,7 @@ MONGO_PORT = 27017
 
 from flask.json import JSONEncoder
 from flask_socketio import SocketIO
-from web_app.populate_database import populate_database
+from web_app.persistence.populate_database import populate_database
 from web_app.business.MyJSONEncoder import MyJSONEncoder
 from web_app.application.Services import Services
 from web_app.tests.persistence.DataAccessStub import DataAccessStub
