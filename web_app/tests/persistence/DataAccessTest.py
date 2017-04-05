@@ -13,7 +13,7 @@ class DataAccessTest(unittest.TestCase):
     def data_access_test(cls, self):
 
         DataAccessTest.data_access = Services.get_data_access()
-        DataAccessTest.db_size = 10
+        DataAccessTest.db_size = 410
 
         DataAccessTest.get_question_test(self)
         DataAccessTest.get_random_question_test(self)
@@ -34,8 +34,7 @@ class DataAccessTest(unittest.TestCase):
         print "Testing DataAccess: get_question"
 
         question = "Platypuses lay eggs"
-        target_question = Question(question, ["true", "false"], "easy",
-                                   "other", 0)
+        target_question = Question(question, ["true", "false"], 0, "other")
 
         question_obj = DataAccessTest.data_access.get_question(question=question)[0]
 
@@ -210,9 +209,8 @@ class DataAccessTest(unittest.TestCase):
 
         DataAccessTest.data_access.insert_question(question_obj.question,
                                                    question_obj.options,
-                                                   question_obj.difficulty,
-                                                   question_obj.category,
-                                                   question_obj.answer)
+                                                   question_obj.answer,
+                                                   question_obj.category)
 
     def test_data_access(self):
         print "Testing DataAccess using db stub"

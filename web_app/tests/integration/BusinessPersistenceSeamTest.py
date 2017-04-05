@@ -18,7 +18,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
     def setUp(self):
         self.big_num = 100
-        self.db_num_questions = 10
+        self.db_num_questions = 410
         self.access_questions = AccessQuestions()
 
     def tearDown(self):
@@ -27,7 +27,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
     def test_get_question(self):
         print "Testing AccessQuestions: get_question"
         question = "Platypuses lay eggs"
-        target_question = Question(question, ["true", "false"], 0)
+        target_question = Question(question, ["true", "false"], 0, "animals")
 
         question_obj = self.access_questions.get_question(question=question)[0]
 
@@ -63,7 +63,8 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
         self.access_questions.add_question(question_obj.question,
                                            question_obj.options,
-                                           question_obj.answer)
+                                           question_obj.answer,
+                                           question_obj.category)
 
     def test_get_random_questions(self):
         print "Testing AccessQuestions: get_random_questions"

@@ -9,7 +9,7 @@ class AccessQuestions(object):
     def __init__(self):
         self.data_access = Services.get_data_access()
 
-    def get_random_questions(self, set_size, category="all"):
+    def get_random_questions(self, set_size, category=None):
 
         num_qs = self.get_num_questions()
 
@@ -19,20 +19,19 @@ class AccessQuestions(object):
         questions = []
         seen = set()
 
-        while len(seen) < num_qs:
-            question_obj = self.data_access.get_random_question()
+        while len(seen) < set_size:
+            question_obj = self.data_access.get_random_question(category)
 
             if question_obj is not None:
                 qid = question_obj.question
 
-                if (qid not in seen and (category == "all" or
-                   question_obj.category == category)):
-                        questions.append(question_obj)
-                        if (len(questions) == set_size):
-                            break
+                if qid not in seen:
+                    questions.append(question_obj)
+                    if len(questions) == set_size:
+                        break
 
                 if qid not in seen:
-                        seen.add(qid)
+                    seen.add(qid)
 
         return questions
 
@@ -48,5 +47,5 @@ class AccessQuestions(object):
     def get_num_questions(self):
         return self.data_access.get_num_questions()
 
-    def add_question(self, question, options, answer):
-        self.data_access.insert_question(question, options, answer)
+    def add_question(self, question, options, answer, category):
+        self.data_access.insert_question(question, options, answer, category)

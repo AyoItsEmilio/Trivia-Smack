@@ -20,7 +20,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def get_random_question(self):
+    def get_random_question(self, category=None):
         pass
 
     @abstractmethod
@@ -32,7 +32,7 @@ class DataAccessInterface(object):
         pass
 
     @abstractmethod
-    def insert_question(self, question, options, difficulty, category, answer):
+    def insert_question(self, question, options, answer, category):
         pass
 
     @abstractmethod

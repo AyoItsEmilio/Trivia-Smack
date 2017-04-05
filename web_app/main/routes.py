@@ -84,8 +84,8 @@ def delete_question(question):
     return make_response(jsonify({"result":result["n"]}, 200))
 
 
-@main.route("/api/question_data/<int:num_questions>/<category>", methods=["GET"])
-def question_data(num_questions, category=all):
+@main.route("/api/question_data/<int:num_questions>/<string:category>", methods=["GET"])
+def question_data(num_questions, category):
     access_questions = AccessQuestions()
     questions = access_questions.get_random_questions(
         int(num_questions), category)

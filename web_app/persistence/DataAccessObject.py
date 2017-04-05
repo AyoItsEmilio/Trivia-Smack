@@ -31,19 +31,28 @@ class DataAccessObject(DataAccessInterface):
     @staticmethod
     def clean(doc):
         doc["question"] = str(doc["question"]).strip()
+        doc["category"] = str(doc["category"]).strip()
         doc["options"] = [str(o).strip() for o in doc["options"]]
 
-    def get_random_question(self):
+    def get_random_question(self, category=None):
         result = None
         doc = None
-        num_qs = self.get_num_questions()
+
+        if category is None or category == "all":
+            category_filter = {}
+            num_qs = self.get_num_questions()
+        else:
+            category_filter = {"category":category}
+            num_qs = self.mongo.questions.count(category_filter)
+
         rq_num = random.randint(0, num_qs-1) if num_qs > 0 else 0
-        doc_cursor = self.mongo.questions.find().limit(1).skip(rq_num)
+
+        doc_cursor = self.mongo.questions.find(category_filter).skip(rq_num)
 
         if doc_cursor.count() > 0:
             doc = doc_cursor[0]
             DataAccessObject.clean(doc)
-            result = Question(doc["question"], doc["options"], doc["answer"])
+            result = Question(doc["question"], doc["options"], doc["answer"], doc["category"])
 
         return result
 
@@ -54,7 +63,8 @@ class DataAccessObject(DataAccessInterface):
             DataAccessObject.clean(doc)
             result.append(Question(doc["question"],\
                                    doc["options"],\
-                                   doc["answer"]))
+                                   doc["answer"],\
+                                   doc["category"]))
 
         return result
 
@@ -65,21 +75,20 @@ class DataAccessObject(DataAccessInterface):
             DataAccessObject.clean(doc)
             result.append(Question(doc["question"],\
                                    doc["options"],\
-                                   doc["answer"]))
+                                   doc["answer"],\
+                                   doc["category"]))
 
         return result
 
     def get_num_questions(self):
         return self.mongo.questions.count()
 
-    def insert_question(self, question, options, difficulty, category, answer):
-
+    def insert_question(self, question, options, answer, category):
         return self.mongo.questions.insert_one({
             "question": question,
             "options": options,
-            "difficulty": difficulty,
+            "answer": answer,
             "category": category,
-            "answer": answer
         }).inserted_id
 
     def update_question(self, **kwargs):
