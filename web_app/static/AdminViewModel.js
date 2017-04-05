@@ -1,4 +1,3 @@
-$(document).ready(function(){
 function AdminViewModel() {
     var self = this;
     self.username = ko.observable("");
@@ -45,11 +44,11 @@ function AdminViewModel() {
         self.question("");
         self.options("");
         self.answer("");
+        self.warningMessage("");
         self.addingQuestion(true);
     };
 
     self.addQuestion = function() {
-        self.warningMessage("");
 
         questionJson = {
             "question": self.question(),
@@ -171,5 +170,3 @@ function AdminViewModel() {
     }
 }
 
-ko.applyBindings(new AdminViewModel(), $("#admin")[0]);
-});
