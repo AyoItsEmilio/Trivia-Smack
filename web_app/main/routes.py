@@ -41,12 +41,12 @@ def add_question():
 
     question_obj = clean_json(request.json)
 
-    #add_result = access_questions.add_question(\
-    #    question_obj["question"],\
-    #    question_obj["options"],\
-    #    question_obj["answer"])
+    add_result = access_questions.add_question(\
+        question_obj["question"],\
+        question_obj["options"],\
+        question_obj["answer"])
 
-    return make_response(jsonify(result={"success": "hi"}), 200)
+    return make_response(jsonify(result={"success": add_result}), 200)
 
 
 @main.route("/api/get_questions", methods=["GET"])
@@ -93,47 +93,35 @@ def question_data(num_questions):
 
 
 def validate_json(json):
-    error = ""
-
     if "question" not in json or "options" not in json or "answer" not in json:
-        error = "Invalid request"
+        return "Invalid request"
 
-    if not error:
-        if json["question"] == "" or json["options"] == [] or json["answer"] == "":
-            error = "Fields can't be empty"
+    if json["question"] == "" or json["options"] == [] or json["answer"] == "":
+        return "Fields can't be empty"
 
-    if not error:
-        try:
-            int(str(json["answer"]))
-        except ValueError:
-            error = "Answer must be a number"
-
-    if not error:
+    try:
+        int(str(json["answer"]))
         answer = int(str(json["answer"]))
 
         if answer < 0 or answer > len(json["options"])-1:
-            error = "Answer is out of range"
+            return "Answer is out of range"
+    except ValueError:
+        return "Answer must be a number"
 
-    if not error:
-        if not isinstance(json["options"], list):
-            error = "Options must be a comma separated list"
+    if not isinstance(json["options"], list):
+        return "Options must be a comma separated list"
 
-    if not error:
-        if any(o.strip() == "" for o in json["options"]):
-            error = "An option can't be empty"
+    if any(o.strip() == "" for o in json["options"]):
+        return "An option can't be empty"
 
-    if not error:
-        try:
-            int(str(json["question"]))
-            error = "Question must be string"
-        except ValueError:
-            pass
+    try:
+        int(str(json["question"]))
+        return "Question must be string"
+    except ValueError:
+        pass
 
-    if not error:
-        if len(json["options"]) <= 1:
-            error = "There must be more than 1 option"
-
-    return error
+    if len(json["options"]) <= 1:
+        return "There must be more than 1 option"
 
 
 def clean_json(json):
