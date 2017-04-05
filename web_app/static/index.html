@@ -33,19 +33,22 @@ $(document).ready(function() {
             <img class="relImage" src="trivialogo.svg">
             <br><br>
 
-            <div class="button blueHover" data-bind="click: startOnePlayer">One Player!</div><br>
+            <div class="button pinkHover" data-bind="click: pickCategory">
+                One Player!
+            </div><br>
 
             <div id="category" data-bind="if: showingCategories">
-                Choose A Category!
-                <ul data-bind="foreach: categories">
-                <li>
-                <div data-bind="click: $parent.chooseCategory.bind($data)" class="button blueHover"><span data-bind="text: $data"></span> </div>
-                </li>
-                <ul>
-            </div>
-            <br>
+                <div class="upperCase">Pick a category!</div><br class="small">
 
-            <div class="button blueHover" data-bind="click: startTwoPlayer">Two Player!</div><br>
+                <!-- ko foreach: categories -->
+                    <div data-bind="text: $data, click: $parent.startOnePlayer" class="pinkish button redHover">
+                    </div><br class="small">
+                <!-- /ko -->
+            </div>
+
+            <div class="button pinkHover" data-bind="click: startTwoPlayer">
+                Two Player!
+            </div><br>
 
             <span data-bind="if: score() || score()==0">
                 Score: <span data-bind="text: score"></span>
@@ -71,7 +74,7 @@ $(document).ready(function() {
                 <p>
                     <div data-bind="text: option(),
                     style:{background: bgColor},
-                    click: $parents[1].processAnswer" class="button blueHover option">
+                    click: $parents[1].processAnswer" class="button greyHover option">
                     </div></br>
                 </p>
             <!-- /ko -->

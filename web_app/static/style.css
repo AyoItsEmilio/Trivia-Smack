@@ -60,7 +60,7 @@ h3 { font-size: 35px; }
 
 .option {
   width: 30%;
-  background: #5A5A5A;
+  background: #747474;
   padding: 8px;
   height: auto;
   transition: all 0.1s;
@@ -179,9 +179,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .long {}
 
-.blueHover:not(.nohover):hover { background: #377ba8; }
+.pinkHover:not(.nohover):hover { background: #d71154; }
 
 .redHover:hover { background: #961A1A; }
+
+.greyHover:hover { background: #444444; }
 
 .textbox {
   border-radius: 5px;
@@ -198,6 +200,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .green { background: #4dc136; }
 
 .red { background: #c13636; }
+
+.pinkish { background: #ff444f; }
 
 br.small { line-height: 5px; }
 

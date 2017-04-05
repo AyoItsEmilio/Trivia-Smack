@@ -40,7 +40,7 @@ $(document).ready(function() {
         </div>
         <br>
         <div>
-            <button class="button blueHover" data-bind="click: login">Sign In</button>
+            <button class="button pinkHover" data-bind="click: login">Sign In</button>
         </div>
         <br>
         <div data-bind="text: loginError"></div>
@@ -48,11 +48,11 @@ $(document).ready(function() {
 
     <!-- ko if: loggedIn -->
         <div data-bind="ifnot: addingQuestion() || viewingQuestions()">
-            <button class="button blueHover long" data-bind="click: startAdding">
+            <button class="button pinkHover long" data-bind="click: startAdding">
                 Add a question
             </button>
             <br><br>
-            <button class="button blueHover long" data-bind="click: startViewing">
+            <button class="button pinkHover long" data-bind="click: startViewing">
                 View questions
             </button>
         </div>
@@ -61,7 +61,7 @@ $(document).ready(function() {
             
             <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
             <br><br>
-            <button class="button blueHover" data-bind="click: getQuestionContains">
+            <button class="button pinkHover" data-bind="click: getQuestionContains">
                 FILTER
             </button>
             <br><br><br>
