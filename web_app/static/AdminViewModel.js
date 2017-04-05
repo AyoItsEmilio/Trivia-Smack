@@ -24,7 +24,12 @@ function AdminViewModel() {
             self.loginError("");
             self.loggedIn(true);
         }).fail(function(jqXHR) {
-            self.loginError("WRONG!");
+
+            self.loginError("");
+            setTimeout(function(){
+                self.loginError("WRONG!");
+            }, 90);
+
             self.username("");
             self.password("");
             console.log("failure");
@@ -37,6 +42,9 @@ function AdminViewModel() {
     };
 
     self.startAdding = function() {
+        self.question("");
+        self.options("");
+        self.answer("");
         self.addingQuestion(true);
     };
 
@@ -50,17 +58,14 @@ function AdminViewModel() {
         };
 
         self.ajax(self.addQuestionURI, "POST", questionJson).done(function(data) {
-            console.log("success");
             self.addingQuestion(false);
         }).fail(function(jqXHR) {
-            console.log(jqXHR);
             jsonResult = jQuery.parseJSON(jqXHR.responseText); 
-            console.log(jsonResult.result.errorMsg);
             self.warningMessage("");
             setTimeout(function(){
                 self.warningMessage(jsonResult.result.errorMsg);
             }, 90);
-            console.log("failure");
+            console.log("Ajax failure");
         });
     };
 
@@ -88,11 +93,10 @@ function AdminViewModel() {
         self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
             result = data[0].result;
 
-            if (result) { self.questions.remove(q); }
+            if (result) self.questions.remove(q);
 
-            console.log(result);
         }).fail(function(jqXHR) {
-            console.log("failure");
+            console.log("Ajax failure");
         });
     };
 
@@ -110,7 +114,7 @@ function AdminViewModel() {
                     "Basic " + btoa(self.username() + ":" + self.password()));
             },
             error: function(jqXHR) {
-                console.log("ajax error " + jqXHR.status);
+                console.log("Ajax failure");
             }
         };
         return $.ajax(request);
@@ -119,23 +123,25 @@ function AdminViewModel() {
     function fetchQuestions(uri) {
 
         self.ajax(uri, "GET").done(function(data) {
-
-            for (var i = 0; i < data.questions.length; i++) {
-
-                if (!containsQuestion(self.questions(), data.questions[i].question, true)) {
-                    self.questions.push({
-                        question: ko.observable(data.questions[i].question),
-                        options: ko.observableArray(data.questions[i].options),
-                        answer: ko.observable(data.questions[i].answer)
-                    });
-                }
-            }
-
-            intersect(data.questions);
-
+            buildQuestions(data);
         }).fail(function(jqXHR) {
-            console.log("failure");
+            console.log("Ajax failure");
         });
+    }
+
+    function buildQuestions(data) {
+        for (var i = 0; i < data.questions.length; i++) {
+
+            if (!containsQuestion(self.questions(), data.questions[i].question, true)) {
+                self.questions.push({
+                    question: ko.observable(data.questions[i].question),
+                    options: ko.observableArray(data.questions[i].options),
+                    answer: ko.observable(data.questions[i].answer)
+                });
+            }
+        }
+
+        intersect(data.questions);     
     }
 
     function intersect(fetched) {
