@@ -19,7 +19,7 @@ import static org.junit.Assert.fail;
 public class ServerAccessTest {
 
     private final static int bigNum = 100;
-    private final static int dbSize = 9;
+    private final static int dbSize = 10;
 
     public static void testGetRandomQuestionValidNum(int numQuestions) {
         ServerAccess serverAccess = Services.getServerAccess();

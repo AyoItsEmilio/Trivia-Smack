@@ -33,8 +33,9 @@ def login():
 @main.route("/api/add_question", methods=["POST"])
 @auth.login_required
 def add_question():
-    if not request.json or not validate_json(request.json):
-        abort(400)
+    error = validate_json(request.json)
+    if not request.json or error:
+        return make_response(jsonify(result={"errorMsg":error}), 400)
 
     access_questions = AccessQuestions()
 
@@ -93,18 +94,35 @@ def question_data(num_questions, category=all):
 
 
 def validate_json(json):
-    result = True
+    if "question" not in json or "options" not in json or "answer" not in json:
+        return "Invalid request"
+
+    if json["question"] == "" or json["options"] == [] or json["answer"] == "":
+        return "Fields can't be empty"
 
     try:
         int(str(json["answer"]))
+        answer = int(str(json["answer"]))
+
+        if answer < 0 or answer > len(json["options"])-1:
+            return "Answer is out of range"
     except ValueError:
-        result = False
+        return "Answer must be a number"
 
-    result = "question" in json and "options" in json and "answer" in json\
-             and isinstance(json["question"], unicode) and result\
-             and isinstance(json["options"], list) and result
+    if not isinstance(json["options"], list):
+        return "Options must be a comma separated list"
 
-    return result
+    if any(o.strip() == "" for o in json["options"]):
+        return "An option can't be empty"
+
+    try:
+        int(str(json["question"]))
+        return "Question must be string"
+    except ValueError:
+        pass
+
+    if len(json["options"]) <= 1:
+        return "There must be more than 1 option"
 
 
 def clean_json(json):

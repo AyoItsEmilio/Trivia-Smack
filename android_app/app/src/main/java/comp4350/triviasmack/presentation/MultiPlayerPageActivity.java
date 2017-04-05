@@ -1,24 +1,15 @@
 package comp4350.triviasmack.presentation;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URISyntaxException;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.application.MultiPlayer;
+import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
-import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 

@@ -3,8 +3,7 @@ populate_database.py
 """
 from pymongo import MongoClient
 from web_app import MONGO_ADDR, MONGO_PORT
-from questions import question_list
-
+from web_app.persistence.questions import question_list
 
 def populate_database(db_name):
 

@@ -22,7 +22,7 @@ class AccessQuestionsTest(unittest.TestCase):
 
     def setUp(self):
         self.access_questions = AccessQuestions()
-        self.db_size = 9
+        self.db_size = 10
 
     def tearDown(self):
         self.access_questions = None

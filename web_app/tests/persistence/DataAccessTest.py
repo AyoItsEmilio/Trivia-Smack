@@ -13,7 +13,7 @@ class DataAccessTest(unittest.TestCase):
     def data_access_test(cls, self):
 
         DataAccessTest.data_access = Services.get_data_access()
-        DataAccessTest.db_size = 9
+        DataAccessTest.db_size = 10
 
         DataAccessTest.get_question_test(self)
         DataAccessTest.get_random_question_test(self)

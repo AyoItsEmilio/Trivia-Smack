@@ -8,6 +8,14 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+<script type="text/javascript" src="AdminViewModel.js"></script>
+<script>
+$(document).ready(function() {
+    ko.applyBindings(new AdminViewModel(), $("#admin")[0]);
+});
+</script>
+
 </head>
 
 <body width="device-width">
@@ -89,16 +97,18 @@
                     <input data-bind="value: question" type="text" class="textbox" placeholder="Question">
                 </div><br>
                 <div>
-                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options">
+                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options (comma separated)">
                 </div><br>
                 <div>
-                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer">
+                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
                 </div>
             </form>
             <br>
             <div>
                 <button class="button" data-bind="click: addQuestion">Add</button>
             </div>
+            <br class="small">
+            <div class="upperCase" data-bind="text: warningMessage"></div>
         </div>
     <!-- /ko -->
 

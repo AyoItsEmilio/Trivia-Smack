@@ -4,8 +4,8 @@ DataAccessStub.py
 import random
 import re
 from web_app.persistence.DataAccessInterface import DataAccessInterface
+from web_app.persistence.questions import question_list
 from web_app.objects.Question import Question
-
 
 class DataAccessStub(DataAccessInterface):
     """Stub database"""
@@ -15,75 +15,6 @@ class DataAccessStub(DataAccessInterface):
         self.questions = []
 
     def open(self):
-
-        print "Opened database"
-
-        question_list = [
-          {
-            "question": "How much does a male Polar Bear weigh?",
-            "options": ["1200 lbs", "1000 lbs", "600 lbs",
-                        "Enough to break the ice"],
-            "difficulty":"easy",
-            "category":"animals",
-            "answer": 1
-          },
-          {
-              "question": "Is the square root of 10:",
-              "options": ["zero", "greater than 3", "less than 3"],
-              "difficulty":"easy",
-              "category":"math",
-              "answer": 1
-          },
-          {
-              "question": "Platypuses lay eggs",
-              "options": ["true", "false"],
-              "difficulty":"easy",
-              "category":"animals",
-              "answer": 0
-          },
-          {
-              "question": "Helsinki is the capitol of:",
-              "options": ["Sweden", "Russia", "Finland", "Iceland"],
-              "difficulty":"easy",
-              "category":"geography",
-              "answer": 2
-          },
-          {
-              "question": "If x+y=3 and 2x+y=4, then x equals",
-              "options": ["0", "1", "4", "3"],
-              "difficulty":"easy",
-              "category":"math",
-              "answer": 1
-          },
-          {
-              "question": "If x+y<11 and x>6, then y is:",
-              "options": ["positive", "negative", "Not determinable"],
-              "difficulty":"easy",
-              "category":"math",
-              "answer": 2
-          },
-          {
-              "question": "The plural of bison is:",
-              "options": ["bisons", "buffalo", "bison", "buffalos"],
-              "difficulty":"easy",
-              "category":"animals",
-              "answer": 2
-          },
-          {
-              "question": "21, 25, 33, 49, 81, ",
-              "options": ["162", "113", "144", "145"],
-              "difficulty":"easy",
-              "category":"math",
-              "answer": 2
-          },
-          {
-              "question": "The Balkans are in:",
-              "options": ["South America", "Europe", "Australia", "Asia"],
-              "difficulty":"easy",
-              "category":"geography",
-              "answer": 1
-          }]
-
         for question in question_list:
             self.insert_question(**question)
 
@@ -111,9 +42,8 @@ class DataAccessStub(DataAccessInterface):
     def get_num_questions(self):
         return len(self.questions)
 
-    def insert_question(self, question, options, difficulty, category, answer):
-        self.questions.append(Question(question, options,
-                              difficulty, category, answer))
+    def insert_question(self, question, options, answer, category):
+        self.questions.append(Question(question, options, answer, category))
         return True
 
     def update_question(self, **kwargs):

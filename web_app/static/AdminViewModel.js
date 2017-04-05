@@ -1,4 +1,3 @@
-$(document).ready(function(){
 function AdminViewModel() {
     var self = this;
     self.username = ko.observable("");
@@ -12,38 +11,24 @@ function AdminViewModel() {
     self.questions = ko.observableArray();
     self.filter = ko.observable("");
     self.loginError = ko.observable("");
+    self.warningMessage = ko.observable("");
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
     self.getQuestionContainsURI = "/api/get_question_contains/";
     self.delQuestionURI = "/api/delete_question/";
 
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            contentType: "application/json",
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", 
-                    "Basic " + btoa(self.username() + ":" + self.password()));
-            },
-            error: function(jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-        };
-        return $.ajax(request);
-    };
-
     self.login = function() {
         self.ajax(self.loginURI, "GET").done(function(data) {
             self.loginError("");
             self.loggedIn(true);
         }).fail(function(jqXHR) {
-            self.loginError("WRONG!");
+
+            self.loginError("");
+            setTimeout(function(){
+                self.loginError("WRONG!");
+            }, 90);
+
             self.username("");
             self.password("");
             console.log("failure");
@@ -56,6 +41,10 @@ function AdminViewModel() {
     };
 
     self.startAdding = function() {
+        self.question("");
+        self.options("");
+        self.answer("");
+        self.warningMessage("");
         self.addingQuestion(true);
     };
 
@@ -64,13 +53,18 @@ function AdminViewModel() {
         questionJson = {
             "question": self.question(),
             "options": self.options().split(","),
-            "answer": self.answer()};
+            "answer": self.answer()
+        };
 
         self.ajax(self.addQuestionURI, "POST", questionJson).done(function(data) {
-            console.log("success");
             self.addingQuestion(false);
         }).fail(function(jqXHR) {
-            console.log("failure");
+            jsonResult = jQuery.parseJSON(jqXHR.responseText); 
+            self.warningMessage("");
+            setTimeout(function(){
+                self.warningMessage(jsonResult.result.errorMsg);
+            }, 90);
+            console.log("Ajax failure");
         });
     };
 
@@ -93,26 +87,60 @@ function AdminViewModel() {
         }
     };
 
+    self.deleteQuestion = function(q) {
+
+        self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
+            result = data[0].result;
+
+            if (result) self.questions.remove(q);
+
+        }).fail(function(jqXHR) {
+            console.log("Ajax failure");
+        });
+    };
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            contentType: "application/json",
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", 
+                    "Basic " + btoa(self.username() + ":" + self.password()));
+            },
+            error: function(jqXHR) {
+                console.log("Ajax failure");
+            }
+        };
+        return $.ajax(request);
+    };
+
     function fetchQuestions(uri) {
 
         self.ajax(uri, "GET").done(function(data) {
-
-            for (var i = 0; i < data.questions.length; i++) {
-
-                if (!containsQuestion(self.questions(), data.questions[i].question, true)) {
-                    self.questions.push({
-                        question: ko.observable(data.questions[i].question),
-                        options: ko.observableArray(data.questions[i].options),
-                        answer: ko.observable(data.questions[i].answer)
-                    });
-                }
-            }
-
-            intersect(data.questions);
-
+            buildQuestions(data);
         }).fail(function(jqXHR) {
-            console.log("failure");
+            console.log("Ajax failure");
         });
+    }
+
+    function buildQuestions(data) {
+        for (var i = 0; i < data.questions.length; i++) {
+
+            if (!containsQuestion(self.questions(), data.questions[i].question, true)) {
+                self.questions.push({
+                    question: ko.observable(data.questions[i].question),
+                    options: ko.observableArray(data.questions[i].options),
+                    answer: ko.observable(data.questions[i].answer)
+                });
+            }
+        }
+
+        intersect(data.questions);     
     }
 
     function intersect(fetched) {
@@ -140,20 +168,5 @@ function AdminViewModel() {
         }
         return result;
     }
-
-    self.deleteQuestion = function(q) {
-
-        self.ajax(self.delQuestionURI+q.question(), "DELETE").done(function(data) {
-            result = data[0].result;
-
-            if (result) { self.questions.remove(q); }
-
-            console.log(result);
-        }).fail(function(jqXHR) {
-            console.log("failure");
-        });
-    };
 }
 
-ko.applyBindings(new AdminViewModel(), $("#admin")[0]);
-});

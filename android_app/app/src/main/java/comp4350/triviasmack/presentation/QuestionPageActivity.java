@@ -1,27 +1,20 @@
 package comp4350.triviasmack.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.application.MultiPlayer;
+import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
-import io.socket.client.Socket;
-
 
 public class QuestionPageActivity extends AppCompatActivity {
 
@@ -33,14 +26,11 @@ public class QuestionPageActivity extends AppCompatActivity {
     private int secondsUntilFinished = 0;
     private TextView scoreView;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
-    private Socket socket;
-    private final String TAG = "QuestionPageActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        socket = multiPlayer.getSocket();
 
         setContentView(R.layout.activity_question_page);
         Question questionObj = gameController.getNextQuestion();
@@ -64,7 +54,7 @@ public class QuestionPageActivity extends AppCompatActivity {
 
             public void onFinish() {
                 timerTextView[0].setText("Time is up!");
-                cancel();   // prevent thread sticking around
+                cancel();
                 advancePage();
             }
         }.start();
