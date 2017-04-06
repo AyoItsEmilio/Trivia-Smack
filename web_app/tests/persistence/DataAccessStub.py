@@ -31,7 +31,7 @@ class DataAccessStub(DataAccessInterface):
 
         return result
 
-    def get_random_question(self):
+    def get_random_question(self, category=None):
         num_qs = self.get_num_questions()
         rq_num = random.randint(0, num_qs-1) if num_qs > 0 else 0
         return self.questions[rq_num]

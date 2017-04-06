@@ -1848,7 +1848,7 @@ question_list = [{
     },
     {
         "question":"In which decade did the Atlanta Braves advance to the World Series five times?",
-        "options":["1960s", "1980s", "1970s", "1990s"],
+        "options":["1960", "1980", "1970", "1990"],
 
         "category":"history",
         "answer": 3
