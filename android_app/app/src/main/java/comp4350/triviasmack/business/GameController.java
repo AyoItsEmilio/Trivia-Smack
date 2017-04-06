@@ -9,6 +9,7 @@ public class GameController {
 
     private static GameController instance = null;
     private final static int maxQuestions = Main.numQuestions;
+    private final static int maxScore = maxQuestions * 10;
 
     private ArrayList<Question> questions;
     private int questionCount;
@@ -65,9 +66,9 @@ public class GameController {
         return result;
     }
 
-    public void increaseScore() {
-        if (score < maxQuestions) {
-            score++;
+    public void increaseScore(int score) {
+        if (this.score < maxScore) {
+            this.score += score;
         }
     }
 

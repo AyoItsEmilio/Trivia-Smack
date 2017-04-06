@@ -13,7 +13,6 @@ public class Services {
     public static ServerAccess createServerAccess() {
         if (serverAccessService == null) {
             serverAccessService = new ServerAccessObject();
-            serverAccessService.open();
         }
         return serverAccessService;
     }
@@ -21,7 +20,6 @@ public class Services {
     public static ServerAccess createServerAccess(ServerAccess alternateServerAccessService) {
         if (serverAccessService == null) {
             serverAccessService = alternateServerAccessService;
-            serverAccessService.open();
         }
         return serverAccessService;
     }
@@ -31,9 +29,6 @@ public class Services {
     }
 
     public static void closeServerAccess() {
-        if (serverAccessService != null) {
-            serverAccessService.close();
-        }
         serverAccessService = null;
     }
 

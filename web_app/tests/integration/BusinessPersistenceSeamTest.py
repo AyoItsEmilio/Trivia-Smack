@@ -2,6 +2,8 @@
 BusinessPersistenceSeamTest.py
 """
 import unittest
+import re
+from web_app.objects.Question import Question
 from web_app.business.AccessQuestions import AccessQuestions
 from web_app.application.Services import Services
 from web_app import DB_NAME
@@ -16,11 +18,52 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
     def setUp(self):
         self.big_num = 100
-        self.db_num_questions = 9
+        self.db_num_questions = 10
         self.access_questions = AccessQuestions()
 
     def tearDown(self):
         self.access_questions = None
+
+    def test_get_question(self):
+        print "Testing AccessQuestions: get_question"
+        question = "Platypuses lay eggs"
+        target_question = Question(question, ["true", "false"], 0)
+
+        question_obj = self.access_questions.get_question(question=question)[0]
+
+        self.assertEquals(target_question.question, question_obj.question)
+        self.assertEquals(target_question.options, question_obj.options)
+        self.assertEquals(target_question.answer, question_obj.answer)
+
+        question = re.compile("^Platypus")
+
+        question_obj = self.access_questions.get_question(question=question)[0]
+
+        self.assertEquals(target_question.question, question_obj.question)
+        self.assertEquals(target_question.options, question_obj.options)
+        self.assertEquals(target_question.answer, question_obj.answer)
+
+    def test_delete_question(self):
+        print "Testing AccessQuestion: delete_question"
+
+        question = "The Balkans are in:"
+        question_obj = self.access_questions.get_question(question=question)[0]
+
+        orig_size = self.access_questions.get_num_questions()
+
+        self.access_questions.delete_question(question=question)
+
+        all_questions = self.access_questions.get_all_questions()
+
+        self.assertEquals(len(all_questions), orig_size-1)
+
+        question_none = self.access_questions.get_question(question=question)
+
+        self.assertEquals(question_none, [])
+
+        self.access_questions.add_question(question_obj.question,
+                                           question_obj.options,
+                                           question_obj.answer)
 
     def test_get_random_questions(self):
         print "Testing AccessQuestions: get_random_questions"

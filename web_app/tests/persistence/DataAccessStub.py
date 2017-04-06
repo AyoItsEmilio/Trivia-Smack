@@ -2,6 +2,7 @@
 DataAccessStub.py
 """
 import random
+import re
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
 
@@ -40,17 +41,19 @@ class DataAccessStub(DataAccessInterface):
         self.insert_question("The Balkans are in:",
                              ["South America", "Europe", "Australia",
                               "Asia"], 1)
+        self.insert_question("How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+                             ["1", "18", "None"], 1)
 
     def close(self):
         print "Closed database"
         self.questions = None
 
     def get_question(self, **kwargs):
-        result = None
+        result = []
 
         for question_obj in self.questions:
-            if question_obj.question == kwargs["question"]:
-                result = question_obj
+            if re.match(re.compile(kwargs["question"]), question_obj.question):
+                result.append(question_obj)
 
         return result
 
@@ -67,6 +70,7 @@ class DataAccessStub(DataAccessInterface):
 
     def insert_question(self, question, options, answer):
         self.questions.append(Question(question, options, answer))
+        return True
 
     def update_question(self, **kwargs):
         result = None

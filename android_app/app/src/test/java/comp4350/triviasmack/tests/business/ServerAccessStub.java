@@ -15,9 +15,6 @@ public class ServerAccessStub implements ServerAccess {
 
     public ServerAccessStub() {
         questions = new ArrayList<>();
-    }
-
-    public void open() {
         System.out.println("Opened stub server access");
 
         String optionsA[] = {"1200 lbs", "1000 lbs", "600 lbs", "Enough to break the ice"};
@@ -46,19 +43,14 @@ public class ServerAccessStub implements ServerAccess {
 
         String optionsI[] = {"South America", "Europe", "Australia", "Asia"};
         questions.add(new Question("The Balkans are in:", optionsI, 1));
-    }
 
-    public void open(ArrayList<Question> questions) {
-        System.out.println("Opened stub server access");
-    }
-
-    public void close() {
-        System.out.println("Closed stub server access");
+        String optionsJ[] = {"1", "18", "None"};
+        questions.add(new Question("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", optionsJ, 1));
     }
 
     public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
 
-        if (numQuestions > this.questions.size()){
+        if (numQuestions > this.questions.size()) {
             numQuestions = this.questions.size();
         }
 

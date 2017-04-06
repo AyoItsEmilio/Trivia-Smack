@@ -11,8 +11,10 @@ class AccessQuestions(object):
 
     def get_random_questions(self, set_size):
 
-        num_questions = self.get_num_questions()
-        set_size = set_size if num_questions >= set_size else num_questions
+        num_qs = self.get_num_questions()
+
+        if set_size > num_qs:
+            set_size = num_qs
 
         questions = []
         seen = set()
@@ -28,8 +30,17 @@ class AccessQuestions(object):
 
         return questions
 
+    def get_question(self, **kwargs):
+        return self.data_access.get_question(**kwargs)
+
+    def delete_question(self, **kwargs):
+        return self.data_access.delete_question(**kwargs)
+
     def get_all_questions(self):
         return self.data_access.get_all_questions()
 
     def get_num_questions(self):
         return self.data_access.get_num_questions()
+
+    def add_question(self, question, options, answer):
+        self.data_access.insert_question(question, options, answer)

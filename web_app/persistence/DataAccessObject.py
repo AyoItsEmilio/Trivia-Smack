@@ -4,9 +4,9 @@ DataAccessObject.py
 import random
 from flask_pymongo import MongoClient
 import pymongo
-
 from web_app.persistence.DataAccessInterface import DataAccessInterface
 from web_app.objects.Question import Question
+from web_app import MONGO_ADDR, MONGO_PORT
 
 class DataAccessObject(DataAccessInterface):
     """For directly querying the MongoDB"""
@@ -18,8 +18,9 @@ class DataAccessObject(DataAccessInterface):
 
     def open(self):
         try:
-            self.client = MongoClient()
+            self.client = MongoClient(MONGO_ADDR, MONGO_PORT)
             self.mongo = self.client[self.db_name]
+
         except pymongo.errors.ConnectionFailure, conn_exception:
             raise "Could not connect to MongoDB: {}".format(conn_exception)
 
@@ -29,8 +30,8 @@ class DataAccessObject(DataAccessInterface):
 
     @staticmethod
     def clean(doc):
-        doc["question"] = str(doc["question"])
-        doc["options"] = [str(o) for o in doc["options"]]
+        doc["question"] = str(doc["question"]).strip()
+        doc["options"] = [str(o).strip() for o in doc["options"]]
 
     def get_random_question(self):
         result = None
@@ -47,12 +48,13 @@ class DataAccessObject(DataAccessInterface):
         return result
 
     def get_question(self, **kwargs):
-        result = None
-        doc = self.mongo.questions.find_one(kwargs)
+        result = []
 
-        if doc:
+        for doc in self.mongo.questions.find(kwargs):
             DataAccessObject.clean(doc)
-            result = Question(doc["question"], doc["options"], doc["answer"])
+            result.append(Question(doc["question"],\
+                                   doc["options"],\
+                                   doc["answer"]))
 
         return result
 
@@ -61,7 +63,8 @@ class DataAccessObject(DataAccessInterface):
 
         for doc in self.mongo.questions.find():
             DataAccessObject.clean(doc)
-            result.append(Question(doc["question"], doc["options"],\
+            result.append(Question(doc["question"],\
+                                   doc["options"],\
                                    doc["answer"]))
 
         return result
@@ -96,4 +99,4 @@ class DataAccessObject(DataAccessInterface):
         return result
 
     def delete_question(self, **kwargs):
-        self.mongo.questions.remove(kwargs)
+        return self.mongo.questions.remove(kwargs)

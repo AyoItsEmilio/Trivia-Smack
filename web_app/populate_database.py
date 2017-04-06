@@ -2,10 +2,11 @@
 populate_database.py
 """
 from pymongo import MongoClient
+from web_app import MONGO_ADDR, MONGO_PORT
 
 def populate_database(db_name):
 
-    client = MongoClient()
+    client = MongoClient(MONGO_ADDR, MONGO_PORT)
     client.drop_database(db_name)
     db = client[db_name]
 
@@ -37,6 +38,9 @@ def populate_database(db_name):
          "answer": 2},
         {"question": "The Balkans are in:",
          "options": ["South America", "Europe", "Australia", "Asia"],
+         "answer": 1},
+        {"question": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+         "options": ["1", "18", "None"],
          "answer": 1}
     ]
 
