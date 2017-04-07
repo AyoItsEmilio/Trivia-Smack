@@ -12,6 +12,7 @@ function AdminViewModel() {
     self.filter = ko.observable("");
     self.loginError = ko.observable("");
     self.warningMessage = ko.observable("");
+    self.category = ko.observable("");
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
@@ -53,7 +54,8 @@ function AdminViewModel() {
         questionJson = {
             "question": self.question(),
             "options": self.options().split(","),
-            "answer": self.answer()
+            "answer": self.answer(),
+            "category": self.category()
         };
 
         self.ajax(self.addQuestionURI, "POST", questionJson).done(function(data) {

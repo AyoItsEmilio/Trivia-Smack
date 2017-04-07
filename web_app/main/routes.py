@@ -44,7 +44,8 @@ def add_question():
     add_result = access_questions.add_question(\
         question_obj["question"],\
         question_obj["options"],\
-        question_obj["answer"])
+        question_obj["answer"],\
+        question_obj["category"])
 
     return make_response(jsonify(result={"success": add_result}), 200)
 
@@ -81,7 +82,7 @@ def delete_question(question):
     question = question.replace("+", "\+")
     result = access_questions.delete_question(question=re.compile(question+".*"))
 
-    return make_response(jsonify({"result":result["n"]}, 200))
+    return make_response(jsonify({"result":result}, 200))
 
 
 @main.route("/api/question_data/<int:num_questions>/<string:category>", methods=["GET"])
@@ -134,5 +135,7 @@ def clean_json(json):
         result["options"] = [str(o).strip() for o in json["options"] if o]
     if "answer" in json:
         result["answer"] = int(json["answer"])
+    if "category" in json:
+        result["category"] = str(json["category"]).strip()
 
     return result
