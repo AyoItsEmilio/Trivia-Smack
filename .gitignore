@@ -6,3 +6,7 @@
 .DS_Store
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+*.xml
+android_app/app/.idea/.name
+*.properties
+*.xml
