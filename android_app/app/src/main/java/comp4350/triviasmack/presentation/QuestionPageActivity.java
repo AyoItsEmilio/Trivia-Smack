@@ -22,7 +22,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     private final int one_second = 1000;
     private final int five_seconds = one_second * 5;
     private final int ten_seconds = one_second * 10 + 100;
-    private CountDownTimer countDownTimer = null;
+    private QuestionTimer questionTimer = null;
     private int secondsUntilFinished = 0;
     private TextView scoreView;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
@@ -45,25 +45,8 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
 
     public void startTimer() {
         final TextView[] timerTextView = {null};
-        countDownTimer = new CountDownTimer(ten_seconds, one_second) {
-
-            public void onTick(long millisUntilFinished) {
-
-                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
-                secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
-                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
-
-                if (millisUntilFinished < five_seconds) {
-                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
-                }
-            }
-
-            public void onFinish() {
-                timerTextView[0].setText("Time is up!");
-                cancel();
-                advancePage();
-            }
-        }.start();
+        questionTimer = new QuestionTimer(ten_seconds, one_second, timerTextView);
+        questionTimer.startTimer();
     }
 
     public void showOptions(String options[]) {
@@ -81,7 +64,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
         boolean result;
         String optionText;
 
-        countDownTimer.cancel();
+        questionTimer.stopTimer();
         optionText = ((Button) v).getText() + "";
         optionText = optionText.substring(2);
         result = gameController.evaluateAnswer(optionText);
@@ -89,7 +72,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
         if (result) {
             ((Button) v).setText("• RIGHT!");
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_green));
-            gameController.increaseScore(secondsUntilFinished);
+            gameController.increaseScore(questionTimer.getTimeRemaining());
             scoreView.setText("Score: " + gameController.getScore());
         } else {
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
@@ -113,7 +96,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     }
 
     public void exitAction() {
-        countDownTimer.cancel();
+        questionTimer.stopTimer();
         gameController.start();
         Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
         ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -127,5 +110,57 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     @Override
     public void onBackPressed() {
         BackButtonDialog.buildExitDialog(this);
+    }
+
+    public class QuestionTimer extends CountDownTimer {
+        private final int one_second = 1000;
+        private int secondsUntilFinished = 0;
+        private boolean isTicking = false;
+        private TextView[] timerTextView = null;
+
+        public QuestionTimer(long millisInFuture, long countDownInterval, TextView[] timerTextView) {
+            super(millisInFuture, countDownInterval);
+            this.timerTextView = timerTextView;
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
+
+            if (timerTextView != null) {
+                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
+                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
+
+                if (millisUntilFinished < five_seconds) {
+                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
+                }
+            }
+        }
+
+        @Override
+        public void onFinish() {
+            timerTextView[0].setText("Time is up!");
+            isTicking = false;
+            cancel();
+            advancePage();
+        }
+
+        public int getTimeRemaining() {
+            return secondsUntilFinished;
+        }
+
+        public void startTimer() {
+            super.start();
+            isTicking = true;
+        }
+
+        public void stopTimer() {
+            isTicking = false;
+            cancel();
+        }
+
+        public boolean isTicking() {
+            return isTicking;
+        }
     }
 }
