@@ -1,7 +1,12 @@
 package comp4350.triviasmack.presentation;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -32,11 +37,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Main.startUp();
-        gameController = GameController.getInstance();
+
         setContentView(R.layout.activity_main);
-        otherScoreText = (TextView) findViewById(R.id.otherScoreText);
-        displayScores();
-        gameController.start();
+        if (isNetworkAvailable()){
+            gameController = GameController.getInstance();
+            otherScoreText = (TextView) findViewById(R.id.otherScoreText);
+            displayScores();
+            gameController.start();
+        }
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     private void displayScores() {
@@ -102,20 +118,37 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void renderQuestionPage(View v) {
-        makeInvisible();
-        if (multiPlayer.isConnected()) {
-            multiPlayer.disconnect();
+        if (isNetworkAvailable()) {
+            makeInvisible();
+            if (multiPlayer.isConnected()) {
+                multiPlayer.disconnect();
+            }
+            Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
+            MainActivity.this.startActivity(QuestionPageIntent);
         }
-        Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
-        MainActivity.this.startActivity(QuestionPageIntent);
+        else {
+            noInternetDialog();
+        }
     }
 
     public void renderMultiPlayerPage(View v) {
-        multiPlayer.connect();
-        socket = multiPlayer.getSocket();
-        stillPlaying = true;
-        socket.on("other_player_done", onOtherPlayerDone);
-        Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
-        MainActivity.this.startActivity(MultiPlayerPageIntent);
+        if (isNetworkAvailable()) {
+            multiPlayer.connect();
+            socket = multiPlayer.getSocket();
+            stillPlaying = true;
+            socket.on("other_player_done", onOtherPlayerDone);
+            Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
+            MainActivity.this.startActivity(MultiPlayerPageIntent);
+        }
+        else {
+            noInternetDialog();
+        }
+    }
+
+    private void noInternetDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("No internet connection!");
+        alertDialog.setMessage("You need internet connection to play!");
+        alertDialog.show();
     }
 }

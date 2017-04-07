@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 
-public class BackButtonLogic {
+public class BackButtonDialog {
     public static void buildExitDialog(final Exitable activity){
         AlertDialog.Builder builder;
 

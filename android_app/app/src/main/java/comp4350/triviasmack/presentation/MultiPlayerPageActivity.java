@@ -3,10 +3,9 @@ package comp4350.triviasmack.presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.business.BackButtonLogic;
+import comp4350.triviasmack.business.BackButtonDialog;
 import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
@@ -56,7 +55,7 @@ public class MultiPlayerPageActivity extends AppCompatActivity implements Exitab
 
     @Override
     public void onBackPressed() {
-        BackButtonLogic.buildExitDialog(this);
+        BackButtonDialog.buildExitDialog(this);
     }
 }
 

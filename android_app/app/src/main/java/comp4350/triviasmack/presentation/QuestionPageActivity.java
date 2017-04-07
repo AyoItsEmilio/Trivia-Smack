@@ -1,18 +1,16 @@
 package comp4350.triviasmack.presentation;
 
 import android.content.Intent;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.business.BackButtonLogic;
+import comp4350.triviasmack.business.BackButtonDialog;
 import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
@@ -128,6 +126,6 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
 
     @Override
     public void onBackPressed() {
-        BackButtonLogic.buildExitDialog(this);
+        BackButtonDialog.buildExitDialog(this);
     }
 }
