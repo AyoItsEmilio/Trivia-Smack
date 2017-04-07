@@ -5,8 +5,6 @@ describe('fetchQuestions', function(){
    tvm = new TasksViewModel();
  });
 
-
-
     it('Start one player', function(){
       tvm.startOnePlayer();
       expect(tvm.onePlayerMode()).toBe(true);
@@ -43,7 +41,5 @@ describe('fetchQuestions', function(){
       expect(result.length).toBeGreaterThan(0);
 
     });
-
-
 
   });
