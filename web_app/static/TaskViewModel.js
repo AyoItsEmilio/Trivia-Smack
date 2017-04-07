@@ -1,5 +1,4 @@
-$(document).ready(function(){
-function TasksViewModel() {
+function TasksViewModel(){
     var self = this;
     var loc = location.protocol + "//" + document.domain + ":" + location.port;
     var max = 3;
@@ -17,6 +16,7 @@ function TasksViewModel() {
     self.isWaiting = ko.observable(false);
     self.onePlayerMode = ko.observable(true);
     self.isPlaying = ko.observable(false);
+    self.questions = ko.observableArray();
 
     self.counter.subscribe(function(newValue) {
         if (newValue === 0){
@@ -53,7 +53,7 @@ function TasksViewModel() {
         socket.on("other_player_ready", function() {
             self.isWaiting(false);
             self.otherScore("Waiting for other player");
-            startGame();
+            self.startGame();
         });
 
         socket.on("clean_up", function() {
@@ -65,17 +65,16 @@ function TasksViewModel() {
         self.onePlayerMode(true);
         self.isWaiting(false);
         self.otherScore(null);
-        startGame();
+        self.startGame();
     };
 
-    function startGame() {
-        self.questions = ko.observableArray();
+    self.startGame = function() {
         fetchQuestions();
         self.isPlaying(true);
         self.score(0);
         self.questionCount(0);
         startCounter();
-    }
+    };
 
     function endGame() {
         self.isPlaying(false);
@@ -90,7 +89,7 @@ function TasksViewModel() {
 
         if (optionObj.isCorrect){
             self.score(self.score()+ self.counter());
-            optionObj.option("Right!");    
+            optionObj.option("Right!");
             optionObj.bgColor(green);
         }
         else{
@@ -98,8 +97,8 @@ function TasksViewModel() {
             optionObj.bgColor(red);
         }
 
-        setTimeout(function(){ 
-            self.questionCount(self.questionCount()+1); 
+        setTimeout(function(){
+            self.questionCount(self.questionCount()+1);
         }, waitTime);
 
         startCounter();
@@ -108,7 +107,7 @@ function TasksViewModel() {
     function startCounter(){
         clearInterval(theCountDown);
         self.counter(countDownTime);
-        theCountDown = 
+        theCountDown =
         setInterval(function(){ self.counter(self.counter()-1); }, oneSecond);
     }
 
@@ -128,31 +127,36 @@ function TasksViewModel() {
         return $.ajax(request);
     };
 
-    function fetchQuestions(){
-        self.ajax(self.questionsURI, "GET").done(function(data) {
-            for (var i = 0; i < data.questions.length; i++) {
+    function fetchQuestions() {
+         self.ajax(self.questionsURI, "GET").done(function(data) {
+             self.buildQuestions(data);
+         }).fail(function(jqXHR) {
+             console.log("Ajax failure");
+         });
+     }
 
-                var obs_options = ko.observableArray();
+     self.buildQuestions = function(data) {
+         self.questions.removeAll();
 
-                for (var j = 0; j < data.questions[i].options.length; j++){
-                    obs_options.push({
-                        option: ko.observable(data.questions[i].options[j]),
-                        bgColor: ko.observable(),
-                        isCorrect: data.questions[i].answer == j
-                    });
-                }
+         for (var i = 0; i < data.questions.length; i++) {
 
-                self.questions.push({
-                    question: ko.observable(data.questions[i].question),
-                    options: obs_options,
-                    answer: data.questions[i].answer
-                });
-            }
-        }).fail(function(jqXHR) {
-            console.log("failure");
-        });
-    }
+             var obs_options = ko.observableArray();
+
+             for (var j = 0; j < data.questions[i].options.length; j++){
+                 obs_options.push({
+                     option: ko.observable(data.questions[i].options[j]),
+                     bgColor: ko.observable(),
+                     isCorrect: data.questions[i].answer == j
+                 });
+             }
+
+             self.questions.push({
+                 question: ko.observable(data.questions[i].question),
+                 options: obs_options,
+                 answer: data.questions[i].answer
+             });
+         }
+
+         return self.questions();
+     };
 }
-
-ko.applyBindings(new TasksViewModel(), $("#main")[0]);
-});

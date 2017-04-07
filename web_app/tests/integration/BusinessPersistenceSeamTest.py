@@ -18,7 +18,7 @@ class BusinessPersistenceSeamTest(unittest.TestCase):
 
     def setUp(self):
         self.big_num = 100
-        self.db_num_questions = 9
+        self.db_num_questions = 10
         self.access_questions = AccessQuestions()
 
     def tearDown(self):

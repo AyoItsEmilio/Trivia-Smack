@@ -1,29 +1,22 @@
 package comp4350.triviasmack.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.application.MultiPlayer;
+import comp4350.triviasmack.business.BackButtonDialog;
+import comp4350.triviasmack.business.Exitable;
+import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
-import io.socket.client.Socket;
 
-
-public class QuestionPageActivity extends AppCompatActivity {
+public class QuestionPageActivity extends AppCompatActivity implements Exitable {
 
     private GameController gameController = GameController.getInstance();
     private final int one_second = 1000;
@@ -33,14 +26,11 @@ public class QuestionPageActivity extends AppCompatActivity {
     private int secondsUntilFinished = 0;
     private TextView scoreView;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
-    private Socket socket;
-    private final String TAG = "QuestionPageActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        socket = multiPlayer.getSocket();
 
         setContentView(R.layout.activity_question_page);
         Question questionObj = gameController.getNextQuestion();
@@ -50,7 +40,10 @@ public class QuestionPageActivity extends AppCompatActivity {
         scoreView.setText("Score: " + gameController.getScore());
         questionTitle.setText(questionObj.getQuestion());
         showOptions(questionObj.getOptions());
+        startTimer();
+    }
 
+    public void startTimer() {
         final TextView[] timerTextView = {null};
         questionTimer = new QuestionTimer(ten_seconds, one_second, timerTextView);
         questionTimer.startTimer();
@@ -86,7 +79,6 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
         advancePage();
-
     }
 
     public void advancePage() {
@@ -103,31 +95,21 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
     }
 
+    public void exitAction() {
+        questionTimer.stopTimer();
+        gameController.start();
+        Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
+        ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        QuestionPageActivity.this.startActivity(ExitGameIntent);
+
+        if (multiPlayer.isConnected()) {
+            multiPlayer.disconnect();
+        }
+    }
+
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Exit game?");
-
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                questionTimer.stopTimer();
-                gameController.start();
-                Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
-                ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                QuestionPageActivity.this.startActivity(ExitGameIntent);
-                multiPlayer.disconnect();
-            }
-        });
-
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        BackButtonDialog.buildExitDialog(this);
     }
 
     public class QuestionTimer extends CountDownTimer {

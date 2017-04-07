@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static android.R.attr.y;
 
 public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
 

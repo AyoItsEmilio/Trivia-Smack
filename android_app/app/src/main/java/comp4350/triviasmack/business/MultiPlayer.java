@@ -1,20 +1,14 @@
-package comp4350.triviasmack.application;
+package comp4350.triviasmack.business;
 
 
-import android.content.Intent;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
-import comp4350.triviasmack.Constants;
-import comp4350.triviasmack.R;
-import comp4350.triviasmack.presentation.MultiPlayerPageActivity;
-import comp4350.triviasmack.presentation.QuestionPageActivity;
+import comp4350.triviasmack.application.Constants;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
@@ -25,9 +19,6 @@ public class MultiPlayer {
     private static MultiPlayer instance = null;
     private Socket socket;
     private static boolean connected;
-
-    protected MultiPlayer() {
-    }
 
     public Socket getSocket() {
         return socket;

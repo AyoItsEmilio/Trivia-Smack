@@ -7,10 +7,12 @@
     tools:ignore="MergeRootFrame">
 
     <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/otherScore"
+        android:text="Waiting for other player..."
+        android:layout_width="match_parent"
+        android:layout_height="97dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/waitingText"
         android:textColor="#1f1f1f"
+        android:textAlignment="center"
         android:textSize="30dp" />
 </FrameLayout>
