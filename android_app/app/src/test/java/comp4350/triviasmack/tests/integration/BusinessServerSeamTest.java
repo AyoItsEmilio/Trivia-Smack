@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -37,7 +36,7 @@ public class BusinessServerSeamTest {
     public void setUp() throws Exception {
         Services.closeServerAccess();
         Services.createServerAccess();
-        Services.createAsyncFacade(new AsyncFacadeStub());
+        Services.createAsyncFacade(new SyncFetchFacade());
         questions = new ArrayList<>();
         accessQuestions = new AccessQuestions();
     }

@@ -68,13 +68,13 @@ function TasksViewModel(){
         self.startGame();
     };
 
-      self.startGame = function() {
+    self.startGame = function() {
         fetchQuestions();
         self.isPlaying(true);
         self.score(0);
         self.questionCount(0);
         startCounter();
-    }
+    };
 
     function endGame() {
         self.isPlaying(false);
@@ -131,7 +131,7 @@ function TasksViewModel(){
          self.ajax(self.questionsURI, "GET").done(function(data) {
              self.buildQuestions(data);
          }).fail(function(jqXHR) {
-             console.log("failure");
+             console.log("Ajax failure");
          });
      }
 

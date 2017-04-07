@@ -31,7 +31,7 @@ function AdminViewModel() {
 
             self.username("");
             self.password("");
-            console.log("failure");
+            console.log("Credential failure");
         });
     };
 
