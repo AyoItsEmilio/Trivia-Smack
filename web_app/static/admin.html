@@ -66,7 +66,7 @@ $(document).ready(function() {
             </button>
             <br><br><br>
 
-            <!-- ko foreach: questions -->
+            <!-- ko foreach: questions.slice(0, questionBound()) -->
 
                 <h3 data-bind="text: question"></h3></br>
                 <!-- ko foreach: options -->
@@ -83,12 +83,15 @@ $(document).ready(function() {
 
                 <br class="small">
 
-                <div class="red button redHover" data-bind="click: $parent.deleteQuestion">
+                <div class="red button redHover upperCase" data-bind="click: $parent.deleteQuestion">
                     Delete
                 </div>
 
                 <br><br><br>
             <!-- /ko -->
+            <div class="blue button blueHover upperCase" data-bind="click: showMore, text:moreText">
+            </div>
+            <br><br>
         </div>
 
         <div data-bind="if: addingQuestion">

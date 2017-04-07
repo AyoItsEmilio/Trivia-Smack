@@ -185,6 +185,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .greyHover:hover { background: #444444; }
 
+.blueHover:hover { background: #377ba8; }
+
 .textbox {
   border-radius: 5px;
   height: 30px;
@@ -202,6 +204,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .red { background: #c13636; }
 
 .pinkish { background: #ff444f; }
+
+.blue { background: #3199dd; }
 
 br.small { line-height: 5px; }
 

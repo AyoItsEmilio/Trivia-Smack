@@ -1,5 +1,6 @@
 function AdminViewModel() {
     var self = this;
+    var initBound = 10;
     self.username = ko.observable("");
     self.password = ko.observable("");
     self.loggedIn = ko.observable(false);
@@ -13,16 +14,27 @@ function AdminViewModel() {
     self.loginError = ko.observable("");
     self.warningMessage = ko.observable("");
     self.category = ko.observable("");
+    self.questionBound = ko.observable(initBound);
+    self.moreText = ko.observable("more");
+    self.maxQuestions = ko.observable(0);
     self.loginURI = "/api/login";
     self.addQuestionURI = "/api/add_question";
     self.getQuestionsURI = "/api/get_questions";
     self.getQuestionContainsURI = "/api/get_question_contains/";
     self.delQuestionURI = "/api/delete_question/";
 
+    self.maxQuestions.subscribe(function(newValue){
+        if (self.questionBound() < newValue){
+            self.questionBound(initBound);
+            self.moreText("more");
+        }
+    });
+
     self.login = function() {
         self.ajax(self.loginURI, "GET").done(function(data) {
             self.loginError("");
             self.loggedIn(true);
+            fetchQuestions(self.getQuestionsURI);
         }).fail(function(jqXHR) {
 
             self.loginError("");
@@ -32,8 +44,16 @@ function AdminViewModel() {
 
             self.username("");
             self.password("");
-            console.log("failure");
+            console.log("Credential failure");
         });
+    };
+
+    self.showMore = function() {
+        newBound = self.questionBound() + initBound;
+        if (newBound < self.questions().length)
+            self.questionBound(newBound);
+        else
+            self.moreText("no more!");
     };
 
     self.showOptions = function() {
@@ -73,8 +93,6 @@ function AdminViewModel() {
     self.startViewing = function() {
 
         self.filter("");
-
-        fetchQuestions(self.getQuestionsURI);
 
         self.viewingQuestions(true);
     };
@@ -142,17 +160,18 @@ function AdminViewModel() {
             }
         }
 
-        intersect(data.questions);     
+        intersect(data.questions);
+        self.maxQuestions(self.questions().length);  
     }
 
     function intersect(fetched) {
         toRemove = [];
 
         for (var j = 0; j < self.questions().length; j++) {
-        observable = self.questions()[j].question();
+            observable = self.questions()[j].question();
 
-        if (!containsQuestion(fetched, observable, false))
-            toRemove.push(self.questions()[j]);
+            if (!containsQuestion(fetched, observable, false))
+                toRemove.push(self.questions()[j]);
         }
 
         for (var k = 0; k < toRemove.length; k++)
