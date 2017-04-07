@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             displayScores();
             gameController.start();
         }
-
     }
 
     private boolean isNetworkAvailable() {
