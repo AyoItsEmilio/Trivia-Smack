@@ -2,7 +2,6 @@ package comp4350.triviasmack.tests.integration;
 
 import org.junit.Test;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
@@ -31,7 +30,7 @@ public class ServerAccessFlaskTest {
         System.out.println("Starting Integration test, ServerAccess (using default server)");
 
         Services.createServerAccess();
-        Services.createAsyncFacade(new AsyncFacadeStub());
+        Services.createAsyncFacade(new SyncFetchFacade());
         serverAccess = Services.getServerAccess();
 
         ServerAccessTest.serverAccessTest();

@@ -12,11 +12,13 @@ import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
 import comp4350.triviasmack.R;
+import comp4350.triviasmack.business.BackButtonLogic;
+import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
 
-public class QuestionPageActivity extends AppCompatActivity {
+public class QuestionPageActivity extends AppCompatActivity implements Exitable {
 
     private GameController gameController = GameController.getInstance();
     private final int one_second = 1000;
@@ -40,13 +42,19 @@ public class QuestionPageActivity extends AppCompatActivity {
         scoreView.setText("Score: " + gameController.getScore());
         questionTitle.setText(questionObj.getQuestion());
         showOptions(questionObj.getOptions());
+        startTimer();
+    }
 
+    public void startTimer() {
         final TextView[] timerTextView = {null};
         countDownTimer = new CountDownTimer(ten_seconds, one_second) {
+
             public void onTick(long millisUntilFinished) {
+
                 timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
                 secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
                 timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
+
                 if (millisUntilFinished < five_seconds) {
                     timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
                 }
@@ -58,7 +66,6 @@ public class QuestionPageActivity extends AppCompatActivity {
                 advancePage();
             }
         }.start();
-
     }
 
     public void showOptions(String options[]) {
@@ -91,7 +98,6 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
 
         advancePage();
-
     }
 
     public void advancePage() {
@@ -108,30 +114,20 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
     }
 
+    public void exitAction() {
+        countDownTimer.cancel();
+        gameController.start();
+        Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
+        ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        QuestionPageActivity.this.startActivity(ExitGameIntent);
+
+        if (multiPlayer.isConnected()) {
+            multiPlayer.disconnect();
+        }
+    }
+
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Exit game?");
-
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                countDownTimer.cancel();
-                gameController.start();
-                Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
-                ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                QuestionPageActivity.this.startActivity(ExitGameIntent);
-                multiPlayer.disconnect();
-            }
-        });
-
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        BackButtonLogic.buildExitDialog(this);
     }
 }
