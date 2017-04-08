@@ -61,9 +61,11 @@ function AdminViewModel() {
         }).fail(function(jqXHR) {
             jsonResult = jQuery.parseJSON(jqXHR.responseText); 
             self.warningMessage("");
+
             setTimeout(function(){
                 self.warningMessage(jsonResult.result.errorMsg);
             }, 90);
+
             console.log("Ajax failure");
         });
     };
