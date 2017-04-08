@@ -65,14 +65,14 @@ question_list = [{
         "question":"Where did The Flowerpot Men want to go in 1967?",
         "options":["New York", "San Francisco", "Woodstock", "Memphis"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"James Bond was searching for what kind of airplane in 'Thunderball'?",
         "options":["707", "Piper Cub", "Vulkan", "B-52"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -93,35 +93,35 @@ question_list = [{
         "question":"'Goodbye Farewell and Amen' was the final episode of which TV series?",
         "options":["MASH", "Dallas", "Friends", "The Muppet Show"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"In which film do the words 'I love you' save the planet earth?",
         "options":["The Day After Tomorrow", "The 5th Element", "Mars Attacks", "Independence Day"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"What is the name of the man servant in 'Around the world in 80 days'?",
         "options":["Pas Partout", "Cato", "Giles", "Machu Picchu"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"In which book is there an inn called Admiral Benbow?",
         "options":["Lord of the Rings", "Gulliver's Travels", "Treasure Island", "Peter Pan"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Which actor appeared in the Cranberries music video Ridiculous Thought?",
         "options":["Bruce Willis", "Donald Sutherland", "George Clooney", "Elijah Wood"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -149,14 +149,14 @@ question_list = [{
         "question":"A 'Miller' is a move in which sports?",
         "options":["Ice Hockey", "Trampolining", "Diving", "Chess"],
 
-        "category":"movies and tv",
+        "category":"sports",
         "answer": 1
     },
     {
         "question":"Festfolk was the original name for which group?",
         "options":["The Beach Boys", "ABBA", "Motorhead", "Simon and Garfunkel"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -191,7 +191,7 @@ question_list = [{
         "question":"The title of which Pink Floyd album is also a chapter in 'The Wind In The Willows'?",
         "options":["Wish you were here", "The piper at the gates of dawn", "Meddle", "animals"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -205,7 +205,7 @@ question_list = [{
         "question":"Which pop duo was the first western band to play in The Peoples Republic of China?",
         "options":["Wham", "Simon and Garfunkel", "Chas and Dave", "Right Said Fred"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -226,14 +226,14 @@ question_list = [{
         "question":"The song 'An Englishman in New York' was about which man?",
         "options":["Quentin Crisp", "Sting", "John Lennon", "Gordon Sumner"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"In the book The Last Of The Mohicans what was the name of Chingachgook's only son?",
         "options":["Mingo", "Lightfoot", "Magua", "Uncas"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -254,7 +254,7 @@ question_list = [{
         "question":"What are the names of the two main characters in Diana Gabaldon's highland saga novels?",
         "options":["Jamie and Claire", "Fergus and Fiona", "Rab and Elizabeth", "Hamish and Maggie"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -275,21 +275,21 @@ question_list = [{
         "question":"Doris Day had a sleepy hit with which song?",
         "options":["Pillow talk", "Golden slumbers", "The beds too big without you", "Tears on my pillow"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which singer once took a bite out of a Beach Boys record during a press conference?",
         "options":["Robbie Williams", "Engelbert Humperdinck", "Shane McGowan", "James Blunt"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Who was the first band to play at the Cavern Club?",
         "options":["Swinging Blue Jeans", "The Merseysippi", "Beatles", "Merseybeats"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -303,7 +303,7 @@ question_list = [{
         "question":"Which band was not from Liverpool?",
         "options":["Searchers", "A Flock of Seagulls", "Stone the crows", "OMD"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -387,7 +387,7 @@ question_list = [{
         "question":"The Agony and the Ecstasy was a book and film about which man?",
         "options":["Churchill", "Jesus", "Michaelangelo", "Marquis de Sade"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -422,7 +422,7 @@ question_list = [{
         "question":"In Alice and Wonderland, what animals are used for balls in the game of croquet?",
         "options":["Cats", "Hedgehogs", "Rats", "Squirrels"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -436,7 +436,7 @@ question_list = [{
         "question":"In what series of films does 'Eddie Murphy' play a character named 'Axel Foley'?",
         "options":["Harlem Nights", "Trading Places", "The Distinguished Gentleman", "Beverly Hills Cop"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -464,7 +464,7 @@ question_list = [{
         "question":"How many actors have won the Academy Award for Best Actor for their film debut acting performances?",
         "options":["1", "0", "5", "3"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -485,14 +485,14 @@ question_list = [{
         "question":"Which character is the best known creation of author A. A. Milne?",
         "options":["Tom Thumb", "Peter Pan", "Pinocchio", "Winnie the Pooh"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"In the form of a statue, this well-known Disney character sits on a rock in a harbor in Copenhagen.",
         "options":["Pluto", "The Little Mermaid", "Snow White", "Sleeping Beauty"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -513,14 +513,14 @@ question_list = [{
         "question":"Which actor starred alongside Melissa McCarthy in the 2013 comedy film 'Identify Thief'?",
         "options":["Paul Rudd", "Jason Bateman", "Steve Carrell", "Vince Vaughn"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"'Iron Man' and 'Paranoid' were both US Billboard hits for which band?",
         "options":["Metallica", "Black Sabbath", "Thin Lizzy", "Deep Purple"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -534,21 +534,21 @@ question_list = [{
         "question":"Complete the title to this 2010 movie - 'How to Train Your...'",
         "options":["Husband", "Dog", "Boyfriend", "Dragon"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Featured on MTV, 'Battle of the Exe's' is a season 22 subtitle to which of these shows?",
         "options":["The Challenge", "Road Rules", "Buckwild", "Punk'd"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which of these films featuring Leonardo Di Caprio was the first to be released?",
         "options":["The Man in the Iron Mask", "Romeo + Juliet", "Body of Lies", "The Quick and the Dead"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -569,21 +569,21 @@ question_list = [{
         "question":"Genisys was a 2015 installment to which popular movie series?",
         "options":["Jurassic Park", "Terminator", "Star Wars", "Robocop"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"On the Simpsons TV show, what part of Jebediah Springfield Statue does Bart remove in season 1?",
         "options":["Moustache", "Leg", "Arm", "Head"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"'Meat on the Table' is the theme tune for which WWE Superstar?",
         "options":["Kane", "Ryback", "Brodus Clay", "Big Show"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -597,35 +597,35 @@ question_list = [{
         "question":"Released in 2015, actor Mark Hammil plays which character in 'Star Wars -The Force Awakens'?",
         "options":["Poe Dameron", "Kylo Ren", "Luke Skywalker"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Who spent nine weeks at number-one with the hip hop song 'In Da Club' in 2003?",
         "options":["Eminem", "Snoop Dogg", "50 Cent", "Dr. Dre"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Which popular boxing movie does the followings quote come from - 'I just wanna say hi to my girlfriend. Yo Adrian! It's me!'?",
         "options":["Raging Bull", "Rocky", "Ali", "Cinderella Man"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Released in 2008, the song 'So What' was a hit for which female singer in 2008?",
         "options":["Pink", "Madonna", "Lady Gaga", "Rihanna"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Who is the only actor ever to wear both the Batman suit and the Superman suit in two different films?",
         "options":["Christopher Reeve", "Brandon Routh", "Ben Affleck", "Dean Cain"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -639,7 +639,7 @@ question_list = [{
         "question":"Who lost their 'Who Wants to Be a Millionaire' (UK) winnings due to cheating in 2003?",
         "options":["Ingram Wilcox", "David Edwards", "Pat Gibson", "Charles Ingram"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -653,14 +653,14 @@ question_list = [{
         "question":"Formed in Dublin in 1976, which rock band had a 2001 hit with the song 'Beautiful Day'?",
         "options":["U2", "The Cranberries", "The Boomtown Rats", "Thin Lizzy"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Chris Hemsworth played which superhero in a 2011 Marvel Studios film?",
         "options":["Hulk", "Iron Man", "Thor", "Captain America"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -688,28 +688,28 @@ question_list = [{
         "question":"How many Star Wars films were released before 'The Phantom Menace'?",
         "options":["3", "5", "2", "4"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which of the following rock stars did not die at the age of 27?",
         "options":["Marc Bolan", "Kurt Cobain", "Jimi Hendrix", "Jim Morrison"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"What music festival documentary won an Academy Award for Best Documentary Feature in 1970?",
         "options":["Monterey Pop", "Wattstax", "Woodstock", "Glastonbury"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Playing the role of Laura Petrie on The Dick Van Dyke Show, which American actress and icon died on January 25th, 2017?",
         "options":["Betty White", "Mary Tyler Moore", "Valerie Harper", "Carol Burnett"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -730,14 +730,14 @@ question_list = [{
         "question":"In the classic story 'The Wizard of Oz', what was the lion seeking from the Wizard?",
         "options":["Peace", "Courage", "Brains", "Heart"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Which of the following films does not feature Marlon Brando?",
         "options":["A Streetcar Named Desire", "The Wild One", "On the Water Front", "The African Queen"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -751,21 +751,21 @@ question_list = [{
         "question":"Which cartoon villain often obtains nonsensical devices from a mail-order company named 'Acme Corporation'?",
         "options":["Wile E. Coyote", "Yosemite Sam", "Sylvester the Cat", "Elmer Fudd"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Playing the role of Joy 'Ma' Newsome, Brie Larsson starred in which 2015 drama film?",
         "options":["Room", "Carol", "The Lobster", "45 Years"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Written in 1893, the 'Karelia Suite, Op 11' is a work by which Finnish composer and violinist?",
         "options":["Rimsky-Korsakov", "Mendelssohn", "Bruckner", "Sibelius"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -793,14 +793,14 @@ question_list = [{
         "question":"First published in 1983, who wrote the landmark stargazer's book 'NightWatch - A Practical Guide to Viewing the Universe'?",
         "options":["Dennis Overbye", "Stephen Hawking", "Terence Dickinson", "Kip S. Thomas"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"'I love you' spoken by Carrie Fisher is replied with 'I know' by Harrison Ford. Name the film.",
         "options":["Indiana Jones and the Last Crusade", "Star Wars", "The Reunion", "Hope"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -856,7 +856,7 @@ question_list = [{
         "question":"The country album 'Come on Over' was a huge success for which Canadian singer in 1997?",
         "options":["Mackenize Porter", "Terri Clark", "Shania Twain", "Susan Jacks"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -884,7 +884,7 @@ question_list = [{
         "question":"Which of the following films was not directed by Alfred Hitchcock?",
         "options":["Dial M for Murder", "North by Northwest", "Rear Window", "The Maltese Falcon"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -919,42 +919,42 @@ question_list = [{
         "question":"Which of the following films featured Brad Pitt?",
         "options":["Joy Ride", "Secret Window", "Angel Heart", "Fight Club"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"How old was Taylor Swift when she had her first Billboard Hot 100 number-one song with 'We Are Never Ever Getting Back Together' in 2012?",
         "options":["20", "24", "22", "18"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Beating out Aubry Bracco and Tai Trang, who won the 'Kaoh Rong' season of Survivor (Season 32)?",
         "options":["Debbie Wanner", "Michele Fitzgerald", "Scot Pollard", "Jennifer Lanzetti"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Who was Time magazine's 'Person of the Year' for 2016?",
         "options":["Angela Merkel", "Donald Trump", "Pope Francis", "Barack Obama"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"On the animated sitcom 'The Simpsons', which character drives a school bus?",
         "options":["Otto Mann", "Curly Howard", "Nelson Muntz", "Jimbo Jones"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which of the following songs was the first number-one for the Beatles in the United Kingdom?",
         "options":["From Me To You", "From Me To You", "From Me To You", "From Me To You"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -968,7 +968,7 @@ question_list = [{
         "question":"Voiced by John Goodman, the character of 'Pacha' appears in which 2000 Disney animated film?",
         "options":["Pocahontas", "The Princess and the Frog", "Mulan", "The Emperor's New Groove"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -982,28 +982,28 @@ question_list = [{
         "question":"Jennifer Aniston stars in which 2016 romantic comedy film?",
         "options":["Mother's Day", "Valentine's Day", "Birthday", "Father's Day"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"The 1942 film 'Woman of the Year' began Katharine Hepburn's famous screen partnership with whom?",
         "options":["Spencer Tracy", "Humphrey Bogart", "James Stewart", "Cary Grant"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Name the first transgender character to appear in a British soap opera.",
         "options":["Hayley", "Julie", "Bet", "Heidi"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Starring Diana Ross, what 1972 film tells the life story of American jazz singer 'Billie Holliday'?",
         "options":["Lady Sings the Blues", "Crossroads", "Honeydripper", "You See Me Laughin'"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1031,7 +1031,7 @@ question_list = [{
         "question":"Originally titled 'Murderer', which female popstar had a 2006 chart topper with the song 'Unfaithful'?",
         "options":["Lady Gaga", "Madonna", "Beyonce", "Rihanna"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1073,14 +1073,14 @@ question_list = [{
         "question":"Who stars as the protagonist Hugh Glass in the 2015 Academy Award winning film 'The Revenant'?",
         "options":["Leo DiCaprio", "Tom Hardy", "Brad Pitt", "Matt Damon"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Edmond Dantes is imprisoned in the Chateau d'If in which seminal novel?",
         "options":["The Three Musketeers", "The Count of Monte Cristo", "Crime and Punishment", "Don Quixote"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1108,35 +1108,35 @@ question_list = [{
         "question":"Which famous director directed the films 'Psycho' and 'The Birds'?",
         "options":["Alfred Hitchcock", "Francois Truffaut", "Howard Hawks", "Anthony Perkins"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which female spent a week at number-one on the Billboard Hot 100 with the song 'Part of Me' in 2012?",
         "options":["Kelly Clarkson", "Katy Perry", "Beyonce", "Pink"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Which of the following Alfred Hitchcock movies was the first to be released?",
         "options":["Sabotage", "Rebecca", "The 39 Steps", "The Lady Vanishes"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"On the Simpsons, who breaks their leg in the opening episode of Season 6, which is a parody of the film 'Rear Window'?",
         "options":["Homer", "Maggie", "Bart", "Lisa"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"The American rock band 'Weezer' sang about which location in 2005?",
         "options":["Downtown", "Beverly Hills", "New York", "LA"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1150,14 +1150,14 @@ question_list = [{
         "question":"Johnny Depp provides the voice of the primary character in which of these popular animated movies?",
         "options":["Puss in Boots", "Bolt", "Rango", "Megamind"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"The hard rock/heavy metal band 'Lordi' represented what nation at Eurovision in 2006?",
         "options":["Finland", "Russia", "Denmark", "Sweden"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1171,28 +1171,28 @@ question_list = [{
         "question":"Which American boy band won a Grammy Award in 2002 for their song 'Gone'?",
         "options":["Boyz II Men", "NSYNC", "Backstreet Boys", "New Kids on the Block"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Making its debut in 2002, which American reality TV show is hosted by Chris Harrison?",
         "options":["Big Brother", "Survivor", "The Bachelor", "Beauty and the Geek"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Based on fantasy books written by Terry Brooks, what MTV series stars Austin Butler, Poppy Drayton and Ivana Baquero?",
         "options":["Game of Thrones", "Legend of the Seeker", "Legend of the Seeker", "The Shannara Chronicles"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Which of the following films won the Academy Award for Best Picture in 2009?",
         "options":["The Hurt Locker", "The Blind Side", "Inglorious Basterds", "Avatar"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1206,7 +1206,7 @@ question_list = [{
         "question":"Released by DreamWorks Pictures, what animated comedy film features a gingerbread man being tortured by Lord Farquaad, the ruthless ruler of Duloc?",
         "options":["Monsters, Inc.", "Toy Story", "Shrek", "Donkey Xote"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1234,7 +1234,7 @@ question_list = [{
         "question":"Which film won Best Picture at the 2016 Oscars?",
         "options":["The Revenant", "Room", "Joy", "Spotlight"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1248,7 +1248,7 @@ question_list = [{
         "question":"Complete the title of the 2016 Kanye West album - 'The Life of ...'?",
         "options":["Martha", "Pablo", "Jesus", "Eduardo"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1269,14 +1269,14 @@ question_list = [{
         "question":"Making its debut in November of 2016, the Netflix series 'The Crown' is about which monarch?",
         "options":["Queen Victoria", "Elizabeth II", "Henry VIII", "Henry VII"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Which film won the most Oscars at the 2016 Academy Awards with six?",
         "options":["The Martian", "Mad Max - Fury Road", "Spotlight", "The Big Short"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1297,7 +1297,7 @@ question_list = [{
         "question":"Which TV show won 'Outstanding Drama Series' at the 2016 Emmys?",
         "options":["Downtown Abbey", "Mr. Robot", "Game of Thrones", "Homeland"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1318,21 +1318,21 @@ question_list = [{
         "question":"Complete the title of this 2016 Stephen King novel 'End of ...'?",
         "options":["Man", "Watch", "Times", "Days"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Who stars in the 2016 science fiction-horror TV series 'Stranger Things'?",
         "options":["Nicola Kidman", "Winona Ryder", "Reese Witherspoon", "Drew Barrymore"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Deadshot, Harley Quinn and Rick Flag are all characters in which 2016 film?",
         "options":["Barman Vs Superman", "Star Trek Beyond", "Suicide Squad", "Captain American Civil War"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1374,7 +1374,7 @@ question_list = [{
         "question":"Who won the Favorite Pop/Rock Female Artist Award at the 2016 American Music Awards?",
         "options":["Selena", "Selena Gomez", "Ariana Grande", "Demi Lovato"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1402,7 +1402,7 @@ question_list = [{
         "question":"Written and directed by George Lucas, the 2005 film 'Revenge of the Sith' is an installment of which film series?",
         "options":["Mad Max", "Lord of the Rings", "Star Wars", "Harry Potter"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1430,7 +1430,7 @@ question_list = [{
         "question":"In which classic novel does the heroine marry a rude and abrupt man named 'Mr. Rochester'?",
         "options":["Pride and Prejudice", "Mansfield Park", "Jane Eyre", "Wuthering Heights"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1444,7 +1444,7 @@ question_list = [{
         "question":"Who won the best actor award at the 2015 Oscars for their role in the film 'The Theory of Everything'?",
         "options":["Steve Carell", "Eddie Redmayne", "Bradley Cooper", "Michael Fassbender"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1458,7 +1458,7 @@ question_list = [{
         "question":"Which of the following is the real title of a novel by Virginia Wolf?",
         "options":["Mrs. Balloway", "Mrs. Falloway", "Mrs. Calloway", "Mrs. Dalloway"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1493,14 +1493,14 @@ question_list = [{
         "question":"In the 1988 comedy film 'A Fish Called Wanda', what do the main characters attempt to steal?",
         "options":["Money", "Bonds", "Art", "Jewels"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Voiced by Harry Shearer, what is the middle name of Mr. Burns in the TV sitcom 'The Simpsons'?",
         "options":["Montgomery", "Dallas", "Charles", "Evans"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1514,7 +1514,7 @@ question_list = [{
         "question":"Written by Jesse Stone, the song 'Money Honey' was which group's first hit?",
         "options":["The Cadillacs", "The Platters", "The Dominoes", "The Drifters"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1542,14 +1542,14 @@ question_list = [{
         "question":"Released in 1981, 'Ghost in the Machine' was a hit album for which English rock band?",
         "options":["Oasis", "The Clash", "Queen", "The Police"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"If Nemo is the captain of the Nautilus, what novel would you be reading?",
         "options":["Twenty Thousand Leagues under the Sea", "Moby Dick", "Treasure Island", "The Caine Mutiny"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1563,14 +1563,14 @@ question_list = [{
         "question":"English actress 'Maggie Smith' plays the role of which character in the Harry Potter films?",
         "options":["Minerva McGonagall", "Dolores Umbridge", "Ginevra Weasley", "Hermione Granger"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which actor's real name is Thomas C. Mapother is the real name of which person?",
         "options":["Matt Damon", "Tom Cruise", "George Clooney", "Johnny Depp"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1584,7 +1584,7 @@ question_list = [{
         "question":"Taking place in 1956, what country won the first ever Eurovision Song Contest?",
         "options":["Switzerland", "United Kingdom", "France", "Russia"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1598,21 +1598,21 @@ question_list = [{
         "question":"Released in November of 1971, 'Jeepster' was a big hit for which glam rock act?",
         "options":["Mud", "Slade", "Sweet", "T. Rex"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"What season of 'The Simpsons' began in 2016?",
         "options":["28th", "12th", "32nd", "18th"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which of the following Arnold Schwarzenegger films was released first?",
         "options":["The Running Man", "Predator", "Commando", "The Terminator"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1626,21 +1626,21 @@ question_list = [{
         "question":"Which singer/songwriter is known by the nickname 'The Boss'?",
         "options":["Bono", "Jimi Hendrix", "Bon Jovi", "Bruce Springsteen"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Which American actor is known for playing Sheldon Cooper on the popular sitcom 'The Big Bang Theory'?",
         "options":["Simon Helberg", "Kevin Sussman", "Jim Parsons", "Johnny Galecki"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Airing in 2016, which contestant won season 32 of 'Survivor'?",
         "options":["Aubry Bracco", "Michele Fitzgerald", "Cydney Gillon", "Tai Trang"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1654,7 +1654,7 @@ question_list = [{
         "question":"What American singer and actress played the role of Cat Valentine on the TV sitcom series 'Victorious'?",
         "options":["Selena Gomez", "Miley Cyrus", "Jennette McCurdy", "Ariana Grande"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1689,14 +1689,14 @@ question_list = [{
         "question":"Which film hero has a girlfriend named 'Marion Ravenwood'?",
         "options":["Harry Potter", "Indiana Jones", "Luke Skywalker", "James Bond"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Which girl group had a 2005 hit with the song 'Lose My Breath'?",
         "options":["Cleopatra", "The Spice Girls", "Destiny's Child", "The Pussycat Dolls"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1710,7 +1710,7 @@ question_list = [{
         "question":"Which English novelist and poet wrote under the pen name 'Currer Bell'?",
         "options":["Jane Austen", "Virginia Woolf", "Charlotte Bronte", "Emily Bronte"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1738,7 +1738,7 @@ question_list = [{
         "question":"The fictional character 'Captain Ahab' appears in which novel?",
         "options":["Treasure Island", "Robinson Crusoe", "Gulliver's Travels", "Moby Dick"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1773,28 +1773,28 @@ question_list = [{
         "question":"As of 2016, what is the only Avril Lavigne song to have reached number one on the US Billboard Chart?",
         "options":["Girlfriend", "My Happy Ending", "Complicated", "Sk8er Boi"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which film starring Tom Hanks was released first?",
         "options":["The Green Mile", "The Terminal", "Charlie Wilson's War", "Splash"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Living to the age of 100, which American comedian and actor hosted the Academy Award ceremonies a record eighteen times?",
         "options":["Groucho Marx", "Bob Hope", "Peter Sellers", "Jerry Lewis"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"This British musical film is loosely based on Ian Fleming's 1964 novel of the same name.",
         "options":["Willy Wonka and the Chocolate Factory", "Chitty Chitty Bang Bang", "Mary Poppins", "Bedknobs and Broomsticks"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1808,7 +1808,7 @@ question_list = [{
         "question":"Running for five seasons from September 2008 to December 2012, who voiced the 'Great Dragon' in the British fantasy-adventure TV series 'Merlin'?",
         "options":["David Tenant", "Marvin Hulmes", "John Hurt", "Pat Baker"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1822,7 +1822,7 @@ question_list = [{
         "question":"Voiced by Kevin Kline, Captain Phoebus appears in which 1996 Disney film?",
         "options":["Tarzan", "The Hunchback of Notre Dame", "The Emperor's New Groove", "Beauty and the Beast"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -1836,7 +1836,7 @@ question_list = [{
         "question":"Formed in 1986, American musician John Rzeznik is the front man of what rock band?",
         "options":["Everclear", "Gin Blossoms", "Goo Goo Dolls", "Collective Soul"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1857,7 +1857,7 @@ question_list = [{
         "question":"In the animated sitcom 'The Simpsons,' who replaced Chief Wiggum in Season 8?",
         "options":["Evan Tanner", "Mark Lanner", "Sid Manner", "Rex Banner"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -1871,7 +1871,7 @@ question_list = [{
         "question":"Which of these movies won the 'Razzie for Worst Picture' first?",
         "options":["Hudson Hawk", "Star Trek V", "Howard the Duck"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -1892,7 +1892,7 @@ question_list = [{
         "question":"On the American crime drama TV series Breaking Bad, what illicit drug did Walter manufacture?",
         "options":["Crystal Meth", "LSD", "Heroin", "Hashish"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -1941,7 +1941,7 @@ question_list = [{
         "question":"Which comedian released and autobiographical book titled 'The Girl with the Lower Back Tattoo' in September 2016?",
         "options":["Sarah Silverman", "Martha Reeves", "Ellen DeGeneres", "Amy Schumer"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2004,7 +2004,7 @@ question_list = [{
         "question":"In the Harry Potter film series, what is the name of the fictional British school of magic?",
         "options":["Fogwarts", "Logwarts", "Nogwarts", "Hogwarts"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2032,7 +2032,7 @@ question_list = [{
         "question":"Released in November of 1971, name Billy Joel's debut solo album.",
         "options":["Piano Man", "The Stranger", "The Stranger", "Cold Spring Harbor"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2046,7 +2046,7 @@ question_list = [{
         "question":"Which 19th century author wrote the novels 'A Christmas Carol' and 'Great Expectations'?",
         "options":["Charles Dickens", "Mark Twain", "Herman Melville", "Arthur Conan Doyle"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2060,7 +2060,7 @@ question_list = [{
         "question":"Created and produced by Vince Gilligan, what TV series featured actor Aaron Paul as Jesse Pinkman?",
         "options":["Breaking Bad", "Homeland", "Sons of Anarchy", "Prison Break"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2095,14 +2095,14 @@ question_list = [{
         "question":"The game of 'Brockian Ultra Cricket' appears in which series of novels?",
         "options":["Harry Potter", "The Maze Runner", "A Song of Ice and Fire", "Hitchhiker's Guide to the Galaxy"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"How is musician 'Marvin Lee Aday' better known?",
         "options":["Meatloaf", "Alice Cooper", "Kid Rock", "Sting"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2116,7 +2116,7 @@ question_list = [{
         "question":"How many Oscars did the film, 'The Lord of the Rings - The Return of the King,' win at the 76th Academy Awards?",
         "options":["2", "9", "11", "5"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2130,14 +2130,14 @@ question_list = [{
         "question":"How many contestants are featured on the American TV quiz show 'The Chase'?",
         "options":["5", "4", "3", "2"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"In the game of Scrabble, what is the value of the letter 'C'?",
         "options":["2", "3", "1", "4"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2151,14 +2151,14 @@ question_list = [{
         "question":"In which city is the romantic comedy TV series 'Sex and the City' set?",
         "options":["Denver", "Illinois", "New York City", "Seattle"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Sir Ian Mckellen played which leading character in the Lord of the Rings film series?",
         "options":["Bilbo", "Frodo", "Gandalf", "Sauron"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2172,7 +2172,7 @@ question_list = [{
         "question":"Kelly Jones is the lead singer with which Welsh band, formed in 1996?",
         "options":["Oasis", "Manic Street Preachers", "Stereophonics", "Catatonia"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2193,21 +2193,21 @@ question_list = [{
         "question":"What was the name of the main boat featured in the 1975 movie 'Jaws'?",
         "options":["Beats", "Cheater", "Orca", "Lorca"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Which female popstar had a number one single in 2000 with 'What a Girl Wants'?",
         "options":["Madonna", "Britney Spears", "Pink", "Christina Aguilera"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Which of these films was the earliest to win the Academy Award for best picture?",
         "options":["Slumdog Millionaire", "12 Years a Slave", "Argo", "The Hurt Locker"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2221,7 +2221,7 @@ question_list = [{
         "question":"Which singer was shot dead by his father in 1984?",
         "options":["Marvin Gaye", "James Brown", "Otis Redding", "Bill Withers"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2256,7 +2256,7 @@ question_list = [{
         "question":"How many ghosts are featured in Charles Dicken's novella 'A Christmas Carol'?",
         "options":["3", "2", "1", "4"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2284,7 +2284,7 @@ question_list = [{
         "question":"In the 'Harry Potter' book, and movie series, who teaches 'Quidditch'?",
         "options":["Professor Snape", "Professor Sprout", "Professor Dumbledore", "Professor McGonagall"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2340,7 +2340,7 @@ question_list = [{
         "question":"The character Nancy Drew can be best described as a...?",
         "options":["Cook", "Athlete", "Baby Sitter", "Detective"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2354,7 +2354,7 @@ question_list = [{
         "question":"Elmo is a character from which children's TV series?",
         "options":["Caillou", "Teletubbies", "Sesame Street", "SpongeBob SquarePants"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2375,7 +2375,7 @@ question_list = [{
         "question":"'The Liberty Bell' was the theme tune to which classic British comedy show?",
         "options":["Monty Python", "The Office", "Porridge", "Only Fools and Horses"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2389,7 +2389,7 @@ question_list = [{
         "question":"The line 'To be or not to be, that is the question' comes from which Shakespearean play?",
         "options":["Macbeth", "Romeo and Juliet", "Hamlet", "Othello"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2410,7 +2410,7 @@ question_list = [{
         "question":"In the 2014 comedy film 'St. Vincent', who plays the role of Vincent?",
         "options":["Bill Murray", "Hugh Grant", "Matt Damon", "Ben Affleck"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2473,7 +2473,7 @@ question_list = [{
         "question":"Published in 1993, 'The Client' was a hit novel for which author?",
         "options":["Robert Galbraith", "John Grisham", "Robert Harris", "Stephen King"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2508,7 +2508,7 @@ question_list = [{
         "question":"George Clooney shot to fame in which medical drama?",
         "options":["ER", "Scrubs", "Casualty", "A and E"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2529,7 +2529,7 @@ question_list = [{
         "question":"Whose album 'Views' topped the Billboard 200 chart at number one in July of 2016?",
         "options":["Drake", "Rihanna", "Twenty One Pilots", "Blink 182"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2564,7 +2564,7 @@ question_list = [{
         "question":"Which TV show received the most Emmy nominations in July of 2016?",
         "options":["Containment", "The Office", "The Walking Dead", "Game of Thrones"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2606,14 +2606,14 @@ question_list = [{
         "question":"Now a cult-classic, what 1982 Frank Zappa song features the line, 'Gag me with a spoon'?",
         "options":["Don't Eat the Yellow Snow", "Joe's Garage", "Bobby Brown", "Valley Girl"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Who played the role of the mother Shirley Partridge in the 1970s musical sitcom, 'The Partridge Family'?",
         "options":["Suzanne Crough", "Shirley Jones", "Evelyn Ward", "Susan Dey"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2627,7 +2627,7 @@ question_list = [{
         "question":"What American new wave band released the singles 'Rock Lobster' and 'Planet Claire' on their debut album in 1979?",
         "options":["Talking Heads", "The B-52's", "The Bangles", "Devo"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2641,35 +2641,35 @@ question_list = [{
         "question":"Known for his big mouth and witty lines, which boxer was given the nickname 'The Louisville Lip'?",
         "options":["Joe Louis", "Primo Carnera", "Jack Dempsey", "Muhammed Ali"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Which of the following films was the first to win an Oscar for Best Picture?",
         "options":["A Man for All Seasons", "My Fair Lady", "In the Heat of the Night", "The Sound of Music"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Airing for six seasons, in what year did the animated cartoon series 'The Flintstones' make its debut?",
         "options":["1960", "1964", "1964", "1962"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
         "question":"Which English comedian published the non-fiction book 'Revolution' in 2014?",
         "options":["Terry Wogan", "Graham Norton", "Jonathan Ross", "Russell Brand"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Which British singer and actress became a judge on the UK version of 'The Voice' in 2015?",
         "options":["Rita Ora", "Beyonce", "Adele", "Victoria Beckham"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2683,14 +2683,14 @@ question_list = [{
         "question":"Which is the correct name of a popular Canadian rock band that formed in 1996?",
         "options":["Sum 40", "Sum 42", "Sum 41", "Sum 43"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"In which popular TV show does most of the action take place on the fictional continent of 'Westeros'?",
         "options":["Of Kings and Prophets ", "Vikings", "The Shannara Chronicles ", "Game of Thrones"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2704,14 +2704,14 @@ question_list = [{
         "question":"In Disney's 1989 film 'The Little Mermaid', what type of creature is Sebastian?",
         "options":["Seahorse", "Seagull", "Crab", "Shark"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"Based on a novel by J. K. Rowling, in what year was the first Harry Potter film released?",
         "options":["1999", "2001", "2003", "2005"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2725,7 +2725,7 @@ question_list = [{
         "question":"Playing the role of Turner, Mick Jagger starred in which of the following movies...?",
         "options":["I'm Alright Jack", "The Life and Death of Colonel Blimp", "Black Narcissus", "Performance"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
@@ -2739,7 +2739,7 @@ question_list = [{
         "question":"Tom Hanks received his first Oscar nomination for his role in which 1988 comedy film?",
         "options":["Big", "Toy Story", "Splash", "You've Got Mail"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 0
     },
     {
@@ -2767,7 +2767,7 @@ question_list = [{
         "question":"Kylo Ren murders which character in the 2015 sci-fi film 'Star Wars - The Force Awakens'?",
         "options":["Chewbacca", "Hans Solo", "Princess Leia", "Luke Skywalker"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
@@ -2802,28 +2802,28 @@ question_list = [{
         "question":"Which 1966 British film took home six Academy Awards including best film, director and actor?",
         "options":["Mary Queen of Scots", "The Madness of King George", "The Commitments", "A Man For All Seasons"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
         "question":"Named Christ the Redeemer, this 38 meters tall statue of Jesus stands atop the Corcovado Mountain overlooking what city?",
         "options":["Baghdad", "Rio De Janeiro"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Complete the famous opening line from the classic novel Moby Dick - 'Call me...'.",
         "options":["Stupid", "Ishmael", "Moses", "Jacob"],
 
-        "category":"book",
+        "category":"pop culture",
         "answer": 1
     },
     {
         "question":"Emma Watson plays the role of which character in the Harry Potter films?",
         "options":["Nearly Headless Nick", "Rolanda Hooch", "Hermione Granger", "Severus Snape"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 2
     },
     {
@@ -2851,14 +2851,14 @@ question_list = [{
         "question":"Released in January of 2008, what is the title of British singer Adele's debut album?",
         "options":["17", "29", "19", "21"],
 
-        "category":"music",
+        "category":"pop culture",
         "answer": 2
     },
     {
         "question":"The 1996 film 'When We Were Kings' is a documentary featuring which sports?",
         "options":["Football", "Golf", "Soccer", "Boxing"],
 
-        "category":"movies and tv",
+        "category":"pop culture",
         "answer": 3
     },
     {
