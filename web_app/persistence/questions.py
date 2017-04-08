@@ -149,7 +149,7 @@ question_list = [{
         "question":"A 'Miller' is a move in which sports?",
         "options":["Ice Hockey", "Trampolining", "Diving", "Chess"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 1
     },
     {
@@ -177,7 +177,7 @@ question_list = [{
         "question":"Which NHL hockey team has won the most Stanley Cups?",
         "options":["Toronto Maple Leafs", "Boston Bruins", "Montreal Canadiens", "New York Rangers"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -268,7 +268,7 @@ question_list = [{
         "question":"Who was the only English player to win the European Golden Boot award?",
         "options":["Robbie Fowler", "Michael Owen", "Gary Lineker", "Kevin Phillips"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -338,7 +338,7 @@ question_list = [{
         "question":"Due to superstition, what didn't Bjorn Borg do at Wimbledon?  ",
         "options":["shave", "wash", "change his socks", "brush his teeth"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -373,7 +373,7 @@ question_list = [{
         "question":"Anna Pavlowa excelled in which of the following?",
         "options":["ballet", "chess", "painting", "tennis"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -562,7 +562,7 @@ question_list = [{
         "question":"What popular board game has playing cards named Creative Cat, Data Head, Star Performer and Word Worm?",
         "options":["Taboo", "7 Wonders", "Codenames", "Cranium"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -772,7 +772,7 @@ question_list = [{
         "question":"In this sports we see individuals throwing stones at a house.",
         "options":["Curling", "Golf", "Shot Put", "Bowling"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -898,7 +898,7 @@ question_list = [{
         "question":"In bowling, how many successive strikes do you need to accomplish a perfect game of 300?",
         "options":["13", "10", "12", "11"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -1164,7 +1164,7 @@ question_list = [{
         "question":"Now retired, this WWE Superstar's theme song was 'All About the Power'.",
         "options":["Sheamus", "Jack Swagger", "Justin Gabriel", "David Otunga"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -1220,7 +1220,7 @@ question_list = [{
         "question":"Who finished second in the medals table to USA at the Rio 2016 Olympic Games?",
         "options":["Great Britain", "Russia", "Japan", "China"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -1283,7 +1283,7 @@ question_list = [{
         "question":"Which team won the MLB (Major League Baseball) 2016 World Series?",
         "options":["New York Yankees", "Boston Redsox", "Chicago Cubs", "Chicago Whitesox"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -1339,14 +1339,14 @@ question_list = [{
         "question":"Which team won the UEFA European Championships in 2016?",
         "options":["Portugal", "Germany", "France", "Russia"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
         "question":"Which team took gold in Women's Hockey at the Rio 2016 Olympic Games?",
         "options":["USA", "Canada", "Germany", "Great Britain"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -1381,7 +1381,7 @@ question_list = [{
         "question":"Which team won the CFL Grey Cup in November of 2016?",
         "options":["Ottawa Redblacks", "Calgary Stampeders", "Edmonton Eskimos", "BC Lions"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -1465,7 +1465,7 @@ question_list = [{
         "question":"What was the nickname of baseball legend 'Hank Aaron'?",
         "options":["Splendid Splinter", "Sultan of Swat", "Three Fingers", "Hammer"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -1479,7 +1479,7 @@ question_list = [{
         "question":"In the NBA, what is the shot clock set to?",
         "options":["32 seconds", "20 seconds", "24 seconds", "28 seconds"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -1528,7 +1528,7 @@ question_list = [{
         "question":"The year 2016 marks which anniversary of the National Football League's 'Super Bowl'?",
         "options":["50th", "80th", "60th", "70th"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -1577,7 +1577,7 @@ question_list = [{
         "question":"What is the only sports that has been played on the moon?",
         "options":["Croquet", "Volleyball", "Baseball (catch)", "Golf"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -1619,7 +1619,7 @@ question_list = [{
         "question":"One of the four major championships in professional golf, where is the US Masters held every year?",
         "options":["Turnberry", "Waco", "Spungiol", "Augusta"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -2186,7 +2186,7 @@ question_list = [{
         "question":"What sports is played by the San Francisco Giants?",
         "options":["Baseball", "Basketball", "Ice Hockey", "Football"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 1
     },
     {
@@ -2263,7 +2263,7 @@ question_list = [{
         "question":"How many holes make up one round of golf?",
         "options":["8", "6", "12", "18"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
@@ -2298,7 +2298,7 @@ question_list = [{
         "question":"In which sports is a shuttlecock used?",
         "options":["Badminton", "Racquetball", "Tennis", "Squash"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 0
     },
     {
@@ -2319,14 +2319,14 @@ question_list = [{
         "question":"The first Olympic Games were held in which country?",
         "options":["England", "France", "Italy", "Greece"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 3
     },
     {
         "question":"What sports takes place in a 'Velodrome'?",
         "options":["Racquetball", "Cycling", "Basketball", "Ice Hockey"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 1
     },
     {
@@ -2431,7 +2431,7 @@ question_list = [{
         "question":"Who, at the age of 32, is the oldest man to have won the men's 100m sprint at the Olympic Games?",
         "options":["Usain Bolt", "Carl Lewis", "Linford Christies", "Donovan Bailey"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -2522,7 +2522,7 @@ question_list = [{
         "question":"Who won the 2016 UEFA European Championship?",
         "options":["Italy", "France", "Portugal", "Spain"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -2676,7 +2676,7 @@ question_list = [{
         "question":"This former world number one professional tennis player might be best known for a 'You cannot be serious!' outburst at a 1981 tennis match.",
         "options":["Boris Becker", "Ivan Lendl", "John McEnroe", "Jimmy Connors"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 2
     },
     {
@@ -2732,7 +2732,7 @@ question_list = [{
         "question":"Located in the New York metropolitan area, 'The New York Giants' play which sports?",
         "options":["Ice Hockey", "Football", "Basketball", "Baseball"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 1
     },
     {
@@ -2746,7 +2746,7 @@ question_list = [{
         "question":"In what decade was the butterfly stroke first swam as a separate competition at the Olympic Games?",
         "options":["1960s", "1950s", "1970s", "1980s"],
 
-        "category":"sports",
+        "category":"other",
         "answer": 1
     },
     {
