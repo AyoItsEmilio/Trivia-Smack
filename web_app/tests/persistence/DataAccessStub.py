@@ -32,9 +32,14 @@ class DataAccessStub(DataAccessInterface):
         return result
 
     def get_random_question(self, category=None):
-        num_qs = self.get_num_questions()
+        filtered_list = self.questions
+
+        if category is not None and category != "all":
+            filtered_list = [q for q in filtered_list if q.category == category]
+
+        num_qs = len(filtered_list)
         rq_num = random.randint(0, num_qs-1) if num_qs > 0 else 0
-        return self.questions[rq_num]
+        return filtered_list[rq_num]
 
     def get_all_questions(self):
         return self.questions
@@ -67,7 +72,6 @@ class DataAccessStub(DataAccessInterface):
         return result
 
     def delete_question(self, **kwargs):
-
         for question_obj in self.questions:
             if question_obj.question == kwargs["question"]:
                 self.questions.remove(question_obj)
