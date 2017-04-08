@@ -20,7 +20,7 @@ function TasksViewModel(){
     self.isPlaying = ko.observable(false);
     self.questions = ko.observableArray();
     self.categories = ko.observableArray(["all", "animals", "geography",
-    "history", "math", "science"]);
+    "history", "other", "science"]);
 
     self.counter.subscribe(function(newValue) {
         if (newValue === 0){
