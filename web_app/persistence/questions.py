@@ -9,7 +9,7 @@ question_list = [{
         "question":"Is the square root of 10:",
         "options":["zero", "greater than 3", "less than 3"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -30,14 +30,14 @@ question_list = [{
         "question":"If x+y=3 and 2x+y=4, then x equals",
         "options":["0", "1", "4", "3"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 1
     },
     {
         "question":"If x+y<11 and x>6, then y is:",
         "options":["positive", "negative", "Not determinable"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 2
     },
     {
@@ -51,7 +51,7 @@ question_list = [{
         "question":"21, 25, 33, 49, 81, ",
         "options":["162", "113", "144", "145"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 2
     },
     {
@@ -128,21 +128,21 @@ question_list = [{
         "question":"How many earths would fit inside the sun?",
         "options":["circa 100", "circa 1,000,000", "circa 10,000", "circa 100,000"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
         "question":"What does a nidoligist study?",
         "options":["Waves", "Clouds", "Bird Nests", "Caves"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 2
     },
     {
         "question":"What is the more usual name for Roentgen Rays?",
         "options":["X Rays", "Gamma Rays", "Ultraviolet Rays", "Magnetic Resonance"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -163,14 +163,14 @@ question_list = [{
         "question":"Hypermetropic people are what?",
         "options":["obese", "underfed", "moody", "far sighted"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
         "question":"Fredrick Sanger invented which life saver?",
         "options":["Insulin", "Safety Pin", "Inflatable Life Raft", "Aspirin"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -198,7 +198,7 @@ question_list = [{
         "question":"Anemophobia is the fear of what?",
         "options":["Spiders", "The Dark", "Fire", "Wind"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -296,7 +296,7 @@ question_list = [{
         "question":"What are Lanthanides?",
         "options":["Elements in the periodic table", "Mountains on Earth", "Mountains on the Moon", "Bacterium"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -394,14 +394,14 @@ question_list = [{
         "question":"What was the number of the last Apollo mission?",
         "options":["13", "14", "17", "22"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 2
     },
     {
         "question":"Which three letters replaced CQD?",
         "options":["SOS", "KGB", "TNT", "FYI"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -429,7 +429,7 @@ question_list = [{
         "question":"In medical terms, what is 'Hypotension'?",
         "options":["Weak Immune System", "Weak Heart Muscles", "High Blood Pressure", "Low Blood Pressure"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -450,7 +450,7 @@ question_list = [{
         "question":"Which of the following individuals is not associated with personal computers?",
         "options":["Steve Jobs", "John Sculley", "Bill Gates", "Alan Greenspan"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -499,7 +499,7 @@ question_list = [{
         "question":"All angles in a triangle add up to what number?",
         "options":["220 degrees", "220 degrees", "220 degrees", "180 degrees"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -527,7 +527,7 @@ question_list = [{
         "question":"Which of the following social networks had the most traffic during 2016?",
         "options":["Facebook", "LinkedIn", "YouTube", "Twitter"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 2
     },
     {
@@ -786,7 +786,7 @@ question_list = [{
         "question":"Monophobia is the fear of what? ",
         "options":["Having One Partner", "Being Alone", "Being Kissed"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -814,7 +814,7 @@ question_list = [{
         "question":"Which of these bones lies highest on the human body?",
         "options":["Clavicle", "Mandible", "Sternum", "Cervical Vertebrae"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -863,7 +863,7 @@ question_list = [{
         "question":"Which of the following words is a synonym for 'Quintessential'?",
         "options":["Stereotypical", "Loving", "Uncharacteristic", "Antagonized"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -877,7 +877,7 @@ question_list = [{
         "question":"In geometry, how many sides does a decagon have?",
         "options":["10", "6", "8", "12"],
 
-        "category":"math",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -1010,7 +1010,7 @@ question_list = [{
         "question":"What is the second most abundant element in the earth's atmosphere?",
         "options":["Helium", "Oxygen", "Nitrogen", "Hydrogen"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -1038,7 +1038,7 @@ question_list = [{
         "question":"Which fruit is the main ingredient of a Sutton Pie?",
         "options":["Apple", "Apple", "Apple", "Peach"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -1059,7 +1059,7 @@ question_list = [{
         "question":"Which of the following shapes has no right angle?",
         "options":["Cube", "Rhombus", "Rectangle", "Square"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -1304,7 +1304,7 @@ question_list = [{
         "question":"NASA's 'Juno' became the second craft to orbit which planet in 2016?",
         "options":["Jupiter", "Mars", "Uranus", "Neptune"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -1367,7 +1367,7 @@ question_list = [{
         "question":"On January 28th, 2016, what virus outbreak was announced by the World Health Organization?",
         "options":["Respiratory Syncytial Virus", "Influenza A Virus", "Lassa Virus", "Zika Virus"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -1745,7 +1745,7 @@ question_list = [{
         "question":"Carbon and which other element make up steel?",
         "options":["Zinc", "Antimony", "Iron", "Cobalt"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 2
     },
     {
@@ -1955,7 +1955,7 @@ question_list = [{
         "question":"The Zika virus officially hit which nation in September 2016?",
         "options":["Honduras", "Philippines", "Portugal", "Russia"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -1983,7 +1983,7 @@ question_list = [{
         "question":"Which company recalled several of its Note 7 series phones after the battery began to catch fire?",
         "options":["Nokia", "Samsung", "Sony", "Apple"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -2039,7 +2039,7 @@ question_list = [{
         "question":"Which element is the most prominent in the air?",
         "options":["Nitrogen", "Helium", "Hydrogen", "Oxygen"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     },
     {
@@ -2466,7 +2466,7 @@ question_list = [{
         "question":"Present on the left and right, the carotid arteries are found in which part of the human body?",
         "options":["Arms", "Legs", "Neck", "Chest"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 2
     },
     {
@@ -2494,14 +2494,14 @@ question_list = [{
         "question":"Brass is an alloy of Zinc and which other material?",
         "options":["Silver", "Lead", "Gold", "Copper"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
         "question":"Dermatology is associated with which part of the body?",
         "options":["Gums", "Bones", "Ears", "Skin"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 3
     },
     {
@@ -2753,7 +2753,7 @@ question_list = [{
         "question":"Based upon an absolute scale, Kelvin is used to measure what?",
         "options":["Speed", "Temperature", "Depth", "Height"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 1
     },
     {
@@ -2865,7 +2865,7 @@ question_list = [{
         "question":"Where on your body would you find your 'Ulna'?",
         "options":["Arms", "Mouth", "Feet", "Heart"],
 
-        "category":"science",
+        "category":"math and science",
         "answer": 0
     }
 ]
