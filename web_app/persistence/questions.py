@@ -2,7 +2,7 @@ question_list = [{
         "question":"How much does a male Polar Bear weigh?",
         "options":["1200 lbs", "1000 lbs", "600 lbs", "Enough to break the ice"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 1
     },
     {
@@ -16,7 +16,7 @@ question_list = [{
         "question":"Platypuses lay eggs",
         "options":["true", "false"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -44,7 +44,7 @@ question_list = [{
         "question":"The plural of bison is:",
         "options":["bisons", "buffalo", "bison", "buffalos"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 2
     },
     {
@@ -86,7 +86,7 @@ question_list = [{
         "question":"Which kind of animals did Florence Nightingale often carry around in her pocket?",
         "options":["Kitten", "Puppy", "Owl", "Snake"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 2
     },
     {
@@ -247,7 +247,7 @@ question_list = [{
         "question":"From which continent does the ostrich originate?",
         "options":["Africa", "Australia", "North America", "Asia"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -324,14 +324,14 @@ question_list = [{
         "question":"What part of the body does a turtle use to breathe?",
         "options":["Belly", "Shell", "Mouth", "Anus"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 3
     },
     {
         "question":"For how long is a dog pregnant?",
         "options":["9 Weeks", "9 Days", "   9 Months", "9 Fortnights"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -415,7 +415,7 @@ question_list = [{
         "question":"How many tentacles would you find on a starfish?",
         "options":["Five", "Eight", "Six", "Four"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -952,7 +952,7 @@ question_list = [{
     },
     {
         "question":"Which of the following songs was the first number-one for the Beatles in the United Kingdom?",
-        "options":["From Me To You", "From Me To You", "From Me To You", "From Me To You"],
+        "options":["From Me To You", "From You To Me", "From You", "From Me"],
 
         "category":"pop culture",
         "answer": 0
@@ -1093,7 +1093,7 @@ question_list = [{
     {
         "question":"From which animals does the 'Galapagos Islands' take their name?",
         "options":["Horses", "Tortoises", "Horses", "Snakes"],
-        "category":"animals",
+        "category":"other",
 
         "answer": 1
     },
@@ -1472,7 +1472,7 @@ question_list = [{
         "question":"One of two species assigned to the genus Mandrillus, what type of animals is a mandrill?",
         "options":["Cat", "Monkey", "Bird", "Fish"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 1
     },
     {
@@ -1899,7 +1899,7 @@ question_list = [{
         "question":"The ICUN removed which animals from its engendered list in September of 2016?",
         "options":["Giant Panda", "White Rhino", "Golden Lion", "Panther"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -2018,7 +2018,7 @@ question_list = [{
         "question":"Which animals's stomach is used to make 'Haggis'?",
         "options":["Sheep", "Chicken", "Cow", "Pig"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 0
     },
     {
@@ -2067,7 +2067,7 @@ question_list = [{
         "question":"First domesticated about 4,000 years ago, how many humps does an Arabian camel have?",
         "options":["Three", "Four", "Two", "One"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 3
     },
     {
@@ -2081,7 +2081,7 @@ question_list = [{
         "question":"Hippophobia, or equinophobia, is the fear of which animals?",
         "options":["Elephants", "Cats", "Horses", "Dogs"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 2
     },
     {
@@ -2795,7 +2795,7 @@ question_list = [{
         "question":"What can a tiger, a lion and a domestic cat do, that a cheetah cannot?",
         "options":["Replace lost teeth", "Retract their claws", "Run backwards", "Run backwards"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 1
     },
     {
@@ -2844,7 +2844,7 @@ question_list = [{
         "question":"What animals can be identified as 'Siberian' or 'Caspian'?",
         "options":["Cheetah", "Jaguar", "Tiger", "Lion"],
 
-        "category":"animals",
+        "category":"other",
         "answer": 2
     },
     {
