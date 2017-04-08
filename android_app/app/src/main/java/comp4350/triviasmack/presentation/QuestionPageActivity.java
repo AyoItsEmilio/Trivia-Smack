@@ -1,28 +1,28 @@
 package comp4350.triviasmack.presentation;
 
 import android.content.Intent;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.DialogInterface;
 import android.os.CountDownTimer;
 
 import comp4350.triviasmack.R;
+import comp4350.triviasmack.business.BackButtonDialog;
+import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
 
-public class QuestionPageActivity extends AppCompatActivity {
+public class QuestionPageActivity extends AppCompatActivity implements Exitable {
 
     private GameController gameController = GameController.getInstance();
     private final int one_second = 1000;
     private final int five_seconds = one_second * 5;
     private final int ten_seconds = one_second * 10 + 100;
-    private CountDownTimer countDownTimer = null;
+    private QuestionTimer questionTimer = null;
     private int secondsUntilFinished = 0;
     private TextView scoreView;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
@@ -40,25 +40,13 @@ public class QuestionPageActivity extends AppCompatActivity {
         scoreView.setText("Score: " + gameController.getScore());
         questionTitle.setText(questionObj.getQuestion());
         showOptions(questionObj.getOptions());
+        startTimer();
+    }
 
+    public void startTimer() {
         final TextView[] timerTextView = {null};
-        countDownTimer = new CountDownTimer(ten_seconds, one_second) {
-            public void onTick(long millisUntilFinished) {
-                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
-                secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
-                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
-                if (millisUntilFinished < five_seconds) {
-                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
-                }
-            }
-
-            public void onFinish() {
-                timerTextView[0].setText("Time is up!");
-                cancel();
-                advancePage();
-            }
-        }.start();
-
+        questionTimer = new QuestionTimer(ten_seconds, one_second, timerTextView);
+        questionTimer.startTimer();
     }
 
     public void showOptions(String options[]) {
@@ -76,7 +64,7 @@ public class QuestionPageActivity extends AppCompatActivity {
         boolean result;
         String optionText;
 
-        countDownTimer.cancel();
+        questionTimer.stopTimer();
         optionText = ((Button) v).getText() + "";
         optionText = optionText.substring(2);
         result = gameController.evaluateAnswer(optionText);
@@ -84,14 +72,13 @@ public class QuestionPageActivity extends AppCompatActivity {
         if (result) {
             ((Button) v).setText("• RIGHT!");
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_green));
-            gameController.increaseScore(secondsUntilFinished);
+            gameController.increaseScore(questionTimer.getTimeRemaining());
             scoreView.setText("Score: " + gameController.getScore());
         } else {
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
 
         advancePage();
-
     }
 
     public void advancePage() {
@@ -108,30 +95,72 @@ public class QuestionPageActivity extends AppCompatActivity {
         }
     }
 
+    public void exitAction() {
+        questionTimer.stopTimer();
+        gameController.start();
+        Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
+        ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        QuestionPageActivity.this.startActivity(ExitGameIntent);
+
+        if (multiPlayer.isConnected()) {
+            multiPlayer.disconnect();
+        }
+    }
+
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        BackButtonDialog.buildExitDialog(this);
+    }
 
-        builder.setTitle("Exit game?");
+    public class QuestionTimer extends CountDownTimer {
+        private final int one_second = 1000;
+        private int secondsUntilFinished = 0;
+        private boolean isTicking = false;
+        private TextView[] timerTextView = null;
 
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                countDownTimer.cancel();
-                gameController.start();
-                Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
-                ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                QuestionPageActivity.this.startActivity(ExitGameIntent);
-                multiPlayer.disconnect();
+        public QuestionTimer(long millisInFuture, long countDownInterval, TextView[] timerTextView) {
+            super(millisInFuture, countDownInterval);
+            this.timerTextView = timerTextView;
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
+
+            if (timerTextView != null) {
+                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
+                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
+
+                if (millisUntilFinished < five_seconds) {
+                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
+                }
             }
-        });
+        }
 
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        @Override
+        public void onFinish() {
+            timerTextView[0].setText("Time is up!");
+            isTicking = false;
+            cancel();
+            advancePage();
+        }
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        public int getTimeRemaining() {
+            return secondsUntilFinished;
+        }
+
+        public void startTimer() {
+            super.start();
+            isTicking = true;
+        }
+
+        public void stopTimer() {
+            isTicking = false;
+            cancel();
+        }
+
+        public boolean isTicking() {
+            return isTicking;
+        }
     }
 }

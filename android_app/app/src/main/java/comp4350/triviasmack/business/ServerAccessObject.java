@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import comp4350.triviasmack.Constants;
+import comp4350.triviasmack.application.Constants;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
 
