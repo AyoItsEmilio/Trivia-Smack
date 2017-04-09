@@ -33,8 +33,8 @@ To run the android app:
 Note the Android app sends requests to our production server mentioned above. Change the base url in `android_app > ... > business > ServerAccessObject.java` to point the app to your server, if you want.
 
 To run server tests:
-- Unit tests: `python -m web_app.run_unit_tests`
-- Integration tests: `python -m web_app.run_integration_tests`
+- Unit tests: `python -m web_app.tests.run_unit_tests`
+- Integration tests: `python -m web_app.tests.run_integration_tests`
 
 You can find the Android tests in the usual Android test folder.
 
