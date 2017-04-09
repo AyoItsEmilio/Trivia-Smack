@@ -72,7 +72,6 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
                 category = "other";
                 break;
         }
-
         renderQuestionPage(v, category);
     }
 }

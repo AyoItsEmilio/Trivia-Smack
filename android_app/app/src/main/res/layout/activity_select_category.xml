@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_select_category"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="comp4350.triviasmack.presentation.SelectCategoryActivity">
+
+    <Button
+        android:id="@+id/pop_culture"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="pop culture"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/redbutton"
+        android:textSize="24sp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/math_and_science"
+        android:layout_alignLeft="@+id/math_and_science"
+        android:layout_alignStart="@+id/math_and_science" />
+
+    <Button
+        android:id="@+id/math_and_science"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="math and science"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/redbutton"
+        android:textSize="24sp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/history"
+        android:layout_alignLeft="@+id/history"
+        android:layout_alignStart="@+id/history" />
+
+    <Button
+        android:id="@+id/history"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="history"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/redbutton"
+        android:textSize="24sp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/geography"
+        android:layout_alignLeft="@+id/geography"
+        android:layout_alignStart="@+id/geography" />
+
+    <Button
+        android:id="@+id/geography"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="geography"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/all"
+        android:layout_alignLeft="@+id/all"
+        android:layout_alignStart="@+id/all"
+        android:background="@drawable/redbutton" />
+
+    <Button
+        android:id="@+id/other"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="other"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/redbutton"
+        android:textSize="24sp"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/pop_culture"
+        android:layout_alignLeft="@+id/pop_culture"
+        android:layout_alignStart="@+id/pop_culture" />
+
+    <Button
+        android:id="@+id/all"
+        android:layout_width="317dp"
+        android:layout_height="70dp"
+        android:text="all"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/redbutton"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="PICK A CATEGORY!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="78dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
