@@ -129,6 +129,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void renderRulesPage(View v) {
+        Intent RulesPageIntent = new Intent(MainActivity.this, RulesPageActivity.class);
+        MainActivity.this.startActivity(RulesPageIntent);
+    }
+
     public void renderMultiPlayerPage(View v) {
         gameController.setCategory("all");
         gameController.start();

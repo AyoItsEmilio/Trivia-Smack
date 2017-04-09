@@ -18,7 +18,7 @@
         android:layout_marginRight="16dp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/two_player"
+        app:layout_constraintTop_toBottomOf="@+id/game_rules"
         android:layout_width="wrap_content" />
 
     <TextView
@@ -29,7 +29,6 @@
         android:visibility="invisible"
         android:textColor="#1f1f1f"
         android:textSize="18sp"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/scoreText"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -71,6 +70,24 @@
         android:layout_marginLeft="32dp"
         android:layout_width="250dp" />
 
+    <Button
+        android:id="@+id/game_rules"
+        android:layout_height="wrap_content"
+        android:onClick="renderRulesPage"
+        android:text="Rules!"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/roundstartbutton"
+        android:textSize="24sp"
+        android:layout_marginEnd="45dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="45dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/two_player"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_width="250dp" />
+
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,7 +99,7 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="0dp"
+        android:layout_width="553dp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/trivialogo"
         app:layout_constraintRight_toRightOf="parent"
