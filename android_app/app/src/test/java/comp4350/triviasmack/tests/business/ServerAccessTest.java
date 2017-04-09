@@ -108,6 +108,38 @@ public class ServerAccessTest {
         assertEquals(questions.size(), dbSize);
     }
 
+    public static void testGetRandomQuestionCategory(int numQuestions, String category) {
+        ServerAccess serverAccess = Services.getServerAccess();
+        ArrayList<Question> questions = new ArrayList<>();
+
+        System.out.println("Testing ServerAccess: getRandomQuestions(category=" + category +")");
+
+        serverAccess.getRandomQuestions(questions, numQuestions, category);
+
+        assertEquals(questions.size(), numQuestions);
+        assertNotNull(questions);
+
+        for (int i = 0; i < questions.size(); i++) {
+            System.out.println(questions.get(i).getQuestion());
+            assertTrue(questions.get(i) instanceof Question);
+            assertEquals(category, questions.get(i).getCategory());
+        }
+    }
+
+    public static void testGetRandomQuestionInvalidCategory() {
+        ServerAccess serverAccess = Services.getServerAccess();
+        ArrayList<Question> questions = new ArrayList<>();
+
+        System.out.println("Testing ServerAccess: getRandomQuestions() with invalid category");
+
+        try{
+            serverAccess.getRandomQuestions(questions, 1, "invalid");
+            fail("Failed to catch exception.");
+        }
+        catch (Exception e){
+        }
+    }
+
     public static void serverAccessTest() {
         testGetRandomQuestionValidNum(0, category);
         testGetRandomQuestionValidNum(3, category);
@@ -116,6 +148,8 @@ public class ServerAccessTest {
         testGetRandomQuestionNegative();
         testGetRandomQuestionNullNegative();
         testGetRandomQuestionBigNum();
+        testGetRandomQuestionCategory(4, "math and science");
+        testGetRandomQuestionInvalidCategory();
     }
 
     @Test
