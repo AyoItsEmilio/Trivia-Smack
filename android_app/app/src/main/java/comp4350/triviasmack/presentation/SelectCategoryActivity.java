@@ -1,6 +1,5 @@
 package comp4350.triviasmack.presentation;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,15 +11,7 @@ import android.widget.Button;
 
 public class SelectCategoryActivity extends AppCompatActivity implements View.OnClickListener {
     private GameController gameController;
-
-    private Button all;
-    private Button geography;
-    private Button history;
-    private Button math_and_science;
-    private Button pop_culture;
-    private Button other;
     private String category;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +54,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
                 category = "history";
                 break;
             case R.id.math_and_science:
-                category = "math and science";
+                category = "math & science";
                 break;
             case R.id.pop_culture:
                 category = "pop culture";

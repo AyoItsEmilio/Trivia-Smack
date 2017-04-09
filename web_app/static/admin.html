@@ -67,7 +67,7 @@ $(document).ready(function() {
         </button>
         <br><br><br>
 
-        <!-- ko foreach: questions -->
+        <!-- ko foreach: questions.slice(0, questionBound()) -->
 
             <h3 data-bind="text: question"></h3></br>
 
@@ -90,8 +90,11 @@ $(document).ready(function() {
             </div>
 
             <br><br><br>
-
         <!-- /ko -->
+        <div class="blue button blueHover upperCase" data-bind="click: showMore, text:moreText">
+        </div>
+
+        <br><br>
     <!-- /ko -->
 
     <!-- ko if: addingQuestion -->
@@ -104,6 +107,9 @@ $(document).ready(function() {
             </div><br>
             <div>
                 <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
+            </div><br>
+            <div>
+                <input data-bind="value: category" type="text" class="textbox" placeholder="Category">
             </div>
         </form>
         <br>

@@ -28,9 +28,8 @@ def create_app(application):
     socketio.init_app(application)
 
 def set_up():
-    #populate_database(DB_NAME)
-    #Services.create_data_access(dbName="application")
-    Services.create_data_access(altDataAccessService=DataAccessStub("app"))
+    populate_database(DB_NAME)
+    Services.create_data_access(dbName="application")
 
 def tear_down():
     Services.close_data_access()
