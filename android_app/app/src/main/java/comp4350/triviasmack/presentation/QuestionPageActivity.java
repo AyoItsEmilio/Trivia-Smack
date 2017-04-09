@@ -75,6 +75,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
             gameController.increaseScore(questionTimer.getTimeRemaining());
             scoreView.setText("Score: " + gameController.getScore());
         } else {
+            ((Button) v).setText("• WRONG!");
             v.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
         }
 
