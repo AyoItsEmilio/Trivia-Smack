@@ -116,14 +116,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void renderQuestionPage(View v) {
+    public void renderSelectCategoryPage(View v) {
         if (isNetworkAvailable()) {
             makeInvisible();
             if (multiPlayer.isConnected()) {
                 multiPlayer.disconnect();
             }
-            Intent QuestionPageIntent = new Intent(MainActivity.this, QuestionPageActivity.class);
-            MainActivity.this.startActivity(QuestionPageIntent);
+            Intent SelectCategoryIntent = new Intent(MainActivity.this, SelectCategoryActivity.class);
+            MainActivity.this.startActivity(SelectCategoryIntent);
         }
         else {
             noInternetDialog();
