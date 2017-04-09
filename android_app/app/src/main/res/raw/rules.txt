@@ -1,4 +1,4 @@
-Press 'Play!' to have 5 random questions thrown at you.
+Press 'One Player!' to have 5 random questions thrown at you.
 Answer fast to get the highest score!
 Your score is based on how fast you answer the question.
 
