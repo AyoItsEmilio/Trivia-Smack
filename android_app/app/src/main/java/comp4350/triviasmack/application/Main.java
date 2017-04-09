@@ -13,7 +13,9 @@ public class Main {
         System.out.println("All done");
     }
 
-    public static void startUp() { Services.createServerAccess(); }
+    public static void startUp() {
+        Services.createServerAccess();
+    }
 
     public static void shutDown() {
         Services.closeServerAccess();
