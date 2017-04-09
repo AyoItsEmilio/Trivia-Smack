@@ -42,6 +42,7 @@ class UserInterfaceTest(unittest.TestCase):
 
         count = 3
         while (count < 7):
+            time.sleep(2)
             self.driver.get("http://0.0.0.0:5000/index.html")
             one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
             one_player_button.click()
@@ -62,10 +63,18 @@ class UserInterfaceTest(unittest.TestCase):
         selected_option = random.randint(0, len(options)-1)
         options[selected_option].click()
 
-        count = 0
-        while (count < 4):
-            
+        question = self.driver.find_element_by_xpath("//*[@id='main']/div[1]/h3").text
+        while question:
+            question = self.driver.find_element_by_xpath("//*[@id='main']/div[1]/h3").text
+            time.sleep(2)
             questionSelect = self.driver.find_elements_by_xpath("//*[@id='main']/div[1]/div[1]")
             selected_option = random.randint(0, len(options)-1)
             questionSelect[selected_option].click()
-            count = count + 1
+            time.sleep(2)
+            try:
+                question = self.driver.find_element_by_xpath(
+                    "//div[@id='main']/div[1]/h3"
+                    "[@data-bind=\"text: question\"]").text
+            except NoSuchElementException:
+                print '\tReached end of round.'
+                question = None
