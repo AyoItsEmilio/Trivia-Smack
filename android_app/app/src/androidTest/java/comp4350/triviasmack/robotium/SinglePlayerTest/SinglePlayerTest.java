@@ -41,7 +41,7 @@ public class SinglePlayerTest{
     public void pressOptionBtnOnTime() throws Exception {
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
-        solo.clickOnView(solo.getView(R.id.button2));
+        solo.clickOnView(solo.getView(R.id.geography));
         solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
 
         solo.sleep(2000);
@@ -68,7 +68,7 @@ public class SinglePlayerTest{
     public void pressOptionBtnOverTime() throws Exception {
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
-        solo.clickOnView(solo.getView(R.id.button2));
+        solo.clickOnView(solo.getView(R.id.geography));
         solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
 
         solo.sleep(11000);

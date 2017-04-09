@@ -7,7 +7,6 @@ import com.robotium.solo.Solo;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +40,7 @@ public class MainActivityTest {
     public void pressPlayBtn() throws Exception {
         solo.assertCurrentActivity("wrong activity", MainActivity.class);
 
-        solo.clickOnView(solo.getView(R.id.button2));
+        solo.clickOnView(solo.getView(R.id.geography));
 
         solo.assertCurrentActivity("wrong activity", QuestionPageActivity.class);
     }
@@ -50,7 +49,7 @@ public class MainActivityTest {
     public void pressTwoPlayerBtn() throws Exception {
         solo.assertCurrentActivity("wrong activity", MainActivity.class);
 
-        solo.clickOnView(solo.getView(R.id.button3));
+        solo.clickOnView(solo.getView(R.id.history));
 
         solo.assertCurrentActivity("wrong activity", MultiPlayerPageActivity.class);
     }
