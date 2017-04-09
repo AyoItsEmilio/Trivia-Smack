@@ -1,7 +1,7 @@
 function TasksViewModel(){
     var self = this;
     var loc = location.protocol + "//" + document.domain + ":" + location.port;
-    var max = 5;
+    var max = 10;
     var waitTime = 300;
     var red = "#c13636";
     var green = "#4dc136";
