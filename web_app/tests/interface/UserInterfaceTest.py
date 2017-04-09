@@ -64,8 +64,7 @@ class UserInterfaceTest(unittest.TestCase):
 
         count = 0
         while (count < 4):
-            question = self.driver.find_element_by_xpath("//*[@id='main']/div[1]/h3").text
-            print question
+            
             questionSelect = self.driver.find_elements_by_xpath("//*[@id='main']/div[1]/div[1]")
             selected_option = random.randint(0, len(options)-1)
             questionSelect[selected_option].click()
