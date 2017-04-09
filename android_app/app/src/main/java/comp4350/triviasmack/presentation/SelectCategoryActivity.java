@@ -19,7 +19,10 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_category);
         gameController = GameController.getInstance();
+        setButtons();
+    }
 
+    public void setButtons() {
         Button all = (Button)findViewById(R.id.all);
         Button geography = (Button)findViewById(R.id.geography);
         Button history = (Button)findViewById(R.id.history);
@@ -34,36 +37,16 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
         }
     }
 
+    @Override
+    public void onClick(View v)
+    {
+        gameController.setCategory(v.getTag().toString());
+        renderQuestionPage(v);
+    }
+
     public void renderQuestionPage(View v) {
         gameController.start();
         Intent QuestionPageIntent = new Intent(SelectCategoryActivity.this, QuestionPageActivity.class);
         SelectCategoryActivity.this.startActivity(QuestionPageIntent);
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-        switch (v.getId()){
-            case R.id.all:
-                category = "all";
-                break;
-            case R.id.geography:
-                category = "geography";
-                break;
-            case R.id.history:
-                category = "history";
-                break;
-            case R.id.math_and_science:
-                category = "math & science";
-                break;
-            case R.id.pop_culture:
-                category = "pop culture";
-                break;
-            case R.id.other:
-                category = "other";
-                break;
-        }
-        gameController.setCategory(category);
-        renderQuestionPage(v);
     }
 }

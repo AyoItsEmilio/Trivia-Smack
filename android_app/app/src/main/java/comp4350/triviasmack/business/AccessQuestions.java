@@ -2,15 +2,15 @@ package comp4350.triviasmack.business;
 
 import java.util.ArrayList;
 
+import comp4350.triviasmack.application.Constants;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
-import comp4350.triviasmack.application.Main;
 import java.util.Arrays;
 
 public class AccessQuestions {
 
     private ServerAccess serverAccess;
-    private String[] validCategories = Main.categories;
+    private String[] validCategories = Constants.categories;
 
     public AccessQuestions() {
         serverAccess = Services.getServerAccess();

@@ -12,6 +12,7 @@
 
     <Button
         android:id="@+id/pop_culture"
+        android:tag="@string/pop_culture"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="pop culture"
@@ -25,6 +26,7 @@
 
     <Button
         android:id="@+id/math_and_science"
+        android:tag="@string/math_and_science"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="math and science"
@@ -38,6 +40,7 @@
 
     <Button
         android:id="@+id/history"
+        android:tag="@string/history"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="history"
@@ -51,6 +54,7 @@
 
     <Button
         android:id="@+id/geography"
+        android:tag="@string/geography"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="geography"
@@ -64,6 +68,7 @@
 
     <Button
         android:id="@+id/other"
+        android:tag="@string/other"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="other"
@@ -77,6 +82,7 @@
 
     <Button
         android:id="@+id/all"
+        android:tag="@string/all"
         android:layout_width="317dp"
         android:layout_height="70dp"
         android:text="all"
