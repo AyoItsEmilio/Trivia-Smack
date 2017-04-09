@@ -162,7 +162,6 @@ public class ServerAccessTest {
     @Before
     public void setUp() {
         Services.closeServerAccess();
-
         Services.createServerAccess(new ServerAccessStub());
     }
 

@@ -33,7 +33,7 @@ html {
 h3 { font-size: 35px; }
 
 .button {
-  width: 13%;
+  width: 15%;
   color: white;
   border-radius: 2px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ h3 { font-size: 35px; }
 
     body { font-size: 17px; }
 
-    .button { width: 13%; }
+    .button { width: 15%; }
 
     .option { width: 30%; }
 
