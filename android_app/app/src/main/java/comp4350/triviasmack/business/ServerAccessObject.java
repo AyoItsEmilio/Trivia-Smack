@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import comp4350.triviasmack.application.Constants;
@@ -30,7 +29,7 @@ public class ServerAccessObject implements ServerAccess {
             if (numQuestions < 0) {
                 throw new IllegalArgumentException("Number of questions cannot be less than 0");
             }
-            url = new URL((questionUrl + numQuestions + "/" + category).replaceAll(" ","%20"));
+            url = new URL((questionUrl + numQuestions + "/" + category));
 
         } catch (MalformedURLException e) {
             Log.e("ServerAccessObject.java", "MalformedURLException", e);

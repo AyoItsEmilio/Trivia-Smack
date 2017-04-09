@@ -10,6 +10,8 @@ from flask_httpauth import HTTPBasicAuth
 from web_app.business.AccessQuestions import AccessQuestions
 from . import main
 
+categories = ["all", "geography", "history", "math & science", "pop culture", "other"]
+
 auth = HTTPBasicAuth()
 
 @auth.get_password
@@ -88,6 +90,10 @@ def delete_question(question):
 @main.route("/api/question_data/<int:num_questions>/<string:category>", methods=["GET"])
 def question_data(num_questions, category):
     access_questions = AccessQuestions()
+
+    if num_questions < 0 or category not in categories:
+        abort(404)
+
     questions = access_questions.get_random_questions(
         int(num_questions), category)
 
