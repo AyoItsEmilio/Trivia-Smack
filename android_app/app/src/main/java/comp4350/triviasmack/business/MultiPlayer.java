@@ -13,9 +13,9 @@ import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
-import static android.content.ContentValues.TAG;
 
 public class MultiPlayer {
+    private final String LOG_TAG = MultiPlayer.class.getSimpleName();
     private static MultiPlayer instance = null;
     private Socket socket;
     private static boolean connected;
@@ -33,14 +33,14 @@ public class MultiPlayer {
             socket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
             connected = true;
         } catch (URISyntaxException e) {
-            Log.e(TAG, "error:", e);
+            Log.e(LOG_TAG, "error:", e);
         }
     }
 
     private Emitter.Listener onConnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            Log.e(TAG, "being connected");
+            Log.e(LOG_TAG, "being connected");
             socket.emit("join_game");
         }
 
@@ -65,7 +65,7 @@ public class MultiPlayer {
     private Emitter.Listener onConnectError = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            Log.e(TAG, "Error connecting");
+            Log.e(LOG_TAG, "Error connecting");
         }
     };
 
@@ -75,14 +75,14 @@ public class MultiPlayer {
             scoreJSON.put("score", score);
             socket.emit("game_over", scoreJSON);
         } catch (JSONException e) {
-            Log.e(TAG, "JSONExcpetion", e);
+            Log.e(LOG_TAG, "JSONExcpetion", e);
         }
     }
 
     private Emitter.Listener onDisconnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            Log.e(TAG, "Disconnected");
+            Log.e(LOG_TAG, "Disconnected");
             connected = false;
         }
     };
