@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             gameController = GameController.getInstance();
             otherScoreText = (TextView) findViewById(R.id.otherScoreText);
             displayScores();
-            gameController.start();
         }
     }
 
@@ -117,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void renderSelectCategoryPage(View v) {
+        gameController.start();
         if (isNetworkAvailable()) {
             makeInvisible();
             if (multiPlayer.isConnected()) {
@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void renderMultiPlayerPage(View v) {
+        gameController.start();
         if (isNetworkAvailable()) {
             multiPlayer.connect();
             socket = multiPlayer.getSocket();
