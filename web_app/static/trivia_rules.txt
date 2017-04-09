@@ -1,0 +1,10 @@
+Press 'One Player!' to have 5 random questions thrown at you.<br>
+Answer fast to get the highest score!<br>
+Your score is based on how fast you answer the question.<br>
+<br>
+Answer with 10 seconds left gives you 10 points.<br>
+Answer with 3 seconds left gives you 3 points.<br>
+<br>
+Press 'Two Player!' to compete against another person.<br>
+The game will wait until another player joins.<br>
+You can compare scores after both players have finished<br>
