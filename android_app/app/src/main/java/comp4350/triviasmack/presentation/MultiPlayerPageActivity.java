@@ -43,7 +43,7 @@ public class MultiPlayerPageActivity extends AppCompatActivity implements Exitab
     };
 
     public void exitAction() {
-        gameController.start();
+        gameController.start("all");
         Intent ExitGameIntent = new Intent(MultiPlayerPageActivity.this, MainActivity.class);
         ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         MultiPlayerPageActivity.this.startActivity(ExitGameIntent);

@@ -37,11 +37,11 @@ public class GameController {
         return score;
     }
 
-    public void start() {
+    public void start(String category) {
         questionCount = 0;
         score = 0;
         questions = new ArrayList<>();
-        accessQuestions.getRandomQuestions(questions, maxQuestions);
+        accessQuestions.getRandomQuestions(questions, maxQuestions, category);
         started = true;
     }
 

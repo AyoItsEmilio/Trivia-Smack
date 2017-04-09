@@ -24,12 +24,13 @@ public class ServerAccessObject implements ServerAccess {
         questionUrl = baseUrl + "api/question_data/";
     }
 
-    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
+    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions, String category) {
         try {
             if (numQuestions < 0) {
                 throw new IllegalArgumentException("Number of questions cannot be less than 0");
             }
-            url = new URL(questionUrl + numQuestions + "");
+            url = new URL(questionUrl + numQuestions + "/" + category);
+            System.out.println(url);
 
         } catch (MalformedURLException e) {
             Log.e("ServerAccessObject.java", "MalformedURLException", e);

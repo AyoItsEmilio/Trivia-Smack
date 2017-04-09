@@ -13,7 +13,7 @@ public class AccessQuestions {
         serverAccess = Services.getServerAccess();
     }
 
-    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions) {
+    public void getRandomQuestions(ArrayList<Question> questions, int numQuestions, String category) {
         if (numQuestions < 0) {
             throw new IllegalArgumentException("Number of questions cannot be less than 0");
         }
@@ -21,6 +21,6 @@ public class AccessQuestions {
         if (questions == null) {
             throw new NullPointerException("questions is null");
         }
-        serverAccess.getRandomQuestions(questions, numQuestions);
+        serverAccess.getRandomQuestions(questions, numQuestions, category);
     }
 }
