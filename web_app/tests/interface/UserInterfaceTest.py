@@ -42,6 +42,7 @@ class UserInterfaceTest(unittest.TestCase):
 
         count = 3
         while (count < 7):
+            time.sleep(2)
             self.driver.get("http://0.0.0.0:5000/index.html")
             one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
             one_player_button.click()
