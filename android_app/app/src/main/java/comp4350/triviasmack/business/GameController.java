@@ -16,12 +16,14 @@ public class GameController {
     private Question currQuestion;
     private int score;
     private boolean started;
+    private String category;
     private AccessQuestions accessQuestions;
 
     protected GameController() {
         questions = null;
         questionCount = -1;
         currQuestion = null;
+        category = null;
         score = -1;
         accessQuestions = new AccessQuestions();
     }
@@ -37,11 +39,16 @@ public class GameController {
         return score;
     }
 
-    public void start(String category) {
+    public void start() {
         questionCount = 0;
         score = 0;
         questions = new ArrayList<>();
-        accessQuestions.getRandomQuestions(questions, maxQuestions, category);
+        if(category != null){
+            accessQuestions.getRandomQuestions(questions, maxQuestions, category);
+        }
+        else{
+            throw new IllegalArgumentException("Null category");
+        }
         started = true;
     }
 
@@ -70,6 +77,10 @@ public class GameController {
         if (this.score < maxScore) {
             this.score += score;
         }
+    }
+
+    public void setCategory(String category){
+        this.category = category;
     }
 
     public boolean isStarted() {

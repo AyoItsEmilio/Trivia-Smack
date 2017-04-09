@@ -97,7 +97,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
 
     public void exitAction() {
         questionTimer.stopTimer();
-        gameController.start("all");
+        gameController.start();
         Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
         ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         QuestionPageActivity.this.startActivity(ExitGameIntent);

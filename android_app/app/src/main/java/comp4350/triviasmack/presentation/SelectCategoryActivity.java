@@ -43,8 +43,8 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
         }
     }
 
-    public void renderQuestionPage(View v, String category) {
-        gameController.start(category);
+    public void renderQuestionPage(View v) {
+        gameController.start();
         Intent QuestionPageIntent = new Intent(SelectCategoryActivity.this, QuestionPageActivity.class);
         SelectCategoryActivity.this.startActivity(QuestionPageIntent);
     }
@@ -72,6 +72,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
                 category = "other";
                 break;
         }
-        renderQuestionPage(v, category);
+        gameController.setCategory(category);
+        renderQuestionPage(v);
     }
 }

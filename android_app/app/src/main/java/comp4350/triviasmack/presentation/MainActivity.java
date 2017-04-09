@@ -130,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void renderMultiPlayerPage(View v) {
-        gameController.start("all");
+        gameController.setCategory("all");
+        gameController.start();
         if (isNetworkAvailable()) {
             multiPlayer.connect();
             socket = multiPlayer.getSocket();
