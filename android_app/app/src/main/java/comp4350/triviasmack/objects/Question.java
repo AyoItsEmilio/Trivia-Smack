@@ -19,6 +19,9 @@ public class Question implements Serializable {
         if (answer < 0) {
             throw new NullPointerException("int answer cannot be less than 0");
         }
+        if (category == null) {
+            throw new NullPointerException("String category cannot be null");
+        }
 
         this.question = question;
         this.options = options;
