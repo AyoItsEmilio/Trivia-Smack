@@ -18,6 +18,7 @@ public class ParseJSON {
         JSONArray jsonQuestions, jsonOptions;
         String question;
         String[] options;
+        String category;
         int answer;
         ArrayList<Question> questions = new ArrayList<>();
 
@@ -27,6 +28,7 @@ public class ParseJSON {
                 jsonQuestionObject = (JSONObject) jsonQuestions.get(i);
                 question = jsonQuestionObject.getString("question");
                 jsonOptions = jsonQuestionObject.getJSONArray("options");
+                category = jsonQuestionObject.getString("category");
 
                 options = new String[jsonOptions.length()];
 
@@ -34,7 +36,7 @@ public class ParseJSON {
                     options[j] = jsonOptions.get(j).toString();
                 }
                 answer = jsonQuestionObject.getInt("answer");
-                questionObj = new Question(question, options, answer);
+                questionObj = new Question(question, options, answer, category);
                 questions.add(questionObj);
             }
         } catch (JSONException e) {
