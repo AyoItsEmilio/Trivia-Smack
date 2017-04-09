@@ -18,8 +18,8 @@ import static org.junit.Assert.fail;
 
 public class ServerAccessTest {
 
-    private final static int bigNum = 100;
-    private final static int dbSize = 10;
+    private final static int bigNum = 500;
+    private static int dbSize = 410;
     private final static String category = "all";
 
     public static void testGetRandomQuestionValidNum(int numQuestions, String category) {
@@ -121,6 +121,7 @@ public class ServerAccessTest {
     @Test
     public void testServerAccess() {
         System.out.println("Testing ServerAccess (stub)");
+        dbSize = 10;
         serverAccessTest();
     }
 
