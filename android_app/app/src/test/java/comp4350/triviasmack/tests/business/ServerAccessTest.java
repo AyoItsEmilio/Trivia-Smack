@@ -18,16 +18,17 @@ import static org.junit.Assert.fail;
 
 public class ServerAccessTest {
 
-    private final static int bigNum = 100;
-    private final static int dbSize = 10;
+    private final static int bigNum = 500;
+    private static int dbSize = 410;
+    private final static String category = "all";
 
-    public static void testGetRandomQuestionValidNum(int numQuestions) {
+    public static void testGetRandomQuestionValidNum(int numQuestions, String category) {
         ServerAccess serverAccess = Services.getServerAccess();
         ArrayList<Question> questions = new ArrayList<>();
 
         System.out.println("Testing ServerAccess: getRandomQuestions (" + numQuestions + ")");
 
-        serverAccess.getRandomQuestions(questions, numQuestions);
+        serverAccess.getRandomQuestions(questions, numQuestions, category);
 
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
@@ -50,7 +51,7 @@ public class ServerAccessTest {
         System.out.println("Testing ServerAccess: getRandomQuestions(-1)");
 
         try {
-            serverAccess.getRandomQuestions(questions, numQuestions);
+            serverAccess.getRandomQuestions(questions, numQuestions, category);
 
             fail("Failed to catch exception.");
         } catch (Exception e) {
@@ -69,7 +70,7 @@ public class ServerAccessTest {
         System.out.println("Testing ServerAccess: getRandomQuestions(questions=null)");
 
         try {
-            serverAccess.getRandomQuestions(null, numQuestions);
+            serverAccess.getRandomQuestions(null, numQuestions, category);
             fail("Failed to catch exception.");
         } catch (Exception e) {
             assertEquals("Didn't throw the right exception", NullPointerException.class, e.getClass());
@@ -86,7 +87,7 @@ public class ServerAccessTest {
         System.out.println("Testing ServerAccess: getRandomQuestions(questions=null, -1)");
 
         try {
-            serverAccess.getRandomQuestions(null, numQuestions);
+            serverAccess.getRandomQuestions(null, numQuestions, category);
             fail("Failed to catch exception.");
         } catch (Exception e) {
             assertEquals("Didn't throw the right exception", IllegalArgumentException.class, e.getClass());
@@ -101,16 +102,16 @@ public class ServerAccessTest {
         questions = new ArrayList<>();
 
         System.out.println("Testing ServerAccess: getRandomQuestions(100)");
-        serverAccess.getRandomQuestions(questions, bigNum);
+        serverAccess.getRandomQuestions(questions, bigNum, category);
 
         assertNotEquals(questions.size(), bigNum);
         assertEquals(questions.size(), dbSize);
     }
 
     public static void serverAccessTest() {
-        testGetRandomQuestionValidNum(0);
-        testGetRandomQuestionValidNum(3);
-        testGetRandomQuestionValidNum(9);
+        testGetRandomQuestionValidNum(0, category);
+        testGetRandomQuestionValidNum(3, category);
+        testGetRandomQuestionValidNum(9, category);
         testGetRandomQuestionNull();
         testGetRandomQuestionNegative();
         testGetRandomQuestionNullNegative();
@@ -120,6 +121,7 @@ public class ServerAccessTest {
     @Test
     public void testServerAccess() {
         System.out.println("Testing ServerAccess (stub)");
+        dbSize = 10;
         serverAccessTest();
     }
 
