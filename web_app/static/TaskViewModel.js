@@ -82,8 +82,6 @@ function TasksViewModel(){
 
     self.startGame = function() {
         fetchQuestions();
-        console.log(self.questionsURI);
-        console.log(self.questions());
         self.isPlaying(true);
         self.score(0);
         self.questionCount(0);
