@@ -2,6 +2,7 @@ package comp4350.triviasmack.robotium.TwoPlayerTest;
 
 import com.robotium.solo.Solo;
 
+import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.presentation.MainActivity;
@@ -23,6 +24,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class TwoPlayersTest{
+    private static final int numQuestions= Main.numQuestions;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
@@ -51,24 +53,11 @@ public class TwoPlayersTest{
 
         solo.sleep(1000);
         dummyPlayer.connect();
-        solo.waitForActivity(QuestionPageActivity.class);
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(1000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(1000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(1000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
-
-        dummyPlayer.disconnect();
+        for(int i =0; i < numQuestions; i++) {
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(1000);
+            solo.clickOnView(solo.getView(R.id.optionBtn1));
+        }
 
         solo.waitForActivity(MultiPlayerPageActivity.class);
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
