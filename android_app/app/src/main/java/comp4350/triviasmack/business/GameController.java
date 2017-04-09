@@ -43,12 +43,8 @@ public class GameController {
         questionCount = 0;
         score = 0;
         questions = new ArrayList<>();
-        if(category != null){
-            accessQuestions.getRandomQuestions(questions, maxQuestions, category);
-        }
-        else{
-            throw new IllegalArgumentException("Null category");
-        }
+        accessQuestions.getRandomQuestions(questions, maxQuestions, category);
+
         started = true;
     }
 

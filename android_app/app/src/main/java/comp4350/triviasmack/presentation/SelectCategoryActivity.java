@@ -63,10 +63,10 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
                 category = "history";
                 break;
             case R.id.math_and_science:
-                category = "math%20and%20science";
+                category = "math and science";
                 break;
             case R.id.pop_culture:
-                category = "pop%20culture";
+                category = "pop culture";
                 break;
             case R.id.other:
                 category = "other";
