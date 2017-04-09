@@ -10,7 +10,7 @@ from flask_httpauth import HTTPBasicAuth
 from web_app.business.AccessQuestions import AccessQuestions
 from . import main
 
-categories = ["all", "geography", "history", "math & science", "pop culture", "other"]
+categories = ["all", "geography", "history", "math and science", "pop culture", "other"]
 
 auth = HTTPBasicAuth()
 
