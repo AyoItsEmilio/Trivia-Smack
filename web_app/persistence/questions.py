@@ -1,3 +1,9 @@
+"""
+Question Sources:
+-http://www.triviachamp.com
+-http://www.paulsquiz.com/
+"""
+
 question_list = [{
         "question":"How much does a male Polar Bear weigh?",
         "options":["1200 lbs", "1000 lbs", "600 lbs", "Enough to break the ice"],
@@ -1036,9 +1042,9 @@ question_list = [{
     },
     {
         "question":"Which fruit is the main ingredient of a Sutton Pie?",
-        "options":["Apple", "Apple", "Apple", "Peach"],
+        "options":["Apple", "Blueberry", "Raspberry", "Peach"],
 
-        "category":"math and science",
+        "category":"other",
         "answer": 0
     },
     {
