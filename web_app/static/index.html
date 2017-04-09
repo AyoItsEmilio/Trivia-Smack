@@ -50,6 +50,10 @@ $(document).ready(function() {
                 Two Player!
             </div><br>
 
+            <div class="button pinkHover" data-bind="click: openRules">
+                Rules!
+            </div><br>
+
             <span data-bind="if: score() || score()==0">
                 Score: <span data-bind="text: score"></span>
 
@@ -57,6 +61,7 @@ $(document).ready(function() {
                     Their score: <span data-bind="text: otherScore"></span>
                 </p>
             </span>
+
         </div>
 
         <div id="waiting" data-bind="if: isWaiting">
@@ -89,6 +94,28 @@ $(document).ready(function() {
         </br>Time Remaining: <span data-bind="text: counter"></span>
 
     <!-- /ko -->
+
+     <div class="modal" id="rulesModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <span id="rulesHeader">Trivia Smack! Rules</span>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <span id="rulesText">Temp</span>
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <div class="button blueHover" data-bind="click: closeRules">Got It!</div>
+            </div>
+
+        </div>
+
+    </div>
 
 </div><!-- End of main -->
 
