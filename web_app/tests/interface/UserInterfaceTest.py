@@ -78,3 +78,56 @@ class UserInterfaceTest(unittest.TestCase):
             except NoSuchElementException:
                 print '\tReached end of round.'
                 question = None
+
+    def test_wait_2p(self):
+        print "Test clicking Two Player button brings user to waiting page."
+        self.driver.get("http://0.0.0.0:5000/index.html")
+        time.sleep(2)
+        two_player_button = self.driver.find_element_by_xpath(
+            "//*[@id='main']/div[2]/div[3]")
+        two_player_button.click()
+        time.sleep(3)
+        text_displayed = self.driver.find_element_by_xpath("//body").text
+        waiting_text = "Waiting for other player..."
+        self.assertIn(waiting_text, text_displayed)
+
+    def test_connect_2p(self):
+        print "Test connecting 2 players."
+        default_handle = self.driver.current_window_handle
+        self.driver.get("http://0.0.0.0:5000/index.html")
+        time.sleep(2)
+        two_player_button = self.driver.find_element_by_xpath(
+            "//*[@id='main']/div[2]/div[3]")
+        two_player_button.click()
+        time.sleep(10)
+
+        self.driver.execute_script("window.open()")
+        self.driver.switch_to_window(self.driver.window_handles[1])
+        self.driver.get("http://0.0.0.0:5000/index.html")
+        time.sleep(2)
+        two_player_button = self.driver.find_element_by_xpath(
+            "//*[@id='main']/div[2]/div[3]")
+        two_player_button.click()
+        time.sleep(3)
+
+        self.driver.switch_to_window(self.driver.window_handles[0])
+        print '\tTest player 1 was brought to question page after connecting.'
+        try:
+            question_p1 = self.driver.find_element_by_xpath(
+                        "//div[@id='main']/div[1]/h3"
+                        "[@data-bind=\"text: question\"]").text
+        except NoSuchElementException:
+            question_p1 = None
+        self.assertIsNotNone(question_p1)
+
+        self.driver.switch_to_window(self.driver.window_handles[1])
+        print '\tTest player 2 was brought to question page after connecting.'
+        try:
+            question_p2 = self.driver.find_element_by_xpath(
+                        "//div[@id='main']/div[1]/h3"
+                        "[@data-bind=\"text: question\"]").text
+        except NoSuchElementException:
+            question_p2 = None
+        self.assertIsNotNone(question_p2)
+        self.driver.close()
+        self.driver.switch_to_window(default_handle)
