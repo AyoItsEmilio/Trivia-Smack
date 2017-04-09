@@ -31,6 +31,7 @@ public class BusinessServerSeamTest {
     private int numQuestions;
     private AccessQuestions accessQuestions;
     private ArrayList<Question> questions;
+    private String category;
 
     @Before
     public void setUp() throws Exception {
@@ -58,7 +59,8 @@ public class BusinessServerSeamTest {
 
         questions = new ArrayList<>();
         numQuestions = 3;
-        accessQuestions.getRandomQuestions(questions, numQuestions);
+        category = "all";
+        accessQuestions.getRandomQuestions(questions, numQuestions, category);
 
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
@@ -73,7 +75,7 @@ public class BusinessServerSeamTest {
         questions = new ArrayList<>();
         System.out.println("Testing AccessQuestions: getRandomQuestions(9)");
 
-        accessQuestions.getRandomQuestions(questions, numQuestions);
+        accessQuestions.getRandomQuestions(questions, numQuestions, category);
 
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
@@ -88,7 +90,7 @@ public class BusinessServerSeamTest {
         questions = new ArrayList<>();
         System.out.println("Testing AccessQuestions: getRandomQuestions(0)");
 
-        accessQuestions.getRandomQuestions(questions, numQuestions);
+        accessQuestions.getRandomQuestions(questions, numQuestions, category);
 
         assertEquals(questions.size(), numQuestions);
         assertNotNull(questions);
@@ -98,7 +100,7 @@ public class BusinessServerSeamTest {
         questions = new ArrayList<>();
         System.out.println("Testing AccessQuestions: getRandomQuestions(), uniqueness");
 
-        accessQuestions.getRandomQuestions(questions, numQuestions);
+        accessQuestions.getRandomQuestions(questions, numQuestions, category);
 
         for (int i = 0; i < questions.size(); i++) {
             for (int j = 0; j < questions.size(); j++) {
@@ -113,7 +115,7 @@ public class BusinessServerSeamTest {
         System.out.println("Testing AccessQuestions: getRandomQuestions(), failure");
 
         try {
-            accessQuestions.getRandomQuestions(questions, numQuestions);
+            accessQuestions.getRandomQuestions(questions, numQuestions, category);
             fail("Expected an IllegalArgumentException");
         } catch (IllegalArgumentException ignored) {
         }
