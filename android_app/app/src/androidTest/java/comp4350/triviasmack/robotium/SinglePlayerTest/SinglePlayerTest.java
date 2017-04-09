@@ -3,6 +3,7 @@ package comp4350.triviasmack.robotium.SinglePlayerTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
+import comp4350.triviasmack.application.Main;
 
 import com.robotium.solo.Solo;
 
@@ -15,13 +16,14 @@ import org.junit.runner.RunWith;
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.presentation.MainActivity;
 import comp4350.triviasmack.presentation.QuestionPageActivity;
+import comp4350.triviasmack.presentation.SelectCategoryActivity;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class SinglePlayerTest{
-
+    private static final int numQuestions= Main.numQuestions;
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
     public Solo solo;
@@ -41,21 +43,15 @@ public class SinglePlayerTest{
     public void pressOptionBtnOnTime() throws Exception {
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
-        solo.clickOnView(solo.getView(R.id.geography));
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.all));
 
-        solo.sleep(2000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(2000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(2000);
-        solo.clickOnView(solo.getView(R.id.optionBtn1));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn1));
+        }
 
         solo.waitForActivity(MainActivity.class);
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
@@ -68,19 +64,15 @@ public class SinglePlayerTest{
     public void pressOptionBtnOverTime() throws Exception {
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
-        solo.clickOnView(solo.getView(R.id.geography));
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.all));
 
-        solo.sleep(11000);
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(11000);
-
-        solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
-
-        solo.sleep(11000);
-
+        for(int i =0; i < numQuestions; i++) {
+            solo.sleep(10000);
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+        }
+        solo.sleep(1000);
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
 
         int scoreVis = solo.getView(R.id.scoreText).getVisibility();

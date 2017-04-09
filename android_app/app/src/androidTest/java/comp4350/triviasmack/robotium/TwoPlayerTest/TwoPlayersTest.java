@@ -45,7 +45,7 @@ public class TwoPlayersTest{
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
 
-        solo.clickOnView(solo.getView(R.id.history));
+        solo.clickOnView(solo.getView(R.id.two_player));
 
         solo.assertCurrentActivity("Expected activity: MultiPlayerPageActivity", MultiPlayerPageActivity.class);
 
