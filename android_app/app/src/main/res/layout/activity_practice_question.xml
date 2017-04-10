@@ -23,7 +23,7 @@
         android:layout_above="@+id/optnBtn4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@color/palepurple"
+        android:background="@color/aquamarine"
         android:layout_marginBottom="11dp"/>
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_above="@+id/optnBtn3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@color/palepurple"
+        android:background="@color/aquamarine"
         android:layout_marginBottom="11dp"/>
 
     <Button
@@ -51,37 +51,8 @@
         android:layout_above="@+id/optnBtn2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@color/palepurple"
+        android:background="@color/aquamarine"
         android:layout_marginBottom="11dp"/>
-
-    <Button
-        android:text="option 4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:id="@+id/optnBtn4"
-        android:theme="@style/AppTheme.Button"
-        android:onClick="processOptionButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/palepurple"
-        android:layout_marginBottom="11dp"/>
-
-    <TextView
-        android:text="Category:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/categoryView"
-        android:layout_above="@+id/qText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
-        android:textColor="@color/palepurple"
-        android:textSize="22sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-
-        />
 
     <TextView
         android:text="Trivia Question goes here"
@@ -127,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/attemptedTextView"
-        android:textColor="@color/palepurple"
+        android:textColor="@color/aquamarine"
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif"
@@ -152,7 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TotalCorrectView"
-        android:textColor="@color/palepurple"
+        android:textColor="@color/aquamarine"
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif"
@@ -181,8 +152,36 @@
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif"
-        android:textColor="@color/palepurple"
+        android:textColor="@color/aquamarine"
         android:layout_below="@+id/TotalCorrectView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="option 4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/optnBtn4"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="processOptionButton"
+        android:background="@color/aquamarine"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Category:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/categoryView"
+        android:layout_marginBottom="14dp"
+        android:textColor="@color/aquamarine"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+
+        android:layout_above="@+id/qText"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
