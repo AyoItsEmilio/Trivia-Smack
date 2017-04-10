@@ -1,18 +1,44 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/activity_question_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MultiPlayerPageActivity"
-    tools:ignore="MergeRootFrame">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="comp4350.triviasmack.presentation.QuestionPageActivity">
+
 
     <TextView
-        android:text="Waiting for other player..."
-        android:layout_width="match_parent"
-        android:layout_height="97dp"
-        android:layout_marginTop="50dp"
+            android:text="Waiting for other player..."
+            android:layout_width="match_parent"
+            android:layout_height="97dp"
         android:id="@+id/waitingText"
-        android:textColor="#1f1f1f"
-        android:textAlignment="center"
-        android:textSize="30dp" />
-</FrameLayout>
+            android:textColor="#1f1f1f"
+            android:textAlignment="center"
+            android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="341dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/trivialogo"
+        android:tint="@color/lightgrey"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/waitingText"
+        android:layout_width="570dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
