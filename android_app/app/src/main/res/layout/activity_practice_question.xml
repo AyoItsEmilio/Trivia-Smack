@@ -82,30 +82,6 @@
         android:fontFamily="sans-serif"/>
 
     <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numAttemptedView"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/statView"
-        android:layout_toRightOf="@+id/statView"
-        android:textSize="20sp"
-        android:paddingLeft="2dp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/trivialogo"
-        android:id="@+id/imageView"
-        android:alpha="0.2"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/categoryView" />
-
-    <TextView
         android:text="Total Questions Correct:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,6 +94,19 @@
         android:textSize="20sp"
         android:textStyle="normal|bold"
         android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:text="Percent Answered Correctly:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/percentTextView"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:text="Category:"
@@ -150,6 +139,19 @@
 
     <TextView
         android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="2dp"
+        android:id="@+id/numAttemptedView"
+        android:layout_alignBottom="@+id/statView"
+        android:layout_toRightOf="@+id/statView"
+        android:layout_toEndOf="@+id/statView"
+        android:layout_alignParentTop="true"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:text="0"
         android:paddingLeft="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,4 +163,28 @@
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/trivialogo"
+        android:id="@+id/imageView"
+        android:alpha="0.2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/categoryView"
+        android:layout_below="@+id/percentTextView" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/percentView"
+        android:paddingLeft="2dp"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:layout_alignBaseline="@+id/percentTextView"
+        android:layout_alignBottom="@+id/percentTextView"
+        android:layout_toRightOf="@+id/percentTextView"
+        android:layout_toEndOf="@+id/percentTextView" />
 </RelativeLayout>
