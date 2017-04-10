@@ -11,6 +11,7 @@ public class AccessQuestions {
 
     private ServerAccess serverAccess;
     private String[] validCategories = Constants.categories;
+    private int num_all_questions = Constants.TOTAL_NUM_QUESTIONS;
 
     public AccessQuestions() {
         serverAccess = Services.getServerAccess();
@@ -30,5 +31,9 @@ public class AccessQuestions {
        }
 
         serverAccess.getRandomQuestions(questions, numQuestions, category);
+    }
+
+    public void getAllQuestions(ArrayList<Question> questions){
+        getRandomQuestions(questions, num_all_questions, "all");
     }
 }
