@@ -2,9 +2,10 @@ package comp4350.triviasmack.business;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import comp4350.triviasmack.objects.Question;
+
+import static comp4350.triviasmack.application.Main.numPracticeQuestions;
 
 public class PracticeModeController {
     private static PracticeModeController instance = null;
@@ -17,16 +18,15 @@ public class PracticeModeController {
     protected PracticeModeController(){
         accessQuestions = new AccessQuestions();
         questions = new ArrayList<>();
-        accessQuestions.getAllQuestions(questions);
-        Collections.shuffle(questions);
+        accessQuestions.getRandomQuestions(questions, numPracticeQuestions, "all");
+
         numQuestionsAttempted = 0;
         numQuestionsCorrect = 0;
     }
 
     public Question getNextQuestion() {
         if (questions.isEmpty()) {
-            accessQuestions.getAllQuestions(questions);
-            Collections.shuffle(questions);
+            accessQuestions.getRandomQuestions(questions, numPracticeQuestions, "all");
         }
         currQuestion = questions.get(0);
         questions.remove(0);

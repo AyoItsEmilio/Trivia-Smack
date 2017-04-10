@@ -65,6 +65,7 @@ function AdminViewModel() {
         self.question("");
         self.options("");
         self.answer("");
+        self.category("");
         self.warningMessage("");
         self.addingQuestion(true);
     };
