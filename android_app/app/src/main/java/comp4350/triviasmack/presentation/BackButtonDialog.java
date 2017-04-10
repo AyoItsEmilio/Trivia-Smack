@@ -1,4 +1,4 @@
-package comp4350.triviasmack.business;
+package comp4350.triviasmack.presentation;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

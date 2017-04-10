@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.business.BackButtonDialog;
-import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
 
-public class MultiPlayerPageActivity extends AppCompatActivity implements Exitable{
+public class MultiPlayerPageActivity extends AppCompatActivity implements Exitable {
+
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
     private GameController gameController = GameController.getInstance();
     private Socket socket;
