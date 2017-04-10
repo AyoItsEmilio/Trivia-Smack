@@ -58,16 +58,9 @@ h3 { font-size: 35px; }
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.2), 0 0 5px 0 rgba(0,0,0,0.19);
 }
 
-.button:hover,
-.button:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .option {
   width: 30%;
-  background: #747474;
+  background: #6a619b;
   padding: 8px;
   height: auto;
   transition: all 0.1s;
@@ -77,7 +70,7 @@ h3 { font-size: 35px; }
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 25px;
+  padding-top: 15px;
   left: 0;
   top: 0;
   width: 100%;
@@ -87,33 +80,20 @@ h3 { font-size: 35px; }
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-header {
-  padding: 16px 16px;
-  background-color: #5A5A5A;
-  color: white;
-  font-size: 25px;
-  font-style: italic;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .modal-body {
-  padding: 0px 16px;
-  font-size: 15px;
+  padding: 0px 15px;
 }
 
 .modal-content {
+  border-radius: 15px;
   position: relative;
   background-color: #FEFEFE;
   margin: auto;
   padding: 15px;
   border: 1px solid #888;
-  width: 40%;
-  white-space: pre-line;
+  width: 90%;
   
-  text-align: left;
+  text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
   -webkit-animation-name: animatetop;
@@ -131,21 +111,6 @@ h3 { font-size: 35px; }
   from {top: -300px; opacity: 0}
   to   {top: 0; opacity: 1}
 }
-
-.close {
-  color: #AAAAAA;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 
 /* Laptop - full screen */
 @media screen 
@@ -210,9 +175,107 @@ h3 { font-size: 35px; }
     height: auto;
   }
 
-  h3 { font-size: 25px; }
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
 
   .button { width: 50%; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+/* Mobile - Nexus 5x */
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 732px){
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
+
+  .button { width: 50%; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+
+/* Mobile - iphone 5 */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 568px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
+
+  .button { width: 50%; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+/* Mobile - iphone 6 */
+@media screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  .button { width: 50%; }
+
+  p { font-size: 10px; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+/* Mobile - iphone 6plus */
+@media screen 
+  and (device-width: 414px) 
+  and (device-height: 736px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  .button { width: 50%; }
+
+  p { font-size: 10px; }
 
   .option { width: 80%; }
 
@@ -240,6 +303,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
   
   .button { width: 40%; }
 
+  p { font-size: 17px; }
+
   .option { width: 50%; }
 
   .long {width: 65%; }
@@ -249,10 +314,35 @@ and (-webkit-min-device-pixel-ratio: 2) {
   .modal-content { width: 75%; }
 }
 
+/* iPad pro */
+@media only screen 
+and (device-width : 1024px) 
+and (device-height : 1366px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 75%;
+    height: auto;
+  }
+
+  h3 { font-size: 35px; }
+
+  body {font-size: 35px;}
+  
+  .button { width: 40%; }
+
+  .option { width: 50%; }
+
+  .long {width: 65%; }
+
+  .textbox { width: 50%; }
+}
+
 .topRightCorner {
-   position: fixed;
-   top: 0px;
-   right: 20px;
+  position: fixed;
+  top: 0px;
+  right: 2px;
+  margin: 10px;
 }
 
 .topLeftCorner {
@@ -271,7 +361,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .redHover:hover { background: #961A1A; }
 
-.greyHover:hover { background: #444444; }
+.purpleHover:hover { background: #3f2f9b; }
 
 .blueHover:hover { background: #377ba8; }
 
@@ -294,6 +384,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .pinkish { background: #ff444f; }
 
 .blue { background: #3199dd; }
+
+.hand { cursor: hand; cursor: pointer; }
+
+.bold { font-weight: bold; }
 
 br.small { line-height: 5px; }
 
