@@ -145,6 +145,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void renderPracticeModePage(View v){
+        if (isNetworkAvailable()) {
+            makeInvisible();
+            if (multiPlayer.isConnected()) {
+                multiPlayer.disconnect();
+            }
+            Intent PracticeQuestionActivity = new Intent(MainActivity.this, PracticeQuestionActivity.class);
+            MainActivity.this.startActivity(PracticeQuestionActivity);
+        }
+        else {
+            noInternetDialog();
+        }
+    }
+
     private void noInternetDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
         alertDialog.setTitle("No internet connection!");

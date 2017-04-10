@@ -18,8 +18,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline2"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <TextView
         android:id="@+id/otherScoreText"
@@ -29,7 +29,7 @@
         android:visibility="invisible"
         android:textColor="#1f1f1f"
         android:textSize="25sp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/scoreText"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -39,8 +39,8 @@
     <Button
         android:id="@+id/button2"
         android:layout_width="317dp"
-        android:layout_height="70dp"
-        android:onClick="renderQuestionPage"
+        android:layout_height="67dp"
+        android:onClick="renderSelectCategoryPage"
         android:text="ONE PLAYER!"
         android:textColor="#FFFFFF"
         android:background="@drawable/roundstartbutton"
@@ -49,8 +49,9 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="317dp"
@@ -67,6 +68,22 @@
         android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
+    <Button
+        android:text="PRACTICE MODE"
+        tools:layout_editor_absoluteX="244dp"
+        android:onClick="renderPracticeModePage"
+        android:id="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/roundstartbutton"
+        android:textSize="24sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline2"
+        android:layout_marginTop="24dp"
+        android:layout_width="317dp"
+        android:layout_height="67dp"/>
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
