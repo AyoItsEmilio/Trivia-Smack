@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.MultiPlayerPageActivity" android:hardwareAccelerated="false"></activity>
+        <activity android:name=".presentation.MultiPlayerPageActivity"></activity>
         <activity android:name=".presentation.SelectCategoryActivity"></activity>
         <activity android:name=".presentation.RulesPageActivity"></activity>
         <activity
