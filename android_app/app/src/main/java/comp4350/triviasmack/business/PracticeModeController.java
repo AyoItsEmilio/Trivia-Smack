@@ -73,7 +73,7 @@ public class PracticeModeController {
     public String getPercentCorrectFmt(){
         String formattedPercent;
 
-        if(getPercentCorrect() > 0){
+        if(getNumQuestionsAttempted() > 0){
             formattedPercent = String.format("%.1f", getPercentCorrect()*100);
         }
         else{
