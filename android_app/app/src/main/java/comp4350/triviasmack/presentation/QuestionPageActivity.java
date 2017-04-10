@@ -24,6 +24,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable,
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        overridePendingTransition(0, 0);
 
         setContentView(R.layout.activity_question_page);
         Question questionObj = gameController.getNextQuestion();

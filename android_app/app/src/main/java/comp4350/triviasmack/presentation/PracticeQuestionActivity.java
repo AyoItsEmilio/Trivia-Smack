@@ -18,6 +18,7 @@ public class PracticeQuestionActivity extends AppCompatActivity implements Exita
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(0, 0);
         setContentView(R.layout.activity_practice_question);
         practiceModeController = PracticeModeController.getInstance();
         Question questionObj = practiceModeController.getNextQuestion();

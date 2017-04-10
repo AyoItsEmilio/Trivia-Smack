@@ -21,10 +21,10 @@ $(document).ready(function() {
 <body width="device-width">
 <div id="admin">
 
-    <img class="relImage" title="Go back" src="trivialogo.svg" data-bind="click: showOptions">
+    <img class="hand relImage" title="Go back" src="trivialogo.svg" data-bind="click: showOptions">
     <br><br>
 
-    <div class="topLeftCorner"><a href="index.html" class="lightGrey">PLAY</a></div>
+    <div class="topLeftCorner"><a href="index.html" class="hand lightGrey">PLAY</a></div>
 
     <!-- ko ifnot: loggedIn -->
         <div>
@@ -40,7 +40,7 @@ $(document).ready(function() {
         </div>
         <br>
         <div>
-            <button class="button pinkHover" data-bind="click: login">Sign In</button>
+            <button class="hand button pinkHover" data-bind="click: login">Sign In</button>
         </div>
         <br>
         <div data-bind="text: loginError"></div>
@@ -48,11 +48,11 @@ $(document).ready(function() {
 
     <!-- ko if: loggedIn -->
         <div data-bind="ifnot: addingQuestion() || viewingQuestions()">
-            <button class="button pinkHover long" data-bind="click: startAdding">
+            <button class="hand button pinkHover long" data-bind="click: startAdding">
                 Add a question
             </button>
             <br><br>
-            <button class="button pinkHover long" data-bind="click: startViewing">
+            <button class="hand button pinkHover long" data-bind="click: startViewing">
                 View questions
             </button>
         </div>
@@ -62,7 +62,7 @@ $(document).ready(function() {
         
         <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
         <br><br>
-        <button class="button blueHover" data-bind="click: getQuestionContains">
+        <button class="hand button pinkHover" data-bind="click: getQuestionContains">
             FILTER
         </button>
         <br><br><br>
@@ -85,13 +85,13 @@ $(document).ready(function() {
 
             <br class="small">
 
-            <div class="red button redHover" data-bind="click: $parent.deleteQuestion">
+            <div class="hand red button redHover" data-bind="click: $parent.deleteQuestion">
                 Delete
             </div>
 
             <br><br><br>
         <!-- /ko -->
-        <div class="blue button blueHover upperCase" data-bind="click: showMore, text:moreText">
+        <div class="hand blue button blueHover upperCase" data-bind="click: showMore, text:moreText">
         </div>
 
         <br><br>
@@ -114,7 +114,7 @@ $(document).ready(function() {
         </form>
         <br>
         <div>
-            <button class="button" data-bind="click: addQuestion">Add</button>
+            <button class="hand button" data-bind="click: addQuestion">Add</button>
         </div>
         <br class="small">
         <div class="upperCase" data-bind="text: warningMessage"></div>

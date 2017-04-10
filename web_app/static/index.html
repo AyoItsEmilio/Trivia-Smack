@@ -33,7 +33,7 @@ $(document).ready(function() {
             <img class="relImage" src="trivialogo.svg">
             <br><br>
 
-            <div class="button pinkHover" data-bind="click: pickCategory">
+            <div class="hand button pinkHover" data-bind="click: pickCategory">
                 One Player!
             </div><br>
 
@@ -41,22 +41,27 @@ $(document).ready(function() {
                 <div class="upperCase">Pick a category!</div><br class="small">
 
                 <!-- ko foreach: categories -->
-                    <div data-bind="text: $data, click: $parent.startOnePlayer" class="pinkish button redHover">
+                    <div data-bind="text: $data, click: $parent.startOnePlayer" class="hand pinkish button redHover">
                     </div><br class="small">
                 <!-- /ko -->
             </div>
 
-            <div class="button pinkHover" data-bind="click: startTwoPlayer">
+            <div class="hand button pinkHover" data-bind="click: startTwoPlayer">
                 Two Player!
             </div><br>
+
+            <div class="hand lightGrey topRightCorner" data-bind="click: openRules">
+                RULES
+            </div>
 
             <span data-bind="if: score() || score()==0">
                 Score: <span data-bind="text: score"></span>
 
-                <p data-bind="if: (otherScore() || otherScore()==0)">
+                <div data-bind="if: (otherScore() || otherScore()==0)">
                     Their score: <span data-bind="text: otherScore"></span>
-                </p>
+                </div>
             </span>
+
         </div>
 
         <div id="waiting" data-bind="if: isWaiting">
@@ -74,7 +79,7 @@ $(document).ready(function() {
                 <p>
                     <div data-bind="text: option(),
                     style:{background: bgColor},
-                    click: $parents[1].processAnswer" class="button greyHover option">
+                    click: $parents[1].processAnswer" class="hand button purpleHover option">
                     </div></br>
                 </p>
             <!-- /ko -->
@@ -89,6 +94,26 @@ $(document).ready(function() {
         </br>Time Remaining: <span data-bind="text: counter"></span>
 
     <!-- /ko -->
+
+     <div class="modal" id="rulesModal">
+
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <br><br>
+                <span class="bold">
+                <p>Press One Player to have 5 random questions thrown at you!</p><br>
+                <p>Your score is based on how fast you answer the question!</p><br>
+                <p>Press Two Player to compete against another player!</p><br>
+                </span>
+                <br><br>
+                <div class="hand uppercase button pinkHover" data-bind="click: closeRules">
+                    Got It!
+                </div><br>
+            </div>
+        </div>
+
+    </div>
 
 </div><!-- End of main -->
 

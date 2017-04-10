@@ -8,6 +8,7 @@ import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.presentation.MainActivity;
 import comp4350.triviasmack.presentation.MultiPlayerPageActivity;
 import comp4350.triviasmack.presentation.QuestionPageActivity;
+import comp4350.triviasmack.presentation.SelectCategoryActivity;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;

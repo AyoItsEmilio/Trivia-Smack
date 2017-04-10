@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import comp4350.triviasmack.R;
 import comp4350.triviasmack.presentation.MainActivity;
 import comp4350.triviasmack.presentation.MultiPlayerPageActivity;
+import comp4350.triviasmack.presentation.PracticeQuestionActivity;
 import comp4350.triviasmack.presentation.SelectCategoryActivity;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
@@ -52,5 +53,14 @@ public class MainActivityTest {
         solo.clickOnView(solo.getView(R.id.two_player));
 
         solo.assertCurrentActivity("wrong activity", MultiPlayerPageActivity.class);
+    }
+
+    @Test
+    public void pressPracticeModeBtn() throws Exception {
+        solo.assertCurrentActivity("wrong activity", MainActivity.class);
+
+        solo.clickOnView(solo.getView(R.id.practice_mode));
+
+        solo.assertCurrentActivity("wrong activity", PracticeQuestionActivity.class);
     }
 }

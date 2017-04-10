@@ -2,6 +2,7 @@ package comp4350.triviasmack.business;
 
 import java.util.ArrayList;
 
+import comp4350.triviasmack.application.Main;
 import comp4350.triviasmack.application.Constants;
 import comp4350.triviasmack.application.Services;
 import comp4350.triviasmack.objects.Question;
@@ -11,7 +12,7 @@ public class AccessQuestions {
 
     private ServerAccess serverAccess;
     private String[] validCategories = Constants.categories;
-    private int num_all_questions = Constants.TOTAL_NUM_QUESTIONS;
+    private int num_practice_questions = Main.numPracticeQuestions;
 
     public AccessQuestions() {
         serverAccess = Services.getServerAccess();
@@ -34,6 +35,6 @@ public class AccessQuestions {
     }
 
     public void getAllQuestions(ArrayList<Question> questions){
-        getRandomQuestions(questions, num_all_questions, "all");
+        getRandomQuestions(questions, num_practice_questions, "all");
     }
 }
