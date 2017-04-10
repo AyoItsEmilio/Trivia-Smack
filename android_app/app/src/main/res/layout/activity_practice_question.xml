@@ -69,46 +69,6 @@
         android:layout_marginBottom="11dp"/>
 
     <TextView
-        android:text="Total Questions Attempted:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/statView"
-        android:textColor="@android:color/holo_red_light"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"/>
-
-    <TextView
-        android:text="Total Questions Correct:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textColor="@color/darkgreen"
-        android:layout_alignBaseline="@+id/numCorrectView"
-        android:layout_alignBottom="@+id/numCorrectView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"/>
-
-    <TextView
-        android:text="Percent Answered Correctly:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/percentTextView"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/colorPrimary" />
-
-    <TextView
         android:text="Category:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,32 +97,6 @@
         android:layout_above="@+id/optnBtn1"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="2dp"
-        android:id="@+id/numAttemptedView"
-        android:layout_alignBottom="@+id/statView"
-        android:layout_toRightOf="@+id/statView"
-        android:layout_toEndOf="@+id/statView"
-        android:layout_alignParentTop="true"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"/>
-
-    <TextView
-        android:text="0"
-        android:paddingLeft="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numCorrectView"
-        android:textSize="20sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:layout_below="@+id/statView"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -187,4 +121,68 @@
         android:layout_alignBottom="@+id/percentTextView"
         android:layout_toRightOf="@+id/percentTextView"
         android:layout_toEndOf="@+id/percentTextView" />
+
+    <TextView
+        android:text="Attempted:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/attemptedTextView"
+        android:textColor="@color/palepurple"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="2dp"
+        android:id="@+id/numAttemptedView"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/attemptedTextView"
+        android:layout_toEndOf="@+id/attemptedTextView" />
+
+    <TextView
+        android:text="Correct:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TotalCorrectView"
+        android:textColor="@color/palepurple"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/attemptedTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="0"
+        android:paddingLeft="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numCorrectView"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/attemptedTextView"
+        android:layout_toRightOf="@+id/TotalCorrectView"
+        android:layout_toEndOf="@+id/TotalCorrectView" />
+
+    <TextView
+        android:text="Percent Correct:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/percentTextView"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/palepurple"
+        android:layout_below="@+id/TotalCorrectView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
