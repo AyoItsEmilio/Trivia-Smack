@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.business.GifImageView;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import io.socket.client.Socket;
@@ -23,9 +22,6 @@ public class MultiPlayerPageActivity extends AppCompatActivity implements Exitab
         setContentView(R.layout.multi_player_page_activity);
         socket = multiPlayer.getSocket();
         socket.on("other_player_ready", onOtherPlayerReady);
-
-        GifImageView gifImageView = (GifImageView) findViewById(R.id.gifView);
-        gifImageView.setGifImageResource(R.drawable.waiting_for_player);
     }
 
     public void onDestroy() {
