@@ -76,7 +76,6 @@
         android:layout_below="@+id/scoreView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/questionText"
         android:alpha="0.2"/>
 
     <Button
