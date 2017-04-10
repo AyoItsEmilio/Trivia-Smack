@@ -7,29 +7,81 @@ import java.util.Collections;
 import comp4350.triviasmack.objects.Question;
 
 public class PracticeModeController {
+    private static PracticeModeController instance = null;
     ArrayList<Question> questions;
-    ArrayList<Question> seenQuestons;
     private AccessQuestions accessQuestions;
+    public static int numQuestionsAttempted;
+    public static int numQuestionsCorrect;
+    private Question currQuestion;
 
     protected PracticeModeController(){
         accessQuestions = new AccessQuestions();
+        questions = new ArrayList<>();
         accessQuestions.getAllQuestions(questions);
-        seenQuestons = new ArrayList<>();
-
         Collections.shuffle(questions);
+        numQuestionsAttempted = 0;
+        numQuestionsCorrect = 0;
     }
 
     public Question getNextQuestion() {
         if (questions.isEmpty()) {
-            questions = new ArrayList<>(seenQuestons);
-            seenQuestons = new ArrayList<>();
-
+            accessQuestions.getAllQuestions(questions);
             Collections.shuffle(questions);
         }
-
-        Question currQuestion = questions.get(0);
-        seenQuestons.add(questions.remove(0));
+        currQuestion = questions.get(0);
+        questions.remove(0);
 
         return currQuestion;
+    }
+
+    public static PracticeModeController getInstance() {
+        if (instance == null) {
+            instance = new PracticeModeController();
+        }
+        return instance;
+    }
+
+    public boolean evaluateAnswer(String playersAnswer) {
+        numQuestionsAttempted++;
+        boolean result = false;
+        String answer = currQuestion.getOptions()[currQuestion.getAnswer()];
+
+        if (playersAnswer.equalsIgnoreCase(answer)) {
+            result = true;
+        }
+        return result;
+    }
+
+    public void increaseNumCorrect(){
+        numQuestionsCorrect++;
+    }
+
+    public int getNumQuestionsAttempted(){
+        return numQuestionsAttempted;
+    }
+
+    public int getNumQuestionsCorrect(){
+        return numQuestionsCorrect;
+    }
+
+    public double getPercentCorrect(){
+        return (double)numQuestionsCorrect/numQuestionsAttempted;
+    }
+
+    public String getPercentCorrectFmt(){
+        String formattedPercent;
+
+        if(getPercentCorrect() > 0){
+            formattedPercent = String.format("%.2f", getPercentCorrect()*100);
+        }
+        else{
+            formattedPercent = "0";
+        }
+
+        return formattedPercent;
+    }
+
+    public void destroy(){
+        instance = null;
     }
 }
