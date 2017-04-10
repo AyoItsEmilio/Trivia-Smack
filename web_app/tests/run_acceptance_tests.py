@@ -1,14 +1,14 @@
 """
-run_user_interface_tests.py
+run_acceptance_tests.py
 """
 import unittest
 import sys
-from web_app.tests.interface.UserInterfaceTest import UserInterfaceTest
+from web_app.tests.acceptance.AcceptanceTest import AcceptanceTest
 
 
 def main():
     user_interface_test_suite =\
-        unittest.TestLoader().loadTestsFromTestCase(UserInterfaceTest)
+        unittest.TestLoader().loadTestsFromTestCase(AcceptanceTest)
 
     all_suites = unittest.TestSuite([user_interface_test_suite])
 
