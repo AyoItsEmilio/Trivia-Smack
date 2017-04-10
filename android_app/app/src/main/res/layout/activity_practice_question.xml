@@ -68,17 +68,6 @@
         android:layout_above="@+id/optnBtn1"
         android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/trivialogo"
-        android:id="@+id/imageView"
-        android:alpha="0.2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/categoryView"
-        android:layout_below="@+id/percentTextView" />
-
     <TextView
         android:text="0"
         android:layout_width="wrap_content"
@@ -184,4 +173,14 @@
 
         android:layout_above="@+id/qText"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/trivialogo"
+        android:id="@+id/imageView"
+        android:alpha="0.2"
+        android:layout_below="@+id/percentView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

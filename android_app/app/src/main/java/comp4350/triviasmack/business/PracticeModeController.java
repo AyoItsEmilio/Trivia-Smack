@@ -79,7 +79,6 @@ public class PracticeModeController {
         else{
             formattedPercent = "0";
         }
-
         return formattedPercent;
     }
 
