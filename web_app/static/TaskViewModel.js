@@ -59,7 +59,7 @@ function TasksViewModel(){
         socket.on("other_player_ready", function() {
             self.isWaiting(false);
             self.otherScore("Waiting for other player");
-            self.startGame();
+            self.initGame();
         });
 
         socket.on("clean_up", function() {
@@ -78,14 +78,17 @@ function TasksViewModel(){
         self.otherScore(null);
         self.questionsURI = self.baseURI+category;
         self.showingCategories(false);
-        self.startGame();
+        self.initGame();
+    };
+
+    self.initGame = function() {
+        fetchQuestions();
     };
 
     self.startGame = function() {
-        fetchQuestions();
+        self.questionCount(0);
         self.isPlaying(true);
         self.score(0);
-        self.questionCount(0);
         startCounter();
     };
 
@@ -140,6 +143,7 @@ function TasksViewModel(){
     function fetchQuestions() {
          self.ajax(self.questionsURI, "GET").done(function(data) {
              self.buildQuestions(data);
+             self.startGame();
          }).fail(function(jqXHR) {
              console.log("Ajax failure");
          });
