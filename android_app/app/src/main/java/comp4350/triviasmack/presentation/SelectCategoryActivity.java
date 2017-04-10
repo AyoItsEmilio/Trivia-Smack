@@ -38,8 +38,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v){
         gameController.setCategory(v.getTag().toString());
         renderQuestionPage(v);
     }
