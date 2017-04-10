@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_practice_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="comp4350.triviasmack.presentation.PracticeQuestionActivity">
+
+
+    <Button
+        android:text="option 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optnBtn3"
+        android:visibility="visible"
+        android:onClick="processOptionButton"
+        android:theme="@style/AppTheme.Button"
+        android:layout_above="@+id/optnBtn4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/palepurple"
+        android:layout_marginBottom="11dp"/>
+
+    <Button
+        android:text="Option 2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/optnBtn2"
+        android:visibility="visible"
+        android:onClick="processOptionButton"
+        android:theme="@style/AppTheme.Button"
+        android:layout_above="@+id/optnBtn3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/palepurple"
+        android:layout_marginBottom="11dp"/>
+
+    <Button
+        android:text="Option 1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/optnBtn1"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="processOptionButton"
+        android:layout_above="@+id/optnBtn2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/palepurple"
+        android:layout_marginBottom="11dp"/>
+
+    <Button
+        android:text="option 4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/optnBtn4"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="processOptionButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/palepurple"
+        android:layout_marginBottom="11dp"/>
+
+    <TextView
+        android:text="Total Questions Attempted:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/statView"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numAttemptedView"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/statView"
+        android:layout_toRightOf="@+id/statView"
+        android:textSize="20sp"
+        android:paddingLeft="2dp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/trivialogo"
+        android:id="@+id/imageView"
+        android:alpha="0.2"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/categoryView" />
+
+    <TextView
+        android:text="Total Questions Correct:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@color/darkgreen"
+        android:layout_alignBaseline="@+id/numCorrectView"
+        android:layout_alignBottom="@+id/numCorrectView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:text="Category:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/categoryView"
+        android:layout_above="@+id/qText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:textColor="@color/palepurple"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+
+        />
+
+    <TextView
+        android:text="Trivia Question goes here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/qText"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="#1f1f1f"
+        android:textAlignment="center"
+        android:layout_marginBottom="47dp"
+        android:layout_above="@+id/optnBtn1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="0"
+        android:paddingLeft="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numCorrectView"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/statView"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+</RelativeLayout>
