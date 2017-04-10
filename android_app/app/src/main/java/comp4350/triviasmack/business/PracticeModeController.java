@@ -74,7 +74,7 @@ public class PracticeModeController {
         String formattedPercent;
 
         if(getPercentCorrect() > 0){
-            formattedPercent = String.format("%.2f", getPercentCorrect()*100);
+            formattedPercent = String.format("%.1f", getPercentCorrect()*100);
         }
         else{
             formattedPercent = "0";
