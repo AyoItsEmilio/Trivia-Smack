@@ -57,9 +57,9 @@ $(document).ready(function() {
             <span data-bind="if: score() || score()==0">
                 Score: <span data-bind="text: score"></span>
 
-                <p data-bind="if: (otherScore() || otherScore()==0)">
+                <div data-bind="if: (otherScore() || otherScore()==0)">
                     Their score: <span data-bind="text: otherScore"></span>
-                </p>
+                </div>
             </span>
 
         </div>
