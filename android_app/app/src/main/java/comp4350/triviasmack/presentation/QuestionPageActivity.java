@@ -40,7 +40,8 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable,
     public void startTimer() {
         int one_second = 1000;
         int ten_seconds = one_second*10;
-        questionTimer = new QuestionTimer(ten_seconds, one_second, this);
+        int offset = 100;
+        questionTimer = new QuestionTimer(ten_seconds + offset, one_second, this);
         questionTimer.startTimer();
     }
 
