@@ -1,7 +1,7 @@
 function TasksViewModel(){
     var self = this;
     var loc = location.protocol + "//" + document.domain + ":" + location.port;
-    var max = 10;
+    var max = 5;
     var waitTime = 300;
     var red = "#c13636";
     var green = "#4dc136";
@@ -20,7 +20,7 @@ function TasksViewModel(){
     self.isPlaying = ko.observable(false);
     self.questions = ko.observableArray();
     self.categories = ko.observableArray(["all", "geography",
-    "history", "math and science", "pop culture", "other"]);
+    "history", "math & science", "pop culture", "other"]);
 
     self.counter.subscribe(function(newValue) {
         if (newValue === 0){
