@@ -7,23 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.os.CountDownTimer;
 
 import comp4350.triviasmack.R;
-import comp4350.triviasmack.business.BackButtonDialog;
-import comp4350.triviasmack.business.Exitable;
 import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.objects.Question;
 
-public class QuestionPageActivity extends AppCompatActivity implements Exitable {
+public class QuestionPageActivity extends AppCompatActivity implements Exitable, Advanceable {
 
     private GameController gameController = GameController.getInstance();
-    private final int one_second = 1000;
-    private final int five_seconds = one_second * 5;
-    private final int ten_seconds = one_second * 10 + 100;
     private QuestionTimer questionTimer = null;
-    private int secondsUntilFinished = 0;
     private TextView scoreView;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
 
@@ -44,8 +37,9 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     }
 
     public void startTimer() {
-        final TextView[] timerTextView = {null};
-        questionTimer = new QuestionTimer(ten_seconds, one_second, timerTextView);
+        int one_second = 1000;
+        int ten_seconds = one_second*10;
+        questionTimer = new QuestionTimer(ten_seconds, one_second, this);
         questionTimer.startTimer();
     }
 
@@ -84,12 +78,15 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
 
     public void advancePage() {
         if (gameController.finished()) {
+
             if (multiPlayer.isConnected()) {
                 multiPlayer.sendScore(gameController.getScore());
             }
+
             Intent MainPageIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
             MainPageIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             QuestionPageActivity.this.startActivity(MainPageIntent);
+
         } else {
             startActivity(getIntent());
             finish();
@@ -99,6 +96,7 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     public void exitAction() {
         questionTimer.stopTimer();
         gameController.start();
+
         Intent ExitGameIntent = new Intent(QuestionPageActivity.this, MainActivity.class);
         ExitGameIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         QuestionPageActivity.this.startActivity(ExitGameIntent);
@@ -111,57 +109,5 @@ public class QuestionPageActivity extends AppCompatActivity implements Exitable 
     @Override
     public void onBackPressed() {
         BackButtonDialog.buildExitDialog(this);
-    }
-
-    public class QuestionTimer extends CountDownTimer {
-        private final int one_second = 1000;
-        private int secondsUntilFinished = 0;
-        private boolean isTicking = false;
-        private TextView[] timerTextView = null;
-
-        public QuestionTimer(long millisInFuture, long countDownInterval, TextView[] timerTextView) {
-            super(millisInFuture, countDownInterval);
-            this.timerTextView = timerTextView;
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            secondsUntilFinished = (int)Math.ceil(millisUntilFinished / one_second);
-
-            if (timerTextView != null) {
-                timerTextView[0] = (TextView) findViewById(R.id.timerTextView);
-                timerTextView[0].setText("Time remaining: " + secondsUntilFinished);
-
-                if (millisUntilFinished < five_seconds) {
-                    timerTextView[0].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.nice_red));
-                }
-            }
-        }
-
-        @Override
-        public void onFinish() {
-            timerTextView[0].setText("Time is up!");
-            isTicking = false;
-            cancel();
-            advancePage();
-        }
-
-        public int getTimeRemaining() {
-            return secondsUntilFinished;
-        }
-
-        public void startTimer() {
-            super.start();
-            isTicking = true;
-        }
-
-        public void stopTimer() {
-            isTicking = false;
-            cancel();
-        }
-
-        public boolean isTicking() {
-            return isTicking;
-        }
     }
 }

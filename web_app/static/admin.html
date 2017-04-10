@@ -56,66 +56,62 @@ $(document).ready(function() {
                 View questions
             </button>
         </div>
+    <!-- /ko -->
 
-        <div data-bind="if: viewingQuestions">
-            
-            <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
-            <br><br>
-            <button class="button pinkHover" data-bind="click: getQuestionContains">
-                FILTER
-            </button>
+    <!-- ko if: viewingQuestions -->
+        
+        <input data-bind="value: filter" type="text" class="textbox" placeholder="Question Contains...">
+        <br><br>
+        <button class="button blueHover" data-bind="click: getQuestionContains">
+            FILTER
+        </button>
+        <br><br><br>
+
+        <!-- ko foreach: questions -->
+
+            <h3 data-bind="text: question"></h3></br>
+
+            <!-- ko foreach: options -->
+                <p>
+                    <div data-bind="if: $parent.options()[$parent.answer()] == $data">
+                        <div data-bind="text: $data" class="green option button nohover"></div>
+                    </div>
+                    <div data-bind="ifnot: $parent.options()[$parent.answer()] == $data">
+                        <div data-bind="text: $data" class="option button nohover"></div>
+                    </div>
+                    <br>
+                </p>
+            <!-- /ko -->
+
+            <br class="small">
+
+            <div class="red button redHover" data-bind="click: $parent.deleteQuestion">
+                Delete
+            </div>
+
             <br><br><br>
 
-            <!-- ko foreach: questions.slice(0, questionBound()) -->
+        <!-- /ko -->
+    <!-- /ko -->
 
-                <h3 data-bind="text: question"></h3></br>
-                <!-- ko foreach: options -->
-                    <p>
-                        <div data-bind="if: $parent.options()[$parent.answer()] == $data">
-                            <div data-bind="text: $data" class="green option button nohover"></div>
-                        </div>
-                        <div data-bind="ifnot: $parent.options()[$parent.answer()] == $data">
-                            <div data-bind="text: $data" class="option button nohover"></div>
-                        </div>
-                        <br>
-                    </p>
-                <!-- /ko -->
-
-                <br class="small">
-
-                <div class="red button redHover upperCase" data-bind="click: $parent.deleteQuestion">
-                    Delete
-                </div>
-
-                <br><br><br>
-            <!-- /ko -->
-            <div class="blue button blueHover upperCase" data-bind="click: showMore, text:moreText">
-            </div>
-            <br><br>
-        </div>
-
-        <div data-bind="if: addingQuestion">
-            <form>
-                <div>
-                    <input data-bind="value: question" type="text" class="textbox" placeholder="Question">
-                </div><br>
-                <div>
-                    <input data-bind="value: options" type="text" class="textbox" placeholder="Options (comma separated)">
-                </div><br>
-                <div>
-                    <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
-                </div><br>
-                <div>
-                    <input data-bind="value: category" type="text" class="textbox" placeholder="Category">
-                </div>
-            </form>
-            <br>
+    <!-- ko if: addingQuestion -->
+        <form>
             <div>
-                <button class="button" data-bind="click: addQuestion">Add</button>
+                <input data-bind="value: question" type="text" class="textbox" placeholder="Question">
+            </div><br>
+            <div>
+                <input data-bind="value: options" type="text" class="textbox" placeholder="Options (comma separated)">
+            </div><br>
+            <div>
+                <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
             </div>
-            <br class="small">
-            <div class="upperCase" data-bind="text: warningMessage"></div>
+        </form>
+        <br>
+        <div>
+            <button class="button" data-bind="click: addQuestion">Add</button>
         </div>
+        <br class="small">
+        <div class="upperCase" data-bind="text: warningMessage"></div>
     <!-- /ko -->
 
 </div><!-- End of admin -->
