@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
 
     @Override
@@ -26,7 +25,7 @@ public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         String line;
-
+        final String LOG_TAG = ReceiveBackgroundTask.class.getSimpleName();
         try {
 
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -49,7 +48,7 @@ public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
             result = new JSONObject(buffer.toString());
 
         } catch (Exception e) {
-            Log.e("ReceiveBackgroundTask.java", "Error", e);
+            Log.e(LOG_TAG, "Error", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -58,7 +57,7 @@ public class ReceiveBackgroundTask extends AsyncTask<URL, Void, JSONObject> {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e("ReceiveBackgroundTask.java", "Error closing stream", e);
+                    Log.e(LOG_TAG, "Error closing stream", e);
                 }
             }
         }

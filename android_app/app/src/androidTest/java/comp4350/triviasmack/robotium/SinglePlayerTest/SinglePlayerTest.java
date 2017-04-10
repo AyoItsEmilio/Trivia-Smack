@@ -41,7 +41,6 @@ public class SinglePlayerTest{
 
     @Test
     public void pressOptionBtnOnTime() throws Exception {
-
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
         solo.clickOnView(solo.getView(R.id.one_player));
         solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
@@ -50,14 +49,120 @@ public class SinglePlayerTest{
         for(int i =0; i < numQuestions; i++){
             solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
             solo.sleep(2000);
-            solo.clickOnView(solo.getView(R.id.optionBtn1));
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
         }
-
         solo.waitForActivity(MainActivity.class);
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
-
         int scoreVis = solo.getView(R.id.scoreText).getVisibility();
         assertEquals(scoreVis, View.VISIBLE);
+    }
+
+    @Test
+    public void selectHistoryCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.history));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+    }
+
+    @Test
+    public void selectGeographyCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.geography));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+
+    }
+
+    @Test
+    public void selectPopCultureCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.pop_culture));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+
+    }
+
+    @Test
+    public void selectOtherCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.other));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+
+    }
+
+    @Test
+    public void selectAllCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.all));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+
+    }
+
+    @Test
+    public void selectMathScienceCategory() throws Exception{
+
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.math_and_science));
+        for(int i =0; i < numQuestions; i++){
+            solo.assertCurrentActivity("Expected activity: QuestionPageActivity", QuestionPageActivity.class);
+            solo.sleep(2000);
+            solo.clickOnView(solo.getView(R.id.optionBtn2));
+        }
+        solo.waitForActivity(MainActivity.class);
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        int scoreVis = solo.getView(R.id.scoreText).getVisibility();
+        assertEquals(scoreVis, View.VISIBLE);
+
     }
 
     @Test

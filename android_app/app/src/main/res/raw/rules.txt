@@ -1,0 +1,6 @@
+
+Press One Player to have 5 random questions thrown at you!
+
+Your score is based on how fast you answer the question!
+
+Press Two Player to compete against another player!

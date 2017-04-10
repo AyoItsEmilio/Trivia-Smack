@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private GameController gameController;
     private MultiPlayer multiPlayer = MultiPlayer.getInstance();
     private Socket socket;
-    private final String TAG = "MainActivity";
+    private final String LOG_TAG = MainActivity.class.getSimpleName();
     private static boolean stillPlaying;
     private static TextView otherScoreText;
 
@@ -105,10 +105,10 @@ public class MainActivity extends AppCompatActivity {
                             otherScore = -1;
                         }
                         stillPlaying = false;
-                        Log.d(TAG, "onOtherPayerDone" + otherScore);
+                        Log.d(LOG_TAG, "onOtherPayerDone" + otherScore);
                         displayScores();
                     } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        Log.e(LOG_TAG, e.getMessage());
                     }
                 }
             });
@@ -127,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
         else {
             noInternetDialog();
         }
+    }
+
+    public void renderRulesPage(View v) {
+        Intent RulesPageIntent = new Intent(MainActivity.this, RulesPageActivity.class);
+        MainActivity.this.startActivity(RulesPageIntent);
     }
 
     public void renderMultiPlayerPage(View v) {

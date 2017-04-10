@@ -19,7 +19,9 @@ public class ParseJSON {
         String question;
         String[] options;
         String category;
+        final String LOG_TAG=ParseJSON.class.getSimpleName();
         int answer;
+
         ArrayList<Question> questions = new ArrayList<>();
 
         try {
@@ -40,7 +42,7 @@ public class ParseJSON {
                 questions.add(questionObj);
             }
         } catch (JSONException e) {
-            Log.e("ParseJSON.java", "Error with JSON:", e);
+            Log.e(LOG_TAG, "Error with JSON:", e);
             questions = null;
         }
 

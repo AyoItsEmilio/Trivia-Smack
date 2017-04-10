@@ -60,12 +60,57 @@ h3 { font-size: 35px; }
 
 .option {
   width: 30%;
-  background: #747474;
+  background: #6a619b;
   padding: 8px;
   height: auto;
   transition: all 0.1s;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 15px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-body {
+  padding: 0px 15px;
+}
+
+.modal-content {
+  border-radius: 15px;
+  position: relative;
+  background-color: #FEFEFE;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid #888;
+  width: 90%;
+  
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to   {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to   {top: 0; opacity: 1}
+}
 
 /* Laptop - full screen */
 @media screen 
@@ -89,6 +134,8 @@ h3 { font-size: 35px; }
     .long {width: 20%; }
 
     .textbox { width: 25%; }
+
+    .modal-content { width: 40%; }
 }
 
 /* Laptop - half screen */
@@ -113,6 +160,8 @@ h3 { font-size: 35px; }
     .long {width: 45%; }
 
     .textbox { width: 40%; }
+
+    .modal-content { width: 75%; }
 }
 
 /* Mobile - Galaxy */
@@ -126,7 +175,9 @@ h3 { font-size: 35px; }
     height: auto;
   }
 
-  h3 { font-size: 25px; }
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
 
   .button { width: 50%; }
 
@@ -135,6 +186,104 @@ h3 { font-size: 35px; }
   .long {width: 75%; }
 
   .textbox { width: 60%; }
+}
+
+/* Mobile - Nexus 5x */
+@media screen 
+  and (device-width: 412px) 
+  and (device-height: 732px){
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
+
+  .button { width: 50%; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+
+/* Mobile - iphone 5 */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 568px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  p { font-size: 10px; }
+
+  .button { width: 50%; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+/* Mobile - iphone 6 */
+@media screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  .button { width: 50%; }
+
+  p { font-size: 10px; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+}
+
+/* Mobile - iphone 6plus */
+@media screen 
+  and (device-width: 414px) 
+  and (device-height: 736px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+  img.relImage {
+    width: 80%;
+    height: auto;
+  }
+
+  h3 { font-size: 18px; }
+
+  .button { width: 50%; }
+
+  p { font-size: 10px; }
+
+  .option { width: 80%; }
+
+  .long {width: 75%; }
+
+  .textbox { width: 60%; }
+
+  .modal-content { width: 75%; }
 }
 
 /* iPad */
@@ -154,6 +303,34 @@ and (-webkit-min-device-pixel-ratio: 2) {
   
   .button { width: 40%; }
 
+  p { font-size: 17px; }
+
+  .option { width: 50%; }
+
+  .long {width: 65%; }
+
+  .textbox { width: 50%; }
+
+  .modal-content { width: 75%; }
+}
+
+/* iPad pro */
+@media only screen 
+and (device-width : 1024px) 
+and (device-height : 1366px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  img.relImage {
+    width: 75%;
+    height: auto;
+  }
+
+  h3 { font-size: 35px; }
+
+  body {font-size: 35px;}
+  
+  .button { width: 40%; }
+
   .option { width: 50%; }
 
   .long {width: 65%; }
@@ -162,9 +339,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .topRightCorner {
-   position: fixed;
-   top: 0px;
-   right: 20px;
+  position: fixed;
+  top: 0px;
+  right: 2px;
+  margin: 10px;
 }
 
 .topLeftCorner {
@@ -183,7 +361,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .redHover:hover { background: #961A1A; }
 
-.greyHover:hover { background: #444444; }
+.purpleHover:hover { background: #3f2f9b; }
 
 .blueHover:hover { background: #377ba8; }
 
@@ -206,6 +384,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .pinkish { background: #ff444f; }
 
 .blue { background: #3199dd; }
+
+.hand { cursor: hand; cursor: pointer; }
+
+.bold { font-weight: bold; }
 
 br.small { line-height: 5px; }
 

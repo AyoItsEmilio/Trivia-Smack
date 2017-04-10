@@ -8,6 +8,7 @@ function TasksViewModel(){
     var countDownTime = 10;
     var oneSecond = 1000;
     var theCountDown;
+    var modal = document.getElementById("rulesModal");
     self.baseURI = "/api/question_data/"+max+"/";
     self.questionsURI = "";
     self.score = ko.observable(null);
@@ -58,7 +59,7 @@ function TasksViewModel(){
         socket.on("other_player_ready", function() {
             self.isWaiting(false);
             self.otherScore("Waiting for other player");
-            self.startGame();
+            self.initGame();
         });
 
         socket.on("clean_up", function() {
@@ -77,16 +78,17 @@ function TasksViewModel(){
         self.otherScore(null);
         self.questionsURI = self.baseURI+category;
         self.showingCategories(false);
-        self.startGame();
+        self.initGame();
+    };
+
+    self.initGame = function() {
+        fetchQuestions();
     };
 
     self.startGame = function() {
-        fetchQuestions();
-        console.log(self.questionsURI);
-        console.log(self.questions());
+        self.questionCount(0);
         self.isPlaying(true);
         self.score(0);
-        self.questionCount(0);
         startCounter();
     };
 
@@ -141,6 +143,7 @@ function TasksViewModel(){
     function fetchQuestions() {
          self.ajax(self.questionsURI, "GET").done(function(data) {
              self.buildQuestions(data);
+             self.startGame();
          }).fail(function(jqXHR) {
              console.log("Ajax failure");
          });
@@ -170,4 +173,17 @@ function TasksViewModel(){
 
          return self.questions();
      };
+
+    window.onclick = function(event) {
+        if(event.target == modal)
+            modal.style.display = "none";
+    };
+
+    self.closeRules = function() {
+        modal.style.display = "none";
+    };
+
+    self.openRules = function() {
+        modal.style.display = "block";
+    };
 }

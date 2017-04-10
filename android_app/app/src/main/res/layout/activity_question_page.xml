@@ -16,7 +16,7 @@
         android:text="option 4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/optionBtn4"
         android:theme="@style/AppTheme.Button"
         android:onClick="processOptionButton"
@@ -76,7 +76,6 @@
         android:layout_below="@+id/scoreView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/questionText"
         android:alpha="0.2"/>
 
     <Button
@@ -84,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn3"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:onClick="processOptionButton"
         android:theme="@style/AppTheme.Button"
         android:background="@color/palepurple"
@@ -98,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionBtn2"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:onClick="processOptionButton"
         android:theme="@style/AppTheme.Button"
         android:background="@color/palepurple"
@@ -111,7 +110,7 @@
         android:text="Option 1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/optionBtn1"
         android:theme="@style/AppTheme.Button"
         android:onClick="processOptionButton"
