@@ -101,10 +101,12 @@ def question_data(num_questions, category):
 
 
 def validate_json(json):
-    if "question" not in json or "options" not in json or "answer" not in json:
+    if "question" not in json or "options" not in json or "answer" not in json\
+        or "category" not in json:
         return "Invalid request"
 
-    if json["question"] == "" or json["options"] == [] or json["answer"] == "":
+    if json["question"] == "" or json["options"] == [] or json["answer"] == ""\
+        or json["category"] == "":
         return "Fields can't be empty"
 
     try:
