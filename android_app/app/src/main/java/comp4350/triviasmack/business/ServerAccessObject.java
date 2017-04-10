@@ -19,6 +19,7 @@ public class ServerAccessObject implements ServerAccess {
 
     private String questionUrl;
     private URL url;
+    private final String LOG_TAG = ServerAccessObject.class.getSimpleName();
 
     public ServerAccessObject() {
         questionUrl = baseUrl + "api/question_data/";
@@ -32,7 +33,7 @@ public class ServerAccessObject implements ServerAccess {
             url = new URL((questionUrl + numQuestions + "/" + category));
 
         } catch (MalformedURLException e) {
-            Log.e("ServerAccessObject.java", "MalformedURLException", e);
+            Log.e(LOG_TAG, "MalformedURLException", e);
         }
 
         JSONObject result = Services.createAsyncFacade().executeTask(url);

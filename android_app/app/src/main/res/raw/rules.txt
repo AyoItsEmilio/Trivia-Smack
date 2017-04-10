@@ -1,0 +1,10 @@
+Press 'One Player!' to have 5 random questions thrown at you.
+Answer fast to get the highest score!
+Your score is based on how fast you answer the question.
+
+Answer with 10 seconds left gives you 10 points.
+Answer with 3 seconds left gives you 3 points.
+
+Press 'Two Player!' to compete against another person.
+The app will wait until another player joins.
+You can compare scores after both players have finished.

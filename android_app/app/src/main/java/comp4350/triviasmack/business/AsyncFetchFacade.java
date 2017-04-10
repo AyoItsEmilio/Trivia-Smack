@@ -11,7 +11,7 @@ public class AsyncFetchFacade implements FetchFacade {
 
     public JSONObject executeTask(URL baseUrl) {
         JSONObject result = null;
-
+        final String LOG_TAG=AsyncFetchFacade.class.getSimpleName();
         ReceiveBackgroundTask serverTask;
 
         serverTask = new ReceiveBackgroundTask();
@@ -19,9 +19,9 @@ public class AsyncFetchFacade implements FetchFacade {
         try {
             result = serverTask.execute(baseUrl).get();
         } catch (java.lang.InterruptedException e) {
-            Log.e("AsyncFetchFacade.java", "InterruptedException", e);
+            Log.e(LOG_TAG, "InterruptedException", e);
         } catch (java.util.concurrent.ExecutionException e) {
-            Log.e("AsyncFetchFacade.java", "ExecutionException", e);
+            Log.e(LOG_TAG, "ExecutionException", e);
         }
 
         return result;
