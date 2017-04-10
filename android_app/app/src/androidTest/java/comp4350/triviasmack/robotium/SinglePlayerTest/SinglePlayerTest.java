@@ -61,6 +61,51 @@ public class SinglePlayerTest{
     }
 
     @Test
+    public void selectHistoryCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.history));
+
+    }
+
+    @Test
+    public void selectGeographyCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.geography));
+
+    }
+
+    @Test
+    public void selectPopCultureCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.pop_culture));
+
+    }
+
+    @Test
+    public void selectOtherCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.other));
+
+    }
+
+    @Test
+    public void selectMathScienceCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.math_and_science));
+
+    }
+
+    @Test
     public void pressOptionBtnOverTime() throws Exception {
 
         solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
