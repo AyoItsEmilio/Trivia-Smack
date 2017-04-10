@@ -8,6 +8,7 @@ import comp4350.triviasmack.business.MultiPlayer;
 import comp4350.triviasmack.presentation.MainActivity;
 import comp4350.triviasmack.presentation.MultiPlayerPageActivity;
 import comp4350.triviasmack.presentation.QuestionPageActivity;
+import comp4350.triviasmack.presentation.SelectCategoryActivity;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -64,6 +65,62 @@ public class TwoPlayersTest{
 
         int scoreVis = solo.getView(R.id.scoreText).getVisibility();
         assertEquals(scoreVis, View.VISIBLE);
+    }
+
+
+    @Test
+    public void selectHistoryCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.history));
+
+    }
+
+    @Test
+    public void selectGeographyCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.geography));
+
+    }
+
+    @Test
+    public void selectPopCultureCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.pop_culture));
+
+    }
+
+    @Test
+    public void selectOtherCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.other));
+
+    }
+
+    @Test
+    public void selectAllCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.all));
+
+    }
+
+
+    @Test
+    public void selectMathScienceCategory() throws Exception{
+        solo.assertCurrentActivity("Expected activity: MainActivity", MainActivity.class);
+        solo.clickOnView(solo.getView(R.id.one_player));
+        solo.assertCurrentActivity("Expected activity: SelectCategoryActivity", SelectCategoryActivity.class);
+        solo.clickOnView(solo.getView(R.id.math_and_science));
+
     }
 
 }
