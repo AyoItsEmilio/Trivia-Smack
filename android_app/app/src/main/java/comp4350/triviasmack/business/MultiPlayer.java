@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
-import comp4350.triviasmack.Constants;
+import comp4350.triviasmack.application.Constants;
 import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;

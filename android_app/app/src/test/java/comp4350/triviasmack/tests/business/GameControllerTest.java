@@ -36,6 +36,8 @@ public class GameControllerTest {
 
         GameController first = GameController.getInstance();
         GameController second = GameController.getInstance();
+        first.setCategory("all");
+        second.setCategory("all");
 
         assertEquals(first, second);
         assertSame(first, second);
@@ -53,6 +55,7 @@ public class GameControllerTest {
 
         dummyGameController.destroy();
         dummyGameController = GameController.getInstance();
+        dummyGameController.setCategory("all");
 
         assertFalse(dummyGameController.isStarted());
         dummyGameController.start();
@@ -102,6 +105,7 @@ public class GameControllerTest {
 
         dummyGameController.destroy();
         dummyGameController = GameController.getInstance();
+        dummyGameController.setCategory("all");
 
         assertFalse(dummyGameController.finished());
         dummyGameController.start();

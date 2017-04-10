@@ -20,61 +20,56 @@ class UserInterfaceTest(unittest.TestCase):
         self.driver.get("http://0.0.0.0:5000/index.html")
         self.assertEquals('Trivia Smack!', self.driver.title)
 
-    def test_click_one_player(self):
-        print "Testing clicking the \"One Player\" button"
-        self.driver.get("http://0.0.0.0:5000/index.html")
-        one_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='One Player!']")
-        one_player_button.click()
-
-        print "\tButton Clicked, test that it went to a question page."
-        text_displayed = self.driver.find_element_by_xpath("//body").text
-        question = self.driver.find_element_by_xpath(
-            "//div[@id='main']/div[1]/h3[@data-bind=\"text: question\"]").text
-        options = self.driver.find_elements_by_xpath(
-            "//div[@id='main']/div[1]/div")
-
-        print "\t\tTest that a question is being displayed"
-        self.assertIn(question, text_displayed)
-
-        print "\t\tTest that options are being displayed"
-        for option in options:
-            option = option.text
-            self.assertIn(option, text_displayed)
-
     def test_click_option_1p(self):
         print "Testing clicking an option in One Player mode"
         self.driver.get("http://0.0.0.0:5000/index.html")
-        one_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='One Player!']")
+        one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
         one_player_button.click()
 
-        options = self.driver.find_elements_by_xpath(
-            "//div[@id='main']/div[1]/div")
+        options = self.driver.find_elements_by_xpath("//*[@id='category']/div[2]")
         selected_option = random.randint(0, len(options)-1)
         options[selected_option].click()
 
-    def test_round_1p(self):
-        print "Testing going through one game in 1 player mode"
+    def test_all_categories_option_1p(self):
+        print "Testing clicking all the categories in one player mode"
         self.driver.get("http://0.0.0.0:5000/index.html")
-        time.sleep(2)
-        one_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='One Player!']")
+        one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
         one_player_button.click()
 
-        time.sleep(2)
+        options = self.driver.find_elements_by_xpath("//*[@id='category']/div[2]")
+        selected_option = random.randint(0, len(options)-1)
+        options[selected_option].click()
 
-        question = self.driver.find_element_by_xpath(
-            "//div[@id='main']/div[1]/h3[@data-bind=\"text: question\"]").text
-
-        while question:
-            print '\tTesting going through questions.'
+        count = 3
+        while (count < 7):
             time.sleep(2)
-            options = self.driver.find_elements_by_xpath(
-                "//div[@id='main']/div[1]/div")
+            self.driver.get("http://0.0.0.0:5000/index.html")
+            one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
+            one_player_button.click()
+
+            xpath = "//*[@id='category']/div["+`count`+"]"
+            options = self.driver.find_elements_by_xpath(xpath)
             selected_option = random.randint(0, len(options)-1)
-            time.sleep(2)
             options[selected_option].click()
+            count = count + 1
+
+    def test_1p_game(self):
+        print "Test one game"
+        self.driver.get("http://0.0.0.0:5000/index.html")
+        one_player_button = self.driver.find_element_by_xpath("//*[@id='main']/div[2]/div[1]")
+        one_player_button.click()
+
+        options = self.driver.find_elements_by_xpath("//*[@id='category']/div[2]")
+        selected_option = random.randint(0, len(options)-1)
+        options[selected_option].click()
+
+        question = self.driver.find_element_by_xpath("//*[@id='main']/div[1]/h3").text
+        while question:
+            question = self.driver.find_element_by_xpath("//*[@id='main']/div[1]/h3").text
+            time.sleep(2)
+            questionSelect = self.driver.find_elements_by_xpath("//*[@id='main']/div[1]/div[1]")
+            selected_option = random.randint(0, len(options)-1)
+            questionSelect[selected_option].click()
             time.sleep(2)
             try:
                 question = self.driver.find_element_by_xpath(
@@ -84,16 +79,12 @@ class UserInterfaceTest(unittest.TestCase):
                 print '\tReached end of round.'
                 question = None
 
-        print '\tTest that score is displayed at end of round.'
-        text_displayed = self.driver.find_element_by_xpath("//body").text
-        self.assertIn("Score:", text_displayed)
-
     def test_wait_2p(self):
         print "Test clicking Two Player button brings user to waiting page."
         self.driver.get("http://0.0.0.0:5000/index.html")
         time.sleep(2)
         two_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='Two Player!']")
+            "//*[@id='main']/div[2]/div[3]")
         two_player_button.click()
         time.sleep(3)
         text_displayed = self.driver.find_element_by_xpath("//body").text
@@ -106,7 +97,7 @@ class UserInterfaceTest(unittest.TestCase):
         self.driver.get("http://0.0.0.0:5000/index.html")
         time.sleep(2)
         two_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='Two Player!']")
+            "//*[@id='main']/div[2]/div[3]")
         two_player_button.click()
         time.sleep(10)
 
@@ -115,7 +106,7 @@ class UserInterfaceTest(unittest.TestCase):
         self.driver.get("http://0.0.0.0:5000/index.html")
         time.sleep(2)
         two_player_button = self.driver.find_element_by_xpath(
-            "//div[text()='Two Player!']")
+            "//*[@id='main']/div[2]/div[3]")
         two_player_button.click()
         time.sleep(3)
 

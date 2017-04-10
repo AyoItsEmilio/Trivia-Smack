@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="comp4350.triviasmack">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
@@ -22,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.MultiPlayerPageActivity"></activity>
+        <activity android:name=".presentation.SelectCategoryActivity"></activity>
         <activity
             android:name=".presentation.QuestionPageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" >

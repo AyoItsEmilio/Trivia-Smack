@@ -127,6 +127,7 @@ public class ParseJSONTest {
             json.put("answer", new Integer(1));
             json.put("options", options);
             json.put("question", "The Balkans are in:");
+            json.put("category", "all");
         } catch (JSONException e) {
             e.printStackTrace();
             json = null;

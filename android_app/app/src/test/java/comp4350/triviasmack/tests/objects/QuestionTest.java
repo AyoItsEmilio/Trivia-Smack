@@ -17,13 +17,15 @@ public class QuestionTest {
     private String[] options;
     private int answer;
     private Question questionObj;
+    private String category;
 
     @Before
     public void setUp() throws Exception {
         question = "What's my favorite color?";
         options = new String[]{"blue", "green", "red"};
         answer = 0;
-        questionObj = new Question(question, options, answer);
+        category = "all";
+        questionObj = new Question(question, options, answer, category);
     }
 
     @After
@@ -54,11 +56,12 @@ public class QuestionTest {
     public void testEmptyQuestion() {
         System.out.println("Testing Question: EmptyQuestion");
 
-        Question q1 = new Question("", new String[0], 0);
+        Question q1 = new Question("", new String[0], 0, "");
 
         assertEquals(q1.getQuestion(), "");
         assertEquals(q1.getOptions().length, 0);
         assertEquals(q1.getAnswer(), 0);
+        assertEquals(q1.getCategory(), "");
     }
 
     @Test
@@ -66,7 +69,7 @@ public class QuestionTest {
         System.out.println("Testing Question: Invalid Args");
 
         try {
-            new Question(null, null, -1);
+            new Question(null, null, -1, null);
             fail("Expected a NullPointerException");
         } catch (NullPointerException ignored) {
         }
