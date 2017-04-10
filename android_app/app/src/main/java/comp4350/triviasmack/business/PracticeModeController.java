@@ -8,7 +8,7 @@ import comp4350.triviasmack.objects.Question;
 
 public class PracticeModeController {
     private static PracticeModeController instance = null;
-    ArrayList<Question> questions;
+    private ArrayList<Question> questions;
     private AccessQuestions accessQuestions;
     public static int numQuestionsAttempted;
     public static int numQuestionsCorrect;
@@ -42,7 +42,7 @@ public class PracticeModeController {
     }
 
     public boolean evaluateAnswer(String playersAnswer) {
-        numQuestionsAttempted++;
+        increaseNumQuestionsAttempted();
         boolean result = false;
         String answer = currQuestion.getOptions()[currQuestion.getAnswer()];
 
@@ -55,6 +55,8 @@ public class PracticeModeController {
     public void increaseNumCorrect(){
         numQuestionsCorrect++;
     }
+
+    public void increaseNumQuestionsAttempted(){numQuestionsAttempted++;}
 
     public int getNumQuestionsAttempted(){
         return numQuestionsAttempted;
@@ -81,7 +83,7 @@ public class PracticeModeController {
         return formattedPercent;
     }
 
-    public void destroy(){
+    public static void destroy(){
         instance = null;
     }
 }

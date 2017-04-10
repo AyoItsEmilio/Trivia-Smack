@@ -7,6 +7,6 @@ import comp4350.triviasmack.business.GameController;
 import comp4350.triviasmack.tests.business.ServerAccessTest;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ServerAccessFlaskTest.class, BusinessServerSeamTest.class, GameControllerFlaskTest.class})
+@Suite.SuiteClasses({ServerAccessFlaskTest.class, BusinessServerSeamTest.class, GameControllerFlaskTest.class, PracticeModeControllerFlaskTest.class})
 public class IntegrationTests {
 }
