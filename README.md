@@ -3,10 +3,7 @@ A fast-paced 2 player trivia game.
 
 As of right now:
 A Flask-MongoDB stack running on a Docker EB platform. A single page application made with Knockout.
-Click start to have 3 random questions thrown at you. Answer fast to get the highest score! Your score is based on 
-how fast you answer the question.
-Play two player mode on different computers or on different tabs locally. A player on the Android App can play someone on the web app.
-There's also an admin page to manage questions. It's up to you to figure out the login credentials.
+This [wiki page](https://github.com/samuel-peers/Trivia-Smack/wiki/Application-Functionality) has details on the application's features.
 
 Go here http://triviadockerenvgood.irs2mc4qmz.us-west-2.elasticbeanstalk.com/index.html to play.
 
