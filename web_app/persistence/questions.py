@@ -503,7 +503,7 @@ question_list = [{
     },
     {
         "question":"All angles in a triangle add up to what number?",
-        "options":["220 degrees", "220 degrees", "220 degrees", "180 degrees"],
+        "options":["220 degrees", "250 degrees", "360 degrees", "180 degrees"],
 
         "category":"math and science",
         "answer": 3
