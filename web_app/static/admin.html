@@ -48,11 +48,11 @@ $(document).ready(function() {
 
     <!-- ko if: loggedIn -->
         <div data-bind="ifnot: addingQuestion() || viewingQuestions()">
-            <button class="hand button pinkHover long" data-bind="click: startAdding">
+            <button class="hand button pinkHover" data-bind="click: startAdding">
                 Add a question
             </button>
             <br><br>
-            <button class="hand button pinkHover long" data-bind="click: startViewing">
+            <button class="hand button pinkHover" data-bind="click: startViewing">
                 View questions
             </button>
         </div>
