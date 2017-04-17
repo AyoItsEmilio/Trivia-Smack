@@ -32,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     private static boolean stillPlaying;
     private static TextView otherScoreText;
+    private static TextView scoreText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         Main.startUp();
 
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if (isNetworkAvailable()){
             gameController = GameController.getInstance();
             otherScoreText = (TextView) findViewById(R.id.otherScoreText);
+            scoreText = (TextView) findViewById(R.id.scoreText);
             displayScores();
         }
     }
@@ -68,9 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayScore() {
         int score = gameController.getScore();
-        TextView scoreText = (TextView) findViewById(R.id.scoreText);
         scoreText.setVisibility(View.VISIBLE);
-        scoreText.setText(scoreText.getText() + "" + score);
+        scoreText.setText("Your Score: " + score);
     }
 
     private void displayOtherScore() {
@@ -116,17 +118,20 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void renderSelectCategoryPage(View v) {
-        if (isNetworkAvailable()) {
-            makeInvisible();
-            if (multiPlayer.isConnected()) {
-                multiPlayer.disconnect();
-            }
-            Intent SelectCategoryIntent = new Intent(MainActivity.this, SelectCategoryActivity.class);
-            MainActivity.this.startActivity(SelectCategoryIntent);
-        }
-        else {
+
+        if (!isNetworkAvailable()){
             noInternetDialog();
+            return;
         }
+
+        makeInvisible();
+
+        if (multiPlayer.isConnected()) {
+            multiPlayer.disconnect();
+        }
+
+        Intent SelectCategoryIntent = new Intent(MainActivity.this, SelectCategoryActivity.class);
+        MainActivity.this.startActivity(SelectCategoryIntent);
     }
 
     public void renderRulesPage(View v) {
@@ -135,33 +140,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void renderMultiPlayerPage(View v) {
+
+        if (!isNetworkAvailable()){
+            noInternetDialog();
+            return;
+        }
+
         gameController.setCategory("all");
         gameController.start();
-        if (isNetworkAvailable()) {
-            multiPlayer.connect();
-            socket = multiPlayer.getSocket();
-            stillPlaying = true;
-            socket.on("other_player_done", onOtherPlayerDone);
-            Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
-            MainActivity.this.startActivity(MultiPlayerPageIntent);
-        }
-        else {
-            noInternetDialog();
-        }
+
+        multiPlayer.connect();
+        socket = multiPlayer.getSocket();
+
+        stillPlaying = true;
+        socket.on("other_player_done", onOtherPlayerDone);
+        Intent MultiPlayerPageIntent = new Intent(MainActivity.this, MultiPlayerPageActivity.class);
+        MainActivity.this.startActivity(MultiPlayerPageIntent);
     }
 
     public void renderPracticeModePage(View v){
-        if (isNetworkAvailable()) {
-            makeInvisible();
-            if (multiPlayer.isConnected()) {
-                multiPlayer.disconnect();
-            }
-            Intent PracticeQuestionActivity = new Intent(MainActivity.this, PracticeQuestionActivity.class);
-            MainActivity.this.startActivity(PracticeQuestionActivity);
-        }
-        else {
+        gameController.destroy();
+
+        if (!isNetworkAvailable()){
             noInternetDialog();
+            return;
         }
+
+        makeInvisible();
+
+        if (multiPlayer.isConnected()) {
+            multiPlayer.disconnect();
+        }
+
+        Intent PracticeQuestionActivity = new Intent(MainActivity.this, PracticeQuestionActivity.class);
+        MainActivity.this.startActivity(PracticeQuestionActivity);
     }
 
     private void noInternetDialog() {

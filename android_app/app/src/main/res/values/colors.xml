@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#eee</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="splashBackground">#ff9cbe</color>
     <color name="custom_theme_color">#eee</color>
     <color name="nice_green">#4dc136</color>
     <color name="nice_red">#c13636</color>
