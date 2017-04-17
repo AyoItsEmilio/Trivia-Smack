@@ -22,6 +22,8 @@ function AdminViewModel() {
     self.getQuestionsURI = "/api/get_questions";
     self.getQuestionContainsURI = "/api/get_question_contains/";
     self.delQuestionURI = "/api/delete_question/";
+    self.categories = ko.observableArray(["all", "geography",
+    "history", "math and science", "pop culture", "other"]);
 
     self.maxQuestions.subscribe(function(newValue){
         if (self.questionBound() < newValue){

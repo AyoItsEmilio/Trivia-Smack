@@ -109,7 +109,8 @@ $(document).ready(function() {
                 <input data-bind="value: answer" type="text" class="textbox" placeholder="Answer (zero indexed)">
             </div><br>
             <div>
-                <input data-bind="value: category" type="text" class="textbox" placeholder="Category">
+                <select data-bind='options: categories, optionsCaption: "Category", value: category' class="lighterGrey white textbox">
+                </select>
             </div>
         </form>
         <br>

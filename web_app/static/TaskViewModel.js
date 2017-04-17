@@ -141,38 +141,43 @@ function TasksViewModel(){
     };
 
     function fetchQuestions() {
-         self.ajax(self.questionsURI, "GET").done(function(data) {
-             self.buildQuestions(data);
-             self.startGame();
-         }).fail(function(jqXHR) {
-             console.log("Ajax failure");
-         });
-     }
+        self.ajax(self.questionsURI, "GET").done(function(data) {
+            self.buildQuestions(data);
+            self.startGame();
+        }).fail(function(jqXHR) {
+            console.log("Ajax failure");
+        });
+    }
 
-     self.buildQuestions = function(data) {
-         self.questions.removeAll();
+    self.buildQuestions = function(data) {
+        self.questions.removeAll();
 
-         for (var i = 0; i < data.questions.length; i++) {
+        for (var i = 0; i < data.questions.length; i++) {
 
-             var obs_options = ko.observableArray();
+            var obs_options = ko.observableArray();
 
-             for (var j = 0; j < data.questions[i].options.length; j++){
-                 obs_options.push({
-                     option: ko.observable(data.questions[i].options[j]),
-                     bgColor: ko.observable(),
-                     isCorrect: data.questions[i].answer == j
-                 });
-             }
+            for (var j = 0; j < data.questions[i].options.length; j++){
+                obs_options.push({
+                    option: ko.observable(data.questions[i].options[j]),
+                    bgColor: ko.observable(),
+                    isCorrect: data.questions[i].answer == j
+                });
+            }
 
-             self.questions.push({
-                 question: ko.observable(data.questions[i].question),
-                 options: obs_options,
-                 answer: data.questions[i].answer
-             });
-         }
+            self.questions.push({
+                question: ko.observable(data.questions[i].question),
+                options: obs_options,
+                answer: data.questions[i].answer
+            });
+        }
 
-         return self.questions();
-     };
+        return self.questions();
+    };
+
+    self.showMenu = function() {
+        socket.disconnect();
+        self.isWaiting(false);
+    };
 
     window.onclick = function(event) {
         if(event.target == modal)

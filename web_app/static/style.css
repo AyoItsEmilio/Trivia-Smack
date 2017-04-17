@@ -370,6 +370,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
   height: 30px;
   font-size: 10pt;
   text-align: center;
+  text-align-last:center;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.2), 0 0 6px 0 rgba(0,0,0,0.10);
 }
 
@@ -377,9 +378,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 .lightGrey { color: #b3b3b3; }
 
+.lighterGrey { color: #b1aeae; }
+
 .green { background: #4dc136; }
 
 .red { background: #c13636; }
+
+.white { background: white; }
 
 .pinkish { background: #ff444f; }
 
